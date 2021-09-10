@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Archivable",
+        "repositoryURL": "https://github.com/archivable/package.git",
+        "state": {
+          "branch": "main",
+          "revision": "f76c93561c693626c18fcbe141e69a981fc9598e",
+          "version": null
+        }
+      },
+      {
+        "package": "Secrets",
+        "repositoryURL": "https://github.com/beetlepot/secrets.git",
+        "state": {
+          "branch": "main",
+          "revision": "8ed73a5cbd3967d0d75d759372a836f8ccb87227",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

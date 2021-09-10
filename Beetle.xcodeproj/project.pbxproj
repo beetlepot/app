@@ -6,21 +6,450 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE67EF1A26EB8F280040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF1926EB8F280040A8CA /* Assets.xcassets */; };
+		CE67EF2626EB8F6B0040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */; };
+		CE67EF2C26EB8F6B0040A8CA /* Beetle.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE67EF2B26EB8F6B0040A8CA /* Beetle.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE67EF3726EB8F6C0040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF3626EB8F6C0040A8CA /* Assets.xcassets */; };
+		CE67EF3E26EB8F6C0040A8CA /* Beetle.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CE67EF2326EB8F6A0040A8CA /* Beetle.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE67EF4E26EB8FA40040A8CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EF4D26EB8FA40040A8CA /* WidgetKit.framework */; platformFilter = maccatalyst; };
+		CE67EF5026EB8FA40040A8CA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EF4F26EB8FA40040A8CA /* SwiftUI.framework */; platformFilter = maccatalyst; };
+		CE67EF5526EB8FA50040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF5426EB8FA50040A8CA /* Assets.xcassets */; };
+		CE67EF5926EB8FA50040A8CA /* Beetle.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE67EF4B26EB8FA40040A8CA /* Beetle.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE67EF6026EB90950040A8CA /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF5F26EB90940040A8CA /* Colour.xcassets */; };
+		CE67EF6126EB90950040A8CA /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF5F26EB90940040A8CA /* Colour.xcassets */; };
+		CE67EF6226EB90950040A8CA /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF5F26EB90940040A8CA /* Colour.xcassets */; };
+		CE67EF6326EB90950040A8CA /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF5F26EB90940040A8CA /* Colour.xcassets */; };
+		CE67EF6526EB92180040A8CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF6426EB92180040A8CA /* Settings.bundle */; };
+		CE67EF7E26EB92910040A8CA /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6726EB92900040A8CA /* App.Delegate.swift */; };
+		CE67EF7F26EB92910040A8CA /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6826EB92900040A8CA /* Onboard.swift */; };
+		CE67EF8026EB92910040A8CA /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6926EB92900040A8CA /* Empty.swift */; };
+		CE67EF8126EB92910040A8CA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6A26EB92900040A8CA /* Info.swift */; };
+		CE67EF8226EB92910040A8CA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6B26EB92900040A8CA /* Settings.swift */; };
+		CE67EF8326EB92910040A8CA /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6C26EB92900040A8CA /* Tags.swift */; };
+		CE67EF8426EB92910040A8CA /* Writer.Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6D26EB92900040A8CA /* Writer.Representable.swift */; };
+		CE67EF8526EB92910040A8CA /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6E26EB92900040A8CA /* Writer.swift */; };
+		CE67EF8626EB92910040A8CA /* Sidebar.Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */; };
+		CE67EF8726EB92910040A8CA /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7026EB92900040A8CA /* Sidebar.swift */; };
+		CE67EF8826EB92910040A8CA /* Capacity.Content.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7126EB92900040A8CA /* Capacity.Content.Item.swift */; };
+		CE67EF8926EB92910040A8CA /* UISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7226EB92900040A8CA /* UISplitViewController.swift */; };
+		CE67EF8A26EB92910040A8CA /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
+		CE67EF8B26EB92910040A8CA /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */; };
+		CE67EF8C26EB92910040A8CA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7526EB92900040A8CA /* App.swift */; };
+		CE67EF8D26EB92910040A8CA /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7626EB92900040A8CA /* UIApplication.swift */; };
+		CE67EF8E26EB92910040A8CA /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7726EB92910040A8CA /* UIDevice.swift */; };
+		CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */; };
+		CE67EF9026EB92910040A8CA /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7926EB92910040A8CA /* Option.swift */; };
+		CE67EF9126EB92910040A8CA /* Capacity.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7A26EB92910040A8CA /* Capacity.Content.swift */; };
+		CE67EF9226EB92910040A8CA /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7B26EB92910040A8CA /* Capacity.swift */; };
+		CE67EF9326EB92910040A8CA /* Full.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7C26EB92910040A8CA /* Full.swift */; };
+		CE67EF9426EB92910040A8CA /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7D26EB92910040A8CA /* Reveal.swift */; };
+		CE67EF9B26EB94B20040A8CA /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9526EB94B20040A8CA /* Copy.swift */; };
+		CE67EF9C26EB94B20040A8CA /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9626EB94B20040A8CA /* Transaction.swift */; };
+		CE67EF9D26EB94B20040A8CA /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9726EB94B20040A8CA /* UNUserNotificationCenter.swift */; };
+		CE67EF9E26EB94B20040A8CA /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9826EB94B20040A8CA /* Container.swift */; };
+		CE67EF9F26EB94B20040A8CA /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9926EB94B20040A8CA /* Store.State.swift */; };
+		CE67EFA026EB94B20040A8CA /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9A26EB94B20040A8CA /* Store.swift */; };
+		CE67EFA926EB95BB0040A8CA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA126EB95BB0040A8CA /* App.swift */; };
+		CE67EFAA26EB95BB0040A8CA /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA226EB95BB0040A8CA /* Purchases.Item.swift */; };
+		CE67EFAB26EB95BB0040A8CA /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA326EB95BB0040A8CA /* App.Delegate.swift */; };
+		CE67EFAC26EB95BB0040A8CA /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA426EB95BB0040A8CA /* Purchases.swift */; };
+		CE67EFAD26EB95BB0040A8CA /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA526EB95BB0040A8CA /* Sidebar.Item.swift */; };
+		CE67EFAE26EB95BB0040A8CA /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA626EB95BB0040A8CA /* Sidebar.swift */; };
+		CE67EFAF26EB95BB0040A8CA /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA726EB95BB0040A8CA /* Reveal.swift */; };
+		CE67EFB026EB95BB0040A8CA /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFA826EB95BB0040A8CA /* Edit.swift */; };
+		CE67EFB226EB95C90040A8CA /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EFB126EB95C90040A8CA /* Secret.swift */; };
+		CE67EFB326EB95F30040A8CA /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9926EB94B20040A8CA /* Store.State.swift */; };
+		CE67EFB426EB95F30040A8CA /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9726EB94B20040A8CA /* UNUserNotificationCenter.swift */; };
+		CE67EFB526EB95F30040A8CA /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9A26EB94B20040A8CA /* Store.swift */; };
+		CE67EFB626EB95F30040A8CA /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF9626EB94B20040A8CA /* Transaction.swift */; };
+		CE67EFBE26EB9A8D0040A8CA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE67EFBD26EB9A8D0040A8CA /* Secrets */; };
+		CE67EFC026EB9A9C0040A8CA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE67EFBF26EB9A9C0040A8CA /* Secrets */; };
+		CE67EFC226EB9BA60040A8CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC126EB9BA60040A8CA /* StoreKit.framework */; };
+		CE67EFC626EB9BBA0040A8CA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */; };
+		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE67EF2D26EB8F6B0040A8CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE67EF0826EB8EDE0040A8CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE67EF2A26EB8F6B0040A8CA;
+			remoteInfo = "watchOS Extension";
+		};
+		CE67EF3C26EB8F6C0040A8CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE67EF0826EB8EDE0040A8CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE67EF2226EB8F6A0040A8CA;
+			remoteInfo = watchOS;
+		};
+		CE67EF5726EB8FA50040A8CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE67EF0826EB8EDE0040A8CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE67EF4A26EB8FA40040A8CA;
+			remoteInfo = WidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CE67EF4226EB8F6C0040A8CA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CE67EF2C26EB8F6B0040A8CA /* Beetle.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF4626EB8F6C0040A8CA /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CE67EF3E26EB8F6C0040A8CA /* Beetle.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF5D26EB8FA50040A8CA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CE67EF5926EB8FA50040A8CA /* Beetle.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CE67EF1226EB8F270040A8CA /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE67EF1926EB8F280040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE67EF2326EB8F6A0040A8CA /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE67EF2B26EB8F6B0040A8CA /* Beetle.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Beetle.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE67EF3626EB8F6C0040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE67EF3B26EB8F6C0040A8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE67EF4B26EB8FA40040A8CA /* Beetle.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Beetle.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE67EF4D26EB8FA40040A8CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CE67EF4F26EB8FA40040A8CA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CE67EF5426EB8FA50040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE67EF5626EB8FA50040A8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE67EF5F26EB90940040A8CA /* Colour.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colour.xcassets; sourceTree = "<group>"; };
+		CE67EF6426EB92180040A8CA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		CE67EF6626EB92340040A8CA /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		CE67EF6726EB92900040A8CA /* App.Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CE67EF6826EB92900040A8CA /* Onboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
+		CE67EF6926EB92900040A8CA /* Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
+		CE67EF6A26EB92900040A8CA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		CE67EF6B26EB92900040A8CA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CE67EF6C26EB92900040A8CA /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		CE67EF6D26EB92900040A8CA /* Writer.Representable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.Representable.swift; sourceTree = "<group>"; };
+		CE67EF6E26EB92900040A8CA /* Writer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
+		CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.Index.swift; sourceTree = "<group>"; };
+		CE67EF7026EB92900040A8CA /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		CE67EF7126EB92900040A8CA /* Capacity.Content.Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capacity.Content.Item.swift; sourceTree = "<group>"; };
+		CE67EF7226EB92900040A8CA /* UISplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISplitViewController.swift; sourceTree = "<group>"; };
+		CE67EF7326EB92900040A8CA /* Tagger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
+		CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
+		CE67EF7526EB92900040A8CA /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CE67EF7626EB92900040A8CA /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		CE67EF7726EB92910040A8CA /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.Coordinator.swift; sourceTree = "<group>"; };
+		CE67EF7926EB92910040A8CA /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		CE67EF7A26EB92910040A8CA /* Capacity.Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capacity.Content.swift; sourceTree = "<group>"; };
+		CE67EF7B26EB92910040A8CA /* Capacity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
+		CE67EF7C26EB92910040A8CA /* Full.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Full.swift; sourceTree = "<group>"; };
+		CE67EF7D26EB92910040A8CA /* Reveal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
+		CE67EF9526EB94B20040A8CA /* Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
+		CE67EF9626EB94B20040A8CA /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		CE67EF9726EB94B20040A8CA /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
+		CE67EF9826EB94B20040A8CA /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		CE67EF9926EB94B20040A8CA /* Store.State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
+		CE67EF9A26EB94B20040A8CA /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CE67EFA126EB95BB0040A8CA /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CE67EFA226EB95BB0040A8CA /* Purchases.Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchases.Item.swift; sourceTree = "<group>"; };
+		CE67EFA326EB95BB0040A8CA /* App.Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CE67EFA426EB95BB0040A8CA /* Purchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
+		CE67EFA526EB95BB0040A8CA /* Sidebar.Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
+		CE67EFA626EB95BB0040A8CA /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		CE67EFA726EB95BB0040A8CA /* Reveal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
+		CE67EFA826EB95BB0040A8CA /* Edit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
+		CE67EFB126EB95C90040A8CA /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		CE67EFC126EB9BA60040A8CA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE67EFC326EB9BAA0040A8CA /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		CE67EFC426EB9BB40040A8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
+		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE67EF0F26EB8F270040A8CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EFC626EB9BBA0040A8CA /* CloudKit.framework in Frameworks */,
+				CE67EFBE26EB9A8D0040A8CA /* Secrets in Frameworks */,
+				CE67EFC226EB9BA60040A8CA /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF2826EB8F6B0040A8CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EFC026EB9A9C0040A8CA /* Secrets in Frameworks */,
+				CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF4826EB8FA40040A8CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EF5026EB8FA40040A8CA /* SwiftUI.framework in Frameworks */,
+				CE67EF4E26EB8FA40040A8CA /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		CE67EF0726EB8EDE0040A8CA = {
 			isa = PBXGroup;
 			children = (
+				CE67EF4C26EB8FA40040A8CA /* Frameworks */,
+				CE67EF1426EB8F270040A8CA /* iOS */,
+				CE67EF1326EB8F270040A8CA /* Products */,
+				CE67EF5E26EB90720040A8CA /* Shared */,
+				CE67EF2426EB8F6A0040A8CA /* watchOS */,
+				CE67EF2F26EB8F6B0040A8CA /* watchOS Extension */,
+				CE67EF5126EB8FA40040A8CA /* Widget */,
 			);
 			sourceTree = "<group>";
 		};
+		CE67EF1326EB8F270040A8CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE67EF1226EB8F270040A8CA /* Beetle.app */,
+				CE67EF2326EB8F6A0040A8CA /* Beetle.app */,
+				CE67EF2B26EB8F6B0040A8CA /* Beetle.appex */,
+				CE67EF4B26EB8FA40040A8CA /* Beetle.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE67EF1426EB8F270040A8CA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CE67EFC426EB9BB40040A8CA /* Info.plist */,
+				CE67EFC326EB9BAA0040A8CA /* iOS.entitlements */,
+				CE67EF6426EB92180040A8CA /* Settings.bundle */,
+				CE67EF6726EB92900040A8CA /* App.Delegate.swift */,
+				CE67EF7526EB92900040A8CA /* App.swift */,
+				CE67EF7126EB92900040A8CA /* Capacity.Content.Item.swift */,
+				CE67EF7A26EB92910040A8CA /* Capacity.Content.swift */,
+				CE67EF7B26EB92910040A8CA /* Capacity.swift */,
+				CE67EF6926EB92900040A8CA /* Empty.swift */,
+				CE67EF7C26EB92910040A8CA /* Full.swift */,
+				CE67EF6A26EB92900040A8CA /* Info.swift */,
+				CE67EF6826EB92900040A8CA /* Onboard.swift */,
+				CE67EF7926EB92910040A8CA /* Option.swift */,
+				CE67EF7D26EB92910040A8CA /* Reveal.swift */,
+				CE67EF6B26EB92900040A8CA /* Settings.swift */,
+				CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */,
+				CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */,
+				CE67EF7026EB92900040A8CA /* Sidebar.swift */,
+				CE67EF7326EB92900040A8CA /* Tagger.swift */,
+				CE67EF6C26EB92900040A8CA /* Tags.swift */,
+				CE67EF7626EB92900040A8CA /* UIApplication.swift */,
+				CE67EF7726EB92910040A8CA /* UIDevice.swift */,
+				CE67EF7226EB92900040A8CA /* UISplitViewController.swift */,
+				CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */,
+				CE67EF6D26EB92900040A8CA /* Writer.Representable.swift */,
+				CE67EF6E26EB92900040A8CA /* Writer.swift */,
+				CE67EF1926EB8F280040A8CA /* Assets.xcassets */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		CE67EF2426EB8F6A0040A8CA /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		CE67EF2F26EB8F6B0040A8CA /* watchOS Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */,
+				CE67EF3B26EB8F6C0040A8CA /* Info.plist */,
+				CE67EFA326EB95BB0040A8CA /* App.Delegate.swift */,
+				CE67EFA126EB95BB0040A8CA /* App.swift */,
+				CE67EFA826EB95BB0040A8CA /* Edit.swift */,
+				CE67EFA226EB95BB0040A8CA /* Purchases.Item.swift */,
+				CE67EFA426EB95BB0040A8CA /* Purchases.swift */,
+				CE67EFA726EB95BB0040A8CA /* Reveal.swift */,
+				CE67EFA526EB95BB0040A8CA /* Sidebar.Item.swift */,
+				CE67EFA626EB95BB0040A8CA /* Sidebar.swift */,
+				CE67EF3626EB8F6C0040A8CA /* Assets.xcassets */,
+			);
+			path = "watchOS Extension";
+			sourceTree = "<group>";
+		};
+		CE67EF4C26EB8FA40040A8CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEB64C4E26EBA0C600D198DA /* CloudKit.framework */,
+				CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */,
+				CE67EFC126EB9BA60040A8CA /* StoreKit.framework */,
+				CE67EF4D26EB8FA40040A8CA /* WidgetKit.framework */,
+				CE67EF4F26EB8FA40040A8CA /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE67EF5126EB8FA40040A8CA /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				CE67EF5626EB8FA50040A8CA /* Info.plist */,
+				CE67EFB126EB95C90040A8CA /* Secret.swift */,
+				CE67EF5426EB8FA50040A8CA /* Assets.xcassets */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		CE67EF5E26EB90720040A8CA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CE67EF6626EB92340040A8CA /* Configuration.storekit */,
+				CE67EF9826EB94B20040A8CA /* Container.swift */,
+				CE67EF9526EB94B20040A8CA /* Copy.swift */,
+				CE67EF9926EB94B20040A8CA /* Store.State.swift */,
+				CE67EF9A26EB94B20040A8CA /* Store.swift */,
+				CE67EF9626EB94B20040A8CA /* Transaction.swift */,
+				CE67EF9726EB94B20040A8CA /* UNUserNotificationCenter.swift */,
+				CE67EF5F26EB90940040A8CA /* Colour.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE67EF1126EB8F270040A8CA /* iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE67EF1E26EB8F280040A8CA /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildPhases = (
+				CE67EF0E26EB8F270040A8CA /* Sources */,
+				CE67EF0F26EB8F270040A8CA /* Frameworks */,
+				CE67EF1026EB8F270040A8CA /* Resources */,
+				CE67EF4626EB8F6C0040A8CA /* Embed Watch Content */,
+				CE67EF5D26EB8FA50040A8CA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE67EF3D26EB8F6C0040A8CA /* PBXTargetDependency */,
+				CE67EF5826EB8FA50040A8CA /* PBXTargetDependency */,
+			);
+			name = iOS;
+			packageProductDependencies = (
+				CE67EFBD26EB9A8D0040A8CA /* Secrets */,
+			);
+			productName = iOS;
+			productReference = CE67EF1226EB8F270040A8CA /* Beetle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE67EF2226EB8F6A0040A8CA /* watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE67EF4326EB8F6C0040A8CA /* Build configuration list for PBXNativeTarget "watchOS" */;
+			buildPhases = (
+				CE67EF2126EB8F6A0040A8CA /* Resources */,
+				CE67EF4226EB8F6C0040A8CA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE67EF2E26EB8F6B0040A8CA /* PBXTargetDependency */,
+			);
+			name = watchOS;
+			productName = watchOS;
+			productReference = CE67EF2326EB8F6A0040A8CA /* Beetle.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CE67EF2A26EB8F6B0040A8CA /* watchOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE67EF3F26EB8F6C0040A8CA /* Build configuration list for PBXNativeTarget "watchOS Extension" */;
+			buildPhases = (
+				CE67EF2726EB8F6B0040A8CA /* Sources */,
+				CE67EF2826EB8F6B0040A8CA /* Frameworks */,
+				CE67EF2926EB8F6B0040A8CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "watchOS Extension";
+			packageProductDependencies = (
+				CE67EFBF26EB9A9C0040A8CA /* Secrets */,
+			);
+			productName = "watchOS Extension";
+			productReference = CE67EF2B26EB8F6B0040A8CA /* Beetle.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		CE67EF4A26EB8FA40040A8CA /* Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE67EF5A26EB8FA50040A8CA /* Build configuration list for PBXNativeTarget "Widget" */;
+			buildPhases = (
+				CE67EF4726EB8FA40040A8CA /* Sources */,
+				CE67EF4826EB8FA40040A8CA /* Frameworks */,
+				CE67EF4926EB8FA40040A8CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Widget;
+			productName = WidgetExtension;
+			productReference = CE67EF4B26EB8FA40040A8CA /* Beetle.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CE67EF0826EB8EDE0040A8CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					CE67EF1126EB8F270040A8CA = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
+					};
+					CE67EF2226EB8F6A0040A8CA = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					CE67EF2A26EB8F6B0040A8CA = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					CE67EF4A26EB8FA40040A8CA = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
 			};
 			buildConfigurationList = CE67EF0B26EB8EDE0040A8CA /* Build configuration list for PBXProject "Beetle" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -31,23 +460,747 @@
 				Base,
 			);
 			mainGroup = CE67EF0726EB8EDE0040A8CA;
+			packageReferences = (
+				CE67EFBC26EB9A8D0040A8CA /* XCRemoteSwiftPackageReference "secrets" */,
+			);
+			productRefGroup = CE67EF1326EB8F270040A8CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				CE67EF1126EB8F270040A8CA /* iOS */,
+				CE67EF2226EB8F6A0040A8CA /* watchOS */,
+				CE67EF2A26EB8F6B0040A8CA /* watchOS Extension */,
+				CE67EF4A26EB8FA40040A8CA /* Widget */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE67EF1026EB8F270040A8CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EF6526EB92180040A8CA /* Settings.bundle in Resources */,
+				CE67EF6026EB90950040A8CA /* Colour.xcassets in Resources */,
+				CE67EF1A26EB8F280040A8CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF2126EB8F6A0040A8CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EF2626EB8F6B0040A8CA /* Assets.xcassets in Resources */,
+				CE67EF6126EB90950040A8CA /* Colour.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF2926EB8F6B0040A8CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EF6226EB90950040A8CA /* Colour.xcassets in Resources */,
+				CE67EF3726EB8F6C0040A8CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF4926EB8FA40040A8CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EF5526EB8FA50040A8CA /* Assets.xcassets in Resources */,
+				CE67EF6326EB90950040A8CA /* Colour.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE67EF0E26EB8F270040A8CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EF9F26EB94B20040A8CA /* Store.State.swift in Sources */,
+				CE67EF9B26EB94B20040A8CA /* Copy.swift in Sources */,
+				CE67EF8D26EB92910040A8CA /* UIApplication.swift in Sources */,
+				CE67EF8E26EB92910040A8CA /* UIDevice.swift in Sources */,
+				CE67EF8826EB92910040A8CA /* Capacity.Content.Item.swift in Sources */,
+				CE67EF8726EB92910040A8CA /* Sidebar.swift in Sources */,
+				CE67EF7E26EB92910040A8CA /* App.Delegate.swift in Sources */,
+				CE67EF8C26EB92910040A8CA /* App.swift in Sources */,
+				CE67EF9026EB92910040A8CA /* Option.swift in Sources */,
+				CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */,
+				CE67EF8A26EB92910040A8CA /* Tagger.swift in Sources */,
+				CE67EF8926EB92910040A8CA /* UISplitViewController.swift in Sources */,
+				CE67EF8626EB92910040A8CA /* Sidebar.Index.swift in Sources */,
+				CE67EF9426EB92910040A8CA /* Reveal.swift in Sources */,
+				CE67EF8126EB92910040A8CA /* Info.swift in Sources */,
+				CE67EF9C26EB94B20040A8CA /* Transaction.swift in Sources */,
+				CE67EF9226EB92910040A8CA /* Capacity.swift in Sources */,
+				CE67EF9E26EB94B20040A8CA /* Container.swift in Sources */,
+				CE67EF9126EB92910040A8CA /* Capacity.Content.swift in Sources */,
+				CE67EF8426EB92910040A8CA /* Writer.Representable.swift in Sources */,
+				CE67EF8326EB92910040A8CA /* Tags.swift in Sources */,
+				CE67EF8526EB92910040A8CA /* Writer.swift in Sources */,
+				CE67EF7F26EB92910040A8CA /* Onboard.swift in Sources */,
+				CE67EF9D26EB94B20040A8CA /* UNUserNotificationCenter.swift in Sources */,
+				CE67EF8026EB92910040A8CA /* Empty.swift in Sources */,
+				CE67EF8B26EB92910040A8CA /* Sidebar.Item.swift in Sources */,
+				CE67EF9326EB92910040A8CA /* Full.swift in Sources */,
+				CE67EFA026EB94B20040A8CA /* Store.swift in Sources */,
+				CE67EF8226EB92910040A8CA /* Settings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF2726EB8F6B0040A8CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EFAF26EB95BB0040A8CA /* Reveal.swift in Sources */,
+				CE67EFB426EB95F30040A8CA /* UNUserNotificationCenter.swift in Sources */,
+				CE67EFB626EB95F30040A8CA /* Transaction.swift in Sources */,
+				CE67EFB026EB95BB0040A8CA /* Edit.swift in Sources */,
+				CE67EFAC26EB95BB0040A8CA /* Purchases.swift in Sources */,
+				CE67EFAA26EB95BB0040A8CA /* Purchases.Item.swift in Sources */,
+				CE67EFA926EB95BB0040A8CA /* App.swift in Sources */,
+				CE67EFB526EB95F30040A8CA /* Store.swift in Sources */,
+				CE67EFAD26EB95BB0040A8CA /* Sidebar.Item.swift in Sources */,
+				CE67EFAE26EB95BB0040A8CA /* Sidebar.swift in Sources */,
+				CE67EFB326EB95F30040A8CA /* Store.State.swift in Sources */,
+				CE67EFAB26EB95BB0040A8CA /* App.Delegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE67EF4726EB8FA40040A8CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE67EFB226EB95C90040A8CA /* Secret.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE67EF2E26EB8F6B0040A8CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE67EF2A26EB8F6B0040A8CA /* watchOS Extension */;
+			targetProxy = CE67EF2D26EB8F6B0040A8CA /* PBXContainerItemProxy */;
+		};
+		CE67EF3D26EB8F6C0040A8CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE67EF2226EB8F6A0040A8CA /* watchOS */;
+			targetProxy = CE67EF3C26EB8F6C0040A8CA /* PBXContainerItemProxy */;
+		};
+		CE67EF5826EB8FA50040A8CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE67EF4A26EB8FA40040A8CA /* Widget */;
+			targetProxy = CE67EF5726EB8FA50040A8CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CE67EF0C26EB8EDE0040A8CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(MARKETING_VERSION)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1;
+				PRODUCT_NAME = Beetle;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZE_OBJECT_LIFETIME = YES;
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
 		CE67EF0D26EB8EDE0040A8CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = "$(MARKETING_VERSION)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1;
+				PRODUCT_NAME = Beetle;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZE_OBJECT_LIFETIME = YES;
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		CE67EF1F26EB8F280040A8CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Add authentication to protect your secrets";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE67EF2026EB8F280040A8CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Add authentication to protect your secrets";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE67EF4026EB8F6C0040A8CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "watchOS Extension/watchOS Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "watchOS Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Beetle;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Beetle 2021";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet.watch.extension;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch_extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CE67EF4126EB8F6C0040A8CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "watchOS Extension/watchOS Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "watchOS Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Beetle;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Beetle 2021";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet.watch.extension;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch_extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE67EF4426EB8F6C0040A8CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = watchOS_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = beet;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet.watch;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CE67EF4526EB8F6C0040A8CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = watchOS_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = beet;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet.watch;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE67EF5B26EB8FA50040A8CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Beetle;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Beetle 2021";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet.widget;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_widget";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE67EF5C26EB8FA50040A8CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Beetle;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Beetle 2021";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = beet.widget;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_widget";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -63,7 +1216,67 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CE67EF1E26EB8F280040A8CA /* Build configuration list for PBXNativeTarget "iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE67EF1F26EB8F280040A8CA /* Debug */,
+				CE67EF2026EB8F280040A8CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE67EF3F26EB8F6C0040A8CA /* Build configuration list for PBXNativeTarget "watchOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE67EF4026EB8F6C0040A8CA /* Debug */,
+				CE67EF4126EB8F6C0040A8CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE67EF4326EB8F6C0040A8CA /* Build configuration list for PBXNativeTarget "watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE67EF4426EB8F6C0040A8CA /* Debug */,
+				CE67EF4526EB8F6C0040A8CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE67EF5A26EB8FA50040A8CA /* Build configuration list for PBXNativeTarget "Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE67EF5B26EB8FA50040A8CA /* Debug */,
+				CE67EF5C26EB8FA50040A8CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE67EFBC26EB9A8D0040A8CA /* XCRemoteSwiftPackageReference "secrets" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/beetlepot/secrets.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE67EFBD26EB9A8D0040A8CA /* Secrets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE67EFBC26EB9A8D0040A8CA /* XCRemoteSwiftPackageReference "secrets" */;
+			productName = Secrets;
+		};
+		CE67EFBF26EB9A9C0040A8CA /* Secrets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE67EFBC26EB9A8D0040A8CA /* XCRemoteSwiftPackageReference "secrets" */;
+			productName = Secrets;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE67EF0826EB8EDE0040A8CA /* Project object */;
 }
