@@ -27,7 +27,7 @@ extension App {
         }
         
         func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent: UNNotification) async -> UNNotificationPresentationOptions {
-            center.present(willPresent)
+            await center.present(willPresent)
         }
         
         func application(_: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any]) async -> UIBackgroundFetchResult {

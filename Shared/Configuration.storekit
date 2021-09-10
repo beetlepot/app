@@ -1,6 +1,54 @@
 {
-  "products" : [
+  "identifier" : "34DA6FBF",
+  "nonRenewingSubscriptions" : [
 
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "D8866801",
+      "localizations" : [
+        {
+          "description" : "Add 1 more secret to your capacity.",
+          "displayName" : "+1",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "beet.1",
+      "referenceName" : "+1",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "2F3799A5",
+      "localizations" : [
+        {
+          "description" : "Add 5 more secrets to your capacity.",
+          "displayName" : "+5",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "beet.5",
+      "referenceName" : "+5",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "EF3F6F8B",
+      "localizations" : [
+        {
+          "description" : "Add 10 more secrets to your capacity.",
+          "displayName" : "+10",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "beet.10",
+      "referenceName" : "+10",
+      "type" : "Consumable"
+    }
   ],
   "settings" : {
 
@@ -10,6 +58,6 @@
   ],
   "version" : {
     "major" : 1,
-    "minor" : 0
+    "minor" : 1
   }
 }
