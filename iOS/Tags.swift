@@ -38,12 +38,10 @@ struct Tags: View {
             .navigationViewStyle(.stack)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
+                    Button("Done") {
                         dismiss()
-                    } label: {
-                        Text("Done")
-                            .font(.callout)
                     }
+                    .font(.callout)
                 }
             }
         }

@@ -46,20 +46,21 @@ struct Sidebar: View {
                     Image(systemName: favourites ? "heart.fill" : "heart")
                         .symbolRenderingMode(.hierarchical)
                 }
+                .font(.callout)
                 
                 Button(action: new) {
                     Label("New secret", systemImage: "plus")
                 }
                 .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .font(.callout)
             }
             
             ToolbarItem(placement: .keyboard) {
-                Button(role: .cancel) {
+                Button("Cancel", role: .cancel) {
                     UIApplication.shared.hide()
-                } label: {
-                    Text("Cancel")
-                        .font(.footnote)
                 }
+                .font(.callout)
                 .tint(.pink)
             }
         }

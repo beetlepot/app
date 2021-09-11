@@ -20,7 +20,7 @@ struct Writer: View {
                         UIApplication.shared.hide()
                         dismiss()
                     }
-                    .font(.footnote)
+                    .font(.callout)
                     .buttonStyle(.borderless)
                     .tint(.pink)
                 }
@@ -29,7 +29,7 @@ struct Writer: View {
                         submit.send()
                         dismiss()
                     }
-                    .font(.footnote)
+                    .font(.callout)
                     .buttonStyle(.borderedProminent)
                 }
             }

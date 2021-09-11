@@ -3,6 +3,16 @@
     {
       "filename" : "Logo.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "LogoDark.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

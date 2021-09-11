@@ -9,20 +9,7 @@ struct Onboard: View {
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Setting up")
-                    .font(.callout)
-                    .foregroundStyle(.primary)
-                Spacer()
-                Button("Skip") {
-                    dismiss()
-                }
-                .foregroundStyle(.secondary)
-                .buttonStyle(.borderless)
-                .font(.callout)
-            }
-            .padding()
+        NavigationView {
             TabView(selection: $index) {
                 card0
                 card1
@@ -30,8 +17,24 @@ struct Onboard: View {
                 card3
             }
             .tabViewStyle(.page)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Setting up")
+                        .font(.callout)
+                        .foregroundStyle(.primary)
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Skip") {
+                        dismiss()
+                    }
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .buttonStyle(.borderless) 
+                }
+            }
         }
-        .background(Color(.secondarySystemBackground))
+        .navigationViewStyle(.stack)
         .onChange(of: index) {
             guard $0 == 1, !authenticate else { return }
             DispatchQueue
@@ -40,21 +43,20 @@ struct Onboard: View {
                     authenticate = true
                 }
         }
+        .onAppear {
+            UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
+            UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
+        }
     }
     
     private var card0: some View {
         VStack {
-            Image(systemName: "lock.square")
-                .resizable()
-                .font(.largeTitle.weight(.ultraLight))
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 60)
-                .symbolRenderingMode(.hierarchical)
-                .foregroundColor(.orange)
+            Image("Logo")
             Text("Just a few steps to\nstart protecting your secrets")
                 .font(.callout)
                 .foregroundStyle(.primary)
                 .padding()
+            Spacer()
             Button {
                 withAnimation(.spring(blendDuration: 0.3)) {
                     index = 1
@@ -63,8 +65,9 @@ struct Onboard: View {
                 Image(systemName: "arrow.right")
             }
             .buttonStyle(.bordered)
+            .buttonBorderShape(.capsule)
             .font(.callout)
-            .padding(.top)
+            .padding(.bottom, 60)
         }
         .tag(0)
     }
@@ -77,11 +80,15 @@ struct Onboard: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 60)
                 .symbolRenderingMode(.multicolor)
+                .padding(.bottom)
             Toggle("Secure with Face ID", isOn: $authenticate)
                 .toggleStyle(SwitchToggleStyle(tint: .orange))
                 .font(.callout)
                 .frame(maxWidth: 200)
-                .padding()
+                .padding(.top)
+            
+            Spacer()
+            
             HStack {
                 Button {
                     withAnimation(.spring(blendDuration: 0.3)) {
@@ -91,6 +98,7 @@ struct Onboard: View {
                     Image(systemName: "arrow.left")
                 }
                 .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
                 .font(.callout)
                 .padding(.trailing)
                 Button {
@@ -101,31 +109,33 @@ struct Onboard: View {
                     Image(systemName: "arrow.right")
                 }
                 .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
                 .font(.callout)
                 .padding(.leading)
             }
-            .padding(.top)
+            .padding(.bottom, 60)
         }
         .tag(1)
     }
     
     private var card2: some View {
         VStack {
-            Image(systemName: "envelope.badge")
+            Image(systemName: "app.badge")
                 .resizable()
                 .font(.largeTitle.weight(.ultraLight))
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 60)
                 .symbolRenderingMode(.multicolor)
             Text(Copy.notifications)
-                .font(.footnote)
+                .font(.callout)
                 .frame(maxWidth: 310)
-                .padding([.leading, .trailing, .top])
+                .padding()
+                .fixedSize(horizontal: false, vertical: true)
             if requested {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.title)
                     .symbolRenderingMode(.multicolor)
-                    .padding()
+                    .padding(.top)
             } else {
                 Button("Allow notifications") {
                     Task {
@@ -135,8 +145,11 @@ struct Onboard: View {
                 }
                 .buttonStyle(.bordered)
                 .font(.callout)
-                .padding()
+                .padding(.top)
             }
+            
+            Spacer()
+            
             HStack {
                 Button {
                     withAnimation(.spring(blendDuration: 0.3)) {
@@ -146,6 +159,7 @@ struct Onboard: View {
                     Image(systemName: "arrow.left")
                 }
                 .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
                 .font(.callout)
                 .padding(.trailing)
                 Button {
@@ -156,10 +170,11 @@ struct Onboard: View {
                     Image(systemName: "arrow.right")
                 }
                 .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
                 .font(.callout)
                 .padding(.leading)
             }
-            .padding(.top)
+            .padding(.bottom, 60)
         }
         .tag(2)
     }
@@ -175,11 +190,23 @@ struct Onboard: View {
             Text("All ready!")
                 .font(.callout)
                 .foregroundStyle(.primary)
-                .padding([.top, .leading, .trailing])
+                .padding(.vertical)
             Text("By using this app you accept\nour terms and conditions.\nYou can read them on Settings")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
-                .padding([.bottom, .leading, .trailing])
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.bottom)
+            
+            Button {
+                dismiss()
+            } label: {
+                Text("Done")
+            }
+            .buttonStyle(.borderedProminent)
+            .font(.callout)
+            .padding(.top)
+            
+            Spacer()
             
             HStack {
                 Button {
@@ -190,6 +217,7 @@ struct Onboard: View {
                     Image(systemName: "arrow.left")
                 }
                 .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
                 .font(.callout)
                 .padding(.trailing)
                 
@@ -203,17 +231,7 @@ struct Onboard: View {
                 .font(.callout)
                 .padding(.leading)
             }
-            .padding(.vertical)
-            
-            Button {
-                dismiss()
-            } label: {
-                Text("Done")
-                    .frame(maxWidth: 200)
-            }
-            .buttonStyle(.borderedProminent)
-            .font(.callout)
-            .padding([.leading, .trailing, .top])
+            .padding(.bottom, 60)
         }
         .tag(3)
     }

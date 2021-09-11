@@ -41,13 +41,11 @@ struct Purchases: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(role: .cancel) {
+                    Button("Dismiss", role: .cancel) {
                         dismiss()
-                    } label: {
-                        Text("Dismiss")
-                            .font(.callout)
-                            .foregroundColor(.pink)
                     }
+                    .font(.callout)
+                    .foregroundColor(.pink)
                 }
             }
         }
