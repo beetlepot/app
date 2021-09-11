@@ -3,13 +3,12 @@ import Combine
 import Secrets
 
 struct Writer: View {
-    let index: Int
     let secret: Secret
     @Binding var editing: Bool
     private let submit = PassthroughSubject<Void, Never>()
     
     var body: some View {
-        Representable(index: index, secret: secret, submit: submit)
+        Representable(secret: secret, submit: submit)
             .privacySensitive()
             .navigationTitle(secret.name)
             .navigationBarTitleDisplayMode(.inline)

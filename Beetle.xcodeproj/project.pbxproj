@@ -39,7 +39,6 @@
 		CE67EF8D26EB92910040A8CA /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7626EB92900040A8CA /* UIApplication.swift */; };
 		CE67EF8E26EB92910040A8CA /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7726EB92910040A8CA /* UIDevice.swift */; };
 		CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */; };
-		CE67EF9026EB92910040A8CA /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7926EB92910040A8CA /* Option.swift */; };
 		CE67EF9126EB92910040A8CA /* Capacity.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7A26EB92910040A8CA /* Capacity.Content.swift */; };
 		CE67EF9226EB92910040A8CA /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7B26EB92910040A8CA /* Capacity.swift */; };
 		CE67EF9326EB92910040A8CA /* Full.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7C26EB92910040A8CA /* Full.swift */; };
@@ -164,7 +163,6 @@
 		CE67EF7626EB92900040A8CA /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE67EF7726EB92910040A8CA /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.Coordinator.swift; sourceTree = "<group>"; };
-		CE67EF7926EB92910040A8CA /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		CE67EF7A26EB92910040A8CA /* Capacity.Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capacity.Content.swift; sourceTree = "<group>"; };
 		CE67EF7B26EB92910040A8CA /* Capacity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		CE67EF7C26EB92910040A8CA /* Full.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Full.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				CE67EF7C26EB92910040A8CA /* Full.swift */,
 				CE67EF6A26EB92900040A8CA /* Info.swift */,
 				CE67EF6826EB92900040A8CA /* Onboard.swift */,
-				CE67EF7926EB92910040A8CA /* Option.swift */,
 				CE67EF7D26EB92910040A8CA /* Reveal.swift */,
 				CE67EF6B26EB92900040A8CA /* Settings.swift */,
 				CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */,
@@ -528,7 +525,6 @@
 				CE67EF8726EB92910040A8CA /* Sidebar.swift in Sources */,
 				CE67EF7E26EB92910040A8CA /* App.Delegate.swift in Sources */,
 				CE67EF8C26EB92910040A8CA /* App.swift in Sources */,
-				CE67EF9026EB92910040A8CA /* Option.swift in Sources */,
 				CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */,
 				CE67EF8A26EB92910040A8CA /* Tagger.swift in Sources */,
 				CE67EF8926EB92910040A8CA /* UISplitViewController.swift in Sources */,

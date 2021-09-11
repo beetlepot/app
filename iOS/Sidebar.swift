@@ -20,7 +20,7 @@ struct Sidebar: View {
                 
                 Section("Secrets") {
                     ForEach(filtered, id: \.self) {
-                        Item(selected: $selected, index: $0, secret: archive[$0], tags: .init(geo.size.width / 110))
+                        Item(selected: $selected, secret: archive[$0], tags: .init(geo.size.width / 110))
                     }
                 }
                 

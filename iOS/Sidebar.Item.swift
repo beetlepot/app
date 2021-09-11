@@ -4,7 +4,6 @@ import Secrets
 extension Sidebar {
     struct Item: View {
         @Binding var selected: Int?
-        let index: Int
         let secret: Secret
         let tags: Int
         @State private var name = ""
@@ -13,8 +12,8 @@ extension Sidebar {
         @FocusState private var focus: Bool
         
         var body: some View {
-            NavigationLink(tag: index, selection: $selected) {
-                Reveal(index: index, secret: secret)
+            NavigationLink(tag: secret.id, selection: $selected) {
+                Reveal(secret: secret)
             } label: {
                 HStack(spacing: 0) {
                     if secret.favourite {
@@ -33,7 +32,7 @@ extension Sidebar {
                             .submitLabel(.done)
                             .onSubmit {
                                 Task {
-                                    await cloud.update(index: index, name: name)
+                                    await cloud.update(id: secret.id, name: name)
                                     await UNUserNotificationCenter.send(message: "Renamed secret!")
                                 }
                             }
@@ -64,11 +63,11 @@ extension Sidebar {
             }
             .confirmationDialog("Delete secret?", isPresented: $delete) {
                 Button("Delete", role: .destructive) {
-                    if UIDevice.pad && selected == index {
+                    if UIDevice.pad && selected == secret.id {
                         selected = Index.capacity.rawValue
                     }
                     Task {
-                        await cloud.delete(index: index)
+                        await cloud.delete(id: secret.id)
                         await UNUserNotificationCenter.send(message: "Deleted secret!")
                     }
                 }
@@ -76,7 +75,7 @@ extension Sidebar {
             .swipeActions(edge: .leading) {
                 Button {
                     Task {
-                        await cloud.update(index: index, favourite: !secret.favourite)
+                        await cloud.update(id: secret.id, favourite: !secret.favourite)
                     }
                 } label: {
                     Label("Favourite", systemImage: secret.favourite ? "heart.slash" : "heart")

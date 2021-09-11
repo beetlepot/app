@@ -2,7 +2,6 @@ import SwiftUI
 import Secrets
 
 struct Tags: View {
-    let index: Int
     let secret: Secret
     @Environment(\.dismiss) private var dismiss
     
@@ -14,9 +13,9 @@ struct Tags: View {
                 Button {
                     Task {
                         if secret.tags.contains(tag) {
-                            await cloud.remove(index: index, tag: tag)
+                            await cloud.remove(id: secret.id, tag: tag)
                         } else {
-                            await cloud.add(index: index, tag: tag)
+                            await cloud.add(id: secret.id, tag: tag)
                         }
                     }
                 } label: {

@@ -2,7 +2,6 @@ import SwiftUI
 import Secrets
 
 struct Reveal: View {
-    let index: Int
     let secret: Secret
     @State private var first = true
     @State private var editing = false
@@ -10,7 +9,7 @@ struct Reveal: View {
     
     var body: some View {
         if editing {
-            Writer(index: index, secret: secret, editing: $editing)
+            Writer(secret: secret, editing: $editing)
         } else {
             GeometryReader { geometry in
                 ScrollView {
@@ -78,7 +77,7 @@ struct Reveal: View {
                 }
             }
             .sheet(isPresented: $tags) {
-                Tags(index: index, secret: secret)
+                Tags(secret: secret)
             }
             .onAppear {
                 if secret.payload.isEmpty && secret.name == "Untitled" && secret.tags.isEmpty && secret.date.timeIntervalSince(.now) > -2 {
