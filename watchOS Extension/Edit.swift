@@ -4,7 +4,6 @@ import Secrets
 struct Edit: View {
     @State var name: String
     @State var payload: String
-    let index: Int
     let secret: Secret
     
     var body: some View {
@@ -12,7 +11,7 @@ struct Edit: View {
             TextField("Name", text: $name)
                 .onSubmit {
                     Task {
-                        await cloud.update(index: index, name: name)
+                        await cloud.update(id: secret.id, name: name)
                     }
                 }
                 .privacySensitive()
@@ -20,7 +19,7 @@ struct Edit: View {
             TextField("Secret", text: $payload)
                 .onSubmit {
                     Task {
-                        await cloud.update(index: index, payload: payload)
+                        await cloud.update(id: secret.id, payload: payload)
                     }
                 }
                 .privacySensitive()
@@ -31,9 +30,9 @@ struct Edit: View {
                 Button {
                     Task {
                         if secret.tags.contains(tag) {
-                            await cloud.remove(index: index, tag: tag)
+                            await cloud.remove(id: secret.id, tag: tag)
                         } else {
-                            await cloud.add(index: index, tag: tag)
+                            await cloud.add(id: secret.id, tag: tag)
                         }
                     }
                 } label: {

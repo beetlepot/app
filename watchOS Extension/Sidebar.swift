@@ -26,7 +26,7 @@ struct Sidebar: View {
                 
                 if !filtered.isEmpty && archive.count > 0 {
                     ForEach(filtered, id: \.self) {
-                        Item(selected: $selected, index: $0, secret: archive[$0])
+                        Item(selected: $selected, secret: archive[$0])
                     }
                 }
                 

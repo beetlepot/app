@@ -3,7 +3,7 @@ import LocalAuthentication
 import Archivable
 import Secrets
 
-let cloud = Cloud.new
+let cloud: Cloud<Archive> = .new
 let store = Store()
 
 @main struct App: SwiftUI.App {

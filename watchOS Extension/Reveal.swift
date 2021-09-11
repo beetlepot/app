@@ -2,7 +2,6 @@ import SwiftUI
 import Secrets
 
 struct Reveal: View {
-    let index: Int
     let secret: Secret
     
     var body: some View {
@@ -45,7 +44,7 @@ struct Reveal: View {
                 .listRowBackground(Color.clear)
             
             NavigationLink {
-                Edit(name: secret.name, payload: secret.payload, index: index, secret: secret)
+                Edit(name: secret.name, payload: secret.payload, secret: secret)
             } label: {
                 Label("Edit", systemImage: "pencil.circle.fill")
                     .symbolRenderingMode(.hierarchical)

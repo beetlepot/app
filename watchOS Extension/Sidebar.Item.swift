@@ -5,13 +5,12 @@ import Secrets
 extension Sidebar {
     struct Item: View {
         @Binding var selected: Int?
-        let index: Int
         let secret: Secret
         @State private var delete = false
         
         var body: some View {
-            NavigationLink(tag: index, selection: $selected) {
-                Reveal(index: index, secret: secret)
+            NavigationLink(tag: secret.id, selection: $selected) {
+                Reveal(secret: secret)
             } label: {
                 if secret.favourite {
                     Image(systemName: "heart.fill")
@@ -30,7 +29,7 @@ extension Sidebar {
                     delete = false
                     
                     Task {
-                        await cloud.delete(index: index)
+                        await cloud.delete(id: secret.id)
                         await UNUserNotificationCenter.send(message: "Deleted secret!")
                     }
                 }
@@ -38,7 +37,7 @@ extension Sidebar {
             .swipeActions(edge: .leading) {
                 Button {
                     Task {
-                        await cloud.update(index: index, favourite: !secret.favourite)
+                        await cloud.update(id: secret.id, favourite: !secret.favourite)
                     }
                 } label: {
                     Label("Favourite", systemImage: secret.favourite ? "heart.slash" : "heart")
