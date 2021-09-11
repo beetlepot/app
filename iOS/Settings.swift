@@ -45,20 +45,14 @@ struct Settings: View {
             HStack {
                 Spacer()
                 VStack {
-                    Image(systemName: "lock.square")
-                        .resizable()
-                        .font(.largeTitle.weight(.ultraLight))
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 75)
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundStyle(.secondary)
+                    Image("Logo")
                     Group {
-                        Text(verbatim: "Shortbread\n")
+                        Text(verbatim: "Beetle\n")
                         + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
                     }
                     .multilineTextAlignment(.center)
                     .font(.footnote)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.primary)
                 }
                 .padding(.vertical, 60)
                 Spacer()
@@ -71,7 +65,7 @@ struct Settings: View {
     private var notifications: some View {
         Section("Notifications") {
             Text(Copy.notifications)
-                .font(.footnote)
+                .font(.callout)
                 .padding(.bottom)
                 .listRowBackground(Color.clear)
                 .listRowSeparator(.hidden)
@@ -103,15 +97,15 @@ struct Settings: View {
     private var edit: some View {
         Section("Edit") {
             Toggle(isOn: $tools) {
-                Label("Show toolbar above keyboard", systemImage: "hammer.fill")
+                Label("Show toolbar above keyboard", systemImage: "hammer")
             }
             
             Toggle(isOn: $spell) {
-                Label("Spell checking", systemImage: "text.book.closed.fill")
+                Label("Spell checking", systemImage: "text.book.closed")
             }
             
             Toggle(isOn: $correction) {
-                Label("Auto correction", systemImage: "ladybug.fill")
+                Label("Auto correction", systemImage: "ant")
             }
         }
     }

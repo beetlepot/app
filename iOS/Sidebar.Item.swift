@@ -15,42 +15,39 @@ extension Sidebar {
             NavigationLink(tag: secret.id, selection: $selected) {
                 Reveal(secret: secret)
             } label: {
-                HStack(spacing: 0) {
-                    if secret.favourite {
-                        Image(systemName: "heart.fill")
-                            .font(.caption2)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 20)
-                            .padding(.trailing, 5)
-                    } else {
-                        Spacer()
-                            .frame(width: 25)
-                    }
-                    VStack(alignment: .leading, spacing: 0) {
-                        TextField(secret.name, text: $name)
-                            .focused($focus)
-                            .submitLabel(.done)
-                            .onSubmit {
-                                Task {
-                                    await cloud.update(id: secret.id, name: name)
-                                    await UNUserNotificationCenter.send(message: "Renamed secret!")
-                                }
+                VStack(alignment: .leading, spacing: 0) {
+                    TextField(secret.name, text: $name)
+                        .focused($focus)
+                        .submitLabel(.done)
+                        .onSubmit {
+                            Task {
+                                await cloud.update(id: secret.id, name: name)
+                                await UNUserNotificationCenter.send(message: "Renamed secret!")
                             }
-                            .disabled(disabled)
-                            .privacySensitive()
-                            .padding(.bottom, 3)
-                        if !secret.tags.isEmpty {
-                            Tagger(secret: secret, tags: tags)
-                                .privacySensitive()
-                                .padding(.vertical, 5)
                         }
+                        .disabled(disabled)
+                        .privacySensitive()
+                        .padding(.bottom, 3)
+                    if !secret.tags.isEmpty {
+                        Tagger(secret: secret, tags: tags)
+                            .privacySensitive()
+                            .padding(.vertical, 5)
+                    }
+                    HStack {
                         Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
                             .font(.footnote)
                             .foregroundStyle(.tertiary)
-                            .padding(.top, 3)
+                        
+                        Spacer()
+                        
+                        if secret.favourite {
+                            Image(systemName: "heart.fill")
+                                .font(.footnote)
+                                .foregroundColor(.accentColor)
+                        }
                     }
-                    Spacer()
                 }
+                
                 .onAppear {
                     name = secret.name
                 }

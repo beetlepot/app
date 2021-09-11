@@ -44,7 +44,7 @@ struct Edit: View {
                         Image(systemName: secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
                             .symbolRenderingMode(.hierarchical)
                             .font(.callout)
-                            .foregroundColor(secret.tags.contains(tag) ? .orange : .secondary)
+                            .foregroundColor(secret.tags.contains(tag) ? .init("Spot") : .secondary)
                     }
                     .padding(.vertical, 5)
                 }

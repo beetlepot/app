@@ -24,7 +24,7 @@ let store = Store()
             .searchable(text: $search)
             .navigationViewStyle(.columns)
             .onOpenURL {
-                guard $0.scheme == "shortbread", $0.host == "create" else { return }
+                guard $0.scheme == "beetle", $0.host == "create" else { return }
                 new()
             }
             .onReceive(cloud.archive) {

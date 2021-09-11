@@ -34,7 +34,7 @@ private struct Content: View {
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .bottomTrailing)
                 .padding()
         }
-        .widgetURL(URL(string: "shortbread://create")!)
+        .widgetURL(URL(string: "beetle://create")!)
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
         .background(Color("Bread"))
     }

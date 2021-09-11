@@ -21,7 +21,7 @@ struct Tagger: View {
                     ForEach(row, id: \.self) { tag in
                         ZStack {
                             Capsule()
-                                .fill(Color.orange)
+                                .fill(Color("Spot"))
                             Text(verbatim: "\(tag)")
                                 .font(.footnote)
                                 .foregroundColor(.white)

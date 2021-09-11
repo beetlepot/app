@@ -25,7 +25,7 @@ struct Reveal: View {
                     ForEach(secret.tags.sorted(), id: \.self) { tag in
                         ZStack {
                             RoundedRectangle(cornerRadius: 4)
-                                .fill(.orange)
+                                .fill(Color("Spot"))
                             Text(verbatim: "\(tag)")
                                 .foregroundColor(.white)
                                 .font(.caption2)

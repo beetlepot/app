@@ -27,7 +27,7 @@ struct Tags: View {
                         Image(systemName: secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
                             .symbolRenderingMode(.hierarchical)
                             .font(.title2)
-                            .foregroundColor(secret.tags.contains(tag) ? .orange : .init(.tertiaryLabel))
+                            .foregroundColor(secret.tags.contains(tag) ? .init("Spot") : .init(.tertiaryLabel))
                     }
                     .padding(.vertical, 5)
                 }
@@ -35,15 +35,15 @@ struct Tags: View {
             .listStyle(.insetGrouped)
             .navigationTitle("Tags")
             .navigationBarTitleDisplayMode(.large)
+            .navigationViewStyle(.stack)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
                     } label: {
                         Text("Done")
-                            .font(.footnote)
+                            .font(.callout)
                     }
-                    .buttonStyle(.bordered)
                 }
             }
         }

@@ -10,13 +10,13 @@
       "internalID" : "D8866801",
       "localizations" : [
         {
-          "description" : "Add 1 more secret to your capacity.",
-          "displayName" : "+1",
+          "description" : "Add 1 more spot to your capacity.",
+          "displayName" : "+1 Spot",
           "locale" : "en_US"
         }
       ],
       "productID" : "beet.1",
-      "referenceName" : "+1",
+      "referenceName" : "+1 Spot",
       "type" : "Consumable"
     },
     {
@@ -25,13 +25,13 @@
       "internalID" : "2F3799A5",
       "localizations" : [
         {
-          "description" : "Add 5 more secrets to your capacity.",
-          "displayName" : "+5",
+          "description" : "Add 5 more spots to your capacity.",
+          "displayName" : "+5 Spots",
           "locale" : "en_US"
         }
       ],
       "productID" : "beet.5",
-      "referenceName" : "+5",
+      "referenceName" : "+5 Spots",
       "type" : "Consumable"
     },
     {
@@ -40,13 +40,13 @@
       "internalID" : "EF3F6F8B",
       "localizations" : [
         {
-          "description" : "Add 10 more secrets to your capacity.",
-          "displayName" : "+10",
+          "description" : "Add 10 more spots to your capacity.",
+          "displayName" : "+10 Spots",
           "locale" : "en_US"
         }
       ],
       "productID" : "beet.10",
-      "referenceName" : "+10",
+      "referenceName" : "+10 Spots",
       "type" : "Consumable"
     }
   ],

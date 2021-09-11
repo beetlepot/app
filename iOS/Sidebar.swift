@@ -14,10 +14,6 @@ struct Sidebar: View {
     var body: some View {
         GeometryReader { geo in
             List {
-                if !searching {
-                    add
-                }
-                
                 Section("Secrets") {
                     ForEach(filtered, id: \.self) {
                         Item(selected: $selected, secret: archive[$0], tags: .init(geo.size.width / 110))
@@ -28,9 +24,7 @@ struct Sidebar: View {
                     app
                     help
                     
-                    NavigationLink(tag: Index.full.rawValue, selection: $selected) {
-                        Full(selected: $selected)
-                    } label: {
+                    NavigationLink(tag: Index.full.rawValue, selection: $selected, destination: Full.init) {
                         
                     }
                     .listRowSeparator(.hidden)
@@ -40,11 +34,11 @@ struct Sidebar: View {
             }
             .listStyle(.sidebar)
             .symbolRenderingMode(.hierarchical)
-            .navigationTitle("Shortbread")
+            .navigationTitle("Beetle")
             .navigationBarTitleDisplayMode(.inline)
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
                     UIApplication.shared.hide()
                     favourites.toggle()
@@ -52,6 +46,11 @@ struct Sidebar: View {
                     Image(systemName: favourites ? "heart.fill" : "heart")
                         .symbolRenderingMode(.hierarchical)
                 }
+                
+                Button(action: new) {
+                    Label("New secret", systemImage: "plus")
+                }
+                .buttonStyle(.borderedProminent)
             }
             
             ToolbarItem(placement: .keyboard) {
@@ -88,19 +87,6 @@ struct Sidebar: View {
                 filtered = archive.filter(favourites: favourites, search: search)
             }
         }
-    }
-    
-    private var add: some View {
-        HStack {
-            Spacer()
-            Button(action: new) {
-                Label("New secret", systemImage: "plus")
-            }
-            .buttonStyle(.borderedProminent)
-            Spacer()
-        }
-        .listItemTint(.white)
-        .listRowBackground(Color.clear)
     }
     
     private var app: some View {

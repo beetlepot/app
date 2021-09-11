@@ -32,13 +32,13 @@ struct Reveal: View {
                         if !secret.tags.isEmpty {
                             Tagger(secret: secret, tags: .init(geometry.size.width / 95))
                                 .privacySensitive()
-                                .padding(.vertical)
                         }
                         
                         Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
                             .font(.footnote)
                             .foregroundStyle(.tertiary)
                             .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
+                            .padding(.top, 5)
                     }
                     .padding(UIDevice.pad ? 80 : 30)
                 }
@@ -50,7 +50,7 @@ struct Reveal: View {
                     } label: {
                         Image(systemName: "tag.circle.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .font(.title3)
+                            .font(.title2)
                     }
                     
                     Spacer()
@@ -58,7 +58,7 @@ struct Reveal: View {
                     Button(action: edit) {
                         Image(systemName: "pencil.circle.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .font(.title3)
+                            .font(.title2)
                     }
                     
                     Spacer()
@@ -72,7 +72,7 @@ struct Reveal: View {
                         Label("Copy", systemImage: "doc.on.doc.fill")
                             .symbolRenderingMode(.hierarchical)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.bordered)
                     .font(.footnote)
                 }
             }
