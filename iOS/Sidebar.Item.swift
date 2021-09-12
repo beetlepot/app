@@ -5,7 +5,6 @@ extension Sidebar {
     struct Item: View {
         @Binding var selected: Int?
         let secret: Secret
-        let tags: Int
         @State private var name = ""
         @State private var disabled = true
         @State private var delete = false
@@ -15,7 +14,7 @@ extension Sidebar {
             NavigationLink(tag: secret.id, selection: $selected) {
                 Reveal(secret: secret)
             } label: {
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading) {
                     TextField(secret.name, text: $name)
                         .focused($focus)
                         .submitLabel(.done)
@@ -27,11 +26,9 @@ extension Sidebar {
                         }
                         .disabled(disabled)
                         .privacySensitive()
-                        .padding(.bottom, 3)
                     if !secret.tags.isEmpty {
-                        Tagger(secret: secret, tags: tags)
+                        Tagger(secret: secret)
                             .privacySensitive()
-                            .padding(.vertical, 5)
                     }
                     HStack {
                         Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
@@ -47,7 +44,6 @@ extension Sidebar {
                         }
                     }
                 }
-                
                 .onAppear {
                     name = secret.name
                 }

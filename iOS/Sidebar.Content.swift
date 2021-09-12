@@ -11,29 +11,28 @@ extension Sidebar {
         @Environment(\.isSearching) var searching
         
         var body: some View {
-            GeometryReader { geo in
-                List {
-                    Section("Secrets") {
-                        ForEach(filtered, id: \.self) {
-                            Item(selected: $selected, secret: archive[$0], tags: .init(geo.size.width / 110))
-                        }
-                    }
-                    
-                    if !searching {
-                        app
-                        help
-                        
-                        NavigationLink(tag: Index.full.rawValue, selection: $selected, destination: Full.init) {
-                            
-                        }
-                        .listRowSeparator(.hidden)
-                        .hidden()
-                        .listRowBackground(Color.clear)
+            List {
+                Section("Secrets") {
+                    ForEach(filtered, id: \.self) {
+                        Item(selected: $selected, secret: archive[$0])
                     }
                 }
-                .listStyle(.sidebar)
-                .symbolRenderingMode(.hierarchical)
+                
+                if !searching {
+                    app
+                    help
+                    
+                    NavigationLink(tag: Index.full.rawValue, selection: $selected, destination: Full.init) {
+                        
+                    }
+                    .listRowSeparator(.hidden)
+                    .hidden()
+                    .listRowBackground(Color.clear)
+                }
             }
+            .listStyle(.sidebar)
+            .symbolRenderingMode(.hierarchical)
+            .animation(.easeInOut(duration: 0.4), value: filtered)
             .navigationTitle("Beetle")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
@@ -43,14 +42,10 @@ extension Sidebar {
                 filtered = $0.filter(favourites: favourites, search: search)
             }
             .onChange(of: favourites) { favourites in
-                withAnimation(.easeInOut(duration: 0.35)) {
-                    filtered = archive.filter(favourites: favourites, search: search)
-                }
+                filtered = archive.filter(favourites: favourites, search: search)
             }
             .onChange(of: search) { search in
-                withAnimation(.easeInOut(duration: 0.35)) {
-                    filtered = archive.filter(favourites: favourites, search: search)
-                }
+                filtered = archive.filter(favourites: favourites, search: search)
             }
         }
         

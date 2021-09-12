@@ -3,36 +3,45 @@ import Secrets
 
 struct Tagger: View {
     let secret: Secret
-    let tags: Int
+    @State private var height = CGFloat(32)
+    private let color = GraphicsContext.Shading.color(.init("Spot"))
     
     var body: some View {
-        VStack {
-            ForEach(secret
-                        .tags
-                        .sorted()
-                        .reduce(into: [[Tag]]()) {
-                if $0.isEmpty || $0.last!.count == tags {
-                    $0.append([$1])
-                } else {
-                    $0[$0.count - 1].append($1)
+        Canvas { context, size in
+            var x = CGFloat()
+            var y = CGFloat()
+            var last = CGFloat()
+            
+            for tag in secret.tags.sorted().map({ "\($0)" }) {
+                let text = Text(verbatim: tag)
+                    .foregroundColor(.white)
+                    .font(.footnote)
+                    
+                let resolved = context.resolve(text)
+                let textSize = resolved.measure(in: .init(width: CGFloat.greatestFiniteMagnitude, height: .greatestFiniteMagnitude))
+                let capsuleSize = CGSize(width: ceil(textSize.width) + 24, height: ceil(textSize.height) + 12)
+                
+                if x + capsuleSize.width > size.width {
+                    x = 0
+                    y += 6 + last
+                    last = 0
                 }
-            }, id: \.self) { row in
-                HStack {
-                    ForEach(row, id: \.self) { tag in
-                        ZStack {
-                            Capsule()
-                                .fill(Color("Spot"))
-                            Text(verbatim: "\(tag)")
-                                .font(.footnote)
-                                .foregroundColor(.white)
-                                .padding(.vertical, 6)
-                                .padding(.horizontal, 12)
-                        }
-                        .fixedSize()
-                    }
-                    Spacer()
-                }
+                
+                last = max(last, capsuleSize.height)
+                
+                context.fill(Capsule()
+                                .path(in: .init(origin: .init(x: x, y: y), size: capsuleSize)),
+                             with: color)
+                
+                context.draw(resolved, at: .init(x: x + 12, y: y + 6), anchor: .topLeading)
+                
+                x += 6 + capsuleSize.width
+            }
+            
+            Task { [y, last] in
+                height = y + last
             }
         }
+        .frame(height: height)
     }
 }

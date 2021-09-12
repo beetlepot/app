@@ -11,37 +11,35 @@ struct Reveal: View {
         if editing {
             Writer(secret: secret, editing: $editing)
         } else {
-            GeometryReader { geometry in
-                ScrollView {
-                    VStack {
-                        if secret.payload.isEmpty {
-                            Text("Empty secret")
-                                .font(.callout)
-                                .foregroundStyle(.tertiary)
-                                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                        } else {
-                            Text(.init(secret.payload))
-                                .kerning(1)
-                                .font(.title3.weight(.regular))
-                                .foregroundStyle(.secondary)
-                                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                                .textSelection(.enabled)
-                                .privacySensitive()
-                        }
-                        
-                        if !secret.tags.isEmpty {
-                            Tagger(secret: secret, tags: .init(geometry.size.width / 95))
-                                .privacySensitive()
-                        }
-                        
-                        Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
-                            .font(.footnote)
+            ScrollView {
+                VStack {
+                    if secret.payload.isEmpty {
+                        Text("Empty secret")
+                            .font(.callout)
                             .foregroundStyle(.tertiary)
-                            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
-                            .padding(.top, 5)
+                            .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                    } else {
+                        Text(.init(secret.payload))
+                            .kerning(1)
+                            .font(.title3.weight(.regular))
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                            .textSelection(.enabled)
+                            .privacySensitive()
                     }
-                    .padding(UIDevice.pad ? 80 : 30)
+                    
+                    if !secret.tags.isEmpty {
+                        Tagger(secret: secret)
+                            .privacySensitive()
+                    }
+                    
+                    Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
+                        .font(.footnote)
+                        .foregroundStyle(.tertiary)
+                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
+                        .padding(.top, 5)
                 }
+                .padding(UIDevice.pad ? 80 : 30)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
@@ -90,7 +88,7 @@ struct Reveal: View {
     }
     
     private func edit() {
-        withAnimation(.easeInOut(duration: 0.5)) {
+        withAnimation(.easeInOut(duration: 0.4)) {
             editing = true
         }
     }
