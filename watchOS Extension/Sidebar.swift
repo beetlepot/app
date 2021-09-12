@@ -79,11 +79,9 @@ struct Sidebar: View {
         .onChange(of: search) {
             filtered = archive.filter(favourites: false, search: $0)
         }
-        .onAppear {
-            Task {
-                if await UNUserNotificationCenter.authorization == .notDetermined {
-                    await UNUserNotificationCenter.request()
-                }
+        .task {
+            if await UNUserNotificationCenter.authorization == .notDetermined {
+                await UNUserNotificationCenter.request()
             }
         }
     }

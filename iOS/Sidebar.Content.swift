@@ -37,7 +37,7 @@ extension Sidebar {
             .animation(.easeInOut(duration: 0.4), value: filtered)
             .navigationTitle("Beetle")
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
+            .task {
                 filtered = archive.filter(favourites: favourites, search: search)
             }
             .onChange(of: archive) {

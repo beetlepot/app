@@ -77,7 +77,7 @@ struct Reveal: View {
             .sheet(isPresented: $tags) {
                 Tags(secret: secret)
             }
-            .onAppear {
+            .task {
                 if secret.payload.isEmpty && secret.name == "Untitled" && secret.tags.isEmpty && secret.date.timeIntervalSince(.now) > -2 {
                     edit()
                 }

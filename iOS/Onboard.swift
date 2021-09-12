@@ -43,7 +43,7 @@ struct Onboard: View {
                     authenticate = true
                 }
         }
-        .onAppear {
+        .task {
             UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
             UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
         }

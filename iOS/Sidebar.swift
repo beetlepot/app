@@ -48,7 +48,7 @@ struct Sidebar: View {
             }) {
                 Onboard(selected: $selected)
             }
-            .onAppear {
+            .task {
                 if !Defaults.onboarded {
                     onboard = true
                 }

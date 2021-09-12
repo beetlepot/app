@@ -44,7 +44,7 @@ extension Sidebar {
                         }
                     }
                 }
-                .onAppear {
+                .task {
                     name = secret.name
                 }
             }
