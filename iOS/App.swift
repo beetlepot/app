@@ -16,7 +16,9 @@ let store = Store()
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(archive: archive)
+                ScrollViewReader {
+                    Sidebar(archive: archive, proxy: $0)
+                }
                 Empty(archive: archive)
             }
             .navigationViewStyle(.columns)

@@ -15,28 +15,25 @@ private struct Content: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(.ultraThinMaterial)
-            Image(systemName: "lock.fill")
+            Image(systemName: "ladybug.fill")
                 .resizable()
                 .font(.largeTitle.weight(.ultraLight))
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40)
-                .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(.tertiary)
+                
             Image(systemName: "plus")
                 .resizable()
-                .font(.largeTitle.weight(.ultraLight))
+                .font(.largeTitle.weight(.light))
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 30)
-                .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(.primary)
+                .frame(width: 20)
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .bottomTrailing)
                 .padding()
         }
+        .symbolRenderingMode(.hierarchical)
+        .foregroundColor(.white)
         .widgetURL(URL(string: "beetle://create")!)
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
-        .background(Color("Bread"))
+        .background(Color("Spot"))
     }
 }
 

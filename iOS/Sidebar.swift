@@ -3,6 +3,7 @@ import Secrets
 
 struct Sidebar: View {
     let archive: Archive
+    let proxy: ScrollViewProxy
     @State private var search = ""
     @State private var favourites = false
     @State private var selected: Int?
@@ -22,16 +23,7 @@ struct Sidebar: View {
                     }
                     .font(.callout)
                     
-                    Button {
-                        UIApplication.shared.hide()
-                        if archive.available {
-                            Task {
-                                selected = await cloud.secret()
-                            }
-                        } else {
-                            selected = Sidebar.Index.full.rawValue
-                        }
-                    } label: {
+                    Button(action: new) {
                         Label("New secret", systemImage: "plus")
                     }
                     .buttonStyle(.borderedProminent)
@@ -47,6 +39,10 @@ struct Sidebar: View {
                     .tint(.pink)
                 }
             }
+            .onOpenURL {
+                guard $0.scheme == "beetle", $0.host == "create" else { return }
+                new()
+            }
             .sheet(isPresented: $onboard, onDismiss: {
                 Defaults.onboarded = true
             }) {
@@ -57,5 +53,19 @@ struct Sidebar: View {
                     onboard = true
                 }
             }
+    }
+    
+    private func new() {
+        UIApplication.shared.hide()
+        if archive.available {
+            Task {
+                let selected = await cloud.secret()
+                proxy.scrollTo(selected)
+                self.selected = selected
+            }
+        } else {
+            proxy.scrollTo(Index.full.rawValue)
+            selected = Index.full.rawValue
+        }
     }
 }

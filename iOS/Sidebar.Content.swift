@@ -15,6 +15,7 @@ extension Sidebar {
                 Section("Secrets") {
                     ForEach(filtered, id: \.self) {
                         Item(selected: $selected, secret: archive[$0])
+                            .id($0)
                     }
                 }
                 
@@ -25,6 +26,7 @@ extension Sidebar {
                     NavigationLink(tag: Index.full.rawValue, selection: $selected, destination: Full.init) {
                         
                     }
+                    .id(Index.full.rawValue)
                     .listRowSeparator(.hidden)
                     .hidden()
                     .listRowBackground(Color.clear)
@@ -56,12 +58,14 @@ extension Sidebar {
                 } label: {
                     Label("Settings", systemImage: "slider.horizontal.3")
                 }
+                .id(Index.settings.rawValue)
                 
                 NavigationLink(tag: Index.capacity.rawValue, selection: $selected) {
                     Capacity(archive: archive)
                 } label: {
                     Label("Capacity", systemImage: "lock.square.stack")
                 }
+                .id(Index.capacity.rawValue)
             }
             .font(.callout)
         }
@@ -73,18 +77,21 @@ extension Sidebar {
                 } label: {
                     Label("Markdown", systemImage: "square.text.square")
                 }
+                .id(Index.markdown.rawValue)
                 
                 NavigationLink(tag: Index.privacy.rawValue, selection: $selected) {
                     Info(title: "Privacy policy", text: Copy.privacy)
                 } label: {
                     Label("Privacy policy", systemImage: "hand.raised")
                 }
+                .id(Index.privacy.rawValue)
                 
                 NavigationLink(tag: Index.terms.rawValue, selection: $selected) {
                     Info(title: "Terms and conditions", text: Copy.terms)
                 } label: {
                     Label("Terms and conditions", systemImage: "doc.plaintext")
                 }
+                .id(Index.terms.rawValue)
             }
             .font(.callout)
         }
