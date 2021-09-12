@@ -35,7 +35,7 @@ struct Onboard: View {
             }
         }
         .navigationViewStyle(.stack)
-        .onChange(of: index) {
+        .onChange(of: index) { [index] in
             guard $0 == 1, index == 0, !authenticate else { return }
             DispatchQueue
                 .main
@@ -51,6 +51,7 @@ struct Onboard: View {
     
     private var card0: some View {
         VStack {
+            Spacer()
             Image("Logo")
             Text("Just a few steps to\nstart protecting your secrets")
                 .font(.callout)
@@ -74,6 +75,7 @@ struct Onboard: View {
     
     private var card1: some View {
         VStack {
+            Spacer()
             Image(systemName: "faceid")
                 .resizable()
                 .font(.largeTitle.weight(.ultraLight))
@@ -120,6 +122,7 @@ struct Onboard: View {
     
     private var card2: some View {
         VStack {
+            Spacer()
             Image(systemName: "app.badge")
                 .resizable()
                 .font(.largeTitle.weight(.ultraLight))
@@ -181,6 +184,7 @@ struct Onboard: View {
     
     private var card3: some View {
         VStack {
+            Spacer()
             Image(systemName: "slider.horizontal.3")
                 .resizable()
                 .font(.largeTitle.weight(.ultraLight))

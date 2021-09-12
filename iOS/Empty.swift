@@ -6,18 +6,12 @@ struct Empty: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "lock.square")
-                .resizable()
-                .font(.largeTitle.weight(.ultraLight))
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100)
-                .foregroundStyle(.quaternary)
+            Image("Logo")
             Text(archive.count == 0 ? "Create your first secret" : "Select a secret from the list\nor create a new one")
                 .font(.callout)
-                .foregroundStyle(.tertiary)
-                .padding(.top)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
-        .background(Color(.systemFill))
+        .background(Color(.secondarySystemBackground))
     }
 }
