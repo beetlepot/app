@@ -9,8 +9,6 @@ let store = Store()
 @main struct App: SwiftUI.App {
     @State private var archive = Archive.new
     @State private var authenticated = false
-    @State private var search = ""
-    @State private var selected: Int?
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
@@ -18,15 +16,10 @@ let store = Store()
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(search: $search, selected: $selected, archive: archive, new: new)
+                Sidebar(archive: archive)
                 Empty(archive: archive)
             }
-            .searchable(text: $search)
             .navigationViewStyle(.columns)
-            .onOpenURL {
-                guard $0.scheme == "beetle", $0.host == "create" else { return }
-                new()
-            }
             .onReceive(cloud.archive) {
                 archive = $0
             }
@@ -47,17 +40,6 @@ let store = Store()
             default:
                 break
             }
-        }
-    }
-    
-    private func new() {
-        UIApplication.shared.hide()
-        if archive.available {
-            Task {
-                selected = await cloud.secret()
-            }
-        } else {
-            selected = Sidebar.Index.full.rawValue
         }
     }
     
