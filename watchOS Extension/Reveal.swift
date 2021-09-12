@@ -21,21 +21,9 @@ struct Reveal: View {
             }
             
             if !secret.tags.isEmpty {
-                VStack(alignment: .leading) {
-                    ForEach(secret.tags.sorted(), id: \.self) { tag in
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 4)
-                                .fill(Color("Spot"))
-                            Text(verbatim: "\(tag)")
-                                .foregroundColor(.white)
-                                .font(.caption2)
-                                .padding(6)
-                        }
-                        .fixedSize()
-                        .privacySensitive()
-                    }
-                }
-                .listRowBackground(Color.clear)
+                Tagger(secret: secret)
+                    .privacySensitive()
+                    .listRowBackground(Color.clear)
             }
             
             Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
@@ -49,8 +37,9 @@ struct Reveal: View {
                 Label("Edit", systemImage: "pencil.circle.fill")
                     .symbolRenderingMode(.hierarchical)
                     .font(.caption2)
-                    .foregroundColor(.orange)
+                    .foregroundColor(.accentColor)
             }
+            .listRowBackground(Color.clear)
         }
         .navigationTitle(secret.name)
     }

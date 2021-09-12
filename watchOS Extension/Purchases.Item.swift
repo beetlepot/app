@@ -8,42 +8,55 @@ extension Purchases {
         
         var body: some View {
             List {
-                Section {
-                    Group {
-                        Text(verbatim: product.displayName)
-                            .foregroundColor(.primary)
-                            .font(.title3)
-                        + Text(verbatim: "\n" + product.description)
-                            .foregroundColor(.secondary)
-                            .font(.callout)
-                    }
+                Text(verbatim: product.displayName)
+                    .foregroundColor(.init("Spot"))
+                    .font(.title3)
+                    .listRowBackground(Color.clear)
+                
+                Text(verbatim: product.description)
+                    .foregroundColor(.secondary)
+                    .font(.callout)
                     .fixedSize(horizontal: false, vertical: true)
-                    HStack {
-                        Spacer()
-                        Text(verbatim: product.displayPrice)
-                            .font(.footnote.monospacedDigit())
-                            .foregroundStyle(.primary)
-                        if product.id != Purchase.one.rawValue {
-                            Group {
-                                Text("Save ")
-                                + Text(Purchase(rawValue: product.id)!.save, format: .percent)
-                            }
-                            .foregroundColor(.orange)
-                            .font(.footnote)
-                        }
-                        Spacer()
-                    }
+                    .listRowBackground(Color.clear)
+                
+                HStack {
+                    Spacer()
+                    Text(verbatim: product.displayPrice)
+                        .font(.callout)
+                        .foregroundStyle(.primary)
+                    Spacer()
                 }
                 .listRowBackground(Color.clear)
                 
-                Section {
-                    Button("Purchase") {
+                if product.id != Purchase.one.rawValue {
+                    HStack {
+                        Spacer()
+                        Group {
+                            Text("Save ")
+                            + Text(Purchase(rawValue: product.id)!.save, format: .percent)
+                        }
+                        .foregroundColor(.orange)
+                        .font(.footnote)
+                        Spacer()
+                    }
+                    .listRowBackground(Color.clear)
+                }
+                
+                HStack {
+                    Spacer()
+                    Button {
                         Task {
                             await store.purchase(product)
                         }
+                    } label: {
+                        Text("Purchase")
+                            .font(.callout)
+                            .padding(.horizontal, 12)
                     }
                     .buttonStyle(.borderedProminent)
-                    .font(.footnote)
+                    .buttonBorderShape(.capsule)
+                    .fixedSize()
+                    Spacer()
                 }
                 .listRowBackground(Color.clear)
             }

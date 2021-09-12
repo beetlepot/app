@@ -12,16 +12,22 @@ struct Sidebar: View {
         NavigationView {
             List {
                 if search.isEmpty {
-                    if archive.count == 0 {
-                        Text("Create your first secret")
-                            .font(.footnote)
-                            .listRowBackground(Color.clear)
-                    } else {
-                        Text(verbatim: "\(archive.count) / \(archive.capacity) " + (archive.capacity == 1 ? "secret" : "secrets"))
+                    HStack {
+                        Text(archive.capacity, format: .number)
+                            .foregroundColor(.init("Spot"))
+                            .font(.title3.bold())
+                        + Text(archive.capacity == 1 ? "\nSpot" : "\nSpots")
                             .font(.caption2)
-                            .foregroundStyle(.secondary)
-                            .listRowBackground(Color.clear)
+                        Spacer()
+                        Text(archive.count, format: .number)
+                            .foregroundColor(.accentColor)
+                            .font(.title3.bold())
+                        + Text(archive.count == 1 ? "\nSecret" : "\nSecrets")
+                            .font(.caption2)
                     }
+                    .multilineTextAlignment(.center)
+                    .padding(.vertical)
+                    .listRowBackground(Color.clear)
                 }
                 
                 if !filtered.isEmpty && archive.count > 0 {
@@ -40,15 +46,18 @@ struct Sidebar: View {
                             Image(systemName: "plus.circle.fill")
                                 .font(.largeTitle)
                                 .symbolRenderingMode(.hierarchical)
-                                .foregroundColor(.orange)
                                 .frame(maxWidth: .greatestFiniteMagnitude)
+                                .foregroundColor(.accentColor)
                         }
+                        .padding(.vertical)
                         .listRowBackground(Color.clear)
                     } else {
-                        Text("You reached the limit of secrets that you can keep.")
+                        Text("You reached the limit of secrets that you can keep. Purchase spots to add more secrets.")
                             .font(.caption2)
+                            .fixedSize(horizontal: false, vertical: true)
                             .foregroundStyle(.secondary)
                             .listRowBackground(Color.clear)
+                            .padding(.vertical)
                     }
                     
                     NavigationLink(tag: -1, selection: $selected) {
@@ -57,8 +66,9 @@ struct Sidebar: View {
                         Label("In-App Purchases", systemImage: "cart")
                             .symbolRenderingMode(.hierarchical)
                             .font(.caption2)
-                            .foregroundColor(.orange)
+                            .foregroundColor(.accentColor)
                     }
+                    .listRowBackground(Color.clear)
                 }
             }
             .searchable(text: $search)

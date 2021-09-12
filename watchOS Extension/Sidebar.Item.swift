@@ -1,5 +1,4 @@
 import SwiftUI
-import UserNotifications
 import Secrets
 
 extension Sidebar {
@@ -30,7 +29,6 @@ extension Sidebar {
                     
                     Task {
                         await cloud.delete(id: secret.id)
-                        await UNUserNotificationCenter.send(message: "Deleted secret!")
                     }
                 }
             }

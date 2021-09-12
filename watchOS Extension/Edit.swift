@@ -16,13 +16,18 @@ struct Edit: View {
                 }
                 .privacySensitive()
 
-            TextField("Secret", text: $payload)
+            TextField("Content", text: $payload)
                 .onSubmit {
                     Task {
                         await cloud.update(id: secret.id, payload: payload)
                     }
                 }
                 .privacySensitive()
+            
+            Text("Tags")
+                .font(.footnote)
+                .foregroundColor(.init("Spot"))
+                .listRowBackground(Color.clear)
             
             ForEach(Tag
                     .allCases

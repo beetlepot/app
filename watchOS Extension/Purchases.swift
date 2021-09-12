@@ -11,7 +11,7 @@ struct Purchases: View {
                     .font(.largeTitle)
                     .symbolVariant(.circle)
                     .symbolRenderingMode(.palette)
-                    .foregroundStyle(.secondary, Color.accentColor)
+                    .foregroundStyle(Color.accentColor, Color("Spot"))
             case let .error(error):
                 Text(verbatim: error)
                     .font(.caption)

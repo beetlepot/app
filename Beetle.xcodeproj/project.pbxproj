@@ -14,7 +14,6 @@
 		CE67EF1A26EB8F280040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF1926EB8F280040A8CA /* Assets.xcassets */; };
 		CE67EF2626EB8F6B0040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */; };
 		CE67EF2C26EB8F6B0040A8CA /* Beetle.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE67EF2B26EB8F6B0040A8CA /* Beetle.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CE67EF3726EB8F6C0040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF3626EB8F6C0040A8CA /* Assets.xcassets */; };
 		CE67EF3E26EB8F6C0040A8CA /* Beetle.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CE67EF2326EB8F6A0040A8CA /* Beetle.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CE67EF4E26EB8FA40040A8CA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EF4D26EB8FA40040A8CA /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		CE67EF5026EB8FA40040A8CA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EF4F26EB8FA40040A8CA /* SwiftUI.framework */; platformFilter = maccatalyst; };
@@ -71,6 +70,7 @@
 		CE67EFC226EB9BA60040A8CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC126EB9BA60040A8CA /* StoreKit.framework */; };
 		CE67EFC626EB9BBA0040A8CA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
+		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,7 +142,6 @@
 		CE67EF2326EB8F6A0040A8CA /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE67EF2B26EB8F6B0040A8CA /* Beetle.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Beetle.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE67EF3626EB8F6C0040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE67EF3B26EB8F6C0040A8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE67EF4B26EB8FA40040A8CA /* Beetle.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Beetle.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE67EF4D26EB8FA40040A8CA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -274,7 +273,6 @@
 				CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */,
 				CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */,
 				CE67EF7026EB92900040A8CA /* Sidebar.swift */,
-				CE67EF7326EB92900040A8CA /* Tagger.swift */,
 				CE67EF6C26EB92900040A8CA /* Tags.swift */,
 				CE67EF7626EB92900040A8CA /* UIApplication.swift */,
 				CE67EF7726EB92910040A8CA /* UIDevice.swift */,
@@ -308,7 +306,6 @@
 				CE67EFA726EB95BB0040A8CA /* Reveal.swift */,
 				CE67EFA526EB95BB0040A8CA /* Sidebar.Item.swift */,
 				CE67EFA626EB95BB0040A8CA /* Sidebar.swift */,
-				CE67EF3626EB8F6C0040A8CA /* Assets.xcassets */,
 			);
 			path = "watchOS Extension";
 			sourceTree = "<group>";
@@ -344,6 +341,7 @@
 				CE38D53226ED0767005690AA /* Ring.swift */,
 				CE67EF9926EB94B20040A8CA /* Store.State.swift */,
 				CE67EF9A26EB94B20040A8CA /* Store.swift */,
+				CE67EF7326EB92900040A8CA /* Tagger.swift */,
 				CE67EF9626EB94B20040A8CA /* Transaction.swift */,
 				CE67EF9726EB94B20040A8CA /* UNUserNotificationCenter.swift */,
 				CE67EF5F26EB90940040A8CA /* Colour.xcassets */,
@@ -508,7 +506,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE67EF6226EB90950040A8CA /* Colour.xcassets in Resources */,
-				CE67EF3726EB8F6C0040A8CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +565,7 @@
 				CE67EFAF26EB95BB0040A8CA /* Reveal.swift in Sources */,
 				CE67EFB426EB95F30040A8CA /* UNUserNotificationCenter.swift in Sources */,
 				CE67EFB626EB95F30040A8CA /* Transaction.swift in Sources */,
+				CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */,
 				CE67EFB026EB95BB0040A8CA /* Edit.swift in Sources */,
 				CE67EFAC26EB95BB0040A8CA /* Purchases.swift in Sources */,
 				CE67EFAA26EB95BB0040A8CA /* Purchases.Item.swift in Sources */,
