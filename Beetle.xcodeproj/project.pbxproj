@@ -25,7 +25,6 @@
 		CE67EF6326EB90950040A8CA /* Colour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF5F26EB90940040A8CA /* Colour.xcassets */; };
 		CE67EF6526EB92180040A8CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF6426EB92180040A8CA /* Settings.bundle */; };
 		CE67EF7E26EB92910040A8CA /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6726EB92900040A8CA /* App.Delegate.swift */; };
-		CE67EF7F26EB92910040A8CA /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6826EB92900040A8CA /* Onboard.swift */; };
 		CE67EF8026EB92910040A8CA /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6926EB92900040A8CA /* Empty.swift */; };
 		CE67EF8126EB92910040A8CA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6A26EB92900040A8CA /* Info.swift */; };
 		CE67EF8226EB92910040A8CA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6B26EB92900040A8CA /* Settings.swift */; };
@@ -152,7 +151,6 @@
 		CE67EF6426EB92180040A8CA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE67EF6626EB92340040A8CA /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CE67EF6726EB92900040A8CA /* App.Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
-		CE67EF6826EB92900040A8CA /* Onboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
 		CE67EF6926EB92900040A8CA /* Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		CE67EF6A26EB92900040A8CA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		CE67EF6B26EB92900040A8CA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 				CE67EF6926EB92900040A8CA /* Empty.swift */,
 				CE67EF7C26EB92910040A8CA /* Full.swift */,
 				CE67EF6A26EB92900040A8CA /* Info.swift */,
-				CE67EF6826EB92900040A8CA /* Onboard.swift */,
 				CE67EF7126EB92900040A8CA /* Purchases.Item.swift */,
 				CE67EF7A26EB92910040A8CA /* Purchases.swift */,
 				CE67EF7D26EB92910040A8CA /* Reveal.swift */,
@@ -546,7 +543,6 @@
 				CE67EF8426EB92910040A8CA /* Writer.Representable.swift in Sources */,
 				CE67EF8326EB92910040A8CA /* Tags.swift in Sources */,
 				CE67EF8526EB92910040A8CA /* Writer.swift in Sources */,
-				CE67EF7F26EB92910040A8CA /* Onboard.swift in Sources */,
 				CE67EF9D26EB94B20040A8CA /* UNUserNotificationCenter.swift in Sources */,
 				CE67EF8026EB92910040A8CA /* Empty.swift in Sources */,
 				CE67EF8B26EB92910040A8CA /* Sidebar.Item.swift in Sources */,

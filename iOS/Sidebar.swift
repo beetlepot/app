@@ -7,7 +7,6 @@ struct Sidebar: View {
     @State private var search = ""
     @State private var favourites = false
     @State private var selected: Int?
-    @State private var onboard = false
     
     var body: some View {
         Content(search: $search, favourites: $favourites, selected: $selected, archive: archive)
@@ -42,16 +41,6 @@ struct Sidebar: View {
             .onOpenURL {
                 guard $0.scheme == "beetle", $0.host == "create" else { return }
                 new()
-            }
-            .sheet(isPresented: $onboard, onDismiss: {
-                Defaults.onboarded = true
-            }) {
-                Onboard(selected: $selected)
-            }
-            .task {
-                if !Defaults.onboarded {
-                    onboard = true
-                }
             }
     }
     
