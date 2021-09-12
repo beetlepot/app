@@ -36,7 +36,7 @@ struct Onboard: View {
         }
         .navigationViewStyle(.stack)
         .onChange(of: index) {
-            guard $0 == 1, !authenticate else { return }
+            guard $0 == 1, index == 0, !authenticate else { return }
             DispatchQueue
                 .main
                 .asyncAfter(deadline: .now() + 0.5) {

@@ -32,7 +32,7 @@ extension Writer {
             
             DispatchQueue
                 .main
-                .asyncAfter(deadline: .now() + 0.75) { [weak self] in
+                .asyncAfter(deadline: .now() + 0.5) { [weak self] in
                     self?.becomeFirstResponder()
                 }
             
