@@ -43,6 +43,9 @@ extension Sidebar {
             .onAppear {
                 name = secret.name
             }
+            .onChange(of: secret) {
+                name = $0.name
+            }
             .onChange(of: focus) {
                 if $0 == false {
                     disabled = true
