@@ -4,6 +4,7 @@ import Secrets
 struct Tagger: View {
     let secret: Secret
     @State private var height = CGFloat(32)
+    @State private var tags = [String]()
     private let color = GraphicsContext.Shading.color(.init("Spot"))
     
     var body: some View {
@@ -12,7 +13,7 @@ struct Tagger: View {
             var y = CGFloat()
             var last = CGFloat()
             
-            for tag in secret.tags.sorted().map({ "\($0)" }) {
+            for tag in tags {
                 let text = Text(verbatim: tag)
                     .foregroundColor(.white)
                     .font(.footnote)
@@ -41,6 +42,15 @@ struct Tagger: View {
             Task { [y, last] in
                 height = y + last
             }
+        }
+        .accessibilityLabel("Tag list")
+        .accessibilityChildren {
+            List(tags, id: \.self) {
+                Text(verbatim: $0)
+            }
+        }
+        .task {
+            tags = secret.tags.sorted().map { "\($0)" }
         }
         .frame(height: height)
     }
