@@ -5,10 +5,13 @@ struct Reveal: View {
     let secret: Secret
     @State private var first = true
     @State private var editing = false
+    @State private var deleted = false
     @State private var tags = false
     
     var body: some View {
-        if editing {
+        if deleted {
+            Empty(empty: false)
+        } else if editing {
             Writer(secret: secret, editing: $editing)
         } else {
             ScrollView {
@@ -76,6 +79,11 @@ struct Reveal: View {
                     }
                     .buttonStyle(.bordered)
                     .font(.footnote)
+                }
+            }
+            .onChange(of: secret) {
+                if $0 == .new {
+                    deleted = true
                 }
             }
             .sheet(isPresented: $tags) {

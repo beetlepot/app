@@ -17,7 +17,7 @@ let store = Store()
         WindowGroup {
             NavigationView {
                 Sidebar(archive: archive)
-                Empty(archive: archive)
+                Empty(empty: archive.count == 0)
             }
             .navigationViewStyle(.columns)
             .onReceive(cloud.archive) {

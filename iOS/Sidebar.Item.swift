@@ -14,6 +14,8 @@ extension Sidebar {
                 VStack(alignment: .leading) {
                     TextField(secret.name, text: $name)
                         .focused($focus)
+                        .textInputAutocapitalization(.sentences)
+                        .disableAutocorrection(true)
                         .submitLabel(.done)
                         .privacySensitive()
                         .onSubmit {

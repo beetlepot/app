@@ -107,6 +107,8 @@ struct Create: View {
             
             TextField(secret.name, text: $name)
                 .focused($focus)
+                .textInputAutocapitalization(.sentences)
+                .disableAutocorrection(true)
                 .submitLabel(.done)
                 .foregroundColor(.accentColor)
                 .privacySensitive()
@@ -157,11 +159,14 @@ struct Create: View {
                 .padding(.top)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(width: width, alignment: .leading)
+                .padding(.bottom)
             
-            Tagger(tags: secret.tags.list)
-                .privacySensitive()
-                .padding(.vertical)
-                .frame(width: width)
+            if !secret.tags.isEmpty {
+                Tagger(tags: secret.tags.list)
+                    .privacySensitive()
+                    .padding(.bottom)
+                    .frame(width: width)
+            }
             
             Button {
                 tags = true
