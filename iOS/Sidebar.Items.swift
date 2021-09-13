@@ -18,7 +18,6 @@ extension Sidebar {
                                 .symbolRenderingMode(.hierarchical)
                         }
                     }
-                    .sheet(item: $pop, content: modal)
                     
                     DisclosureGroup("Filter") {
                         Toggle(isOn: $filter.favourites) {
@@ -64,6 +63,7 @@ extension Sidebar {
             .listStyle(.insetGrouped)
             .symbolRenderingMode(.hierarchical)
             .animation(.easeInOut(duration: 0.4), value: filtered)
+            .sheet(item: $pop, content: modal)
             .onOpenURL {
                 guard $0.scheme == "beetle", $0.host == "create" else { return }
                 new()
@@ -103,7 +103,7 @@ extension Sidebar {
                     }
                 }
             case .full:
-                Full()
+                Full(archive: archive)
             case let .create(id):
                 Create(secret: archive[id])
             }

@@ -53,7 +53,11 @@ struct Reveal: View {
                     
                     Spacer()
                     
-                    Button(action: edit) {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.4)) {
+                            editing = true
+                        }
+                    } label: {
                         Image(systemName: "pencil.circle.fill")
                             .symbolRenderingMode(.hierarchical)
                             .font(.title2)
@@ -85,19 +89,8 @@ struct Reveal: View {
                     }
                 }
             }
-            .task {
-                if secret.payload.isEmpty && secret.name == "Untitled" && secret.tags.isEmpty && secret.date.timeIntervalSince(.now) > -2 {
-                    edit()
-                }
-            }
             .navigationTitle(secret.name)
             .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-    
-    private func edit() {
-        withAnimation(.easeInOut(duration: 0.4)) {
-            editing = true
         }
     }
 }

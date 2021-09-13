@@ -21,7 +21,8 @@ struct Writer: View {
                         dismiss()
                     }
                     .font(.callout)
-                    .buttonStyle(.borderless)
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
                     .tint(.pink)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -31,6 +32,7 @@ struct Writer: View {
                     }
                     .font(.callout)
                     .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
                 }
             }
     }
