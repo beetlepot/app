@@ -12,6 +12,7 @@
 		CE38D53426ED0767005690AA /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38D53226ED0767005690AA /* Ring.swift */; };
 		CE4D550226EF7832002230EE /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550126EF7832002230EE /* Create.swift */; };
 		CE4D550426EF7B71002230EE /* Sidebar.Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */; };
+		CE4D550626EF9824002230EE /* Sidebar.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550526EF9824002230EE /* Sidebar.Items.swift */; };
 		CE4FF3C626EDFD19003EF083 /* Sidebar.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */; };
 		CE67EF1A26EB8F280040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF1926EB8F280040A8CA /* Assets.xcassets */; };
 		CE67EF2626EB8F6B0040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */; };
@@ -140,6 +141,7 @@
 		CE38D53226ED0767005690AA /* Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		CE4D550126EF7832002230EE /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
 		CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Pop.swift; sourceTree = "<group>"; };
+		CE4D550526EF9824002230EE /* Sidebar.Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Items.swift; sourceTree = "<group>"; };
 		CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Items.swift; sourceTree = "<group>"; };
 		CE67EF1226EB8F270040A8CA /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE67EF1926EB8F280040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				CE67EFA426EB95BB0040A8CA /* Purchases.swift */,
 				CE67EFA726EB95BB0040A8CA /* Reveal.swift */,
 				CE67EFA526EB95BB0040A8CA /* Sidebar.Item.swift */,
+				CE4D550526EF9824002230EE /* Sidebar.Items.swift */,
 				CE67EFA626EB95BB0040A8CA /* Sidebar.swift */,
 			);
 			path = "watchOS Extension";
@@ -583,6 +586,7 @@
 				CE67EFAD26EB95BB0040A8CA /* Sidebar.Item.swift in Sources */,
 				CE67EFAE26EB95BB0040A8CA /* Sidebar.swift in Sources */,
 				CE67EFB326EB95F30040A8CA /* Store.State.swift in Sources */,
+				CE4D550626EF9824002230EE /* Sidebar.Items.swift in Sources */,
 				CE67EFAB26EB95BB0040A8CA /* App.Delegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

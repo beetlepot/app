@@ -24,7 +24,6 @@ struct Purchases: View {
                 }
             }
         }
-        .tabViewStyle(.page)
         .navigationTitle("Purchases")
         .onReceive(store.status) {
             status = $0
