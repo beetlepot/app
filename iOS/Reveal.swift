@@ -29,7 +29,7 @@ struct Reveal: View {
                     }
                     
                     if !secret.tags.isEmpty {
-                        Tagger(secret: secret)
+                        Tagger(tags: secret.tags.list)
                             .privacySensitive()
                     }
                     
@@ -75,7 +75,15 @@ struct Reveal: View {
                 }
             }
             .sheet(isPresented: $tags) {
-                Tags(secret: secret)
+                Tags(tags: secret.tags) { tag in
+                    Task {
+                        if secret.tags.contains(tag) {
+                            await cloud.remove(id: secret.id, tag: tag)
+                        } else {
+                            await cloud.add(id: secret.id, tag: tag)
+                        }
+                    }
+                }
             }
             .task {
                 if secret.payload.isEmpty && secret.name == "Untitled" && secret.tags.isEmpty && secret.date.timeIntervalSince(.now) > -2 {

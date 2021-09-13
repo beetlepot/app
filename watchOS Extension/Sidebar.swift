@@ -73,12 +73,12 @@ struct Sidebar: View {
             }
             .searchable(text: $search)
         }
-        .onChange(of: archive) {
-            filtered = $0.filter(favourites: false, search: search)
-        }
-        .onChange(of: search) {
-            filtered = archive.filter(favourites: false, search: $0)
-        }
+//        .onChange(of: archive) {
+//            filtered = $0.filter(favourites: false, search: search)
+//        }
+//        .onChange(of: search) {
+//            filtered = archive.filter(favourites: false, search: $0)
+//        }
         .task {
             if await UNUserNotificationCenter.authorization == .notDetermined {
                 await UNUserNotificationCenter.request()

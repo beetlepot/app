@@ -1,10 +1,8 @@
 import SwiftUI
-import Secrets
 
 struct Tagger: View {
-    let secret: Secret
+    let tags: [String]
     @State private var height = CGFloat(32)
-    @State private var tags = [String]()
     private let color = GraphicsContext.Shading.color(.init("Spot"))
     
     var body: some View {
@@ -48,9 +46,6 @@ struct Tagger: View {
             List(tags, id: \.self) {
                 Text(verbatim: $0)
             }
-        }
-        .onAppear {
-            tags = secret.tags.sorted().map { "\($0)" }
         }
         .frame(height: height)
     }

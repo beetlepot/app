@@ -3,26 +3,23 @@ import Secrets
 
 struct Sidebar: View {
     let archive: Archive
-    let proxy: ScrollViewProxy
-    @State private var search = ""
-    @State private var favourites = false
-    @State private var selected: Int?
+    @State private var filter = Filter()
     
     var body: some View {
-        Content(search: $search, favourites: $favourites, selected: $selected, archive: archive)
-            .searchable(text: $search)
+        Items(filter: $filter, archive: archive)
+            .searchable(text: $filter.search, prompt: "Filter secrets by name")
             .navigationTitle("Secrets")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        UIApplication.shared.hide()
-                        favourites.toggle()
-                    } label: {
-                        Image(systemName: favourites ? "heart.fill" : "heart")
-                            .symbolRenderingMode(.hierarchical)
-                    }
-                    .font(.callout)
+                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button {
+//                        UIApplication.shared.hide()
+//                        favourites.toggle()
+//                    } label: {
+//                        Image(systemName: favourites ? "heart.fill" : "heart")
+//                            .symbolRenderingMode(.hierarchical)
+//                    }
+//                    .font(.callout)
                     
 //                    Button(action: new) {
 //                        Label("New secret", systemImage: "plus")
@@ -35,10 +32,10 @@ struct Sidebar: View {
                         Label("Menu", systemImage: "ellipsis.circle.fill")
                             .symbolRenderingMode(.hierarchical)
                     }
-                    .font(.callout)
                 }
                 
-                ToolbarItem(placement: .keyboard) {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
                     Button("Cancel", role: .cancel) {
                         UIApplication.shared.hide()
                     }
@@ -55,11 +52,9 @@ struct Sidebar: View {
     private func new() {
         UIApplication.shared.hide()
         if archive.available {
-            Task {
-                let selected = await cloud.secret()
-                proxy.scrollTo(selected)
-                self.selected = selected
-            }
+//            Task {
+//                let selected = await cloud.secret()
+//            }
         } else {
 //            proxy.scrollTo(Index.full.rawValue)
 //            selected = Index.full.rawValue

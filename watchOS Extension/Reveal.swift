@@ -21,7 +21,7 @@ struct Reveal: View {
             }
             
             if !secret.tags.isEmpty {
-                Tagger(secret: secret)
+                Tagger(tags: secret.tags.list)
                     .privacySensitive()
                     .listRowBackground(Color.clear)
             }

@@ -3,7 +3,6 @@ import Secrets
 
 extension Sidebar {
     struct Item: View {
-        @Binding var selected: Int?
         let secret: Secret
         @State private var name = ""
         @State private var disabled = true
@@ -11,9 +10,7 @@ extension Sidebar {
         @FocusState private var focus: Bool
         
         var body: some View {
-            NavigationLink(tag: secret.id, selection: $selected) {
-                Reveal(secret: secret)
-            } label: {
+            NavigationLink(destination: Reveal(secret: secret)) {
                 VStack(alignment: .leading) {
                     TextField(secret.name, text: $name)
                         .focused($focus)
@@ -27,22 +24,19 @@ extension Sidebar {
                         .disabled(disabled)
                         .privacySensitive()
                     if !secret.tags.isEmpty {
-                        Tagger(secret: secret)
+                        Tagger(tags: secret.tags.list)
                             .privacySensitive()
                     }
                     HStack {
-                        Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
-                            .font(.footnote)
-                            .foregroundStyle(.tertiary)
-                        
-                        Spacer()
-                        
                         if secret.favourite {
                             Image(systemName: "heart.fill")
-                                .font(.footnote)
-                                .foregroundColor(.accentColor)
+                                .font(.callout)
                         }
+                        Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
+                            .font(.footnote)
+                        Spacer()
                     }
+                    .foregroundStyle(.tertiary)
                 }
                 .task {
                     name = secret.name
@@ -56,9 +50,6 @@ extension Sidebar {
             }
             .confirmationDialog("Delete secret?", isPresented: $delete) {
                 Button("Delete", role: .destructive) {
-                    if UIDevice.pad && selected == secret.id {
-//                        selected = Index.capacity.rawValue
-                    }
                     Task {
                         await cloud.delete(id: secret.id)
                         await UNUserNotificationCenter.send(message: "Deleted secret!")
