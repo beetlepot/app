@@ -49,7 +49,7 @@ struct Tagger: View {
                 Text(verbatim: $0)
             }
         }
-        .task {
+        .onAppear {
             tags = secret.tags.sorted().map { "\($0)" }
         }
         .frame(height: height)

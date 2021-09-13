@@ -31,7 +31,6 @@
 		CE67EF8326EB92910040A8CA /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6C26EB92900040A8CA /* Tags.swift */; };
 		CE67EF8426EB92910040A8CA /* Writer.Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6D26EB92900040A8CA /* Writer.Representable.swift */; };
 		CE67EF8526EB92910040A8CA /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6E26EB92900040A8CA /* Writer.swift */; };
-		CE67EF8626EB92910040A8CA /* Sidebar.Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */; };
 		CE67EF8726EB92910040A8CA /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7026EB92900040A8CA /* Sidebar.swift */; };
 		CE67EF8826EB92910040A8CA /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7126EB92900040A8CA /* Purchases.Item.swift */; };
 		CE67EF8926EB92910040A8CA /* UISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7226EB92900040A8CA /* UISplitViewController.swift */; };
@@ -68,6 +67,8 @@
 		CE67EFC026EB9A9C0040A8CA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE67EFBF26EB9A9C0040A8CA /* Secrets */; };
 		CE67EFC226EB9BA60040A8CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC126EB9BA60040A8CA /* StoreKit.framework */; };
 		CE67EFC626EB9BBA0040A8CA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */; };
+		CE7C351626EF4C8900295CBA /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351526EF4C8900295CBA /* Middlebar.swift */; };
+		CE7C351826EF578700295CBA /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351726EF578700295CBA /* About.swift */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
 		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
 /* End PBXBuildFile section */
@@ -157,7 +158,6 @@
 		CE67EF6C26EB92900040A8CA /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 		CE67EF6D26EB92900040A8CA /* Writer.Representable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.Representable.swift; sourceTree = "<group>"; };
 		CE67EF6E26EB92900040A8CA /* Writer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
-		CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.Index.swift; sourceTree = "<group>"; };
 		CE67EF7026EB92900040A8CA /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		CE67EF7126EB92900040A8CA /* Purchases.Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchases.Item.swift; sourceTree = "<group>"; };
 		CE67EF7226EB92900040A8CA /* UISplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISplitViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +190,8 @@
 		CE67EFC326EB9BAA0040A8CA /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		CE67EFC426EB9BB40040A8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE7C351526EF4C8900295CBA /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
+		CE7C351726EF578700295CBA /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -256,18 +258,19 @@
 				CE67EF6426EB92180040A8CA /* Settings.bundle */,
 				CE67EFC326EB9BAA0040A8CA /* iOS.entitlements */,
 				CE67EFC426EB9BB40040A8CA /* Info.plist */,
+				CE7C351726EF578700295CBA /* About.swift */,
 				CE67EF6726EB92900040A8CA /* App.Delegate.swift */,
 				CE67EF7526EB92900040A8CA /* App.swift */,
 				CE67EF7B26EB92910040A8CA /* Capacity.swift */,
 				CE67EF6926EB92900040A8CA /* Empty.swift */,
 				CE67EF7C26EB92910040A8CA /* Full.swift */,
 				CE67EF6A26EB92900040A8CA /* Info.swift */,
+				CE7C351526EF4C8900295CBA /* Middlebar.swift */,
 				CE67EF7126EB92900040A8CA /* Purchases.Item.swift */,
 				CE67EF7A26EB92910040A8CA /* Purchases.swift */,
 				CE67EF7D26EB92910040A8CA /* Reveal.swift */,
 				CE67EF6B26EB92900040A8CA /* Settings.swift */,
 				CE4FF3C526EDFD19003EF083 /* Sidebar.Content.swift */,
-				CE67EF6F26EB92900040A8CA /* Sidebar.Index.swift */,
 				CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */,
 				CE67EF7026EB92900040A8CA /* Sidebar.swift */,
 				CE67EF6C26EB92900040A8CA /* Tags.swift */,
@@ -533,7 +536,6 @@
 				CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */,
 				CE67EF8A26EB92910040A8CA /* Tagger.swift in Sources */,
 				CE67EF8926EB92910040A8CA /* UISplitViewController.swift in Sources */,
-				CE67EF8626EB92910040A8CA /* Sidebar.Index.swift in Sources */,
 				CE67EF9426EB92910040A8CA /* Reveal.swift in Sources */,
 				CE67EF8126EB92910040A8CA /* Info.swift in Sources */,
 				CE67EF9C26EB94B20040A8CA /* Transaction.swift in Sources */,
@@ -548,6 +550,8 @@
 				CE67EF8B26EB92910040A8CA /* Sidebar.Item.swift in Sources */,
 				CE67EF9326EB92910040A8CA /* Full.swift in Sources */,
 				CE67EFA026EB94B20040A8CA /* Store.swift in Sources */,
+				CE7C351826EF578700295CBA /* About.swift in Sources */,
+				CE7C351626EF4C8900295CBA /* Middlebar.swift in Sources */,
 				CE38D53326ED0767005690AA /* Ring.swift in Sources */,
 				CE67EF8226EB92910040A8CA /* Settings.swift in Sources */,
 				CE4FF3C626EDFD19003EF083 /* Sidebar.Content.swift in Sources */,

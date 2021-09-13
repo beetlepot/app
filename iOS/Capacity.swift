@@ -22,8 +22,7 @@ struct Capacity: View {
                                          lineCap: .round))
                 VStack {
                     Text(Int(percentage * 100), format: .percent)
-                        .font(.body.monospacedDigit())
-                        .font(Font.largeTitle.monospacedDigit().weight(.light))
+                        .font(.title3.monospacedDigit())
                         .animation(.none, value: percentage)
                     Text("Used")
                         .foregroundColor(.secondary)
@@ -32,19 +31,20 @@ struct Capacity: View {
             }
             .frame(maxWidth: 180, maxHeight: 180)
             
-            HStack(spacing: 35) {
+            HStack(spacing: 40) {
                 Text(archive.capacity, format: .number)
                     .foregroundColor(.init("Spot"))
-                    .font(.title2.bold())
+                    .font(.title.bold())
                 + Text(archive.capacity == 1 ? "\nSpot" : "\nSpots")
                     .font(.footnote)
                 
                 Text(archive.count, format: .number)
                     .foregroundColor(.accentColor)
-                    .font(.title2.bold())
+                    .font(.title.bold())
                 + Text(archive.count == 1 ? "\nSecret" : "\nSecrets")
                     .font(.footnote)
             }
+            .padding(.top)
             .multilineTextAlignment(.center)
             
             Spacer()

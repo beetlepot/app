@@ -57,7 +57,7 @@ extension Sidebar {
             .confirmationDialog("Delete secret?", isPresented: $delete) {
                 Button("Delete", role: .destructive) {
                     if UIDevice.pad && selected == secret.id {
-                        selected = Index.capacity.rawValue
+//                        selected = Index.capacity.rawValue
                     }
                     Task {
                         await cloud.delete(id: secret.id)

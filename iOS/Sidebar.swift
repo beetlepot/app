@@ -11,6 +11,8 @@ struct Sidebar: View {
     var body: some View {
         Content(search: $search, favourites: $favourites, selected: $selected, archive: archive)
             .searchable(text: $search)
+            .navigationTitle("Secrets")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
@@ -22,11 +24,17 @@ struct Sidebar: View {
                     }
                     .font(.callout)
                     
-                    Button(action: new) {
-                        Label("New secret", systemImage: "plus")
+//                    Button(action: new) {
+//                        Label("New secret", systemImage: "plus")
+//                    }
+//                    .buttonStyle(.borderedProminent)
+//                    .buttonBorderShape(.capsule)
+//                    .font(.callout)
+                    
+                    NavigationLink(destination: Middlebar(archive: archive)) {
+                        Label("Menu", systemImage: "ellipsis.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.capsule)
                     .font(.callout)
                 }
                 
@@ -53,8 +61,8 @@ struct Sidebar: View {
                 self.selected = selected
             }
         } else {
-            proxy.scrollTo(Index.full.rawValue)
-            selected = Index.full.rawValue
+//            proxy.scrollTo(Index.full.rawValue)
+//            selected = Index.full.rawValue
         }
     }
 }

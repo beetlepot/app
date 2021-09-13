@@ -12,31 +12,30 @@ extension Sidebar {
         
         var body: some View {
             List {
-                Section("Secrets") {
-                    ForEach(filtered, id: \.self) {
-                        Item(selected: $selected, secret: archive[$0])
-                            .id($0)
-                    }
+//                Section("Secrets") {
+//
+//                }
+                ForEach(filtered, id: \.self) {
+                    Item(selected: $selected, secret: archive[$0])
+                        .id($0)
                 }
                 
-                if !searching {
-                    app
-                    help
-                    
-                    NavigationLink(tag: Index.full.rawValue, selection: $selected, destination: Full.init) {
-                        
-                    }
-                    .id(Index.full.rawValue)
-                    .listRowSeparator(.hidden)
-                    .hidden()
-                    .listRowBackground(Color.clear)
-                }
+//                if !searching {
+//                    app
+//                    help
+//                    
+//                    NavigationLink(tag: Index.full.rawValue, selection: $selected, destination: Full.init) {
+//                        
+//                    }
+//                    .id(Index.full.rawValue)
+//                    .listRowSeparator(.hidden)
+//                    .hidden()
+//                    .listRowBackground(Color.clear)
+//                }
             }
             .listStyle(.sidebar)
             .symbolRenderingMode(.hierarchical)
             .animation(.easeInOut(duration: 0.4), value: filtered)
-            .navigationTitle("Beetle")
-            .navigationBarTitleDisplayMode(.inline)
             .task {
                 filtered = archive.filter(favourites: favourites, search: search)
             }
@@ -49,51 +48,6 @@ extension Sidebar {
             .onChange(of: search) { search in
                 filtered = archive.filter(favourites: favourites, search: search)
             }
-        }
-        
-        private var app: some View {
-            Section("App") {
-                NavigationLink(tag: Index.settings.rawValue, selection: $selected) {
-                    Settings()
-                } label: {
-                    Label("Settings", systemImage: "slider.horizontal.3")
-                }
-                .id(Index.settings.rawValue)
-                
-                NavigationLink(tag: Index.capacity.rawValue, selection: $selected) {
-                    Capacity(archive: archive)
-                } label: {
-                    Label("Capacity", systemImage: "lock.square.stack")
-                }
-                .id(Index.capacity.rawValue)
-            }
-            .font(.callout)
-        }
-        
-        private var help: some View {
-            Section("Help") {
-                NavigationLink(tag: Index.markdown.rawValue, selection: $selected) {
-                    Info(title: "Markdown", text: Copy.markdown)
-                } label: {
-                    Label("Markdown", systemImage: "square.text.square")
-                }
-                .id(Index.markdown.rawValue)
-                
-                NavigationLink(tag: Index.privacy.rawValue, selection: $selected) {
-                    Info(title: "Privacy policy", text: Copy.privacy)
-                } label: {
-                    Label("Privacy policy", systemImage: "hand.raised")
-                }
-                .id(Index.privacy.rawValue)
-                
-                NavigationLink(tag: Index.terms.rawValue, selection: $selected) {
-                    Info(title: "Terms and conditions", text: Copy.terms)
-                } label: {
-                    Label("Terms and conditions", systemImage: "doc.plaintext")
-                }
-                .id(Index.terms.rawValue)
-            }
-            .font(.callout)
         }
     }
 }
