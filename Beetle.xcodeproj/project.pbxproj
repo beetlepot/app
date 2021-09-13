@@ -10,6 +10,8 @@
 		CE38D53126ECF2ED005690AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE38D53026ECF2ED005690AA /* Images.xcassets */; };
 		CE38D53326ED0767005690AA /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38D53226ED0767005690AA /* Ring.swift */; };
 		CE38D53426ED0767005690AA /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38D53226ED0767005690AA /* Ring.swift */; };
+		CE4D550226EF7832002230EE /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550126EF7832002230EE /* Create.swift */; };
+		CE4D550426EF7B71002230EE /* Sidebar.Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */; };
 		CE4FF3C626EDFD19003EF083 /* Sidebar.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */; };
 		CE67EF1A26EB8F280040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF1926EB8F280040A8CA /* Assets.xcassets */; };
 		CE67EF2626EB8F6B0040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */; };
@@ -136,6 +138,8 @@
 /* Begin PBXFileReference section */
 		CE38D53026ECF2ED005690AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE38D53226ED0767005690AA /* Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
+		CE4D550126EF7832002230EE /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
+		CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Pop.swift; sourceTree = "<group>"; };
 		CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Items.swift; sourceTree = "<group>"; };
 		CE67EF1226EB8F270040A8CA /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE67EF1926EB8F280040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				CE67EF6726EB92900040A8CA /* App.Delegate.swift */,
 				CE67EF7526EB92900040A8CA /* App.swift */,
 				CE67EF7B26EB92910040A8CA /* Capacity.swift */,
+				CE4D550126EF7832002230EE /* Create.swift */,
 				CE67EF6926EB92900040A8CA /* Empty.swift */,
 				CE67EF7C26EB92910040A8CA /* Full.swift */,
 				CE67EF6A26EB92900040A8CA /* Info.swift */,
@@ -272,6 +277,7 @@
 				CE67EF6B26EB92900040A8CA /* Settings.swift */,
 				CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */,
 				CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */,
+				CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */,
 				CE67EF7026EB92900040A8CA /* Sidebar.swift */,
 				CE67EF6C26EB92900040A8CA /* Tags.swift */,
 				CE67EF7626EB92900040A8CA /* UIApplication.swift */,
@@ -528,9 +534,11 @@
 				CE67EF9F26EB94B20040A8CA /* Store.State.swift in Sources */,
 				CE67EF9B26EB94B20040A8CA /* Copy.swift in Sources */,
 				CE67EF8D26EB92910040A8CA /* UIApplication.swift in Sources */,
+				CE4D550426EF7B71002230EE /* Sidebar.Pop.swift in Sources */,
 				CE67EF8E26EB92910040A8CA /* UIDevice.swift in Sources */,
 				CE67EF8826EB92910040A8CA /* Purchases.Item.swift in Sources */,
 				CE67EF8726EB92910040A8CA /* Sidebar.swift in Sources */,
+				CE4D550226EF7832002230EE /* Create.swift in Sources */,
 				CE67EF7E26EB92910040A8CA /* App.Delegate.swift in Sources */,
 				CE67EF8C26EB92910040A8CA /* App.swift in Sources */,
 				CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */,

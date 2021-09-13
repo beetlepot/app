@@ -15,6 +15,7 @@ extension Sidebar {
                     TextField(secret.name, text: $name)
                         .focused($focus)
                         .submitLabel(.done)
+                        .privacySensitive()
                         .onSubmit {
                             Task {
                                 await cloud.update(id: secret.id, name: name)
@@ -22,7 +23,6 @@ extension Sidebar {
                             }
                         }
                         .disabled(disabled)
-                        .privacySensitive()
                     if !secret.tags.isEmpty {
                         Tagger(tags: secret.tags.list)
                             .privacySensitive()
@@ -38,9 +38,10 @@ extension Sidebar {
                     }
                     .foregroundStyle(.tertiary)
                 }
-                .task {
-                    name = secret.name
-                }
+                .padding(.vertical, 6)
+            }
+            .onAppear {
+                name = secret.name
             }
             .onChange(of: focus) {
                 if $0 == false {

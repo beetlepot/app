@@ -6,15 +6,19 @@ extension Sidebar {
         @Binding var filter: Filter
         let archive: Archive
         @State private var filtered = [Int]()
-        @State private var tags = false
+        @State private var pop: Pop?
         @Environment(\.isSearching) private var searching
         
         var body: some View {
             List {
                 if !searching {
                     Section {
-                        Text("hello world")
+                        Button(action: new) {
+                            Label("New secret", systemImage: "plus.circle.fill")
+                                .symbolRenderingMode(.hierarchical)
+                        }
                     }
+                    .sheet(item: $pop, content: modal)
                     
                     DisclosureGroup("Filter") {
                         Toggle(isOn: $filter.favourites) {
@@ -25,30 +29,30 @@ extension Sidebar {
                         .toggleStyle(SwitchToggleStyle(tint: .orange))
                         
                         Button {
-                            tags = true
+                            pop = .tags
                         } label: {
                             Label("Tags", systemImage: "tag")
                                 .foregroundColor(.accentColor)
                                 .symbolRenderingMode(.multicolor)
                         }
-                        .sheet(isPresented: $tags) {
-                            Tags(tags: filter.tags) { tag in
-                                if filter.tags.contains(tag) {
-                                    filter.tags.remove(tag)
-                                } else {
-                                    filter.tags.insert(tag)
-                                }
-                            }
-                        }
                         
                         if !filter.tags.isEmpty {
                             Tagger(tags: filter.tags.list)
                         }
+                        
+                        if !filter.tags.isEmpty || filter.favourites {
+                            Button("Clear filters") {
+                                filter = .init()
+                            }
+                            .font(.footnote)
+                            .buttonStyle(.bordered)
+                            .foregroundColor(.primary)
+                        }
                     }
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
                     .font(.callout)
                     .foregroundColor(filter.tags.isEmpty && !filter.favourites ? .secondary : .pink)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                 }
                 
                 Section {
@@ -56,23 +60,14 @@ extension Sidebar {
                         Item(secret: archive[$0])
                     }
                 }
-                
-//                if !searching {
-//                    app
-//                    help
-//                    
-//                    NavigationLink(tag: Index.full.rawValue, selection: $selected, destination: Full.init) {
-//                        
-//                    }
-//                    .id(Index.full.rawValue)
-//                    .listRowSeparator(.hidden)
-//                    .hidden()
-//                    .listRowBackground(Color.clear)
-//                }
             }
             .listStyle(.insetGrouped)
             .symbolRenderingMode(.hierarchical)
             .animation(.easeInOut(duration: 0.4), value: filtered)
+            .onOpenURL {
+                guard $0.scheme == "beetle", $0.host == "create" else { return }
+                new()
+            }
             .onAppear {
                 filtered = archive.filtering(with: filter)
             }
@@ -81,6 +76,35 @@ extension Sidebar {
             }
             .onChange(of: filter) {
                 filtered = archive.filtering(with: $0)
+            }
+        }
+        
+        private func new() {
+            UIApplication.shared.hide()
+            if archive.available {
+//                Task {
+//                    let selected = await cloud.secret()
+//                }
+                pop = .create(1)
+            } else {
+                pop = .full
+            }
+        }
+        
+        @ViewBuilder private func modal(_ pop: Pop) -> some View {
+            switch pop {
+            case .tags:
+                Tags(tags: filter.tags) { tag in
+                    if filter.tags.contains(tag) {
+                        filter.tags.remove(tag)
+                    } else {
+                        filter.tags.insert(tag)
+                    }
+                }
+            case .full:
+                Full()
+            case let .create(id):
+                Create(secret: archive[id])
             }
         }
     }

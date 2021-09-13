@@ -12,22 +12,6 @@ struct Sidebar: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-//                    Button {
-//                        UIApplication.shared.hide()
-//                        favourites.toggle()
-//                    } label: {
-//                        Image(systemName: favourites ? "heart.fill" : "heart")
-//                            .symbolRenderingMode(.hierarchical)
-//                    }
-//                    .font(.callout)
-                    
-//                    Button(action: new) {
-//                        Label("New secret", systemImage: "plus")
-//                    }
-//                    .buttonStyle(.borderedProminent)
-//                    .buttonBorderShape(.capsule)
-//                    .font(.callout)
-                    
                     NavigationLink(destination: Middlebar(archive: archive)) {
                         Label("Menu", systemImage: "ellipsis.circle.fill")
                             .symbolRenderingMode(.hierarchical)
@@ -43,21 +27,5 @@ struct Sidebar: View {
                     .tint(.pink)
                 }
             }
-            .onOpenURL {
-                guard $0.scheme == "beetle", $0.host == "create" else { return }
-                new()
-            }
-    }
-    
-    private func new() {
-        UIApplication.shared.hide()
-        if archive.available {
-//            Task {
-//                let selected = await cloud.secret()
-//            }
-        } else {
-//            proxy.scrollTo(Index.full.rawValue)
-//            selected = Index.full.rawValue
-        }
     }
 }

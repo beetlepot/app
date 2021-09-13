@@ -40,7 +40,7 @@ struct Sidebar: View {
                     if archive.available {
                         Button {
                             Task {
-                                selected = await cloud.secret()
+//                                selected = await cloud.secret()
                             }
                         } label: {
                             Image(systemName: "plus.circle.fill")

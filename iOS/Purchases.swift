@@ -54,9 +54,11 @@ struct Purchases: View {
             state = $0
         }
         .task {
+            await store.load()
+        }
+        .onAppear {
             UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "Spot")
             UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
-            await store.load()
         }
     }
 }
