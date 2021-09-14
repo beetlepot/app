@@ -49,9 +49,14 @@ struct Reveal: View {
                     Button {
                         tags = true
                     } label: {
-                        Image(systemName: "tag.circle.fill")
-                            .symbolRenderingMode(.hierarchical)
-                            .font(.title2)
+                        
+                        VStack {
+                            Image(systemName: "tag.circle.fill")
+                                .symbolRenderingMode(.hierarchical)
+                                .font(.title2)
+                            Text("Tags")
+                                .font(.caption)
+                        }
                     }
                     
                     Spacer()

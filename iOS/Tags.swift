@@ -15,6 +15,7 @@ struct Tags: View {
                 } label: {
                     HStack {
                         Text(verbatim: tag.name)
+                            .privacySensitive()
                             .font(.callout)
                             .foregroundColor(.primary)
                         Spacer()
@@ -26,11 +27,10 @@ struct Tags: View {
                     .padding(.vertical, 5)
                 }
             }
-            .listStyle(.insetGrouped)
             .searchable(text: $search)
+            .listStyle(.insetGrouped)
             .navigationTitle("Tags")
             .navigationBarTitleDisplayMode(.large)
-            .navigationViewStyle(.stack)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
@@ -40,5 +40,6 @@ struct Tags: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }

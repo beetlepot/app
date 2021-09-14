@@ -15,7 +15,7 @@ extension Sidebar {
                     TextField(secret.name, text: $name)
                         .focused($focus)
                         .textInputAutocapitalization(.sentences)
-                        .disableAutocorrection(true)
+                        .disableAutocorrection(!Defaults.correction)
                         .submitLabel(.done)
                         .privacySensitive()
                         .onSubmit {

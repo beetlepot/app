@@ -108,15 +108,17 @@ struct Create: View {
             TextField(secret.name, text: $name)
                 .focused($focus)
                 .textInputAutocapitalization(.sentences)
-                .disableAutocorrection(true)
+                .disableAutocorrection(!Defaults.correction)
                 .submitLabel(.done)
                 .foregroundColor(.accentColor)
                 .privacySensitive()
                 .padding()
                 .frame(width: width)
-                .onSubmit {
-                    Task {
-                        await cloud.update(id: secret.id, name: name)
+                .onChange(of: focus) {
+                    if $0 == false {
+                        Task {
+                            await cloud.update(id: secret.id, name: name)
+                        }
                     }
                 }
             
