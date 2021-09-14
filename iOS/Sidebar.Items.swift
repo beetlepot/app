@@ -93,14 +93,14 @@ extension Sidebar {
         
         private func new() {
             UIApplication.shared.hide()
-            if archive.available {
-                Task {
+            Task {
+                if await cloud.arch.available {
                     let id = await cloud.secret()
                     pop = .create(id)
                     await UNUserNotificationCenter.send(message: "Created a new secret!")
+                } else {
+                    pop = .full
                 }
-            } else {
-                pop = .full
             }
         }
         
