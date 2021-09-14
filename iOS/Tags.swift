@@ -4,18 +4,17 @@ import Secrets
 struct Tags: View {
     let tags: Set<Tag>
     let action: (Tag) -> Void
+    @State private var search = ""
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
-            List(Tag
-                    .allCases
-                    .sorted(), id: \.self) { tag in
+            List(Tag.filtering(search: search), id: \.self) { tag in
                 Button {
                     action(tag)
                 } label: {
                     HStack {
-                        Text(verbatim: "\(tag)")
+                        Text(verbatim: tag.name)
                             .font(.callout)
                             .foregroundColor(.primary)
                         Spacer()
@@ -28,6 +27,7 @@ struct Tags: View {
                 }
             }
             .listStyle(.insetGrouped)
+            .searchable(text: $search)
             .navigationTitle("Tags")
             .navigationBarTitleDisplayMode(.large)
             .navigationViewStyle(.stack)

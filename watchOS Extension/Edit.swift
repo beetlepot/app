@@ -42,7 +42,7 @@ struct Edit: View {
                     }
                 } label: {
                     HStack {
-                        Text(verbatim: "\(tag)")
+                        Text(verbatim: tag.name)
                             .font(.caption2)
                             .foregroundColor(.primary)
                         Spacer()
