@@ -57,7 +57,13 @@ struct Settings: View {
                     }
                 }
             } label: {
-                Label("Activate notifications", systemImage: "app.badge")
+                HStack {
+                    Text("Activate notifications")
+                        .font(.callout)
+                    Spacer()
+                    Image(systemName: "app.badge")
+                        .font(.title3)
+                }
             }
         }
     }

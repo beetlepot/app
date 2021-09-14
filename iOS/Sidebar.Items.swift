@@ -14,8 +14,13 @@ extension Sidebar {
                 if !searching {
                     Section {
                         Button(action: new) {
-                            Label("New secret", systemImage: "plus.circle.fill")
-                                .symbolRenderingMode(.hierarchical)
+                            HStack {
+                                Text("New secret")
+                                Spacer()
+                                Image(systemName: "plus.circle.fill")
+                                    .symbolRenderingMode(.hierarchical)
+                                    .font(.title2)
+                            }
                         }
                     }
                     
@@ -30,10 +35,17 @@ extension Sidebar {
                         Button {
                             pop = .tags
                         } label: {
-                            Label("Tags", systemImage: "tag")
-                                .foregroundColor(.accentColor)
-                                .symbolRenderingMode(.multicolor)
+                            HStack {
+                                Text("Tags")
+                                    .foregroundColor(.accentColor)
+                                Spacer()
+                                Image(systemName: "tag.fill")
+                                    .foregroundColor(.accentColor)
+                                    .symbolRenderingMode(.multicolor)
+                                    .font(.body)
+                            }
                         }
+                        .buttonStyle(.bordered)
                         
                         if !filter.tags.isEmpty {
                             Tagger(tags: filter.tags.list)

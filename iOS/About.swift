@@ -28,17 +28,28 @@ struct About: View {
             
             Section {
                 Link(destination: URL(string: "https://beetlepot.github.io/about/")!) {
-                    Label("Beetle", systemImage: "link")
+                    HStack {
+                        Text("Beetle")
+                            .font(.callout)
+                        Spacer()
+                        Image(systemName: "link")
+                            .font(.title3)
+                    }
                 }
                 
                 Button {
                     UIApplication.shared.review()
                     Defaults.rated = true
                 } label: {
-                    Label("Rate on the App Store", systemImage: "star")
+                    HStack {
+                        Text("Rate on the App Store")
+                            .font(.callout)
+                        Spacer()
+                        Image(systemName: "star")
+                            .font(.title3)
+                    }
                 }
             }
-            .font(.callout)
             
             Section {
                 HStack(spacing: 0) {
