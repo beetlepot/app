@@ -49,14 +49,11 @@ struct Reveal: View {
                     Button {
                         tags = true
                     } label: {
-                        
-                        VStack {
-                            Image(systemName: "tag.circle.fill")
-                                .symbolRenderingMode(.hierarchical)
-                                .font(.title2)
-                            Text("Tags")
-                                .font(.caption)
-                        }
+                        Image(systemName: "tag.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.title2)
+                        Text("Tags")
+                            .font(.caption)
                     }
                     
                     Spacer()
@@ -79,11 +76,13 @@ struct Reveal: View {
                             await UNUserNotificationCenter.send(message: "Secret copied!")
                         }
                     } label: {
-                        Label("Copy", systemImage: "doc.on.doc.fill")
-                            .symbolRenderingMode(.hierarchical)
+                        Text("Copy")
+                            .font(.caption)
+                        Image(systemName: "doc.on.doc.fill")
+                            .font(.callout)
                     }
                     .buttonStyle(.bordered)
-                    .font(.footnote)
+                    .buttonBorderShape(.capsule)
                 }
             }
             .onChange(of: secret) {

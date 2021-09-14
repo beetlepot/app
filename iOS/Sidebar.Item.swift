@@ -11,7 +11,7 @@ extension Sidebar {
         
         var body: some View {
             NavigationLink(destination: Reveal(secret: secret)) {
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading) {
                     TextField(secret.name, text: $name)
                         .focused($focus)
                         .textInputAutocapitalization(.sentences)
@@ -40,7 +40,7 @@ extension Sidebar {
                     }
                     .foregroundStyle(.tertiary)
                 }
-                .padding(.vertical, 12)
+                .padding(.vertical, 8)
             }
             .onAppear {
                 name = secret.name
