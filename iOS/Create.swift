@@ -28,7 +28,7 @@ struct Create: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("New secret")
                         .font(.callout)
-                        .foregroundStyle(.secondary)
+                        .foregroundColor(.init("Spot"))
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -92,7 +92,7 @@ struct Create: View {
             } label: {
                 Image(systemName: "arrow.right")
             }
-            .padding(.bottom, 70)
+            .padding(.bottom, 80)
         }
         .tag(0)
     }
@@ -137,7 +137,7 @@ struct Create: View {
             
             Spacer()
             
-            HStack {
+            HStack(spacing: 40) {
                 Button {
                     reindex(to: 0)
                 } label: {
@@ -149,7 +149,7 @@ struct Create: View {
                     Image(systemName: "arrow.right")
                 }
             }
-            .padding(.bottom, 70)
+            .padding(.bottom, 80)
         }
         .tag(1)
     }
@@ -201,7 +201,7 @@ struct Create: View {
             } label: {
                 Image(systemName: "arrow.left")
             }
-            .padding(.bottom, 70)
+            .padding(.bottom, 80)
         }
         .tag(2)
     }
