@@ -3,37 +3,43 @@ import Secrets
 
 extension Sidebar {
     struct Items: View {
-        let archive: Archive
-        @Binding var filtered: [Int]
+        @Binding var filtered: [Secret]
         @State private var selected: Int?
+        @State private var available = false
+        @State private var capacity = 0
+        @State private var count = 0
         
         var body: some View {
             List {
                 HStack {
-                    Text(archive.capacity, format: .number)
+                    Text(capacity, format: .number)
                         .foregroundColor(.init("Spot"))
                         .font(.title3.bold())
-                    + Text(archive.capacity == 1 ? "\nSpot" : "\nSpots")
+                    + Text(capacity == 1 ? "\nSpot" : "\nSpots")
                         .font(.caption2)
                     Spacer()
-                    Text(archive.count, format: .number)
+                    Text(count, format: .number)
                         .foregroundColor(.accentColor)
                         .font(.title3.bold())
-                    + Text(archive.count == 1 ? "\nSecret" : "\nSecrets")
+                    + Text(count == 1 ? "\nSecret" : "\nSecrets")
                         .font(.caption2)
                 }
                 .multilineTextAlignment(.center)
                 .padding(.vertical)
                 .listRowBackground(Color.clear)
                 
-                ForEach(filtered, id: \.self) {
-                    Item(selected: $selected, secret: archive[$0])
+                ForEach(filtered) {
+                    Item(selected: $selected, secret: $0)
                 }
                 
-                if archive.available {
+                if available {
                     Button {
                         Task {
-                            selected = await cloud.secret()
+                            do {
+                                selected = try await cloud.secret()
+                            } catch {
+                                
+                            }
                         }
                     } label: {
                         Image(systemName: "plus.circle.fill")
@@ -62,6 +68,11 @@ extension Sidebar {
                         .foregroundColor(.accentColor)
                 }
                 .listRowBackground(Color.clear)
+            }
+            .onReceive(cloud.archive) {
+                available = $0.available
+                capacity = $0.capacity
+                count = $0.count
             }
         }
     }

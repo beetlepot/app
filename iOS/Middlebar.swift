@@ -1,9 +1,6 @@
 import SwiftUI
-import Secrets
 
 struct Middlebar: View {
-    let archive: Archive
-    
     var body: some View {
         List {
             app
@@ -21,7 +18,7 @@ struct Middlebar: View {
                 Label("Settings", systemImage: "slider.horizontal.3")
             }
             
-            NavigationLink(destination: Capacity(archive: archive)) {
+            NavigationLink(destination: Capacity()) {
                 Label("Capacity", systemImage: "lock.square.stack")
             }
             

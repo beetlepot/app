@@ -1,8 +1,8 @@
 import SwiftUI
-import Secrets
 
 struct Capacity: View {
-    let archive: Archive
+    @State private var count = 0
+    @State private var capacity = 0
     @State private var percentage = Double()
     @State private var purchases = false
     
@@ -32,16 +32,16 @@ struct Capacity: View {
             .frame(maxWidth: 180, maxHeight: 180)
             
             HStack(spacing: 40) {
-                Text(archive.capacity, format: .number)
+                Text(capacity, format: .number)
                     .foregroundColor(.init("Spot"))
                     .font(.title.bold())
-                + Text(archive.capacity == 1 ? "\nSpot" : "\nSpots")
+                + Text(capacity == 1 ? "\nSpot" : "\nSpots")
                     .font(.footnote)
                 
-                Text(archive.count, format: .number)
+                Text(count, format: .number)
                     .foregroundColor(.accentColor)
                     .font(.title.bold())
-                + Text(archive.count == 1 ? "\nSecret" : "\nSecrets")
+                + Text(count == 1 ? "\nSecret" : "\nSecrets")
                     .font(.footnote)
             }
             .padding(.top)
@@ -72,9 +72,14 @@ struct Capacity: View {
     }
     
     private func update() {
-        DispatchQueue.main.async {
-            withAnimation(.easeInOut(duration: 1.2)) {
-                percentage = .init(archive.count) / .init(archive.capacity)
+        Task {
+            count = await cloud._archive.count
+            capacity = await cloud._archive.capacity
+            
+            DispatchQueue.main.async {
+                withAnimation(.easeInOut(duration: 1.2)) {
+                    percentage = .init(count) / .init(capacity)
+                }
             }
         }
     }

@@ -1,14 +1,13 @@
 import SwiftUI
 import Combine
-import Secrets
 
 extension Writer {
     struct Representable: UIViewRepresentable {
-        let secret: Secret
+        let id: Int
         let submit: PassthroughSubject<Void, Never>
         
         func makeCoordinator() -> Coordinator {
-            .init(secret: secret, submit: submit)
+            .init(id: id, submit: submit)
         }
         
         func makeUIView(context: Context) -> Coordinator {

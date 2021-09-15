@@ -3,38 +3,33 @@ import LocalAuthentication
 import Archivable
 import Secrets
 
-let cloud: Cloud<Archive> = .new
+let cloud = Cloud<Archive>.new
 let store = Store()
 
 @main struct App: SwiftUI.App {
-    @State private var archive = Archive.new
     @State private var authenticated = false
-    @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(archive: archive)
-                Empty(empty: archive.count == 0)
+                Sidebar()
+                Empty()
             }
             .navigationViewStyle(.columns)
-            .onReceive(cloud.archive) {
-                archive = $0
-            }
         }
         .onChange(of: phase) {
             switch $0 {
             case .active:
-                if authenticate && !authenticated {
+                if Defaults.authenticate && !authenticated {
                     auth()
                 } else {
                     authenticated = true
                 }
                 cloud.pull.send()
             case .background:
-                if authenticate {
+                if Defaults.authenticate {
                     authenticated = false
                 }
             default:

@@ -1,8 +1,7 @@
 import SwiftUI
-import Secrets
 
 struct Empty: View {
-    let empty: Bool
+    @State private var empty = true
     
     var body: some View {
         VStack {
@@ -13,5 +12,8 @@ struct Empty: View {
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
         .background(Color(.secondarySystemBackground))
+        .onReceive(cloud.archive) {
+            empty = $0.count == 0
+        }
     }
 }

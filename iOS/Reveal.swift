@@ -10,9 +10,9 @@ struct Reveal: View {
     
     var body: some View {
         if deleted {
-            Empty(empty: false)
+            Empty()
         } else if editing {
-            Writer(secret: secret, editing: $editing)
+            Writer(id: secret.id, editing: $editing)
         } else {
             ScrollView {
                 VStack {
@@ -103,6 +103,17 @@ struct Reveal: View {
             }
             .navigationTitle(secret.name)
             .navigationBarTitleDisplayMode(.inline)
+            .task {
+                if let created = Defaults.created {
+                    let days = Calendar.current.dateComponents([.day], from: created, to: .init()).day!
+                    if !Defaults.rated && days > 6 {
+                        UIApplication.shared.review()
+                        Defaults.rated = true
+                    }
+                } else {
+                    Defaults.created = .init()
+                }
+            }
         }
     }
 }

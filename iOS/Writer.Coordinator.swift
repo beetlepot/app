@@ -8,7 +8,7 @@ extension Writer {
         private var subs = Set<AnyCancellable>()
         
         required init?(coder: NSCoder) { nil }
-        init(secret: Secret, submit: PassthroughSubject<Void, Never>) {
+        init(id: Int, submit: PassthroughSubject<Void, Never>) {
             super.init(frame: .zero, textContainer: Container())
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)
             typingAttributes[.kern] = 1
@@ -24,7 +24,10 @@ extension Writer {
             spellCheckingType = Defaults.spell ? .yes : .no
             alwaysBounceVertical = true
             allowsEditingTextAttributes = false
-            text = secret.payload
+
+            Task {
+                text = await cloud._archive[id].payload
+            }
             
             if Defaults.tools {
                 tools()
@@ -40,7 +43,7 @@ extension Writer {
                 .sink { [weak self] in
                     guard let text = self?.text.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
                     Task {
-                        await cloud.update(id: secret.id, payload: text)
+                        await cloud.update(id: id, payload: text)
                         await UNUserNotificationCenter.send(message: "Edited secret!")
                     }
                 }

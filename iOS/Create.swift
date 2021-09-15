@@ -4,11 +4,13 @@ import Secrets
 private let width = CGFloat(200)
 
 struct Create: View {
-    let secret: Secret
+    let id: Int
     @State private var index = 0
-    @State private var edit = false
-    @State private var tags = false
     @State private var name = ""
+    @State private var payload = ""
+    @State private var tags = Set<Tag>()
+    @State private var editPayload = false
+    @State private var editTags = false
     @Environment(\.dismiss) private var dismiss
     @FocusState private var focus: Bool
     
@@ -20,7 +22,7 @@ struct Create: View {
                 card2
             }
             .tabViewStyle(.page)
-            .navigationTitle(secret.name)
+            .navigationTitle(name)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -38,8 +40,12 @@ struct Create: View {
             }
         }
         .navigationViewStyle(.stack)
+        .onReceive(cloud.archive) {
+            name = $0[id].name
+            payload = $0[id].payload
+            tags = $0[id].tags
+        }
         .onAppear {
-            name = secret.name
             UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
             UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
         }
@@ -59,7 +65,7 @@ struct Create: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(width: width, alignment: .leading)
             
-            Text(verbatim: secret.payload)
+            Text(verbatim: payload)
                 .privacySensitive()
                 .foregroundColor(.secondary)
                 .lineLimit(1)
@@ -67,14 +73,14 @@ struct Create: View {
                 .frame(width: width, alignment: .leading)
             
             Button {
-                edit = true
+                editPayload = true
             } label: {
                 Label("Content", systemImage: "pencil.circle.fill")
                     .symbolRenderingMode(.hierarchical)
             }
-            .sheet(isPresented: $edit) {
+            .sheet(isPresented: $editPayload) {
                 NavigationView {
-                    Writer(secret: secret, editing: $edit)
+                    Writer(id: id, editing: $editPayload)
                 }
                 .navigationViewStyle(.stack)
             }
@@ -105,7 +111,7 @@ struct Create: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(width: width, alignment: .leading)
             
-            TextField(secret.name, text: $name)
+            TextField(name, text: $name)
                 .focused($focus)
                 .textInputAutocapitalization(.sentences)
                 .disableAutocorrection(!Defaults.correction)
@@ -117,7 +123,7 @@ struct Create: View {
                 .onChange(of: focus) {
                     if $0 == false {
                         Task {
-                            await cloud.update(id: secret.id, name: name)
+                            await cloud.update(id: id, name: name)
                         }
                     }
                 }
@@ -163,26 +169,26 @@ struct Create: View {
                 .frame(width: width, alignment: .leading)
                 .padding(.bottom)
             
-            if !secret.tags.isEmpty {
-                Tagger(tags: secret.tags.list)
+            if !tags.isEmpty {
+                Tagger(tags: tags.list)
                     .privacySensitive()
                     .padding(.bottom)
                     .frame(width: width)
             }
             
             Button {
-                tags = true
+                editTags = true
             } label: {
                 Label("Tags", systemImage: "tag.circle.fill")
                     .symbolRenderingMode(.hierarchical)
             }
-            .sheet(isPresented: $tags) {
-                Tags(tags: secret.tags) { tag in
+            .sheet(isPresented: $editTags) {
+                Tags(tags: tags) { tag in
                     Task {
-                        if secret.tags.contains(tag) {
-                            await cloud.remove(id: secret.id, tag: tag)
+                        if tags.contains(tag) {
+                            await cloud.remove(id: id, tag: tag)
                         } else {
-                            await cloud.add(id: secret.id, tag: tag)
+                            await cloud.add(id: id, tag: tag)
                         }
                     }
                 }

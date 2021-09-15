@@ -3,23 +3,21 @@ import UserNotifications
 import Secrets
 
 struct Sidebar: View {
-    let archive: Archive
     @State private var filter =  Filter()
-    @State private var filtered = [Int]()
+    @State private var filtered = [Secret]()
     
     var body: some View {
         NavigationView {
-            Items(archive: archive, filtered: $filtered)
+            Items(filtered: $filtered)
                 .searchable(text: $filter.search)
         }
-        .onAppear {
-            filtered = archive.filtering(with: filter)
-        }
-        .onChange(of: archive) {
+        .onReceive(cloud.archive) {
             filtered = $0.filtering(with: filter)
         }
-        .onChange(of: filter) {
-            filtered = archive.filtering(with: $0)
+        .onChange(of: filter) { filter in
+            Task {
+                filtered = await cloud._archive.filtering(with: filter)
+            }
         }
         .task {
             if await UNUserNotificationCenter.authorization == .notDetermined {

@@ -2,17 +2,16 @@ import SwiftUI
 import Secrets
 
 struct Sidebar: View {
-    let archive: Archive
     @State private var filter = Filter()
     
     var body: some View {
-        Items(filter: $filter, archive: archive)
+        Items(filter: $filter)
             .searchable(text: $filter.search, prompt: "Filter secrets by name")
             .navigationTitle("Secrets")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: Middlebar(archive: archive)) {
+                    NavigationLink(destination: Middlebar()) {
                         Label("Menu", systemImage: "ellipsis.circle.fill")
                             .symbolRenderingMode(.hierarchical)
                     }

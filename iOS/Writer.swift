@@ -1,16 +1,16 @@
 import SwiftUI
 import Combine
-import Secrets
 
 struct Writer: View {
-    let secret: Secret
+    let id: Int
     @Binding var editing: Bool
+    @State private var name = ""
     private let submit = PassthroughSubject<Void, Never>()
     
     var body: some View {
-        Representable(secret: secret, submit: submit)
+        Representable(id: id, submit: submit)
             .privacySensitive()
-            .navigationTitle(secret.name)
+            .navigationTitle(name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .privacySensitive()
@@ -34,6 +34,9 @@ struct Writer: View {
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.capsule)
                 }
+            }
+            .onReceive(cloud.archive) {
+                name = $0[id].name
             }
     }
     

@@ -1,28 +1,11 @@
 import StoreKit
-import Secrets
 
 extension App {
     final class Delegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, SKPaymentTransactionObserver {
         func application(_ application: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
             application.registerForRemoteNotifications()
-            
-            DispatchQueue
-                .main
-                .asyncAfter(deadline: .now() + 4) {
-                    if let created = Defaults.created {
-                        let days = Calendar.current.dateComponents([.day], from: created, to: .init()).day!
-                        if !Defaults.rated && days > 6 {
-                            application.review()
-                            Defaults.rated = true
-                        }
-                    } else {
-                        Defaults.created = .init()
-                    }
-                }
-            
             UNUserNotificationCenter.current().delegate = self
             SKPaymentQueue.default().add(self)
-            
             return true
         }
         

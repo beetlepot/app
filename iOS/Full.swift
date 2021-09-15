@@ -1,14 +1,13 @@
 import SwiftUI
-import Secrets
 
 struct Full: View {
-    let archive: Archive
+    @State private var full = true
     @State private var purchases = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
-            if !archive.available {
+            if full {
                 Image(systemName: "lock.square")
                     .resizable()
                     .font(.largeTitle.weight(.ultraLight))
@@ -44,8 +43,9 @@ struct Full: View {
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
         .background(Color(.secondarySystemBackground))
-        .onChange(of: archive) {
+        .onReceive(cloud.archive) {
             if $0.available {
+                full = false
                 purchases = false
                 dismiss()
             }

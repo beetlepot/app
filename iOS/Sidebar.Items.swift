@@ -4,9 +4,8 @@ import Secrets
 extension Sidebar {
     struct Items: View {
         @Binding var filter: Filter
-        let archive: Archive
-        @State private var filtered = [Int]()
         @State private var pop: Pop?
+        @State private var filtered = [Secret]()
         @Environment(\.isSearching) private var searching
         
         var body: some View {
@@ -67,9 +66,7 @@ extension Sidebar {
                 }
                 
                 Section {
-                    ForEach(filtered, id: \.self) {
-                        Item(secret: archive[$0])
-                    }
+                    ForEach(filtered, content: Item.init(secret:))
                 }
             }
             .listStyle(.insetGrouped)
@@ -80,25 +77,24 @@ extension Sidebar {
                 guard $0.scheme == "beetle", $0.host == "create" else { return }
                 new()
             }
-            .onAppear {
-                filtered = archive.filtering(with: filter)
-            }
-            .onChange(of: archive) {
+            .onReceive(cloud.archive) {
                 filtered = $0.filtering(with: filter)
             }
-            .onChange(of: filter) {
-                filtered = archive.filtering(with: $0)
+            .onChange(of: filter) { filter in
+                Task {
+                    filtered = await cloud._archive.filtering(with: filter)
+                }
             }
         }
         
         private func new() {
             UIApplication.shared.hide()
             Task {
-                if await cloud.arch.available {
-                    let id = await cloud.secret()
+                do {
+                    let id = try await cloud.secret()
                     pop = .create(id)
                     await UNUserNotificationCenter.send(message: "Created a new secret!")
-                } else {
+                } catch {
                     pop = .full
                 }
             }
@@ -115,9 +111,9 @@ extension Sidebar {
                     }
                 }
             case .full:
-                Full(archive: archive)
+                Full()
             case let .create(id):
-                Create(secret: archive[id])
+                Create(id: id)
             }
         }
     }
