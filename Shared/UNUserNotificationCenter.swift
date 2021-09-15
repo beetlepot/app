@@ -24,8 +24,8 @@ extension UNUserNotificationCenter {
         removeDeliveredNotifications(withIdentifiers: delivered
                                         .map(\.request.identifier)
                                         .filter {
-            $0 != notification.request.identifier
-        })
+                                            $0 != notification.request.identifier
+                                        })
         return .banner
     }
 }

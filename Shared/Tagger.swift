@@ -41,7 +41,7 @@ struct Tagger: View {
                 height = y + last
             }
         }
-        .accessibilityLabel("Tag list")
+        .accessibilityLabel("Tags")
         .accessibilityChildren {
             List(tags, id: \.self) {
                 Text(verbatim: $0)
