@@ -10,7 +10,14 @@ struct Sidebar: View {
             .navigationTitle("Secrets")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button {
+                        UIApplication.shared.sheet()
+                    } label: {
+                        Label("Filter", systemImage: "line.3.horizontal.decrease.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                    }
+                    .tag(555)
                     NavigationLink(destination: Middlebar()) {
                         Label("Menu", systemImage: "ellipsis.circle.fill")
                             .symbolRenderingMode(.hierarchical)

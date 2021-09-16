@@ -38,16 +38,16 @@ extension Sidebar {
                                 Text("Tags")
                                     .foregroundColor(.accentColor)
                                 Spacer()
-                                Image(systemName: "tag.fill")
+                                Image(systemName: "tag")
                                     .foregroundColor(.accentColor)
                                     .symbolRenderingMode(.multicolor)
                                     .font(.body)
                             }
                         }
-                        .buttonStyle(.bordered)
                         
                         if !filter.tags.isEmpty {
                             Tagger(tags: filter.tags.list)
+                                .listRowSeparator(.hidden)
                         }
                         
                         if !filter.tags.isEmpty || filter.favourites {
@@ -62,7 +62,7 @@ extension Sidebar {
                     .font(.callout)
                     .foregroundColor(filter.tags.isEmpty && !filter.favourites ? .secondary : .pink)
                     .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
+//                    .listRowSeparator(.hidden)
                 }
                 
                 Section {

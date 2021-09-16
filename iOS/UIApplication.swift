@@ -1,4 +1,5 @@
 import StoreKit
+import SwiftUI
 
 extension UIApplication {
     func settings() {
@@ -10,6 +11,32 @@ extension UIApplication {
     }
     
     func review() {
-        SKStoreReviewController.requestReview(in: connectedScenes.compactMap { $0 as? UIWindowScene }.first!)
+        scene
+            .map(SKStoreReviewController.requestReview(in:))
+    }
+    
+    func sheet() {
+        guard let presenter = scene.flatMap(\.windows.first?.rootViewController) else { return }
+        let controller = UIHostingController(rootView: Circle())
+        controller
+            .sheetPresentationController
+            .map {
+                $0.detents = [.medium()]
+                $0.prefersScrollingExpandsWhenScrolledToEdge = false
+                $0.largestUndimmedDetentIdentifier = .medium
+                
+            }
+        presenter.present(controller, animated: true)
+    }
+    
+    private var scene: UIWindowScene? {
+        connectedScenes
+            .filter {
+                $0.activationState == .foregroundActive
+            }
+            .compactMap {
+                $0 as? UIWindowScene
+            }
+            .first
     }
 }
