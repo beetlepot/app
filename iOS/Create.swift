@@ -1,7 +1,7 @@
 import SwiftUI
 import Secrets
 
-private let width = CGFloat(200)
+private let width = CGFloat(240)
 
 struct Create: View {
     let id: Int
@@ -22,15 +22,10 @@ struct Create: View {
                 card2
             }
             .tabViewStyle(.page)
-            .navigationTitle(name)
-            .navigationBarTitleDisplayMode(.inline)
+            .symbolRenderingMode(.hierarchical)
+            .navigationTitle("New Secret")
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Text("New secret")
-                        .font(.callout)
-                        .foregroundColor(.init("Spot"))
-                }
-                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         dismiss()
@@ -53,31 +48,28 @@ struct Create: View {
     
     private var card0: some View {
         VStack {
-            Spacer()
+            HStack {
+                Image(systemName: "lock.circle.fill")
+                    .font(.largeTitle)
+                    .foregroundColor(.accentColor)
+                Text("Enter your secret")
+                Spacer()
+            }
+            .padding()
             
-            Image(systemName: "ladybug.fill")
-                .font(.title)
-                .symbolRenderingMode(.hierarchical)
-                .foregroundColor(.accentColor)
-            
-            Text("What is the content\nof this secret?")
-                .padding(.top)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(width: width, alignment: .leading)
-            
-            Text(verbatim: payload)
+            Text(verbatim: payload.isEmpty ? "This secret is empty" : payload)
                 .privacySensitive()
-                .foregroundColor(.secondary)
-                .lineLimit(1)
-                .padding(.vertical)
-                .frame(width: width, alignment: .leading)
+                .foregroundStyle(payload.isEmpty ? .tertiary : .secondary)
+                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                .padding()
             
             Button {
                 editPayload = true
             } label: {
-                Label("Content", systemImage: "pencil.circle.fill")
-                    .symbolRenderingMode(.hierarchical)
+                Label("Edit", systemImage: "pencil")
             }
+            .buttonStyle(.bordered)
+            .padding(.bottom)
             .sheet(isPresented: $editPayload) {
                 NavigationView {
                     Writer(id: id, editing: $editPayload)
@@ -94,22 +86,20 @@ struct Create: View {
             }
             .padding(.bottom, 80)
         }
+        .frame(maxWidth: .greatestFiniteMagnitude)
         .tag(0)
     }
     
     private var card1: some View {
         VStack {
-            Spacer()
-            
-            Image(systemName: "ladybug.fill")
-                .font(.title)
-                .symbolRenderingMode(.hierarchical)
-                .foregroundColor(.accentColor)
-            
-            Text("Identify this secret\nwith a name")
-                .padding(.top)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(width: width, alignment: .leading)
+            HStack {
+                Image(systemName: "character.textbox")
+                    .font(.largeTitle)
+                    .foregroundColor(.accentColor)
+                Text("Identify it with a name")
+                Spacer()
+            }
+            .padding()
             
             TextField(name, text: $name)
                 .focused($focus)
@@ -119,7 +109,6 @@ struct Create: View {
                 .foregroundColor(.accentColor)
                 .privacySensitive()
                 .padding()
-                .frame(width: width)
                 .onChange(of: focus) {
                     if $0 == false {
                         Task {
@@ -131,9 +120,10 @@ struct Create: View {
             Button {
                 focus = true
             } label: {
-                Label("Name", systemImage: "pencil.circle.fill")
-                    .symbolRenderingMode(.hierarchical)
+                Label("Name", systemImage: "pencil")
             }
+            .buttonStyle(.bordered)
+            .padding(.bottom)
             
             Spacer()
             
@@ -151,6 +141,7 @@ struct Create: View {
             }
             .padding(.bottom, 80)
         }
+        .frame(maxWidth: .greatestFiniteMagnitude)
         .tag(1)
     }
     
@@ -203,6 +194,7 @@ struct Create: View {
             }
             .padding(.bottom, 80)
         }
+        .frame(maxWidth: .greatestFiniteMagnitude)
         .tag(2)
     }
     
