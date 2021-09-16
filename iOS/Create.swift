@@ -6,7 +6,7 @@ private let width = CGFloat(240)
 struct Create: View {
     let id: Int
     @State private var index = 0
-    @State private var name = ""
+    @State private var name = "lol"
     @State private var payload = ""
     @State private var tags = Set<Tag>()
     @State private var editPayload = false
@@ -16,12 +16,13 @@ struct Create: View {
     
     var body: some View {
         NavigationView {
-            TabView(selection: $index) {
-                card0
-                card1
-                card2
-            }
-            .tabViewStyle(.page)
+//            TabView(selection: $index) {
+//                card0
+//                card1
+//                card2
+//            }
+//            .tabViewStyle(.page)
+            TextField(name, text: $name)
             .symbolRenderingMode(.hierarchical)
             .navigationTitle("New Secret")
             .navigationBarTitleDisplayMode(.large)
@@ -39,11 +40,12 @@ struct Create: View {
             name = $0[id].name
             payload = $0[id].payload
             tags = $0[id].tags
+            print("received")
         }
-        .onAppear {
-            UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
-            UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
-        }
+//        .onAppear {
+//            UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
+//            UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
+//        }
     }
     
     private var card0: some View {
@@ -102,20 +104,20 @@ struct Create: View {
             .padding()
             
             TextField(name, text: $name)
-                .focused($focus)
-                .textInputAutocapitalization(.sentences)
-                .disableAutocorrection(!Defaults.correction)
-                .submitLabel(.done)
+//                .focused($focus)
+//                .textInputAutocapitalization(.sentences)
+//                .disableAutocorrection(!Defaults.correction)
+//                .submitLabel(.done)
                 .foregroundColor(.accentColor)
-                .privacySensitive()
-                .padding()
-                .onChange(of: focus) {
-                    if $0 == false {
-                        Task {
-                            await cloud.update(id: id, name: name)
-                        }
-                    }
-                }
+//                .privacySensitive()
+//                .padding()
+//                .onChange(of: focus) {
+//                    if $0 == false {
+//                        Task {
+//                            await cloud.update(id: id, name: name)
+//                        }
+//                    }
+//                }
             
             Button {
                 focus = true
@@ -141,7 +143,7 @@ struct Create: View {
             }
             .padding(.bottom, 80)
         }
-        .frame(maxWidth: .greatestFiniteMagnitude)
+//        .frame(maxWidth: .greatestFiniteMagnitude)
         .tag(1)
     }
     
