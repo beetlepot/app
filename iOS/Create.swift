@@ -16,13 +16,12 @@ struct Create: View {
     
     var body: some View {
         NavigationView {
-//            TabView(selection: $index) {
-//                card0
-//                card1
-//                card2
-//            }
-//            .tabViewStyle(.page)
-            TextField(name, text: $name)
+            TabView(selection: $index) {
+                card0
+                card1
+                card2
+            }
+            .tabViewStyle(.page)
             .symbolRenderingMode(.hierarchical)
             .navigationTitle("New Secret")
             .navigationBarTitleDisplayMode(.large)
@@ -40,12 +39,11 @@ struct Create: View {
             name = $0[id].name
             payload = $0[id].payload
             tags = $0[id].tags
-            print("received")
         }
-//        .onAppear {
-//            UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
-//            UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
-//        }
+        .onAppear {
+            UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
+            UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
+        }
     }
     
     private var card0: some View {
@@ -104,23 +102,23 @@ struct Create: View {
             .padding()
             
             TextField(name, text: $name)
-//                .focused($focus)
-//                .textInputAutocapitalization(.sentences)
-//                .disableAutocorrection(!Defaults.correction)
-//                .submitLabel(.done)
+                .focused($focus)
+                .textInputAutocapitalization(.sentences)
+                .disableAutocorrection(!Defaults.correction)
+                .submitLabel(.done)
                 .foregroundColor(.accentColor)
-//                .privacySensitive()
-//                .padding()
-//                .onChange(of: focus) {
-//                    if $0 == false {
-//                        Task {
-//                            await cloud.update(id: id, name: name)
-//                        }
-//                    }
-//                }
+                .privacySensitive()
+                .padding()
+                .onChange(of: focus) {
+                    if $0 == false {
+                        Task {
+                            await cloud.update(id: id, name: name)
+                        }
+                    }
+                }
             
             Button {
-                focus = true
+                focus.toggle()
             } label: {
                 Label("Name", systemImage: "pencil")
             }
@@ -143,37 +141,36 @@ struct Create: View {
             }
             .padding(.bottom, 80)
         }
-//        .frame(maxWidth: .greatestFiniteMagnitude)
+        .frame(maxWidth: .greatestFiniteMagnitude)
         .tag(1)
     }
     
     private var card2: some View {
         VStack {
-            Spacer()
+            HStack {
+                Image(systemName: "tag.circle.fill")
+                    .font(.largeTitle)
+                    .foregroundColor(.accentColor)
+                Text("Personalise with tags")
+                Spacer()
+            }
+            .padding()
             
-            Image(systemName: "ladybug.fill")
-                .font(.title)
-                .symbolRenderingMode(.hierarchical)
-                .foregroundColor(.accentColor)
-            
-            Text("Personalise your secret\nwith tags")
-                .padding(.top)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(width: width, alignment: .leading)
-                .padding(.bottom)
-            
-            if !tags.isEmpty {
+            if tags.isEmpty {
+                Text("No tags added")
+                    .foregroundStyle(.tertiary)
+                    .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                    .padding()
+            } else {
                 Tagger(tags: tags.list)
                     .privacySensitive()
-                    .padding(.bottom)
-                    .frame(width: width)
+                    .padding()
             }
             
             Button {
                 editTags = true
             } label: {
-                Label("Tags", systemImage: "tag.circle.fill")
-                    .symbolRenderingMode(.hierarchical)
+                Label("Tags", systemImage: "tag")
             }
             .sheet(isPresented: $editTags) {
                 Tags(tags: tags) { tag in
@@ -186,6 +183,8 @@ struct Create: View {
                     }
                 }
             }
+            .buttonStyle(.bordered)
+            .padding(.bottom)
             
             Spacer()
             
@@ -201,7 +200,7 @@ struct Create: View {
     }
     
     private func reindex(to: Int) {
-        withAnimation(.easeInOut(duration: 0.3)) {
+        withAnimation(.easeInOut(duration: 0.35)) {
             index = to
         }
     }
