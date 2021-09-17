@@ -2,8 +2,7 @@ import SwiftUI
 import Secrets
 
 struct Create: View {
-    let id: Int
-    @State private var secret = Secret.new
+    @State var secret: Secret
     @State private var index = 0
     @State private var name = ""
     @State private var payload = false
@@ -32,13 +31,12 @@ struct Create: View {
             }
         }
         .navigationViewStyle(.stack)
-        .onReceive(cloud) {
-            secret = $0[id]
-            name = secret.name
-        }
         .onAppear {
             UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
             UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel
+        }
+        .onReceive(cloud) {
+            secret = $0[secret.id]
         }
     }
     
@@ -65,10 +63,10 @@ struct Create: View {
                 Label("Edit", systemImage: "pencil")
             }
             .buttonStyle(.bordered)
-            .padding(.bottom)
+            .padding(.vertical)
             .sheet(isPresented: $payload) {
                 NavigationView {
-                    Writer(id: id) {
+                    Writer(id: secret.id) {
                         payload = false
                     }
                 }
@@ -99,7 +97,7 @@ struct Create: View {
             }
             .padding()
             
-            TextField(name, text: $name)
+            TextField(secret.name, text: $name)
                 .focused($focus)
                 .textInputAutocapitalization(.sentences)
                 .disableAutocorrection(!Defaults.correction)
@@ -110,7 +108,7 @@ struct Create: View {
                 .onChange(of: focus) {
                     if $0 == false {
                         Task {
-                            await cloud.update(id: id, name: name)
+                            await cloud.update(id: secret.id, name: name)
                         }
                     }
                 }
@@ -121,7 +119,7 @@ struct Create: View {
                 Label("Name", systemImage: "pencil")
             }
             .buttonStyle(.bordered)
-            .padding(.bottom)
+            .padding(.vertical)
             
             Spacer()
             
@@ -175,7 +173,7 @@ struct Create: View {
                     .edgesIgnoringSafeArea(.all)
             }
             .buttonStyle(.bordered)
-            .padding(.bottom)
+            .padding(.vertical)
             
             Spacer()
             

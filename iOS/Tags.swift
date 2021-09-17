@@ -2,13 +2,14 @@ import SwiftUI
 import Secrets
 
 struct Tags: UIViewControllerRepresentable {
-    let secret: Secret
+    @State var secret: Secret
     
     func makeUIViewController(context: Context) -> Controller {
-        .init(rootView: Content(secret: secret))
+        print("view make")
+        return .init(rootView: .init(secret: $secret))
     }
     
     func updateUIViewController(_: Controller, context: Context) {
-        
+        print("view update")
     }
 }

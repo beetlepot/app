@@ -4,7 +4,8 @@ import Secrets
 extension Sidebar {
     struct Items: View {
         let filtered: [Secret]
-        @State private var pop: Pop?
+        @State private var full = false
+        @State private var created: Secret?
         @Environment(\.isSearching) private var searching
         
         var body: some View {
@@ -30,7 +31,10 @@ extension Sidebar {
             .listStyle(.insetGrouped)
             .symbolRenderingMode(.hierarchical)
             .animation(.easeInOut(duration: 0.4), value: filtered)
-            .sheet(item: $pop, content: modal)
+            .sheet(item: $created) {
+                Create(secret: $0)
+            }
+            .sheet(isPresented: $full, content: Full.init)
             .onOpenURL {
                 guard $0.scheme == "beetle", $0.host == "create" else { return }
                 new()
@@ -42,20 +46,11 @@ extension Sidebar {
             Task {
                 do {
                     let id = try await cloud.secret()
-                    pop = .create(id)
+                    created = await cloud.model[id]
                     await UNUserNotificationCenter.send(message: "Created a new secret!")
                 } catch {
-                    pop = .full
+                    full = true
                 }
-            }
-        }
-        
-        @ViewBuilder private func modal(_ pop: Pop) -> some View {
-            switch pop {
-            case .full:
-                Full()
-            case let .create(id):
-                Create(id: id)
             }
         }
     }

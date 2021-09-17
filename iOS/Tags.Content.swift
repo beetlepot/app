@@ -3,7 +3,7 @@ import Secrets
 
 extension Tags {
     struct Content: View {
-        let secret: Secret
+        @Binding var secret: Secret
         @State private var search = ""
         @Environment(\.dismiss) private var dismiss
         
@@ -36,7 +36,7 @@ extension Tags {
                 .searchable(text: $search)
                 .listStyle(.insetGrouped)
                 .navigationTitle("Tags")
-                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitleDisplayMode(.large)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Done") {
@@ -47,6 +47,9 @@ extension Tags {
                 }
             }
             .navigationViewStyle(.stack)
+            .onReceive(cloud) {
+                secret = $0[secret.id]
+            }
         }
     }
 }
