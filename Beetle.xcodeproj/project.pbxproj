@@ -42,7 +42,7 @@
 		CE67EF8C26EB92910040A8CA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7526EB92900040A8CA /* App.swift */; };
 		CE67EF8D26EB92910040A8CA /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7626EB92900040A8CA /* UIApplication.swift */; };
 		CE67EF8E26EB92910040A8CA /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7726EB92910040A8CA /* UIDevice.swift */; };
-		CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */; };
+		CE67EF8F26EB92910040A8CA /* Writer.Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7826EB92910040A8CA /* Writer.Text.swift */; };
 		CE67EF9126EB92910040A8CA /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7A26EB92910040A8CA /* Purchases.swift */; };
 		CE67EF9226EB92910040A8CA /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7B26EB92910040A8CA /* Capacity.swift */; };
 		CE67EF9326EB92910040A8CA /* Full.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7C26EB92910040A8CA /* Full.swift */; };
@@ -74,6 +74,9 @@
 		CE7C351826EF578700295CBA /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351726EF578700295CBA /* About.swift */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
 		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
+		CEEEB57926F4CB3B00B268A0 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57826F4CB3B00B268A0 /* Filters.swift */; };
+		CEEEB57B26F4CB7500B268A0 /* Filters.Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57A26F4CB7500B268A0 /* Filters.Controller.swift */; };
+		CEEEB57D26F4CF2400B268A0 /* Filters.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57C26F4CF2400B268A0 /* Filters.Content.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,7 +175,7 @@
 		CE67EF7526EB92900040A8CA /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CE67EF7626EB92900040A8CA /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CE67EF7726EB92910040A8CA /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
-		CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.Coordinator.swift; sourceTree = "<group>"; };
+		CE67EF7826EB92910040A8CA /* Writer.Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.Text.swift; sourceTree = "<group>"; };
 		CE67EF7A26EB92910040A8CA /* Purchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		CE67EF7B26EB92910040A8CA /* Capacity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		CE67EF7C26EB92910040A8CA /* Full.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Full.swift; sourceTree = "<group>"; };
@@ -200,6 +203,9 @@
 		CE7C351726EF578700295CBA /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		CEEEB57826F4CB3B00B268A0 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		CEEEB57A26F4CB7500B268A0 /* Filters.Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.Controller.swift; sourceTree = "<group>"; };
+		CEEEB57C26F4CF2400B268A0 /* Filters.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.Content.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +276,9 @@
 				CE67EF7B26EB92910040A8CA /* Capacity.swift */,
 				CE4D550126EF7832002230EE /* Create.swift */,
 				CE67EF6926EB92900040A8CA /* Empty.swift */,
+				CEEEB57C26F4CF2400B268A0 /* Filters.Content.swift */,
+				CEEEB57A26F4CB7500B268A0 /* Filters.Controller.swift */,
+				CEEEB57826F4CB3B00B268A0 /* Filters.swift */,
 				CE67EF7C26EB92910040A8CA /* Full.swift */,
 				CE67EF6A26EB92900040A8CA /* Info.swift */,
 				CE7C351526EF4C8900295CBA /* Middlebar.swift */,
@@ -285,9 +294,9 @@
 				CE67EF7626EB92900040A8CA /* UIApplication.swift */,
 				CE67EF7726EB92910040A8CA /* UIDevice.swift */,
 				CE67EF7226EB92900040A8CA /* UISplitViewController.swift */,
-				CE67EF7826EB92910040A8CA /* Writer.Coordinator.swift */,
 				CE67EF6D26EB92900040A8CA /* Writer.Representable.swift */,
 				CE67EF6E26EB92900040A8CA /* Writer.swift */,
+				CE67EF7826EB92910040A8CA /* Writer.Text.swift */,
 				CE67EF1926EB8F280040A8CA /* Assets.xcassets */,
 			);
 			path = iOS;
@@ -542,9 +551,10 @@
 				CE67EF8826EB92910040A8CA /* Purchases.Item.swift in Sources */,
 				CE67EF8726EB92910040A8CA /* Sidebar.swift in Sources */,
 				CE4D550226EF7832002230EE /* Create.swift in Sources */,
+				CEEEB57926F4CB3B00B268A0 /* Filters.swift in Sources */,
 				CE67EF7E26EB92910040A8CA /* App.Delegate.swift in Sources */,
 				CE67EF8C26EB92910040A8CA /* App.swift in Sources */,
-				CE67EF8F26EB92910040A8CA /* Writer.Coordinator.swift in Sources */,
+				CE67EF8F26EB92910040A8CA /* Writer.Text.swift in Sources */,
 				CE67EF8A26EB92910040A8CA /* Tagger.swift in Sources */,
 				CE67EF8926EB92910040A8CA /* UISplitViewController.swift in Sources */,
 				CE67EF9426EB92910040A8CA /* Reveal.swift in Sources */,
@@ -556,6 +566,7 @@
 				CE67EF8426EB92910040A8CA /* Writer.Representable.swift in Sources */,
 				CE67EF8326EB92910040A8CA /* Tags.swift in Sources */,
 				CE67EF8526EB92910040A8CA /* Writer.swift in Sources */,
+				CEEEB57D26F4CF2400B268A0 /* Filters.Content.swift in Sources */,
 				CE67EF9D26EB94B20040A8CA /* UNUserNotificationCenter.swift in Sources */,
 				CE67EF8026EB92910040A8CA /* Empty.swift in Sources */,
 				CE67EF8B26EB92910040A8CA /* Sidebar.Item.swift in Sources */,
@@ -564,6 +575,7 @@
 				CE7C351826EF578700295CBA /* About.swift in Sources */,
 				CE7C351626EF4C8900295CBA /* Middlebar.swift in Sources */,
 				CE38D53326ED0767005690AA /* Ring.swift in Sources */,
+				CEEEB57B26F4CB7500B268A0 /* Filters.Controller.swift in Sources */,
 				CE67EF8226EB92910040A8CA /* Settings.swift in Sources */,
 				CE4FF3C626EDFD19003EF083 /* Sidebar.Items.swift in Sources */,
 			);

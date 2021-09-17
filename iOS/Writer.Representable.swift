@@ -6,14 +6,10 @@ extension Writer {
         let id: Int
         let submit: PassthroughSubject<Void, Never>
         
-        func makeCoordinator() -> Coordinator {
+        func makeUIView(context: Context) -> Text {
             .init(id: id, submit: submit)
         }
         
-        func makeUIView(context: Context) -> Coordinator {
-            context.coordinator
-        }
-        
-        func updateUIView(_: Coordinator, context: Context) { }
+        func updateUIView(_: Text, context: Context) { }
     }
 }

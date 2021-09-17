@@ -7,7 +7,6 @@ extension Sidebar {
         }
         
         case
-        tags,
         full,
         create(Int)
     }

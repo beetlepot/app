@@ -3,9 +3,8 @@ import Secrets
 
 extension Sidebar {
     struct Items: View {
-        @Binding var filter: Filter
+        let filtered: [Secret]
         @State private var pop: Pop?
-        @State private var filtered = [Secret]()
         @Environment(\.isSearching) private var searching
         
         var body: some View {
@@ -22,47 +21,6 @@ extension Sidebar {
                             }
                         }
                     }
-                    
-                    DisclosureGroup("Filter") {
-                        Toggle(isOn: $filter.favourites) {
-                            Label("Favourites", systemImage: "heart")
-                                .foregroundColor(.primary)
-                                .symbolRenderingMode(.multicolor)
-                        }
-                        .toggleStyle(SwitchToggleStyle(tint: .orange))
-                        
-                        Button {
-                            pop = .tags
-                        } label: {
-                            HStack {
-                                Text("Tags")
-                                    .foregroundColor(.accentColor)
-                                Spacer()
-                                Image(systemName: "tag")
-                                    .foregroundColor(.accentColor)
-                                    .symbolRenderingMode(.multicolor)
-                                    .font(.body)
-                            }
-                        }
-                        
-                        if !filter.tags.isEmpty {
-                            Tagger(tags: filter.tags.list)
-                                .listRowSeparator(.hidden)
-                        }
-                        
-                        if !filter.tags.isEmpty || filter.favourites {
-                            Button("Clear filters") {
-                                filter = .init()
-                            }
-                            .font(.footnote)
-                            .buttonStyle(.bordered)
-                            .foregroundColor(.primary)
-                        }
-                    }
-                    .font(.callout)
-                    .foregroundColor(filter.tags.isEmpty && !filter.favourites ? .secondary : .pink)
-                    .listRowBackground(Color.clear)
-//                    .listRowSeparator(.hidden)
                 }
                 
                 Section {
@@ -76,14 +34,6 @@ extension Sidebar {
             .onOpenURL {
                 guard $0.scheme == "beetle", $0.host == "create" else { return }
                 new()
-            }
-            .onReceive(cloud) {
-                filtered = $0.filtering(with: filter)
-            }
-            .onChange(of: filter) { filter in
-                Task {
-                    filtered = await cloud.model.filtering(with: filter)
-                }
             }
         }
         
@@ -102,14 +52,6 @@ extension Sidebar {
         
         @ViewBuilder private func modal(_ pop: Pop) -> some View {
             switch pop {
-            case .tags:
-                Tags(tags: filter.tags) { tag in
-                    if filter.tags.contains(tag) {
-                        filter.tags.remove(tag)
-                    } else {
-                        filter.tags.insert(tag)
-                    }
-                }
             case .full:
                 Full()
             case let .create(id):
