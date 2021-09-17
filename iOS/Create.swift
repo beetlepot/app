@@ -35,7 +35,8 @@ struct Create: View {
             }
         }
         .navigationViewStyle(.stack)
-        .onReceive(cloud.archive) {
+        .onReceive(cloud) {
+            print("receive")
             name = $0[id].name
             payload = $0[id].payload
             tags = $0[id].tags

@@ -43,7 +43,7 @@ struct Full: View {
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
         .background(Color(.secondarySystemBackground))
-        .onReceive(cloud.archive) {
+        .onReceive(cloud) {
             if $0.available {
                 full = false
                 purchases = false

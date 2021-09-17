@@ -77,12 +77,12 @@ extension Sidebar {
                 guard $0.scheme == "beetle", $0.host == "create" else { return }
                 new()
             }
-            .onReceive(cloud.archive) {
+            .onReceive(cloud) {
                 filtered = $0.filtering(with: filter)
             }
             .onChange(of: filter) { filter in
                 Task {
-                    filtered = await cloud._archive.filtering(with: filter)
+                    filtered = await cloud.model.filtering(with: filter)
                 }
             }
         }

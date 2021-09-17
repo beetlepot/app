@@ -69,7 +69,7 @@ extension Sidebar {
                 }
                 .listRowBackground(Color.clear)
             }
-            .onReceive(cloud.archive) {
+            .onReceive(cloud) {
                 available = $0.available
                 capacity = $0.capacity
                 count = $0.count

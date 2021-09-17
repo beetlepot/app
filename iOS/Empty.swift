@@ -12,7 +12,7 @@ struct Empty: View {
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
         .background(Color(.secondarySystemBackground))
-        .onReceive(cloud.archive) {
+        .onReceive(cloud) {
             empty = $0.count == 0
         }
     }

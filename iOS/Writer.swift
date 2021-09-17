@@ -35,7 +35,7 @@ struct Writer: View {
                     .buttonBorderShape(.capsule)
                 }
             }
-            .onReceive(cloud.archive) {
+            .onReceive(cloud) {
                 name = $0[id].name
             }
     }

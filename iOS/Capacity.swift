@@ -73,8 +73,8 @@ struct Capacity: View {
     
     private func update() {
         Task {
-            count = await cloud._archive.count
-            capacity = await cloud._archive.capacity
+            count = await cloud.model.count
+            capacity = await cloud.model.capacity
             
             DispatchQueue.main.async {
                 withAnimation(.easeInOut(duration: 1.2)) {

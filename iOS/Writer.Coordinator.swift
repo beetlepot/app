@@ -26,7 +26,7 @@ extension Writer {
             allowsEditingTextAttributes = false
 
             Task {
-                text = await cloud._archive[id].payload
+                text = await cloud.model[id].payload
             }
             
             if Defaults.tools {

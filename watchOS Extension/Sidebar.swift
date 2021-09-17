@@ -11,12 +11,12 @@ struct Sidebar: View {
             Items(filtered: $filtered)
                 .searchable(text: $filter.search)
         }
-        .onReceive(cloud.archive) {
+        .onReceive(cloud) {
             filtered = $0.filtering(with: filter)
         }
         .onChange(of: filter) { filter in
             Task {
-                filtered = await cloud._archive.filtering(with: filter)
+                filtered = await cloud.model.filtering(with: filter)
             }
         }
         .task {
