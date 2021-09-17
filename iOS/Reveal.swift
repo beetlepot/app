@@ -12,7 +12,11 @@ struct Reveal: View {
         if deleted {
             Empty()
         } else if editing {
-            Writer(id: secret.id, editing: $editing)
+            Writer(id: secret.id) {
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    editing = false
+                }
+            }
         } else {
             ScrollView {
                 VStack {
@@ -91,15 +95,8 @@ struct Reveal: View {
                 }
             }
             .sheet(isPresented: $tags) {
-                Tags(tags: secret.tags) { tag in
-                    Task {
-                        if secret.tags.contains(tag) {
-                            await cloud.remove(id: secret.id, tag: tag)
-                        } else {
-                            await cloud.add(id: secret.id, tag: tag)
-                        }
-                    }
-                }
+                Tags(secret: secret)
+                    .edgesIgnoringSafeArea(.all)
             }
             .navigationTitle(secret.name)
             .navigationBarTitleDisplayMode(.inline)

@@ -3,7 +3,8 @@ import Combine
 
 struct Writer: View {
     let id: Int
-    @Binding var editing: Bool
+    let dismiss: () -> Void
+//    @Binding var editing: Bool
     @State private var name = ""
     private let submit = PassthroughSubject<Void, Never>()
     
@@ -38,11 +39,5 @@ struct Writer: View {
             .onReceive(cloud) {
                 name = $0[id].name
             }
-    }
-    
-    private func dismiss() {
-        withAnimation(.easeInOut(duration: 0.5)) {
-            editing = false
-        }
     }
 }

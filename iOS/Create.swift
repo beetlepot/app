@@ -1,16 +1,13 @@
 import SwiftUI
 import Secrets
 
-private let width = CGFloat(240)
-
 struct Create: View {
     let id: Int
+    @State private var secret = Secret.new
     @State private var index = 0
-    @State private var name = "lol"
-    @State private var payload = ""
-    @State private var tags = Set<Tag>()
-    @State private var editPayload = false
-    @State private var editTags = false
+    @State private var name = ""
+    @State private var payload = false
+    @State private var tags = false
     @Environment(\.dismiss) private var dismiss
     @FocusState private var focus: Bool
     
@@ -36,10 +33,8 @@ struct Create: View {
         }
         .navigationViewStyle(.stack)
         .onReceive(cloud) {
-            print("receive")
-            name = $0[id].name
-            payload = $0[id].payload
-            tags = $0[id].tags
+            secret = $0[id]
+            name = secret.name
         }
         .onAppear {
             UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
@@ -58,22 +53,24 @@ struct Create: View {
             }
             .padding()
             
-            Text(verbatim: payload.isEmpty ? "This secret is empty" : payload)
+            Text(verbatim: secret.payload.isEmpty ? "This secret is empty" : secret.payload)
                 .privacySensitive()
-                .foregroundStyle(payload.isEmpty ? .tertiary : .secondary)
+                .foregroundColor(secret.payload.isEmpty ? .secondary : .accentColor)
                 .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                 .padding()
             
             Button {
-                editPayload = true
+                payload = true
             } label: {
                 Label("Edit", systemImage: "pencil")
             }
             .buttonStyle(.bordered)
             .padding(.bottom)
-            .sheet(isPresented: $editPayload) {
+            .sheet(isPresented: $payload) {
                 NavigationView {
-                    Writer(id: id, editing: $editPayload)
+                    Writer(id: id) {
+                        payload = false
+                    }
                 }
                 .navigationViewStyle(.stack)
             }
@@ -157,32 +154,25 @@ struct Create: View {
             }
             .padding()
             
-            if tags.isEmpty {
+            if secret.tags.isEmpty {
                 Text("No tags added")
                     .foregroundStyle(.tertiary)
                     .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                     .padding()
             } else {
-                Tagger(tags: tags.list)
+                Tagger(tags: secret.tags.list)
                     .privacySensitive()
                     .padding()
             }
             
             Button {
-                editTags = true
+                tags = true
             } label: {
                 Label("Tags", systemImage: "tag")
             }
-            .sheet(isPresented: $editTags) {
-                Tags(tags: tags) { tag in
-                    Task {
-                        if tags.contains(tag) {
-                            await cloud.remove(id: id, tag: tag)
-                        } else {
-                            await cloud.add(id: id, tag: tag)
-                        }
-                    }
-                }
+            .sheet(isPresented: $tags) {
+                Tags(secret: secret)
+                    .edgesIgnoringSafeArea(.all)
             }
             .buttonStyle(.bordered)
             .padding(.bottom)
