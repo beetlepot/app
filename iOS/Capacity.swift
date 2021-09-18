@@ -22,7 +22,7 @@ struct Capacity: View {
                                          lineCap: .round))
                 VStack {
                     Text(Int(percentage * 100), format: .percent)
-                        .font(.title3.monospacedDigit())
+                        .font(.title.monospacedDigit())
                         .animation(.none, value: percentage)
                     Text("Used")
                         .foregroundColor(.secondary)
@@ -34,13 +34,13 @@ struct Capacity: View {
             HStack(spacing: 40) {
                 Text(capacity, format: .number)
                     .foregroundColor(.init("Spot"))
-                    .font(.title.bold())
+                    .font(.largeTitle.bold())
                 + Text(capacity == 1 ? "\nSpot" : "\nSpots")
                     .font(.footnote)
                 
                 Text(count, format: .number)
                     .foregroundColor(.accentColor)
-                    .font(.title.bold())
+                    .font(.largeTitle.bold())
                 + Text(count == 1 ? "\nSecret" : "\nSecrets")
                     .font(.footnote)
             }
@@ -63,7 +63,7 @@ struct Capacity: View {
             
             Spacer()
             
-            Text("Your secrets capacity is permanent and won't expire, you can create and delete secrets as many times as you want.")
+            Text(Copy.capacity)
                 .font(.callout)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)

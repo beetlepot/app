@@ -9,7 +9,7 @@ struct Info: View {
             Text(.init(text))
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-                .padding(UIDevice.pad ? 80 : 30)
+                .padding()
         }
         .frame(maxWidth: .greatestFiniteMagnitude)
         .background(.ultraThickMaterial)

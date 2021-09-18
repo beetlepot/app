@@ -39,7 +39,11 @@ extension Sidebar {
             .sheet(isPresented: $create, content: Validate.init)
             .onOpenURL {
                 guard $0.scheme == "beetle", $0.host == "create" else { return }
-                new()
+                DispatchQueue
+                    .main
+                    .asyncAfter(deadline: .now() + 1) {
+                        new()
+                    }
             }
         }
         

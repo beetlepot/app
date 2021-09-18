@@ -6,16 +6,14 @@ import SwiftUI
 extension Writer {
     final class Text: UITextView {
         private var subs = Set<AnyCancellable>()
-        
+
         required init?(coder: NSCoder) { nil }
         init(id: Int, submit: PassthroughSubject<Void, Never>) {
             super.init(frame: .zero, textContainer: Container())
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)
             typingAttributes[.kern] = 1
             font = typingAttributes[.font] as? UIFont
-            textContainerInset = UIDevice.pad
-                ? .init(top: 80, left: 80, bottom: 80, right: 80)
-                : .init(top: 20, left: 20, bottom: 30, right: 20)
+            textContainerInset = .init(top: 20, left: 20, bottom: 30, right: 20)
             keyboardDismissMode = .none
             backgroundColor = .clear
             tintColor = .label

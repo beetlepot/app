@@ -18,7 +18,7 @@ struct Tagger: View {
                     
                 let resolved = context.resolve(text)
                 let textSize = resolved.measure(in: .init(width: CGFloat.greatestFiniteMagnitude, height: .greatestFiniteMagnitude))
-                let capsuleSize = CGSize(width: ceil(textSize.width) + 24, height: ceil(textSize.height) + 12)
+                let capsuleSize = CGSize(width: ceil(textSize.width) + 24, height: ceil(textSize.height) + 8)
                 
                 if x + capsuleSize.width > size.width {
                     x = 0
@@ -32,7 +32,7 @@ struct Tagger: View {
                                 .path(in: .init(origin: .init(x: x, y: y), size: capsuleSize)),
                              with: color)
                 
-                context.draw(resolved, at: .init(x: x + 12, y: y + 6), anchor: .topLeading)
+                context.draw(resolved, at: .init(x: x + 12, y: y + 4), anchor: .topLeading)
                 
                 x += 6 + capsuleSize.width
             }

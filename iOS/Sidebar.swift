@@ -18,7 +18,8 @@ struct Sidebar: View {
                     } label: {
                         Label("Filter", systemImage: "line.3.horizontal.decrease.circle.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(filter.tags.isEmpty && !filter.favourites ? .accentColor : .pink) 
+                            .foregroundColor(filter.tags.isEmpty && !filter.favourites ? .accentColor : .pink)
+                            .font(.title3)
                     }
                     .sheet(isPresented: $filters) {
                         Filters(filter: $filter)
@@ -28,6 +29,7 @@ struct Sidebar: View {
                     NavigationLink(destination: Middlebar()) {
                         Label("Menu", systemImage: "ellipsis.circle.fill")
                             .symbolRenderingMode(.hierarchical)
+                            .font(.title3)
                     }
                 }
                 

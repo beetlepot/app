@@ -33,9 +33,7 @@ extension Create {
                 .padding(.vertical)
                 .sheet(isPresented: $payload) {
                     NavigationView {
-                        Writer(id: secret.id) {
-                            payload = false
-                        }
+                        Writer(id: secret.id)
                     }
                     .navigationViewStyle(.stack)
                 }

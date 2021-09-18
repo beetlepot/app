@@ -3,9 +3,8 @@ import Combine
 
 struct Writer: View {
     let id: Int
-    let dismiss: () -> Void
-//    @Binding var editing: Bool
     @State private var name = ""
+    @Environment(\.dismiss) private var dismiss
     private let submit = PassthroughSubject<Void, Never>()
     
     var body: some View {
@@ -14,14 +13,13 @@ struct Writer: View {
             .navigationTitle(name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .privacySensitive()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel", role: .cancel) {
                         UIApplication.shared.hide()
                         dismiss()
                     }
-                    .font(.callout)
+                    .font(.footnote)
                     .buttonStyle(.bordered)
                     .buttonBorderShape(.capsule)
                     .tint(.pink)
@@ -31,7 +29,7 @@ struct Writer: View {
                         submit.send()
                         dismiss()
                     }
-                    .font(.callout)
+                    .font(.footnote)
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.capsule)
                 }

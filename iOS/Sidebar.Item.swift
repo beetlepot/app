@@ -11,7 +11,7 @@ extension Sidebar {
         
         var body: some View {
             NavigationLink(destination: Reveal(secret: secret)) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         TextField(secret.name, text: $name)
                             .focused($focus)

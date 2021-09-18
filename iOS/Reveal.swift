@@ -2,21 +2,13 @@ import SwiftUI
 import Secrets
 
 struct Reveal: View {
-    let secret: Secret
-    @State private var first = true
-    @State private var editing = false
+    @State var secret: Secret
     @State private var deleted = false
     @State private var tags = false
     
     var body: some View {
         if deleted {
             Empty()
-        } else if editing {
-            Writer(id: secret.id) {
-                withAnimation(.easeInOut(duration: 0.5)) {
-                    editing = false
-                }
-            }
         } else {
             ScrollView {
                 VStack {
@@ -46,8 +38,10 @@ struct Reveal: View {
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
                 }
-                .padding(UIDevice.pad ? 80 : 30)
+                .padding()
             }
+            .navigationTitle(secret.name)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button {
@@ -62,11 +56,7 @@ struct Reveal: View {
                     
                     Spacer()
                     
-                    Button {
-                        withAnimation(.easeInOut(duration: 0.4)) {
-                            editing = true
-                        }
-                    } label: {
+                    NavigationLink(destination: Writer(id: secret.id)) {
                         Image(systemName: "pencil.circle.fill")
                             .symbolRenderingMode(.hierarchical)
                             .font(.title2)
@@ -89,17 +79,17 @@ struct Reveal: View {
                     .buttonBorderShape(.capsule)
                 }
             }
-            .onChange(of: secret) {
-                if $0 == .new {
+            .onReceive(cloud) {
+                if $0[secret.id] == .new {
                     deleted = true
+                } else {
+                    secret = $0[secret.id]
                 }
             }
             .sheet(isPresented: $tags) {
                 Tags(secret: secret)
                     .edgesIgnoringSafeArea(.all)
             }
-            .navigationTitle(secret.name)
-            .navigationBarTitleDisplayMode(.inline)
             .task {
                 if let created = Defaults.created {
                     let days = Calendar.current.dateComponents([.day], from: created, to: .init()).day!
