@@ -14,12 +14,18 @@ extension Sidebar {
                         Button(action: new) {
                             HStack {
                                 Text("New secret")
+                                    .fontWeight(.medium)
                                 Spacer()
-                                Image(systemName: "plus.circle.fill")
-                                    .symbolRenderingMode(.hierarchical)
-                                    .font(.title2)
+                                Image(systemName: "plus")
+                                    .font(.title3)
                             }
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 4)
                         }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.capsule)
+                        .listRowBackground(Color.clear)
+                        .padding(.top)
                     }
                 }
                 
