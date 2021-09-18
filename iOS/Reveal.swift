@@ -20,31 +20,31 @@ struct Reveal: View {
         } else {
             ScrollView {
                 VStack {
+                    if !secret.tags.isEmpty {
+                        Tagger(tags: secret.tags.list)
+                            .privacySensitive()
+                            .padding(.bottom)
+                    }
+                    
                     if secret.payload.isEmpty {
                         Text("Empty secret")
                             .font(.callout)
-                            .foregroundStyle(.tertiary)
+                            .foregroundStyle(.secondary)
                             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                     } else {
                         Text(.init(secret.payload))
                             .kerning(1)
                             .font(.title3.weight(.regular))
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.primary)
                             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                             .textSelection(.enabled)
                             .privacySensitive()
                     }
                     
-                    if !secret.tags.isEmpty {
-                        Tagger(tags: secret.tags.list)
-                            .privacySensitive()
-                    }
-                    
-                    Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
-                        .font(.footnote)
-                        .foregroundStyle(.tertiary)
+                    Text("Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
                         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
-                        .padding(.top, 5)
                 }
                 .padding(UIDevice.pad ? 80 : 30)
             }

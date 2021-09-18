@@ -12,33 +12,30 @@ extension Sidebar {
         var body: some View {
             NavigationLink(destination: Reveal(secret: secret)) {
                 VStack(alignment: .leading) {
-                    TextField(secret.name, text: $name)
-                        .focused($focus)
-                        .textInputAutocapitalization(.sentences)
-                        .disableAutocorrection(!Defaults.correction)
-                        .submitLabel(.done)
-                        .privacySensitive()
-                        .onSubmit {
-                            Task {
-                                await cloud.update(id: secret.id, name: name)
-                                await UNUserNotificationCenter.send(message: "Renamed secret!")
+                    HStack {
+                        TextField(secret.name, text: $name)
+                            .focused($focus)
+                            .textInputAutocapitalization(.sentences)
+                            .disableAutocorrection(!Defaults.correction)
+                            .submitLabel(.done)
+                            .privacySensitive()
+                            .onSubmit {
+                                Task {
+                                    await cloud.update(id: secret.id, name: name)
+                                    await UNUserNotificationCenter.send(message: "Renamed secret!")
+                                }
                             }
+                            .disabled(disabled)
+                        if secret.favourite {
+                            Image(systemName: "heart.fill")
+                                .font(.footnote)
+                                .foregroundStyle(.tertiary)
                         }
-                        .disabled(disabled)
+                    }
                     if !secret.tags.isEmpty {
                         Tagger(tags: secret.tags.list)
                             .privacySensitive()
                     }
-                    HStack {
-                        if secret.favourite {
-                            Image(systemName: "heart.fill")
-                                .font(.callout)
-                        }
-                        Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
-                            .font(.footnote)
-                        Spacer()
-                    }
-                    .foregroundStyle(.tertiary)
                 }
                 .padding(.vertical, 8)
             }
