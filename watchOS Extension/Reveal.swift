@@ -31,13 +31,26 @@ struct Reveal: View {
                 .font(.caption2)
                 .listRowBackground(Color.clear)
             
+            Spacer()
+                .listRowBackground(Color.clear)
+            
             NavigationLink {
                 Edit(name: secret.name, payload: secret.payload, secret: secret)
             } label: {
-                Label("Edit", systemImage: "pencil.circle.fill")
-                    .symbolRenderingMode(.hierarchical)
-                    .font(.caption2)
-                    .foregroundColor(.accentColor)
+                ZStack {
+                    Capsule()
+                        .fill(Color.accentColor)
+                    HStack {
+                        Spacer()
+                        Label("Edit", systemImage: "pencil")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                    .padding()
+                }
+                .padding(.horizontal)
             }
             .listRowBackground(Color.clear)
         }

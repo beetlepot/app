@@ -24,6 +24,9 @@ struct Edit: View {
                 }
                 .privacySensitive()
             
+            Spacer()
+                .listRowBackground(Color.clear)
+            
             Text("Tags")
                 .font(.footnote)
                 .foregroundColor(.init("Spot"))

@@ -55,7 +55,11 @@ struct Capacity: View {
                 Text("In-App Purchases")
             }
             .buttonStyle(.bordered)
-            .sheet(isPresented: $purchases, onDismiss: update, content: Purchases.init)
+            .sheet(isPresented: $purchases, onDismiss: {
+                Task {
+                    await update()
+                }
+            }, content: Purchases.init)
             
             Spacer()
             
@@ -68,19 +72,19 @@ struct Capacity: View {
         }
         .navigationTitle("Capacity")
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear(perform: update)
+        .task {
+            await update()
+        }
     }
     
-    private func update() {
-        Task {
-            count = await cloud.model.count
-            capacity = await cloud.model.capacity
-            
-            DispatchQueue.main.async {
-                withAnimation(.easeInOut(duration: 1.2)) {
-                    percentage = .init(count) / .init(capacity)
-                }
-            }
+    private func update() async {
+        let count = await cloud.model.count
+        let capacity = await cloud.model.capacity
+        self.count = count
+        self.capacity = capacity
+        
+        withAnimation(.easeInOut(duration: 1.2)) {
+            percentage = .init(count) / .init(capacity)
         }
     }
 }
