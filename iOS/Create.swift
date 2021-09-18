@@ -11,26 +11,23 @@ struct Create: View {
     @FocusState private var focus: Bool
     
     var body: some View {
-        NavigationView {
-            TabView(selection: $index) {
-                card0
-                card1
-                card2
-            }
-            .tabViewStyle(.page)
-            .symbolRenderingMode(.hierarchical)
-            .navigationTitle("New Secret")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                    .font(.callout)
+        TabView(selection: $index) {
+            card0
+            card1
+            card2
+        }
+        .tabViewStyle(.page)
+        .symbolRenderingMode(.hierarchical)
+        .navigationTitle("New Secret")
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Done") {
+                    dismiss()
                 }
+                .font(.callout)
             }
         }
-        .navigationViewStyle(.stack)
         .onAppear {
             UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
             UIPageControl.appearance().pageIndicatorTintColor = .quaternaryLabel

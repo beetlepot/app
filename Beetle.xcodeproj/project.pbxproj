@@ -72,6 +72,7 @@
 		CE67EFC626EB9BBA0040A8CA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */; };
 		CE7C351626EF4C8900295CBA /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351526EF4C8900295CBA /* Middlebar.swift */; };
 		CE7C351826EF578700295CBA /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351726EF578700295CBA /* About.swift */; };
+		CEA065BA26F5FAB700104BB6 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA065B926F5FAB700104BB6 /* Validate.swift */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
 		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
 		CEEEB57926F4CB3B00B268A0 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57826F4CB3B00B268A0 /* Filters.swift */; };
@@ -203,6 +204,7 @@
 		CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE7C351526EF4C8900295CBA /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
 		CE7C351726EF578700295CBA /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		CEA065B926F5FAB700104BB6 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEEEB57826F4CB3B00B268A0 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				CE67EF7626EB92900040A8CA /* UIApplication.swift */,
 				CE67EF7726EB92910040A8CA /* UIDevice.swift */,
 				CE67EF7226EB92900040A8CA /* UISplitViewController.swift */,
+				CEA065B926F5FAB700104BB6 /* Validate.swift */,
 				CE67EF6D26EB92900040A8CA /* Writer.Representable.swift */,
 				CE67EF6E26EB92900040A8CA /* Writer.swift */,
 				CE67EF7826EB92910040A8CA /* Writer.Text.swift */,
@@ -574,6 +577,7 @@
 				CE67EF8326EB92910040A8CA /* Tags.Content.swift in Sources */,
 				CE67EF8526EB92910040A8CA /* Writer.swift in Sources */,
 				CEEEB57D26F4CF2400B268A0 /* Filters.Content.swift in Sources */,
+				CEA065BA26F5FAB700104BB6 /* Validate.swift in Sources */,
 				CE67EF9D26EB94B20040A8CA /* UNUserNotificationCenter.swift in Sources */,
 				CE67EF8026EB92910040A8CA /* Empty.swift in Sources */,
 				CE67EF8B26EB92910040A8CA /* Sidebar.Item.swift in Sources */,
