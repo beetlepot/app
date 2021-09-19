@@ -19,15 +19,12 @@ struct Purchases: View {
                         .foregroundStyle(Color("Spot"), Color.accentColor)
                         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
                 case let .error(error):
-                    VStack {
-                        Text(verbatim: error)
-                            .font(.callout)
-                            .foregroundColor(.secondary)
-                            .frame(maxWidth: 300)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding()
-                    }
-                    .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
+                    Text(verbatim: error)
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: 260)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding()
+                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
                 case let .products(products):
                     TabView {
                         ForEach(products, id: \.self) {

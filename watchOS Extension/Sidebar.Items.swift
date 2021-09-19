@@ -11,9 +11,6 @@ extension Sidebar {
         
         var body: some View {
             List {
-                Spacer()
-                    .listRowBackground(Color.clear)
-                
                 HStack {
                     Text(capacity, format: .number)
                         .foregroundColor(.init("Spot"))
@@ -33,12 +30,14 @@ extension Sidebar {
                 Spacer()
                     .listRowBackground(Color.clear)
                 
-                ForEach(filtered) {
-                    Item(selected: $selected, secret: $0)
+                if !filtered.isEmpty {
+                    ForEach(filtered) {
+                        Item(selected: $selected, secret: $0)
+                    }
+                    
+                    Spacer()
+                        .listRowBackground(Color.clear)
                 }
-                
-                Spacer()
-                    .listRowBackground(Color.clear)
                 
                 if available {
                     Button {

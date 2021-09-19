@@ -49,13 +49,20 @@ extension Purchases {
                             await store.purchase(product)
                         }
                     } label: {
-                        Text("Purchase")
-                            .font(.callout)
-                            .padding(.horizontal, 12)
+                        ZStack {
+                            Capsule()
+                                .fill(Color.accentColor)
+                            HStack {
+                                Spacer()
+                                Text("Purchase")
+                                    .font(.footnote)
+                                    .foregroundColor(.white)
+                                Spacer()
+                            }
+                            .padding()
+                        }
+                        .padding(.horizontal)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.capsule)
-                    .fixedSize()
                     Spacer()
                 }
                 .listRowBackground(Color.clear)

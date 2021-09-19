@@ -20,12 +20,16 @@ struct Store {
     @MainActor func load() async {
         do {
             let products = try await Product.products(for: Purchase.allCases.map(\.rawValue))
-            status.send(
-                .products(
-                    products
-                        .sorted {
-                            $0.price < $1.price
-                        }))
+            if products.isEmpty {
+                status.send(.error("No In-App Purchases available at the moment, try again later."))
+            } else {
+                status.send(
+                    .products(
+                        products
+                            .sorted {
+                                $0.price < $1.price
+                            }))
+            }
         } catch let error {
             status.send(.error("Unable to connect to the App Store.\n" + error.localizedDescription))
         }
