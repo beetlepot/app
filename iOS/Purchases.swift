@@ -27,9 +27,7 @@ struct Purchases: View {
                         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
                 case let .products(products):
                     TabView {
-                        ForEach(products, id: \.self) {
-                            Item(product: $0)
-                        }
+                        ForEach(products, content: Item.init)
                     }
                     .tabViewStyle(.page)
                 }

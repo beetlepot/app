@@ -4,7 +4,7 @@ struct Purchases: View {
     @State private var status = Store.Status.loading
     
     var body: some View {
-        TabView {
+        VStack {
             switch status {
             case .loading:
                 Image(systemName: "hourglass")
@@ -19,8 +19,8 @@ struct Purchases: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
             case let .products(products):
-                ForEach(products, id: \.self) {
-                    Item(product: $0)
+                TabView {
+                    ForEach(products, content: Item.init)
                 }
             }
         }
