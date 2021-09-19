@@ -6,9 +6,14 @@ import SwiftUI
 extension Writer {
     final class Text: UITextView {
         private var subs = Set<AnyCancellable>()
+        
+        deinit {
+            print("writer gone")
+        }
 
         required init?(coder: NSCoder) { nil }
         init(id: Int, submit: PassthroughSubject<Void, Never>) {
+            print("writer started")
             super.init(frame: .zero, textContainer: Container())
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)
             typingAttributes[.kern] = 1

@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-struct Writer: View {
+struct Writer: View, Equatable {
     let id: Int
     @State private var name = ""
     @Environment(\.dismiss) private var dismiss
@@ -37,5 +37,9 @@ struct Writer: View {
             .onReceive(cloud) {
                 name = $0[id].name
             }
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        true
     }
 }

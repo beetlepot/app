@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0DEDD826F6C15700F75714 /* Reveal.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DEDD726F6C15700F75714 /* Reveal.Content.swift */; };
 		CE38D53126ECF2ED005690AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE38D53026ECF2ED005690AA /* Images.xcassets */; };
 		CE38D53326ED0767005690AA /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38D53226ED0767005690AA /* Ring.swift */; };
 		CE38D53426ED0767005690AA /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38D53226ED0767005690AA /* Ring.swift */; };
@@ -145,6 +146,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE0DEDD726F6C15700F75714 /* Reveal.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.Content.swift; sourceTree = "<group>"; };
 		CE38D53026ECF2ED005690AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CE38D53226ED0767005690AA /* Ring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		CE3941DA26F610D000445660 /* Create.Third.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.Third.swift; sourceTree = "<group>"; };
@@ -284,10 +286,10 @@
 				CE67EF6726EB92900040A8CA /* App.Delegate.swift */,
 				CE67EF7526EB92900040A8CA /* App.swift */,
 				CE67EF7B26EB92910040A8CA /* Capacity.swift */,
+				CE3941DE26F6146A00445660 /* Create.First.swift */,
+				CE3941DC26F613D000445660 /* Create.Second.swift */,
 				CE4D550126EF7832002230EE /* Create.swift */,
 				CE3941DA26F610D000445660 /* Create.Third.swift */,
-				CE3941DC26F613D000445660 /* Create.Second.swift */,
-				CE3941DE26F6146A00445660 /* Create.First.swift */,
 				CE67EF6926EB92900040A8CA /* Empty.swift */,
 				CEEEB57C26F4CF2400B268A0 /* Filters.Content.swift */,
 				CEEEB57A26F4CB7500B268A0 /* Filters.Controller.swift */,
@@ -297,6 +299,7 @@
 				CE7C351526EF4C8900295CBA /* Middlebar.swift */,
 				CE67EF7126EB92900040A8CA /* Purchases.Item.swift */,
 				CE67EF7A26EB92910040A8CA /* Purchases.swift */,
+				CE0DEDD726F6C15700F75714 /* Reveal.Content.swift */,
 				CE67EF7D26EB92910040A8CA /* Reveal.swift */,
 				CE67EF6B26EB92900040A8CA /* Settings.swift */,
 				CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */,
@@ -573,6 +576,7 @@
 				CE67EF8F26EB92910040A8CA /* Writer.Text.swift in Sources */,
 				CE67EF8A26EB92910040A8CA /* Tagger.swift in Sources */,
 				CE67EF8926EB92910040A8CA /* UISplitViewController.swift in Sources */,
+				CE0DEDD826F6C15700F75714 /* Reveal.Content.swift in Sources */,
 				CE67EF9426EB92910040A8CA /* Reveal.swift in Sources */,
 				CE67EF8126EB92910040A8CA /* Info.swift in Sources */,
 				CE67EF9C26EB94B20040A8CA /* Transaction.swift in Sources */,
