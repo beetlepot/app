@@ -24,10 +24,10 @@ extension Purchases {
                 HStack {
                     Text(verbatim: product.displayPrice)
                         .font(.body.monospacedDigit())
-                    if product.id != Purchase.one.rawValue {
+                    if product.id != Purchase.one.rawValue, let percent = Purchase(rawValue: product.id)?.save {
                         Group {
                             Text("Save ")
-                            + Text(Purchase(rawValue: product.id)!.save, format: .percent)
+                            + Text(percent, format: .percent)
                         }
                         .foregroundColor(.orange)
                         .font(.callout.bold())

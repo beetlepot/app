@@ -4,7 +4,7 @@ import Secrets
 
 extension Transaction {
     func process() async {
-        let purchase = Purchase(rawValue: productID)!
+        guard let purchase = Purchase(rawValue: productID) else { return }
         if revocationDate == nil {
             await cloud.add(purchase: purchase)
             await UNUserNotificationCenter.send(message: "Purchase successful!")
