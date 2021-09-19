@@ -43,21 +43,19 @@ extension Reveal {
                     Button {
                         tags = true
                     } label: {
-                        Image(systemName: "tag.fill")
+                        Image(systemName: "tag.circle.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .frame(height: 18)
+                            .font(.title3)
                         Text("Tags")
+                            .font(.footnote)
                     }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .font(.caption)
                     
                     Spacer()
                     
                     NavigationLink(destination: Writer(id: secret.id).equatable()) {
                         Image(systemName: "pencil.circle.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .font(.title2)
+                            .font(.title)
                     }
                     
                     Spacer()
@@ -71,11 +69,9 @@ extension Reveal {
                         Text("Copy")
                         Image(systemName: "doc.on.doc.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .frame(height: 18)
                     }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .font(.caption)
+                    .font(.footnote)
+                    
                 }
             }
             .sheet(isPresented: $tags) {
