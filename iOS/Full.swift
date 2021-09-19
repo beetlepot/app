@@ -12,7 +12,7 @@ struct Full: View {
                     .resizable()
                     .font(.largeTitle.weight(.ultraLight))
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 80)
+                    .frame(width: 100)
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.init("Spot"))
                     .padding(.bottom)
@@ -39,7 +39,7 @@ struct Full: View {
             }
             .font(.footnote)
             .foregroundStyle(.secondary)
-            .padding(.bottom)
+            .padding(.vertical)
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
         .background(Color(.secondarySystemBackground))

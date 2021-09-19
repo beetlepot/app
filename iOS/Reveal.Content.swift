@@ -8,11 +8,10 @@ extension Reveal {
         
         var body: some View {
             ScrollView {
-                VStack {
+                VStack(spacing: 15) {
                     if !secret.tags.isEmpty {
                         Tagger(tags: secret.tags.list)
                             .privacySensitive()
-                            .padding(.bottom)
                     }
                     
                     if secret.payload.isEmpty {
@@ -29,11 +28,11 @@ extension Reveal {
                             .textSelection(.enabled)
                             .privacySensitive()
                     }
-                    
+
                     Text("Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
-                        .font(.callout)
+                        .font(.footnote)
                         .foregroundStyle(.secondary)
-                        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
+                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                 }
                 .padding()
             }
@@ -44,12 +43,14 @@ extension Reveal {
                     Button {
                         tags = true
                     } label: {
-                        Image(systemName: "tag.circle.fill")
+                        Image(systemName: "tag.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .font(.title2)
+                            .frame(height: 18)
                         Text("Tags")
-                            .font(.caption)
                     }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    .font(.caption)
                     
                     Spacer()
                     
@@ -68,12 +69,13 @@ extension Reveal {
                         }
                     } label: {
                         Text("Copy")
-                            .font(.caption)
                         Image(systemName: "doc.on.doc.fill")
-                            .font(.callout)
+                            .symbolRenderingMode(.hierarchical)
+                            .frame(height: 18)
                     }
                     .buttonStyle(.bordered)
                     .buttonBorderShape(.capsule)
+                    .font(.caption)
                 }
             }
             .sheet(isPresented: $tags) {

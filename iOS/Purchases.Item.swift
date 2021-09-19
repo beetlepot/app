@@ -34,12 +34,18 @@ extension Purchases {
                     }
                 }
                 .padding(.top)
-                Button("Purchase") {
+                Button {
                     Task {
                         await store.purchase(product)
                     }
+                } label: {
+                    Text("Purchase")
+                        .font(.callout)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 2)
                 }
                 .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
                 .padding(.bottom)
             }
         }
