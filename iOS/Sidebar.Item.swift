@@ -27,13 +27,13 @@ extension Sidebar {
                                 }
                             }
                             .disabled(disabled)
-                        if secret.favourite {
+                        if disabled && secret.favourite {
                             Image(systemName: "heart.fill")
                                 .font(.footnote)
                                 .foregroundStyle(.tertiary)
                         }
                     }
-                    if !secret.tags.isEmpty {
+                    if disabled && !secret.tags.isEmpty {
                         Tagger(tags: secret.tags.list)
                             .privacySensitive()
                     }
@@ -48,7 +48,10 @@ extension Sidebar {
             }
             .onChange(of: focus) {
                 if $0 == false {
-                    disabled = true
+                    withAnimation(.easeInOut(duration: 0.35)) {
+                        disabled = true
+                    }
+
                     name = secret.name
                 }
             }
@@ -62,6 +65,7 @@ extension Sidebar {
             }
             .swipeActions(edge: .leading) {
                 Button {
+                    UIApplication.shared.hide()
                     Task {
                         await cloud.update(id: secret.id, favourite: !secret.favourite)
                     }
@@ -72,16 +76,20 @@ extension Sidebar {
             }
             .swipeActions {
                 Button {
+                    UIApplication.shared.hide()
                     delete = true
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }
                 .tint(.pink)
                 Button {
-                    disabled = false
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        disabled = false
+                    }
+                    
                     DispatchQueue
                         .main
-                        .asyncAfter(deadline: .now() + 1.2) {
+                        .asyncAfter(deadline: .now() + 1.5) {
                             focus = true
                         }
                 } label: {
