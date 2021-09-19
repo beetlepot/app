@@ -84,7 +84,7 @@ struct Capacity: View {
         self.capacity = capacity
         
         withAnimation(.easeInOut(duration: 1.2)) {
-            percentage = .init(count) / .init(capacity)
+            percentage = .init(count) / max(.init(capacity), 1)
         }
     }
 }
