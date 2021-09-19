@@ -39,6 +39,7 @@ extension Writer {
             
             submit
                 .sink { [weak self] in
+                    self?.resignFirstResponder()
                     guard let text = self?.text.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
                     Task {
                         await cloud.update(id: id, payload: text)
