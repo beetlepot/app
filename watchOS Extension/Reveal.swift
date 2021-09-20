@@ -1,4 +1,5 @@
 import SwiftUI
+import UserNotifications
 import Secrets
 
 struct Reveal: View {
@@ -55,5 +56,10 @@ struct Reveal: View {
             .listRowBackground(Color.clear)
         }
         .navigationTitle(secret.name)
+        .task {
+            if await UNUserNotificationCenter.authorization == .notDetermined {
+                await UNUserNotificationCenter.request()
+            }
+        }
     }
 }
