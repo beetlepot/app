@@ -18,6 +18,8 @@
 		CE4D550426EF7B71002230EE /* Sidebar.Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */; };
 		CE4D550626EF9824002230EE /* Sidebar.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550526EF9824002230EE /* Sidebar.Items.swift */; };
 		CE4FF3C626EDFD19003EF083 /* Sidebar.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */; };
+		CE5331A926F934560049E464 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5331A826F934560049E464 /* Global.swift */; };
+		CE5331AA26F934560049E464 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5331A826F934560049E464 /* Global.swift */; };
 		CE67EF1A26EB8F280040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF1926EB8F280040A8CA /* Assets.xcassets */; };
 		CE67EF2626EB8F6B0040A8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE67EF2526EB8F6B0040A8CA /* Assets.xcassets */; };
 		CE67EF2C26EB8F6B0040A8CA /* Beetle.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE67EF2B26EB8F6B0040A8CA /* Beetle.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -156,6 +158,7 @@
 		CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Pop.swift; sourceTree = "<group>"; };
 		CE4D550526EF9824002230EE /* Sidebar.Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Items.swift; sourceTree = "<group>"; };
 		CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Items.swift; sourceTree = "<group>"; };
+		CE5331A826F934560049E464 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CE67EF1226EB8F270040A8CA /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE67EF1926EB8F280040A8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE67EF2326EB8F6A0040A8CA /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,6 +377,7 @@
 				CE67EF6626EB92340040A8CA /* Configuration.storekit */,
 				CE67EF9826EB94B20040A8CA /* Container.swift */,
 				CE67EF9526EB94B20040A8CA /* Copy.swift */,
+				CE5331A826F934560049E464 /* Global.swift */,
 				CE38D53226ED0767005690AA /* Ring.swift */,
 				CE67EF9926EB94B20040A8CA /* Store.State.swift */,
 				CE67EF9A26EB94B20040A8CA /* Store.swift */,
@@ -581,6 +585,7 @@
 				CE67EF8126EB92910040A8CA /* Info.swift in Sources */,
 				CE67EF9C26EB94B20040A8CA /* Transaction.swift in Sources */,
 				CEEEB58126F4E38900B268A0 /* Tags.Controller.swift in Sources */,
+				CE5331A926F934560049E464 /* Global.swift in Sources */,
 				CE67EF9226EB92910040A8CA /* Capacity.swift in Sources */,
 				CE67EF9E26EB94B20040A8CA /* Container.swift in Sources */,
 				CE67EF9126EB92910040A8CA /* Purchases.swift in Sources */,
@@ -617,6 +622,7 @@
 				CE67EFAC26EB95BB0040A8CA /* Purchases.swift in Sources */,
 				CE67EFAA26EB95BB0040A8CA /* Purchases.Item.swift in Sources */,
 				CE67EFA926EB95BB0040A8CA /* App.swift in Sources */,
+				CE5331AA26F934560049E464 /* Global.swift in Sources */,
 				CE38D53426ED0767005690AA /* Ring.swift in Sources */,
 				CE67EFB526EB95F30040A8CA /* Store.swift in Sources */,
 				CE67EFAD26EB95BB0040A8CA /* Sidebar.Item.swift in Sources */,

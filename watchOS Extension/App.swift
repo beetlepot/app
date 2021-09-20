@@ -1,9 +1,4 @@
 import SwiftUI
-import Archivable
-import Secrets
-
-let cloud = Cloud<Archive>.new
-let store = Store()
 
 @main struct App: SwiftUI.App {
     @Environment(\.scenePhase) private var phase
