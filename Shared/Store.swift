@@ -57,4 +57,12 @@ struct Store {
             status.send(.error(error.localizedDescription))
         }
     }
+    
+    func purchase(legacy: SKProduct) {
+        Task
+            .detached {
+                guard let product = try? await Product.products(for: [legacy.productIdentifier]).first else { return }
+                await purchase(product)
+            }
+    }
 }

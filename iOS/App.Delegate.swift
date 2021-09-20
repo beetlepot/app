@@ -1,7 +1,10 @@
 import StoreKit
+import Combine
 
 extension App {
     final class Delegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, SKPaymentTransactionObserver {
+        let store = PassthroughSubject<SKProduct, Never>()
+        
         func application(_ application: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
             application.registerForRemoteNotifications()
             UNUserNotificationCenter.current().delegate = self
@@ -17,8 +20,9 @@ extension App {
             await cloud.notified ? .newData : .noData
         }
         
-        func paymentQueue(_: SKPaymentQueue, shouldAddStorePayment: SKPayment, for: SKProduct) -> Bool {
-            true
+        func paymentQueue(_: SKPaymentQueue, shouldAddStorePayment: SKPayment, for product: SKProduct) -> Bool {
+            store.send(product)
+            return false
         }
         
         func paymentQueue(_: SKPaymentQueue, updatedTransactions: [SKPaymentTransaction]) {
