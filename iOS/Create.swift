@@ -19,6 +19,7 @@ struct Create: View {
         }
         .tabViewStyle(.page)
         .symbolRenderingMode(.hierarchical)
+        .ignoresSafeArea(.keyboard)
         .navigationTitle("New Secret")
         .navigationBarTitleDisplayMode(.large)
         .toolbar {

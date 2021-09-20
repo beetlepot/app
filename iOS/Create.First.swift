@@ -18,18 +18,18 @@ extension Create {
                 }
                 .padding()
                 
-                Text(verbatim: secret.payload.isEmpty ? "This secret is empty" : secret.payload)
+                Text(verbatim: secret.payload.isEmpty ? "Empty secret" : secret.payload)
                     .privacySensitive()
-                    .foregroundColor(secret.payload.isEmpty ? .secondary : .accentColor)
+                    .foregroundColor(secret.payload.isEmpty ? .init(.tertiaryLabel) : .accentColor)
                     .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                     .padding()
                 
                 Button {
                     payload = true
                 } label: {
-                    Label("Edit", systemImage: "pencil")
+                    Label("Edit", systemImage: "square.and.pencil")
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
                 .padding(.vertical)
                 .sheet(isPresented: $payload) {
                     NavigationView {
@@ -43,7 +43,8 @@ extension Create {
                 Button {
                     reindex(1)
                 } label: {
-                    Image(systemName: "arrow.right")
+                    Image(systemName: "arrow.right.circle.fill")
+                        .font(.largeTitle)
                 }
                 .padding(.bottom, 80)
             }

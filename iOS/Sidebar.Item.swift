@@ -89,7 +89,7 @@ extension Sidebar {
                     
                     DispatchQueue
                         .main
-                        .asyncAfter(deadline: .now() + 1.5) {
+                        .asyncAfter(deadline: .now() + 1.2) {
                             focus = true
                         }
                 } label: {

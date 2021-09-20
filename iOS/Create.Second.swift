@@ -38,9 +38,9 @@ extension Create {
                 Button {
                     focus.toggle()
                 } label: {
-                    Label("Name", systemImage: "pencil")
+                    Label("Name", systemImage: "rectangle.and.pencil.and.ellipsis")
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
                 .padding(.vertical)
                 
                 Spacer()
@@ -49,14 +49,15 @@ extension Create {
                     Button {
                         reindex(0)
                     } label: {
-                        Image(systemName: "arrow.left")
+                        Image(systemName: "arrow.left.circle.fill")
                     }
                     Button {
                         reindex(2)
                     } label: {
-                        Image(systemName: "arrow.right")
+                        Image(systemName: "arrow.right.circle.fill")
                     }
                 }
+                .font(.largeTitle)
                 .padding(.bottom, 80)
             }
             .frame(maxWidth: .greatestFiniteMagnitude)

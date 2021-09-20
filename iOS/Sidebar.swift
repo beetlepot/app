@@ -34,12 +34,13 @@ struct Sidebar: View {
                 }
                 
                 ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
                     Button("Cancel", role: .cancel) {
                         UIApplication.shared.hide()
                     }
+                    .buttonStyle(.bordered)
                     .font(.callout)
                     .tint(.pink)
+                    Spacer()
                 }
             }
             .onReceive(cloud) {

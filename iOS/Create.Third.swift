@@ -38,7 +38,7 @@ extension Create {
                     Tags(secret: secret)
                         .edgesIgnoringSafeArea(.all)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
                 .padding(.vertical)
                 
                 Spacer()
@@ -46,7 +46,8 @@ extension Create {
                 Button {
                     reindex(1)
                 } label: {
-                    Image(systemName: "arrow.left")
+                    Image(systemName: "arrow.left.circle.fill")
+                        .font(.largeTitle)
                 }
                 .padding(.bottom, 80)
             }
