@@ -65,7 +65,6 @@ struct About: View {
             .listRowBackground(Color.clear)
         }
         .symbolRenderingMode(.multicolor)
-        .toggleStyle(SwitchToggleStyle(tint: .orange))
         .listStyle(.insetGrouped)
         .navigationTitle("About")
         .navigationBarTitleDisplayMode(.large)
