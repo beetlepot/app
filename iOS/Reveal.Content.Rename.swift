@@ -20,6 +20,14 @@ extension Reveal.Content {
                             .submitLabel(.done)
                             .privacySensitive()
                             .onSubmit(submit)
+                            .onAppear {
+                                name = secret.name
+                                DispatchQueue
+                                    .main
+                                    .asyncAfter(deadline: .now() + 1) {
+                                        focus = true
+                                    }
+                            }
                     }
                 }
                 .listStyle(.insetGrouped)
@@ -41,14 +49,6 @@ extension Reveal.Content {
                 }
             }
             .navigationViewStyle(.stack)
-            .onAppear {
-                name = secret.name
-                DispatchQueue
-                    .main
-                    .async {
-                        focus = true
-                    }
-            }
         }
         
         private func submit() {

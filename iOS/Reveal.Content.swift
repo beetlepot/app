@@ -79,6 +79,14 @@ extension Reveal {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button {
+                            Task {
+                                await cloud.update(id: secret.id, favourite: !secret.favourite)
+                            }
+                        } label: {
+                            Label(secret.favourite ? "Remove favourite" : "Make favourite", systemImage: secret.favourite ? "heart.slash" : "heart")
+                        }
+                        
+                        Button {
                             rename = true
                         } label: {
                             Label("Rename", systemImage: "pencil")
@@ -93,6 +101,8 @@ extension Reveal {
                         Image(systemName: "ellipsis")
                             .symbolRenderingMode(.hierarchical)
                             .font(.title3)
+                            .frame(width: 40, height: 40)
+                            .contentShape(Rectangle())
                     }
                     .sheet(isPresented: $rename) {
                         Rename(secret: $secret)
