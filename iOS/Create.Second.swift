@@ -14,7 +14,7 @@ extension Create {
                     Image(systemName: "character.textbox")
                         .font(.largeTitle)
                         .foregroundColor(.accentColor)
-                    Text("Identify it with a name")
+                    Text("Identify it with a title")
                     Spacer()
                 }
                 .padding()
@@ -34,11 +34,16 @@ extension Create {
                             }
                         }
                     }
+                    .onTapGesture {
+                        if !focus {
+                            focus = true
+                        }
+                    }
                 
                 Button {
                     focus.toggle()
                 } label: {
-                    Label("Name", systemImage: "rectangle.and.pencil.and.ellipsis")
+                    Label("Title", systemImage: "rectangle.and.pencil.and.ellipsis")
                 }
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical)

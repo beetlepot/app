@@ -23,10 +23,16 @@ extension Create {
                         .foregroundStyle(.tertiary)
                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                         .padding()
+                        .onTapGesture {
+                            tags = true
+                        }
                 } else {
                     Tagger(tags: secret.tags.list)
                         .privacySensitive()
                         .padding()
+                        .onTapGesture {
+                            tags = true
+                        }
                 }
                 
                 Button {

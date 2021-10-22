@@ -23,6 +23,11 @@ extension Create {
                     .foregroundColor(secret.payload.isEmpty ? .init(.tertiaryLabel) : .accentColor)
                     .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                     .padding()
+                    .onTapGesture {
+                        if !payload {
+                            payload = true
+                        }
+                    }
                 
                 Button {
                     payload = true
