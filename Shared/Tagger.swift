@@ -14,7 +14,7 @@ struct Tagger: View {
             for tag in tags {
                 let text = Text(verbatim: tag)
                     .foregroundColor(.white)
-                    .font(.footnote)
+                    .font(.footnote.weight(.medium))
                     
                 let resolved = context.resolve(text)
                 let textSize = resolved.measure(in: .init(width: CGFloat.greatestFiniteMagnitude, height: .greatestFiniteMagnitude))

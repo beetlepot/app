@@ -11,7 +11,7 @@ struct About: View {
                         Image("Logo")
                         Group {
                             Text(verbatim: "Beetle\n")
-                            + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
+                            + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")
                                 .foregroundColor(.init("Spot"))
                         }
                         .multilineTextAlignment(.center)

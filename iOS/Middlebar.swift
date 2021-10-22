@@ -27,6 +27,7 @@ struct Middlebar: View {
             }
         }
         .font(.callout)
+        .headerProminence(.increased)
     }
     
     private var help: some View {
@@ -44,5 +45,6 @@ struct Middlebar: View {
             }
         }
         .font(.callout)
+        .headerProminence(.increased)
     }
 }

@@ -15,7 +15,7 @@ extension Sidebar {
                     HStack {
                         TextField(secret.name, text: $name)
                             .focused($focus)
-                            .font(.callout)
+                            .font(.body)
                             .textInputAutocapitalization(.sentences)
                             .disableAutocorrection(!Defaults.correction)
                             .submitLabel(.done)

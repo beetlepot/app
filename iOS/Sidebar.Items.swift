@@ -19,11 +19,10 @@ extension Sidebar {
                                 Image(systemName: "plus")
                                     .font(.title3)
                             }
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 4)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 5)
                         }
                         .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.capsule)
                         .listRowBackground(Color.clear)
                         .padding(.top)
                     }
