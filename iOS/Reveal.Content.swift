@@ -5,6 +5,8 @@ extension Reveal {
     struct Content: View {
         @Binding var secret: Secret
         @State private var tags = false
+        @State private var rename = false
+        @State private var delete = false
         
         var body: some View {
             ScrollView {
@@ -72,6 +74,37 @@ extension Reveal {
                     }
                     .font(.footnote)
                     
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button {
+                            rename = true
+                        } label: {
+                            Label("Rename", systemImage: "pencil")
+                        }
+                        
+                        Button {
+                            delete = true
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.title3)
+                    }
+                    .sheet(isPresented: $rename) {
+                        Rename(secret: $secret)
+                    }
+                    .confirmationDialog("Delete secret?", isPresented: $delete) {
+                        Button("Delete", role: .destructive) {
+                            Task {
+                                await cloud.delete(id: secret.id)
+                                await UNUserNotificationCenter.send(message: "Deleted secret!")
+                            }
+                        }
+                    }
                 }
             }
             .sheet(isPresented: $tags) {
