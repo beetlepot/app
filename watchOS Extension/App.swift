@@ -7,6 +7,9 @@ import SwiftUI
     var body: some Scene {
         WindowGroup {
             Sidebar()
+                .onAppear {
+                    cloud.pull.send()
+                }
         }
         .onChange(of: phase) {
             if $0 == .active {
