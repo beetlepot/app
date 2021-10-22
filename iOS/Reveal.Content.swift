@@ -76,7 +76,7 @@ extension Reveal {
             }
             .sheet(isPresented: $tags) {
                 Tags(secret: secret)
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea(edges: .all)
             }
             .task {
                 if let created = Defaults.created {

@@ -36,7 +36,7 @@ extension Create {
                 }
                 .sheet(isPresented: $tags) {
                     Tags(secret: secret)
-                        .edgesIgnoringSafeArea(.all)
+                        .ignoresSafeArea(edges: .all)
                 }
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical)
