@@ -12,7 +12,7 @@ extension App {
             cloud.pull.send()
         }
         
-        func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any]) async -> WKBackgroundFetchResult {
+        func didReceiveRemoteNotification(_: [AnyHashable : Any]) async -> WKBackgroundFetchResult {
             await cloud.notified ? .newData : .noData
         }
         
