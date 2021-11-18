@@ -10,33 +10,26 @@ extension Sidebar {
         @State private var count = 0
         
         var body: some View {
-            List {
+            ScrollView {
                 HStack {
                     Text(capacity, format: .number)
                         .foregroundColor(.init("Spot"))
-                        .font(.title2.bold())
+                        .font(.title3.bold())
                     + Text(capacity == 1 ? "\nSpot" : "\nSpots")
                         .font(.caption2)
-                    Spacer()
+                        .foregroundColor(.secondary)
                     Text(count, format: .number)
                         .foregroundColor(.accentColor)
-                        .font(.title2.bold())
+                        .font(.title3.bold())
                     + Text(count == 1 ? "\nSecret" : "\nSecrets")
                         .font(.caption2)
+                        .foregroundColor(.secondary)
                 }
                 .multilineTextAlignment(.center)
-                .listRowBackground(Color.clear)
-                
-                Spacer()
-                    .listRowBackground(Color.clear)
+                .padding(.bottom)
                 
                 ForEach(filtered) {
                     Item(selected: $selected, secret: $0)
-                }
-                
-                if !filtered.isEmpty {
-                    Spacer()
-                        .listRowBackground(Color.clear)
                 }
                 
                 if available {
@@ -55,17 +48,15 @@ extension Sidebar {
                             .frame(maxWidth: .greatestFiniteMagnitude)
                             .foregroundColor(.init("Spot"))
                     }
-                    .listRowBackground(Color.clear)
+                    .buttonStyle(.plain)
+                    .padding(.vertical)
                 } else {
                     Text("You reached the limit of secrets that you can keep. Purchase spots to add more secrets.")
                         .font(.caption2)
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundStyle(.secondary)
-                        .listRowBackground(Color.clear)
+                        .padding()
                 }
-                
-                Spacer()
-                    .listRowBackground(Color.clear)
                 
                 NavigationLink(tag: -1, selection: $selected) {
                     Purchases()
@@ -73,19 +64,15 @@ extension Sidebar {
                     ZStack {
                         Capsule()
                             .fill(Color.accentColor)
-                        HStack {
-                            Spacer()
-                            Label("Purchases", systemImage: "cart")
-                                .symbolRenderingMode(.hierarchical)
-                                .font(.footnote)
-                                .foregroundColor(.white)
-                            Spacer()
-                        }
-                        .padding()
+                        Label("Purchases", systemImage: "cart")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                            .padding(.vertical)
                     }
-                    .padding(.horizontal)
                 }
-                .listRowBackground(Color.clear)
+                .buttonStyle(.plain)
+                .padding()
             }
             .onReceive(cloud) {
                 available = $0.available

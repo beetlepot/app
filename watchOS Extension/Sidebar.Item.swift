@@ -11,16 +11,21 @@ extension Sidebar {
             NavigationLink(tag: secret.id, selection: $selected) {
                 Reveal(secret: secret)
             } label: {
-                if secret.favourite {
-                    Image(systemName: "heart.fill")
-                        .symbolRenderingMode(.hierarchical)
-                        .font(.caption2)
-                        .foregroundColor(.accentColor)
+                HStack {
+                    if secret.favourite {
+                        Image(systemName: "heart.fill")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.caption2)
+                            .foregroundColor(.accentColor)
+                    }
+                    Text(verbatim: secret.name)
+                        .font(.footnote)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
+                        .privacySensitive()
+                        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                 }
-                Text(verbatim: secret.name)
-                    .font(.callout)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .privacySensitive()
+                .padding(.vertical, 4)
             }
             .confirmationDialog("Delete secret?", isPresented: $delete) {
                 Button("Delete", role: .destructive) {
