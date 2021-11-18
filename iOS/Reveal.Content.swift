@@ -47,9 +47,7 @@ extension Reveal {
                     } label: {
                         Image(systemName: "tag.circle.fill")
                             .symbolRenderingMode(.hierarchical)
-                            .font(.title3)
-                        Text("Tags")
-                            .font(.footnote)
+                            .font(.title2)
                     }
                     
                     Spacer()
@@ -63,17 +61,12 @@ extension Reveal {
                     Spacer()
                     
                     Button {
-                        UIPasteboard.general.string = secret.payload
-                        Task {
-                            await UNUserNotificationCenter.send(message: "Secret copied!")
-                        }
+                        UIApplication.shared.share(secret.payload)
                     } label: {
-                        Text("Copy")
-                        Image(systemName: "doc.on.doc.fill")
+                        Image(systemName: "square.and.arrow.up.circle.fill")
                             .symbolRenderingMode(.hierarchical)
+                            .font(.title2)
                     }
-                    .font(.footnote)
-                    
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
