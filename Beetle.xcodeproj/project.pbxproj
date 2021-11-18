@@ -44,6 +44,12 @@
 		CE3DCA2A27467FC500D3C7C5 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA1427467FC500D3C7C5 /* Separator.swift */; };
 		CE3DCA2B27467FC500D3C7C5 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA1527467FC500D3C7C5 /* Flip.swift */; };
 		CE3DCA2C27467FC500D3C7C5 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA1627467FC500D3C7C5 /* CollectionItem.swift */; };
+		CE3DCA2E274684E500D3C7C5 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA2D274684E500D3C7C5 /* Sidebar.swift */; };
+		CE3DCA302746855100D3C7C5 /* Sidebar.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA2F2746855100D3C7C5 /* Sidebar.Cell.swift */; };
+		CE3DCA322746858300D3C7C5 /* Sidebar.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA312746858300D3C7C5 /* Sidebar.Info.swift */; };
+		CE3DCA342746896300D3C7C5 /* Sidebar.List.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA332746896300D3C7C5 /* Sidebar.List.swift */; };
+		CE3DCA362746913D00D3C7C5 /* Landing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA352746913D00D3C7C5 /* Landing.swift */; };
+		CE3DCA382746936100D3C7C5 /* Landing.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3DCA372746936100D3C7C5 /* Landing.Option.swift */; };
 		CE460F96272334E1007D52D8 /* Reveal.Content.Rename.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE460F95272334E1007D52D8 /* Reveal.Content.Rename.swift */; };
 		CE49220027465AD60077056A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4921FF27465AD60077056A /* App.swift */; };
 		CE49220227465AD60077056A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49220127465AD60077056A /* Window.swift */; };
@@ -199,6 +205,12 @@
 		CE3DCA1427467FC500D3C7C5 /* Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		CE3DCA1527467FC500D3C7C5 /* Flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
 		CE3DCA1627467FC500D3C7C5 /* CollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
+		CE3DCA2D274684E500D3C7C5 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		CE3DCA2F2746855100D3C7C5 /* Sidebar.Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Cell.swift; sourceTree = "<group>"; };
+		CE3DCA312746858300D3C7C5 /* Sidebar.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Info.swift; sourceTree = "<group>"; };
+		CE3DCA332746896300D3C7C5 /* Sidebar.List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.List.swift; sourceTree = "<group>"; };
+		CE3DCA352746913D00D3C7C5 /* Landing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.swift; sourceTree = "<group>"; };
+		CE3DCA372746936100D3C7C5 /* Landing.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.Option.swift; sourceTree = "<group>"; };
 		CE460F95272334E1007D52D8 /* Reveal.Content.Rename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.Content.Rename.swift; sourceTree = "<group>"; };
 		CE4921FD27465AD60077056A /* Beetle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beetle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4921FF27465AD60077056A /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -324,13 +336,19 @@
 				CE3DCA0927467FC500D3C7C5 /* Control.swift */,
 				CE3DCA1527467FC500D3C7C5 /* Flip.swift */,
 				CE3DCA0127467FC500D3C7C5 /* Image.swift */,
+				CE3DCA352746913D00D3C7C5 /* Landing.swift */,
 				CE3DCA0C27467FC500D3C7C5 /* Layer.swift */,
 				CE3DCA0627467FC500D3C7C5 /* Menu.swift */,
 				CE3DCA1127467FC500D3C7C5 /* NSApplication.swift */,
 				CE3DCA0427467FC500D3C7C5 /* NSAttributedString.swift */,
 				CE3DCA1327467FC500D3C7C5 /* NSMenuItem.swift */,
+				CE3DCA372746936100D3C7C5 /* Landing.Option.swift */,
 				CE3DCA1427467FC500D3C7C5 /* Separator.swift */,
 				CE3DCA0D27467FC500D3C7C5 /* Shape.swift */,
+				CE3DCA2F2746855100D3C7C5 /* Sidebar.Cell.swift */,
+				CE3DCA312746858300D3C7C5 /* Sidebar.Info.swift */,
+				CE3DCA332746896300D3C7C5 /* Sidebar.List.swift */,
+				CE3DCA2D274684E500D3C7C5 /* Sidebar.swift */,
 				CE3DCA0727467FC500D3C7C5 /* Text.swift */,
 				CE49220127465AD60077056A /* Window.swift */,
 				CE49220327465AD70077056A /* Assets.xcassets */,
@@ -652,18 +670,24 @@
 				CE3DCA2327467FC500D3C7C5 /* Shape.swift in Sources */,
 				CE3DCA1827467FC500D3C7C5 /* Collection.swift in Sources */,
 				CE3DCA1927467FC500D3C7C5 /* Control.State.swift in Sources */,
+				CE3DCA322746858300D3C7C5 /* Sidebar.Info.swift in Sources */,
 				CE3DCA2427467FC500D3C7C5 /* CGRect.swift in Sources */,
 				CE3DCA2C27467FC500D3C7C5 /* CollectionItem.swift in Sources */,
+				CE3DCA362746913D00D3C7C5 /* Landing.swift in Sources */,
 				CE49220227465AD60077056A /* Window.swift in Sources */,
 				CE3DC9F8274676CA00D3C7C5 /* Container.swift in Sources */,
 				CE3DCA1A27467FC500D3C7C5 /* NSAttributedString.swift in Sources */,
 				CE3DCA2727467FC500D3C7C5 /* NSApplication.swift in Sources */,
+				CE3DCA382746936100D3C7C5 /* Landing.Option.swift in Sources */,
+				CE3DCA342746896300D3C7C5 /* Sidebar.List.swift in Sources */,
 				CE3DCA0027467C5200D3C7C5 /* Bar.swift in Sources */,
 				CE3DCA2927467FC500D3C7C5 /* NSMenuItem.swift in Sources */,
 				CE3DCA2527467FC500D3C7C5 /* AttributedString.swift in Sources */,
 				CE3DCA2A27467FC500D3C7C5 /* Separator.swift in Sources */,
 				CE3DCA2B27467FC500D3C7C5 /* Flip.swift in Sources */,
 				CE3DCA2127467FC500D3C7C5 /* CollectionCellState.swift in Sources */,
+				CE3DCA2E274684E500D3C7C5 /* Sidebar.swift in Sources */,
+				CE3DCA302746855100D3C7C5 /* Sidebar.Cell.swift in Sources */,
 				CE3DCA1C27467FC500D3C7C5 /* Menu.swift in Sources */,
 				CE3DCA1D27467FC500D3C7C5 /* Text.swift in Sources */,
 				CE3DCA1E27467FC500D3C7C5 /* CollectionCellText.swift in Sources */,
