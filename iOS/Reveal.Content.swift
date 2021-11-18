@@ -115,14 +115,11 @@ extension Reveal {
                     .ignoresSafeArea(edges: .all)
             }
             .task {
-                if let created = Defaults.created {
-                    let days = Calendar.current.dateComponents([.day], from: created, to: .init()).day!
-                    if !Defaults.rated && days > 6 {
-                        UIApplication.shared.review()
-                        Defaults.rated = true
-                    }
-                } else {
-                    Defaults.created = .init()
+                switch Defaults.action {
+                case .rate:
+                    UIApplication.shared.review()
+                case .none:
+                    break
                 }
             }
         }
