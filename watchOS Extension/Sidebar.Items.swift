@@ -3,7 +3,7 @@ import Secrets
 
 extension Sidebar {
     struct Items: View {
-        @Binding var filtered: [Secret]
+        let filtered: [Secret]
         @State private var selected: Int?
         @State private var available = false
         @State private var capacity = 0
@@ -30,11 +30,11 @@ extension Sidebar {
                 Spacer()
                     .listRowBackground(Color.clear)
                 
+                ForEach(filtered) {
+                    Item(selected: $selected, secret: $0)
+                }
+                
                 if !filtered.isEmpty {
-                    ForEach(filtered) {
-                        Item(selected: $selected, secret: $0)
-                    }
-                    
                     Spacer()
                         .listRowBackground(Color.clear)
                 }

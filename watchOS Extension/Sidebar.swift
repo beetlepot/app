@@ -8,7 +8,7 @@ struct Sidebar: View {
     
     var body: some View {
         NavigationView {
-            Items(filtered: $filtered)
+            Items(filtered: filtered)
                 .searchable(text: $filter.search)
         }
         .onReceive(cloud) {
