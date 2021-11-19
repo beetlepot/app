@@ -3,7 +3,7 @@ import AppKit
 extension Bar {
     final class Option: Control {
         required init?(coder: NSCoder) { nil }
-        init(icon: String, size: CGFloat = 14) {
+        init(icon: String, size: CGFloat) {
             let image = Image(icon: icon)
             image.symbolConfiguration = .init(pointSize: size, weight: .regular)
                 .applying(.init(hierarchicalColor: .secondaryLabelColor))

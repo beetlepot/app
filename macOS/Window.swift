@@ -22,12 +22,11 @@ final class Window: NSWindow, NSWindowDelegate {
         tabbingMode = .disallowed
         titlebarAppearsTransparent = true
         
+        let toggle = CurrentValueSubject<Bool, Never>(Defaults.sidebar)
         let selected = CurrentValueSubject<Secret?, Never>(nil)
         
-        let bar = Bar(selected: selected)
-        
         let top = NSTitlebarAccessoryViewController()
-        top.view = bar
+        top.view = Bar(toggle: toggle, selected: selected)
         top.layoutAttribute = .top
         addTitlebarAccessoryViewController(top)
         
@@ -41,12 +40,12 @@ final class Window: NSWindow, NSWindowDelegate {
         self.content = content
         base.addSubview(content)
         
-        let sidebar = Sidebar(toggle: bar.sidebar, selected: selected)
+        let sidebar = Sidebar(toggle: toggle, selected: selected)
         base.addSubview(sidebar)
         
-        content.topAnchor.constraint(equalTo: base.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        content.rightAnchor.constraint(equalTo: base.safeAreaLayoutGuide.rightAnchor).isActive = true
-        content.bottomAnchor.constraint(equalTo: base.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        content.topAnchor.constraint(equalTo: base.topAnchor).isActive = true
+        content.rightAnchor.constraint(equalTo: base.rightAnchor).isActive = true
+        content.bottomAnchor.constraint(equalTo: base.bottomAnchor).isActive = true
         let left = content.leftAnchor.constraint(equalTo: sidebar.rightAnchor)
         left.isActive = true
         
@@ -54,10 +53,9 @@ final class Window: NSWindow, NSWindowDelegate {
         sidebar.leftAnchor.constraint(equalTo: base.safeAreaLayoutGuide.leftAnchor).isActive = true
         sidebar.bottomAnchor.constraint(equalTo: base.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
-        bar
-            .sidebar
+        toggle
             .sink {
-                left.constant = $0 ? 20 : 40
+                left.constant = $0 ? 0 : 20
             }
             .store(in: &subs)
         

@@ -3,26 +3,30 @@ import Combine
 import Secrets
 
 final class Bar: NSVisualEffectView {
-    let sidebar: CurrentValueSubject<Bool, Never>
     private var subs = Set<AnyCancellable>()
     
     required init?(coder: NSCoder) { nil }
-    init(selected: CurrentValueSubject<Secret?, Never>) {
-        sidebar = .init(Defaults.sidebar)
-        
+    init(toggle: CurrentValueSubject<Bool, Never>, selected: CurrentValueSubject<Secret?, Never>) {
         super.init(frame: .zero)
         state = .active
         material = .menu
         
-        let sidebar = Option(icon: "sidebar.squares.leading")
+        let sidebar = Option(icon: "sidebar.squares.leading", size: 14)
         sidebar
             .click
-            .sink { [weak self] in
+            .sink {
                 Defaults.sidebar.toggle()
-                self?.sidebar.send(Defaults.sidebar)
+                toggle.send(Defaults.sidebar)
             }
             .store(in: &subs)
-        addSubview(sidebar)
+        
+        let plus = Option(icon: "plus", size: 14)
+        plus
+            .click
+            .sink {
+                
+            }
+            .store(in: &subs)
         
         let edit = Option(icon: "pencil.circle.fill", size: 22)
         edit
@@ -40,7 +44,7 @@ final class Bar: NSVisualEffectView {
             }
             .store(in: &subs)
         
-        let share = Option(icon: "square.and.arrow.up")
+        let share = Option(icon: "square.and.arrow.up", size: 13)
         share
             .click
             .sink {
@@ -48,23 +52,35 @@ final class Bar: NSVisualEffectView {
             }
             .store(in: &subs)
         
-        let stack = NSStackView(views: [ellipsis, share, edit])
-        addSubview(stack)
+        let left = NSStackView(views: [sidebar, plus])
+        addSubview(left)
         
-        sidebar.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        sidebar.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10).isActive = true
+        let right = NSStackView(views: [ellipsis, share, edit])
+        addSubview(right)
         
-        stack.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
-        stack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        left.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
+        left.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        self
-            .sidebar
+        right.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
+        right.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        toggle
             .sink {
                 if $0 {
                     sidebar.toolTip = "Hide sidebar"
                 } else {
                     sidebar.toolTip = "Show sidebar"
                 }
+            }
+            .store(in: &subs)
+        
+        selected
+            .map {
+                $0 == nil
+            }
+            .removeDuplicates()
+            .sink {
+                right.isHidden = $0
             }
             .store(in: &subs)
     }

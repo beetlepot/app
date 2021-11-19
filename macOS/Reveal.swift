@@ -36,10 +36,9 @@ final class Reveal: NSScrollView {
         flip.topAnchor.constraint(equalTo: topAnchor).isActive = true
         flip.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         flip.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        flip.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor).isActive = true
         
-        text.topAnchor.constraint(equalTo: flip.topAnchor).isActive = true
-        text.leftAnchor.constraint(equalTo: flip.leftAnchor).isActive = true
+        text.topAnchor.constraint(equalTo: flip.topAnchor, constant: 20).isActive = true
+        text.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 20).isActive = true
         text.rightAnchor.constraint(equalTo: flip.rightAnchor, constant: -40).isActive = true
         text.bottomAnchor.constraint(lessThanOrEqualTo: flip.bottomAnchor, constant: -40).isActive = true
     }
