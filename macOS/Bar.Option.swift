@@ -3,12 +3,12 @@ import AppKit
 extension Bar {
     final class Option: Control {
         required init?(coder: NSCoder) { nil }
-        init(icon: String, size: CGFloat = 14, animatable: Bool = false) {
+        init(icon: String, size: CGFloat = 14) {
             let image = Image(icon: icon)
             image.symbolConfiguration = .init(pointSize: size, weight: .regular)
             image.contentTintColor = .secondaryLabelColor
             
-            super.init(layer: true, animatable: animatable)
+            super.init(layer: true)
             layer!.cornerRadius = 8
             layer!.cornerCurve = .continuous
             

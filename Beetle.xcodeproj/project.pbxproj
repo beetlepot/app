@@ -124,6 +124,7 @@
 		CEEEB57D26F4CF2400B268A0 /* Filters.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57C26F4CF2400B268A0 /* Filters.Content.swift */; };
 		CEEEB57F26F4E37300B268A0 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57E26F4E37300B268A0 /* Tags.swift */; };
 		CEEEB58126F4E38900B268A0 /* Tags.Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB58026F4E38900B268A0 /* Tags.Controller.swift */; };
+		CEF9FEFB2747BFB3007DBE49 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9FEFA2747BFB3007DBE49 /* Sidebar.Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +287,7 @@
 		CEEEB57C26F4CF2400B268A0 /* Filters.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.Content.swift; sourceTree = "<group>"; };
 		CEEEB57E26F4E37300B268A0 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 		CEEEB58026F4E38900B268A0 /* Tags.Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.Controller.swift; sourceTree = "<group>"; };
+		CEF9FEFA2747BFB3007DBE49 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +352,7 @@
 				CE3DCA1327467FC500D3C7C5 /* NSMenuItem.swift */,
 				CE3DCA1427467FC500D3C7C5 /* Separator.swift */,
 				CE3DCA0D27467FC500D3C7C5 /* Shape.swift */,
+				CEF9FEFA2747BFB3007DBE49 /* Sidebar.Item.swift */,
 				CE7C70132747ACBD00AED203 /* Sidebar.swift */,
 				CE3DCA2F2746855100D3C7C5 /* Tags.Cell.swift */,
 				CE3DCA312746858300D3C7C5 /* Tags.Info.swift */,
@@ -691,6 +694,7 @@
 				CE3DCA2927467FC500D3C7C5 /* NSMenuItem.swift in Sources */,
 				CE3DCA2527467FC500D3C7C5 /* AttributedString.swift in Sources */,
 				CE3DCA2A27467FC500D3C7C5 /* Separator.swift in Sources */,
+				CEF9FEFB2747BFB3007DBE49 /* Sidebar.Item.swift in Sources */,
 				CE3DCA2B27467FC500D3C7C5 /* Flip.swift in Sources */,
 				CE3DCA2127467FC500D3C7C5 /* CollectionCellState.swift in Sources */,
 				CE3DCA2E274684E500D3C7C5 /* Tags.swift in Sources */,
