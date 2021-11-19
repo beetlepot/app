@@ -15,21 +15,21 @@ final class Reveal: NSScrollView {
         verticalScroller!.controlSize = .mini
         drawsBackground = false
         
-        let string = AttributedString.with(markdown: secret.name, attributes: .init([
-            .foregroundColor: NSColor.labelColor,
-            .font: NSFont.preferredFont(forTextStyle: .title1)]))
-        + .newLine
-        + .newLine
-        + .with(markdown: secret.payload, attributes: .init([
-            .foregroundColor: NSColor.labelColor,
-            .font: NSFont.preferredFont(forTextStyle: .title3)]))
-        + .newLine
-        + .with(markdown: "Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)), attributes: .init([
-            .foregroundColor: NSColor.tertiaryLabelColor,
-            .font: NSFont.preferredFont(forTextStyle: .footnote)]))
-        
         let text = Text(vibrancy: true)
-        text.attributedStringValue = .init(string)
+        text.attributedStringValue = .make {
+            $0.append(.with(markdown: secret.name, attributes: [
+                .foregroundColor: NSColor.labelColor,
+                .font: NSFont.preferredFont(forTextStyle: .title1)]))
+            $0.newLine()
+            $0.newLine()
+            $0.append(.with(markdown: secret.payload, attributes: [
+                .foregroundColor: NSColor.labelColor,
+                .font: NSFont.preferredFont(forTextStyle: .title3)]))
+            $0.newLine()
+            $0.append(.init(string: "Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)), attributes: [
+                .foregroundColor: NSColor.tertiaryLabelColor,
+                .font: NSFont.preferredFont(forTextStyle: .footnote)]))
+        }
         text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         flip.addSubview(text)
         
@@ -38,7 +38,7 @@ final class Reveal: NSScrollView {
         flip.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         
         text.topAnchor.constraint(equalTo: flip.topAnchor, constant: 20).isActive = true
-        text.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 20).isActive = true
+        text.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 40).isActive = true
         text.rightAnchor.constraint(equalTo: flip.rightAnchor, constant: -40).isActive = true
         text.bottomAnchor.constraint(lessThanOrEqualTo: flip.bottomAnchor, constant: -40).isActive = true
     }

@@ -8,7 +8,7 @@ struct Full: View {
     var body: some View {
         VStack {
             if full {
-                Image(systemName: "lock.square")
+                Image("full")
                     .resizable()
                     .font(.largeTitle.weight(.ultraLight))
                     .aspectRatio(contentMode: .fit)
@@ -16,12 +16,11 @@ struct Full: View {
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.init("Spot"))
                     .padding(.bottom)
-                Text("You reached the limit of secrets\nthat you can keep.\n")
-                    .foregroundColor(.primary)
-                    .font(.body)
-                + Text("Purchase spots\nto add more secrets.")
+                Text(.init(Copy.full))
                     .foregroundColor(.secondary)
-                    .font(.callout)
+                    .font(.body)
+                    .padding(.top)
+                    .multilineTextAlignment(.leading)
             }
             
             Button {
@@ -37,9 +36,9 @@ struct Full: View {
             Button("Dismiss", role: .cancel) {
                 dismiss()
             }
-            .font(.footnote)
+            .font(.callout)
             .foregroundStyle(.secondary)
-            .padding(.vertical)
+            .padding(.bottom)
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
         .background(Color(.secondarySystemBackground))

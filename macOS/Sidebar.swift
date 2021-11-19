@@ -11,7 +11,7 @@ final class Sidebar: NSView {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         
-        let size = CGFloat(200)
+        let size = CGFloat(240)
         let filters = CurrentValueSubject<Filter, Never>(.init())
         
         let flip = Flip()
@@ -20,6 +20,7 @@ final class Sidebar: NSView {
         let scroll = NSScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.documentView = flip
+        scroll.verticalScrollElasticity = .none
         scroll.hasVerticalScroller = true
         scroll.verticalScroller!.controlSize = .mini
         scroll.drawsBackground = false
@@ -41,11 +42,10 @@ final class Sidebar: NSView {
         flip.topAnchor.constraint(equalTo: scroll.topAnchor).isActive = true
         flip.leftAnchor.constraint(equalTo: scroll.leftAnchor).isActive = true
         flip.rightAnchor.constraint(equalTo: scroll.rightAnchor).isActive = true
-        flip.bottomAnchor.constraint(greaterThanOrEqualTo: scroll.bottomAnchor).isActive = true
         
         stack.topAnchor.constraint(equalTo: flip.topAnchor).isActive = true
         stack.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 10).isActive = true
-        stack.widthAnchor.constraint(equalToConstant: size - 10).isActive = true
+        stack.widthAnchor.constraint(equalToConstant: size - 20).isActive = true
         stack.bottomAnchor.constraint(equalTo: flip.bottomAnchor).isActive = true
         
         toggle

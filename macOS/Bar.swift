@@ -23,8 +23,8 @@ final class Bar: NSVisualEffectView {
         let plus = Option(icon: "plus", size: 14)
         plus
             .click
-            .sink {
-                
+            .sink { [weak self] in
+                (self?.window as? Window)?.newSecret(nil)
             }
             .store(in: &subs)
         

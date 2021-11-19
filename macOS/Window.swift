@@ -1,4 +1,5 @@
 import AppKit
+import UserNotifications
 import Combine
 import Secrets
 
@@ -19,7 +20,6 @@ final class Window: NSWindow, NSWindowDelegate {
         isReleasedWhenClosed = false
         center()
 //        setFrameAutosaveName("Window")
-        tabbingMode = .disallowed
         titlebarAppearsTransparent = true
         
         let toggle = CurrentValueSubject<Bool, Never>(Defaults.sidebar)
@@ -49,15 +49,9 @@ final class Window: NSWindow, NSWindowDelegate {
         let left = content.leftAnchor.constraint(equalTo: sidebar.rightAnchor)
         left.isActive = true
         
-        sidebar.topAnchor.constraint(equalTo: base.safeAreaLayoutGuide.topAnchor).isActive = true
+        sidebar.topAnchor.constraint(equalTo: base.topAnchor).isActive = true
         sidebar.leftAnchor.constraint(equalTo: base.safeAreaLayoutGuide.leftAnchor).isActive = true
         sidebar.bottomAnchor.constraint(equalTo: base.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-        toggle
-            .sink {
-                left.constant = $0 ? 0 : 20
-            }
-            .store(in: &subs)
         
         selected
             .sink { [weak self] in
@@ -73,6 +67,18 @@ final class Window: NSWindow, NSWindowDelegate {
     override func close() {
         super.close()
         NSApp.terminate(nil)
+    }
+    
+    @objc func newSecret(_ sender: Any?) {
+        Task {
+            do {
+                let id = try await cloud.secret()
+                addChildWindow(Edit(secret: await cloud.model[id]), ordered: .above)
+                await UNUserNotificationCenter.send(message: "Created a new secret!")
+            } catch {
+                addChildWindow(Full(), ordered: .above)
+            }
+        }
     }
     
     private func set(view: NSView) {

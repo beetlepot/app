@@ -82,4 +82,11 @@ You can add hyperlinks in your text, add a description text between [ and ], fol
 
 [Learn more](https://en.wikipedia.org/wiki/Markdown)
 """
+    
+    static let full = """
+**You reached the limit of secrets
+that you can keep.**
+Purchase spots
+to add more secrets.
+"""
 }
