@@ -7,6 +7,10 @@ extension NSAttributedString {
         return mutable
     }
     
+    class func make(_ string: String, attributes: [NSAttributedString.Key : Any]) -> Self {
+        .init(string: string, attributes: attributes)
+    }
+    
     class func make(_ string: String, attributes: [NSAttributedString.Key : Any], alignment: NSTextAlignment) -> Self {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = alignment

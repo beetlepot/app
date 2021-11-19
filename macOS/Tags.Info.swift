@@ -7,7 +7,7 @@ extension Tags {
         
         init(id: Int) {
             self.id = id
-            text = .init(string: "")
+            text = .make("", attributes: [:])
         }
     }
 }

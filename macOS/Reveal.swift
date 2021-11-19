@@ -26,7 +26,7 @@ final class Reveal: NSScrollView {
                 .foregroundColor: NSColor.labelColor,
                 .font: NSFont.preferredFont(forTextStyle: .title3)]))
             $0.newLine()
-            $0.append(.init(string: "Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)), attributes: [
+            $0.append(.make("Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)), attributes: [
                 .foregroundColor: NSColor.tertiaryLabelColor,
                 .font: NSFont.preferredFont(forTextStyle: .footnote)]))
         }
