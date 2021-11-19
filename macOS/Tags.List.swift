@@ -1,7 +1,7 @@
 import AppKit
 import Combine
 
-extension Sidebar {
+extension Tags {
     final class List: Collection<Cell, Info>, NSMenuDelegate {
         static let width = CGFloat(300)
         private static let insets = CGFloat(30)

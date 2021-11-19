@@ -20,8 +20,10 @@ final class Window: NSWindow, NSWindowDelegate {
         tabbingMode = .disallowed
         titlebarAppearsTransparent = true
         
+        let bar = Bar()
+        
         let top = NSTitlebarAccessoryViewController()
-        top.view = Bar()
+        top.view = bar
         top.layoutAttribute = .top
         addTitlebarAccessoryViewController(top)
         
@@ -35,7 +37,7 @@ final class Window: NSWindow, NSWindowDelegate {
         self.content = content
         base.addSubview(content)
         
-        let sidebar = Sidebar()
+        let sidebar = Sidebar(toggle: bar.sidebar)
         self.sidebar = sidebar
         base.addSubview(sidebar)
         

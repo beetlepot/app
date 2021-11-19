@@ -1,6 +1,6 @@
 import AppKit
 
-extension Sidebar {
+extension Tags {
     struct Info: CollectionItemInfo {
         let id: Int
         let text: NSAttributedString

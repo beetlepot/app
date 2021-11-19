@@ -1,6 +1,6 @@
 import AppKit
 
-extension Sidebar {
+extension Tags {
     final class Cell: CollectionCell<Info> {
         static let height = CGFloat(66)
         private weak var text: CollectionCellText!
