@@ -125,6 +125,7 @@
 		CEEEB57F26F4E37300B268A0 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57E26F4E37300B268A0 /* Tags.swift */; };
 		CEEEB58126F4E38900B268A0 /* Tags.Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB58026F4E38900B268A0 /* Tags.Controller.swift */; };
 		CEF9FEFB2747BFB3007DBE49 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9FEFA2747BFB3007DBE49 /* Sidebar.Item.swift */; };
+		CEF9FEFD2747D40B007DBE49 /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9FEFC2747D40B007DBE49 /* Reveal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +289,7 @@
 		CEEEB57E26F4E37300B268A0 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 		CEEEB58026F4E38900B268A0 /* Tags.Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.Controller.swift; sourceTree = "<group>"; };
 		CEF9FEFA2747BFB3007DBE49 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
+		CEF9FEFC2747D40B007DBE49 /* Reveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +352,7 @@
 				CE3DCA1127467FC500D3C7C5 /* NSApplication.swift */,
 				CE3DCA0427467FC500D3C7C5 /* NSAttributedString.swift */,
 				CE3DCA1327467FC500D3C7C5 /* NSMenuItem.swift */,
+				CEF9FEFC2747D40B007DBE49 /* Reveal.swift */,
 				CE3DCA1427467FC500D3C7C5 /* Separator.swift */,
 				CE3DCA0D27467FC500D3C7C5 /* Shape.swift */,
 				CEF9FEFA2747BFB3007DBE49 /* Sidebar.Item.swift */,
@@ -701,6 +704,7 @@
 				CE3DCA302746855100D3C7C5 /* Tags.Cell.swift in Sources */,
 				CE3DCA1C27467FC500D3C7C5 /* Menu.swift in Sources */,
 				CE3DCA1D27467FC500D3C7C5 /* Text.swift in Sources */,
+				CEF9FEFD2747D40B007DBE49 /* Reveal.swift in Sources */,
 				CE3DCA1E27467FC500D3C7C5 /* CollectionCellText.swift in Sources */,
 				CE3DC9FE274676F000D3C7C5 /* UNUserNotificationCenter.swift in Sources */,
 				CE3DC9FA274676D000D3C7C5 /* Global.swift in Sources */,

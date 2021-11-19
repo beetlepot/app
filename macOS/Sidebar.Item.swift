@@ -10,6 +10,7 @@ extension Sidebar {
             layer!.cornerCurve = .continuous
             
             let text = Text(vibrancy: true)
+            text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
             text.attributedStringValue = .init(.with(markdown: secret.name, attributes: .init([
                 .foregroundColor: NSColor.secondaryLabelColor,
                 .font: NSFont.preferredFont(forTextStyle: .body)])))

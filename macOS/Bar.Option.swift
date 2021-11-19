@@ -6,14 +6,14 @@ extension Bar {
         init(icon: String, size: CGFloat = 14) {
             let image = Image(icon: icon)
             image.symbolConfiguration = .init(pointSize: size, weight: .regular)
-            image.contentTintColor = .secondaryLabelColor
+                .applying(.init(hierarchicalColor: .secondaryLabelColor))
             
             super.init(layer: true)
             layer!.cornerRadius = 8
             layer!.cornerCurve = .continuous
             
             addSubview(image)
-            widthAnchor.constraint(equalToConstant: 28).isActive = true
+            widthAnchor.constraint(equalToConstant: 30).isActive = true
             heightAnchor.constraint(equalTo: widthAnchor).isActive = true
             image.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             image.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -23,9 +23,7 @@ extension Bar {
             super.update()
             
             switch state {
-            case .pressed:
-                layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.1).cgColor
-            case .highlighted:
+            case .pressed, .highlighted:
                 layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:
                 layer!.backgroundColor = .clear

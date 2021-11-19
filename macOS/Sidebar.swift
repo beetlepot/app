@@ -7,7 +7,7 @@ final class Sidebar: NSView {
     private var items = Set<AnyCancellable>()
     
     required init?(coder: NSCoder) { nil }
-    init(toggle: CurrentValueSubject<Bool, Never>) {
+    init(toggle: CurrentValueSubject<Bool, Never>, selected: CurrentValueSubject<Secret?, Never>) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -44,8 +44,8 @@ final class Sidebar: NSView {
         flip.bottomAnchor.constraint(greaterThanOrEqualTo: scroll.bottomAnchor).isActive = true
         
         stack.topAnchor.constraint(equalTo: flip.topAnchor).isActive = true
-        stack.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 30).isActive = true
-        stack.widthAnchor.constraint(equalToConstant: size - 30).isActive = true
+        stack.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 10).isActive = true
+        stack.widthAnchor.constraint(equalToConstant: size - 10).isActive = true
         stack.bottomAnchor.constraint(equalTo: flip.bottomAnchor).isActive = true
         
         toggle
@@ -68,22 +68,25 @@ final class Sidebar: NSView {
                 $0.filtering(with: $1)
             }
             .removeDuplicates()
-            .sink { [weak self] in
-                stack.setViews(self?.items(secrets: $0) ?? [], in: .top)
+            .combineLatest(selected
+                            .map { _ in })
+            .sink { [weak self] secrets, _ in
+                stack.setViews(self?.items(secrets: secrets, selected: selected) ?? [], in: .top)
             }
             .store(in: &subs)
     }
     
-    private func items(secrets: [Secret]) -> [Item] {
+    private func items(secrets: [Secret], selected: CurrentValueSubject<Secret?, Never>) -> [Item] {
         items = []
         
         return secrets
-            .map {
-                let item = Item(secret: $0)
+            .map { secret in
+                let item = Item(secret: secret)
+                item.state = secret.id == selected.value?.id ? .selected : .on
                 item
                     .click
                     .sink {
-                        
+                        selected.send(secret)
                     }
                     .store(in: &items)
                 return item
