@@ -5,12 +5,8 @@ final class Full: NSPanel {
     private var monitor: Any?
     private var subs = Set<AnyCancellable>()
 
-    deinit {
-        print("full gone")
-    }
-    
     init() {
-        super.init(contentRect: .init(origin: .zero, size: .init(width: 280, height: 350)),
+        super.init(contentRect: .init(origin: .zero, size: .init(width: 280, height: 370)),
                    styleMask: [.borderless],
                    backing: .buffered,
                    defer: true)
@@ -28,7 +24,7 @@ final class Full: NSPanel {
         blur.layer!.cornerRadius = 20
         contentView!.addSubview(blur)
         
-        let image = Image(named: "full", vibrancy: false)
+        let image = Image(named: "full")
         blur.addSubview(image)
         
         let text = Text(vibrancy: true)
@@ -36,6 +32,16 @@ final class Full: NSPanel {
             .foregroundColor: NSColor.secondaryLabelColor,
             .font: NSFont.preferredFont(forTextStyle: .body)])
         blur.addSubview(text)
+        
+        let purchases = Action(title: "In-App Purchases", color: .controlAccentColor)
+        purchases
+            .click
+            .sink { [weak self] in
+                self?.close()
+                NSApp.showPurchases()
+            }
+            .store(in: &subs)
+        blur.addSubview(purchases)
         
         let cancel = Plain(title: "Dismiss")
         cancel
@@ -57,6 +63,9 @@ final class Full: NSPanel {
         text.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
         text.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20).isActive = true
         
+        purchases.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
+        purchases.bottomAnchor.constraint(equalTo: cancel.topAnchor, constant: -5).isActive = true
+        
         cancel.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
         cancel.bottomAnchor.constraint(equalTo: blur.bottomAnchor, constant: -30).isActive = true
         
@@ -69,11 +78,19 @@ final class Full: NSPanel {
             }
     }
     
+    override func cancelOperation(_: Any?) {
+        close()
+    }
+    
     override func close() {
         monitor
             .map(NSEvent.removeMonitor)
         monitor = nil
         parent?.removeChildWindow(self)
         super.close()
+    }
+    
+    override var canBecomeKey: Bool {
+        true
     }
 }

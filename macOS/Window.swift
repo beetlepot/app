@@ -4,7 +4,6 @@ import Combine
 import Secrets
 
 final class Window: NSWindow, NSWindowDelegate {
-    private weak var content: NSView!
     private var subs = Set<AnyCancellable>()
     
     init() {
@@ -37,7 +36,6 @@ final class Window: NSWindow, NSWindowDelegate {
         
         let content = NSView()
         content.translatesAutoresizingMaskIntoConstraints = false
-        self.content = content
         base.addSubview(content)
         
         let sidebar = Sidebar(toggle: toggle, selected: selected)
@@ -55,11 +53,26 @@ final class Window: NSWindow, NSWindowDelegate {
         
         selected
             .sink { [weak self] in
+                let view: NSView
+                
                 if let secret = $0 {
-                    self?.set(view: Reveal(secret: secret))
+                    view = Reveal(secret: secret)
                 } else {
-                    self?.set(view: Landing())
+                    view = Landing()
                 }
+                
+                content
+                    .subviews
+                    .forEach {
+                        $0.removeFromSuperview()
+                    }
+                
+                content.addSubview(view)
+                
+                view.topAnchor.constraint(equalTo: content.topAnchor).isActive = true
+                view.leftAnchor.constraint(equalTo: content.leftAnchor).isActive = true
+                view.rightAnchor.constraint(equalTo: content.rightAnchor).isActive = true
+                view.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
             }
             .store(in: &subs)
     }
@@ -69,31 +82,18 @@ final class Window: NSWindow, NSWindowDelegate {
         NSApp.terminate(nil)
     }
     
-    @objc func newSecret(_ sender: Any?) {
+    @objc func newSecret() {
         Task {
             do {
                 let id = try await cloud.secret()
                 addChildWindow(Edit(secret: await cloud.model[id]), ordered: .above)
                 await UNUserNotificationCenter.send(message: "Created a new secret!")
             } catch {
-                addChildWindow(Full(), ordered: .above)
+                let full = Full()
+                addChildWindow(full, ordered: .above)
+                full.makeKey()
             }
         }
-    }
-    
-    private func set(view: NSView) {
-        content
-            .subviews
-            .forEach {
-                $0.removeFromSuperview()
-            }
-        
-        content.addSubview(view)
-        
-        view.topAnchor.constraint(equalTo: content.topAnchor).isActive = true
-        view.leftAnchor.constraint(equalTo: content.leftAnchor).isActive = true
-        view.rightAnchor.constraint(equalTo: content.rightAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
     }
     
     

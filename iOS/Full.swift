@@ -27,7 +27,7 @@ struct Full: View {
                 purchases = true
             } label: {
                 Text("In-App Purchases")
-                    .frame(maxWidth: 220)
+                    .frame(maxWidth: 220, maxHeight: 30)
             }
             .buttonStyle(.borderedProminent)
             .padding(.vertical)

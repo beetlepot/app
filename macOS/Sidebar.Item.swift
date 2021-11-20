@@ -34,8 +34,8 @@ extension Sidebar {
             text.rightAnchor.constraint(equalTo: rightAnchor, constant: -14).isActive = true
         }
         
-        override func update() {
-            super.update()
+        override func updateLayer() {
+            super.updateLayer()
             
             switch state {
             case .selected:

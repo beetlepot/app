@@ -24,7 +24,7 @@ final class Bar: NSVisualEffectView {
         plus
             .click
             .sink { [weak self] in
-                (self?.window as? Window)?.newSecret(nil)
+                (self?.window as? Window)?.newSecret()
             }
             .store(in: &subs)
         

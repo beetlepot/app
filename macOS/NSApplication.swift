@@ -1,25 +1,26 @@
 import AppKit
 
 extension NSApplication {
-    var activeWindow: Window? {
-        keyWindow as? Window ?? anyWindow()
-    }
-    
-    func anyWindow<T>() -> T? {
-        windows
-            .compactMap {
-                $0 as? T
-            }
-            .first
-    }
-    
     @objc func show() {
-        activeWindow?
+        (keyWindow as? Window ?? anyWindow())?
             .orderFrontRegardless()
+    }
+    
+    @objc func showPurchases() {
+        (NSApp.anyWindow() ?? Purchases())
+            .makeKeyAndOrderFront(nil)
     }
     
     @objc func showPreferencesWindow(_ sender: Any?) {
 //        (anyWindow() ?? Preferences())
 //            .makeKeyAndOrderFront(nil)
+    }
+    
+    private func anyWindow<T>() -> T? {
+        windows
+            .compactMap {
+                $0 as? T
+            }
+            .first
     }
 }

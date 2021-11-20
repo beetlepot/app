@@ -18,7 +18,7 @@ final class Landing: NSView {
         option
             .click
             .sink { [weak self] in
-                (self?.window as? Window)?.newSecret(nil)
+                (self?.window as? Window)?.newSecret()
             }
             .store(in: &subs)
         addSubview(option)

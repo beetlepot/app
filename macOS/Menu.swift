@@ -25,6 +25,7 @@ final class Menu: NSMenu, NSMenuDelegate {
             .child("About", #selector(NSApplication.orderFrontStandardAboutPanel(_:))),
             .separator(),
             .child("Preferences...", #selector(NSApplication.showPreferencesWindow), ","),
+            .child("In-App Purchases", #selector(NSApp.showPurchases)),
             .separator(),
             .child("Hide", #selector(NSApplication.hide), "h"),
             .child("Hide Others", #selector(NSApplication.hideOtherApplications), "h") {
@@ -98,6 +99,8 @@ final class Menu: NSMenu, NSMenuDelegate {
                 switch item {
                 case is Window:
                     title = "Beetle"
+                case is Purchases:
+                    title = "In-App Purchases"
                 default:
                     add = nil
                 }
@@ -132,16 +135,14 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     func menuNeedsUpdate(_ menu: NSMenu) {
-//        switch menu.title {
-//        case "File":
-//            menu.items = fileItems
-//        case "View":
-//            menu.items = viewItems
-//        case "Window":
-//            menu.items = windowItems
-//        default:
-//            break
-//        }
+        switch menu.title {
+        case "View":
+            menu.items = viewItems
+        case "Window":
+            menu.items = windowItems
+        default:
+            break
+        }
     }
     
     @objc private func triggerRate() {

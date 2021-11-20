@@ -20,14 +20,14 @@ final class Plain: Control {
         text.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive = true
     }
     
-    override func update() {
-        super.update()
+    override func updateLayer() {
+        super.updateLayer()
         
         switch state {
         case .pressed, .highlighted:
             text.textColor = .labelColor
         default:
-            text.textColor = .secondaryLabelColor
+            text.textColor = .tertiaryLabelColor
         }
     }
 }
