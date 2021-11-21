@@ -16,6 +16,16 @@ extension NSAttributedString {
         return mutable
     }
     
+    class func make(alignment: NSTextAlignment, spacing: CGFloat, transform: (NSMutableAttributedString) -> Void) -> NSAttributedString {
+        let mutable = NSMutableAttributedString()
+        transform(mutable)
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = alignment
+        paragraph.lineSpacing = spacing
+        mutable.addAttribute(.paragraphStyle, value: paragraph, range: .init(location: 0, length: mutable.length))
+        return mutable
+    }
+    
     class func make(lineBreak: NSLineBreakMode, transform: (NSMutableAttributedString) -> Void) -> NSAttributedString {
         let mutable = NSMutableAttributedString()
         transform(mutable)

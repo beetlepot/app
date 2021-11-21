@@ -5,7 +5,7 @@ final class Purchases: NSWindow {
     private var subs = Set<AnyCancellable>()
     
     init() {
-        super.init(contentRect: .init(x: 0, y: 0, width: 500, height: 500),
+        super.init(contentRect: .init(x: 0, y: 0, width: 400, height: 500),
                    styleMask: [.closable, .titled, .fullSizeContentView], backing: .buffered, defer: true)
         animationBehavior = .alertPanel
         toolbar = .init()
@@ -65,11 +65,7 @@ final class Purchases: NSWindow {
                 case let .error(error):
                     inner = self?.message(error: error)
                 case let .products(products):
-//                    if let product = products.first {
-//                        inner = Item(product: product)
-//                    } else {
-                        inner = self?.message(error: "")
-//                    }
+                    inner = Products(products: products)
                 }
                 
                 inner!.translatesAutoresizingMaskIntoConstraints = false
@@ -82,9 +78,9 @@ final class Purchases: NSWindow {
             }
             .store(in: &subs)
         
-//        Task {
-//            await store.load()
-//        }
+        Task {
+            await store.load()
+        }
     }
     
     private func message(error: String) -> NSView {

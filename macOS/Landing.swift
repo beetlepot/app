@@ -10,10 +10,10 @@ final class Landing: NSView {
         translatesAutoresizingMaskIntoConstraints = false
         
         let image = Image(icon: "ladybug.fill")
-        image.symbolConfiguration = .init(pointSize: 40, weight: .thin)
+        image.symbolConfiguration = .init(pointSize: 50, weight: .thin)
             .applying(.init(hierarchicalColor: .tertiaryLabelColor))
         addSubview(image)
-        
+
         let option = Option(title: "New secret")
         option
             .click
@@ -22,12 +22,16 @@ final class Landing: NSView {
             }
             .store(in: &subs)
         addSubview(option)
-        
+
         image.bottomAnchor.constraint(equalTo: centerYAnchor).isActive = true
         image.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
+
         option.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         option.topAnchor.constraint(equalTo: centerYAnchor, constant: 30).isActive = true
+        
+        DispatchQueue.main.async {
+            NSApp.showPurchases()
+        }
     }
     
     override var allowsVibrancy: Bool {

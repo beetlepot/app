@@ -22,7 +22,7 @@ struct Capacity: View {
                                          lineCap: .round))
                 VStack {
                     Text(Int(percentage * 100), format: .percent)
-                        .font(.title.monospacedDigit())
+                        .font(.title.monospaced())
                         .animation(.none, value: percentage)
                     Text("Used")
                         .foregroundColor(.secondary)

@@ -37,7 +37,7 @@ struct Store {
     
     @MainActor func purchase(_ product: Product) async {
         status.send(.loading)
-        
+
         do {
             switch try await product.purchase() {
             case let .success(verification):
@@ -58,11 +58,22 @@ struct Store {
         }
     }
     
-    func purchase(legacy: SKProduct) {
-        Task
-            .detached {
-                guard let product = try? await Product.products(for: [legacy.productIdentifier]).first else { return }
-                await purchase(product)
+    @MainActor func restore() async {
+        status.send(.loading)
+        
+        try? await AppStore.sync()
+        
+        for await result in Transaction.currentEntitlements {
+            if case let .verified(safe) = result {
+                await safe.process()
             }
+        }
+        
+        await load()
+    }
+    
+    func purchase(legacy: SKProduct) async {
+        guard let product = try? await Product.products(for: [legacy.productIdentifier]).first else { return }
+        await purchase(product)
     }
 }
