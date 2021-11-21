@@ -4,7 +4,7 @@ extension Landing {
     final class Option: Control {
         required init?(coder: NSCoder) { nil }
         init(title: String) {
-            let text = Text(vibrancy: false)
+            let text = Text(vibrancy: true)
             text.stringValue = title
             text.font = .preferredFont(forTextStyle: .body)
             text.textColor = .secondaryLabelColor
@@ -29,6 +29,10 @@ extension Landing {
             default:
                 layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             }
+        }
+        
+        override var allowsVibrancy: Bool {
+            true
         }
     }
 }

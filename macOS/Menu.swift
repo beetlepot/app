@@ -25,6 +25,7 @@ final class Menu: NSMenu, NSMenuDelegate {
             .child("About", #selector(NSApplication.orderFrontStandardAboutPanel(_:))),
             .separator(),
             .child("Preferences...", #selector(NSApplication.showPreferencesWindow), ","),
+            .separator(),
             .child("In-App Purchases", #selector(NSApp.showPurchases)),
             .separator(),
             .child("Hide", #selector(NSApplication.hide), "h"),

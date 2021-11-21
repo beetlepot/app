@@ -5,7 +5,7 @@ final class Plain: Control {
     
     required init?(coder: NSCoder) { nil }
     init(title: String) {
-        let text = Text(vibrancy: false)
+        let text = Text(vibrancy: true)
         text.stringValue = title
         text.font = .preferredFont(forTextStyle: .body)
         self.text = text
@@ -29,5 +29,9 @@ final class Plain: Control {
         default:
             text.textColor = .tertiaryLabelColor
         }
+    }
+    
+    override var allowsVibrancy: Bool {
+        true
     }
 }

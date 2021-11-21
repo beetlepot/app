@@ -5,7 +5,7 @@ final class Purchases: NSWindow {
     private var subs = Set<AnyCancellable>()
     
     init() {
-        super.init(contentRect: .init(x: 0, y: 0, width: 500, height: 400),
+        super.init(contentRect: .init(x: 0, y: 0, width: 500, height: 500),
                    styleMask: [.closable, .titled, .fullSizeContentView], backing: .buffered, defer: true)
         animationBehavior = .alertPanel
         toolbar = .init()
@@ -56,7 +56,7 @@ final class Purchases: NSWindow {
                     inner = NSView()
                     
                     let image = Image(icon: "hourglass")
-                    image.symbolConfiguration = .init(textStyle: .largeTitle)
+                    image.symbolConfiguration = .init(pointSize: 40, weight: .thin)
                         .applying(.init(hierarchicalColor: .controlAccentColor))
                     inner!.addSubview(image)
                     
@@ -75,10 +75,10 @@ final class Purchases: NSWindow {
                 inner!.translatesAutoresizingMaskIntoConstraints = false
                 content.addSubview(inner!)
                 
-                inner!.topAnchor.constraint(equalTo: content.topAnchor, constant: -20).isActive = true
+                inner!.topAnchor.constraint(equalTo: content.topAnchor).isActive = true
                 inner!.leftAnchor.constraint(equalTo: content.leftAnchor).isActive = true
                 inner!.rightAnchor.constraint(equalTo: content.rightAnchor).isActive = true
-                inner!.bottomAnchor.constraint(equalTo: content.bottomAnchor, constant: -30).isActive = true
+                inner!.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
             }
             .store(in: &subs)
         

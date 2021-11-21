@@ -52,7 +52,7 @@ final class Window: NSWindow, NSWindowDelegate {
         sidebar.bottomAnchor.constraint(equalTo: base.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         selected
-            .sink { [weak self] in
+            .sink {
                 let view: NSView
                 
                 if let secret = $0 {

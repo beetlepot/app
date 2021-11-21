@@ -19,12 +19,12 @@ final class Reveal: NSScrollView {
         text.attributedStringValue = .make {
             $0.append(.with(markdown: secret.name, attributes: [
                 .foregroundColor: NSColor.labelColor,
-                .font: NSFont.preferredFont(forTextStyle: .title1)]))
+                .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title1).pointSize, weight: .light)]))
             $0.newLine()
             $0.newLine()
             $0.append(.with(markdown: secret.payload, attributes: [
                 .foregroundColor: NSColor.labelColor,
-                .font: NSFont.preferredFont(forTextStyle: .title3)]))
+                .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)]))
             $0.newLine()
             $0.append(.make("Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)), attributes: [
                 .foregroundColor: NSColor.tertiaryLabelColor,

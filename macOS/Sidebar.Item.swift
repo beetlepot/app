@@ -9,7 +9,6 @@ extension Sidebar {
         init(secret: Secret) {
             let background = Vibrant(layer: true)
             background.layer!.cornerRadius = 12
-            background.layer!.cornerCurve = .continuous
             self.background = background
             
             super.init(layer: false)
@@ -22,6 +21,7 @@ extension Sidebar {
                 .font: NSFont.preferredFont(forTextStyle: .body)])
             addSubview(text)
             
+            widthAnchor.constraint(equalToConstant: 220).isActive = true
             bottomAnchor.constraint(equalTo: text.bottomAnchor, constant: 14).isActive = true
             
             background.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -39,12 +39,16 @@ extension Sidebar {
             
             switch state {
             case .selected:
-                background.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.15).cgColor
+                background.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.075).cgColor
             case .pressed, .highlighted:
                 background.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:
                 background.layer!.backgroundColor = .clear
             }
+        }
+        
+        override var allowsVibrancy: Bool {
+            true
         }
     }
 }

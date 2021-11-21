@@ -10,8 +10,7 @@ final class Sidebar: NSView {
     init(toggle: CurrentValueSubject<Bool, Never>, selected: CurrentValueSubject<Secret?, Never>) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        
-        let size = CGFloat(240)
+
         let filters = CurrentValueSubject<Filter, Never>(.init())
         
         let flip = Flip()
@@ -43,14 +42,13 @@ final class Sidebar: NSView {
         flip.leftAnchor.constraint(equalTo: scroll.leftAnchor).isActive = true
         flip.rightAnchor.constraint(equalTo: scroll.rightAnchor).isActive = true
         
-        stack.topAnchor.constraint(equalTo: flip.topAnchor).isActive = true
-        stack.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 10).isActive = true
-        stack.widthAnchor.constraint(equalToConstant: size - 20).isActive = true
+        stack.topAnchor.constraint(equalTo: flip.topAnchor, constant: 16).isActive = true
+        stack.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 16).isActive = true
         stack.bottomAnchor.constraint(equalTo: flip.bottomAnchor).isActive = true
         
         toggle
             .sink { [weak self] in
-                width.constant = $0 ? size : 0
+                width.constant = $0 ? 240 : 0
                 
                 NSAnimationContext
                     .runAnimationGroup {
