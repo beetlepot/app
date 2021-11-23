@@ -11,6 +11,11 @@ extension NSApplication {
             .makeKeyAndOrderFront(nil)
     }
     
+    @objc func showCapacity() {
+        (NSApp.anyWindow() ?? Capacity())
+            .makeKeyAndOrderFront(nil)
+    }
+    
     @objc func showPreferencesWindow(_ sender: Any?) {
 //        (anyWindow() ?? Preferences())
 //            .makeKeyAndOrderFront(nil)

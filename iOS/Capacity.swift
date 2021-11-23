@@ -34,13 +34,13 @@ struct Capacity: View {
             HStack(spacing: 40) {
                 Text(capacity, format: .number)
                     .foregroundColor(.init("Spot"))
-                    .font(.largeTitle.bold())
+                    .font(.largeTitle.monospaced().bold())
                 + Text(capacity == 1 ? "\nSpot" : "\nSpots")
                     .font(.footnote)
                 
                 Text(count, format: .number)
                     .foregroundColor(.accentColor)
-                    .font(.largeTitle.bold())
+                    .font(.largeTitle.monospaced().bold())
                 + Text(count == 1 ? "\nSecret" : "\nSecrets")
                     .font(.footnote)
             }

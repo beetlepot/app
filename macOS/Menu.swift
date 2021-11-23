@@ -26,6 +26,7 @@ final class Menu: NSMenu, NSMenuDelegate {
             .separator(),
             .child("Preferences...", #selector(NSApplication.showPreferencesWindow), ","),
             .separator(),
+            .child("Capacity", #selector(NSApp.showCapacity)),
             .child("In-App Purchases", #selector(NSApp.showPurchases)),
             .separator(),
             .child("Hide", #selector(NSApplication.hide), "h"),
@@ -102,6 +103,8 @@ final class Menu: NSMenu, NSMenuDelegate {
                     title = "Beetle"
                 case is Purchases:
                     title = "In-App Purchases"
+                case is Capacity:
+                    title = "Capacity"
                 default:
                     add = nil
                 }

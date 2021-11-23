@@ -126,6 +126,7 @@
 		CE957E7F2748FE48001DEE19 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE957E7E2748FE48001DEE19 /* Action.swift */; };
 		CE957E812749043F001DEE19 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE957E802749043F001DEE19 /* Purchases.swift */; };
 		CEA065BA26F5FAB700104BB6 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA065B926F5FAB700104BB6 /* Validate.swift */; };
+		CEB337A7274D074100297914 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337A6274D074100297914 /* Gradient.swift */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
 		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
 		CEEEB57926F4CB3B00B268A0 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57826F4CB3B00B268A0 /* Filters.swift */; };
@@ -300,6 +301,7 @@
 		CE957E7E2748FE48001DEE19 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		CE957E802749043F001DEE19 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		CEA065B926F5FAB700104BB6 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
+		CEB337A6274D074100297914 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEEEB57826F4CB3B00B268A0 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				CE7D6A2D27481EA80006622F /* Edit.swift */,
 				CE3DCA1527467FC500D3C7C5 /* Flip.swift */,
 				CE7D6A2F2748220C0006622F /* Full.swift */,
+				CEB337A6274D074100297914 /* Gradient.swift */,
 				CE3DCA0127467FC500D3C7C5 /* Image.swift */,
 				CE3DCA372746936100D3C7C5 /* Landing.Option.swift */,
 				CE3DCA352746913D00D3C7C5 /* Landing.swift */,
@@ -742,6 +745,7 @@
 				CE3DCA2E274684E500D3C7C5 /* Tags.swift in Sources */,
 				CE3DCA302746855100D3C7C5 /* Tags.Cell.swift in Sources */,
 				CE3DCA1C27467FC500D3C7C5 /* Menu.swift in Sources */,
+				CEB337A7274D074100297914 /* Gradient.swift in Sources */,
 				CE3DCA1D27467FC500D3C7C5 /* Text.swift in Sources */,
 				CEF9FEFD2747D40B007DBE49 /* Reveal.swift in Sources */,
 				CE3DC9FE274676F000D3C7C5 /* UNUserNotificationCenter.swift in Sources */,

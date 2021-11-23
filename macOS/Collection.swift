@@ -170,4 +170,3 @@ class Collection<Cell, Info>: NSScrollView where Cell : CollectionCell<Info> {
         documentView!.convert(with.locationInWindow, from: nil)
     }
 }
-

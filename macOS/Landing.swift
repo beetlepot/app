@@ -30,7 +30,7 @@ final class Landing: NSView {
         option.topAnchor.constraint(equalTo: centerYAnchor, constant: 30).isActive = true
         
         DispatchQueue.main.async {
-            NSApp.showPurchases()
+            NSApp.showCapacity()
         }
     }
     

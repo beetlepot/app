@@ -6,7 +6,7 @@ final class Full: NSPanel {
     private var subs = Set<AnyCancellable>()
 
     init() {
-        super.init(contentRect: .init(origin: .zero, size: .init(width: 280, height: 370)),
+        super.init(contentRect: .init(origin: .zero, size: .init(width: 280, height: 400)),
                    styleMask: [.borderless],
                    backing: .buffered,
                    defer: true)
@@ -32,6 +32,16 @@ final class Full: NSPanel {
             .foregroundColor: NSColor.secondaryLabelColor,
             .font: NSFont.preferredFont(forTextStyle: .body)])
         blur.addSubview(text)
+        
+        let capacity = Plain(title: "Capacity")
+        capacity
+            .click
+            .sink { [weak self] in
+                NSApp.showCapacity()
+                self?.close()
+            }
+            .store(in: &subs)
+        blur.addSubview(capacity)
         
         let purchases = Action(title: "In-App Purchases", color: .controlAccentColor)
         purchases
@@ -62,6 +72,9 @@ final class Full: NSPanel {
         
         text.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
         text.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20).isActive = true
+        
+        capacity.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
+        capacity.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 5).isActive = true
         
         purchases.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
         purchases.bottomAnchor.constraint(equalTo: cancel.topAnchor, constant: -5).isActive = true
