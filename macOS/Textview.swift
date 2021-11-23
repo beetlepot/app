@@ -25,6 +25,14 @@ final class Textview: NSTextView {
         textContainerInset.height = 20
     }
     
+    deinit {
+        NSApp
+            .windows
+            .forEach {
+                $0.undoManager?.removeAllActions()
+            }
+    }
+    
     override func cancelOperation(_ sender: Any?) {
         window?.makeFirstResponder(nil)
     }
@@ -46,30 +54,16 @@ final class Textview: NSTextView {
         layoutManager!.ensureLayout(for: textContainer!)
     }
     
-//    override func keyDown(with: NSEvent) {
-//        switch with.keyCode {
-//        case 36:
-//            if with.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
-//                switch session.state.value {
-//                case .create, .column, .card:
-//                    session.add()
-//                case .edit:
-//                    session.save()
-//                default:
-//                    break
-//                }
-//            } else {
-//                super.keyDown(with: with)
-//            }
-//        default: super.keyDown(with: with)
-//        }
-//    }
-    
     override var allowsVibrancy: Bool {
         true
     }
     
     override func viewDidMoveToWindow() {
         window?.initialFirstResponder = self
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        undoManager?.removeAllActions()
+        return super.becomeFirstResponder()
     }
 }

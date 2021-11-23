@@ -25,7 +25,7 @@ final class Full: NSPanel {
         blur.layer!.cornerRadius = 20
         contentView!.addSubview(blur)
         
-        let image = Image(named: "full")
+        let image = Image(named: "full", moves: true)
         blur.addSubview(image)
         
         let text = Text(vibrancy: true)

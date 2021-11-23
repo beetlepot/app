@@ -56,7 +56,7 @@ final class Window: NSWindow, NSWindowDelegate {
                 let view: NSView
                 
                 if let secret = $0 {
-                    view = Reveal(secret: secret)
+                    view = Reveal(id: secret.id)
                 } else {
                     view = Landing()
                 }

@@ -1,7 +1,7 @@
 import AppKit
 
 extension Edit {
-    final class Field: NSTextField {
+    final class Field: NSTextField {        
         required init?(coder: NSCoder) { nil }
         init() {
             Self.cellClass = Cell.self
@@ -30,6 +30,11 @@ extension Edit {
         
         override func cancelOperation(_: Any?) {
             window?.makeFirstResponder(nil)
+        }
+        
+        override func becomeFirstResponder() -> Bool {
+            undoManager?.removeAllActions()
+            return super.becomeFirstResponder()
         }
     }
 }

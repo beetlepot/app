@@ -1,10 +1,12 @@
 import AppKit
 import Combine
+import UserNotifications
 import Secrets
 
-final class Edit: NSPanel {
+final class Edit: NSPanel, NSTextFieldDelegate {
     private static let width = CGFloat(440)
     private weak var name: Field!
+    private weak var textview: Textview!
     private var monitor: Any?
     private var subs = Set<AnyCancellable>()
     
@@ -43,12 +45,6 @@ final class Edit: NSPanel {
         blur.addSubview(title)
         
         let save = Action(title: "Save")
-        save
-            .click
-            .sink { [weak self] in
-                self?.close()
-            }
-            .store(in: &subs)
         blur.addSubview(save)
         
         let cancel = Plain(title: "Cancel")
@@ -62,6 +58,7 @@ final class Edit: NSPanel {
         
         let name = Field()
         name.stringValue = secret.name
+        name.delegate = self
         self.name = name
         blur.addSubview(name)
         
@@ -69,8 +66,9 @@ final class Edit: NSPanel {
         blur.addSubview(separator)
         
         let textview = Textview()
-        textview.textContainer!.size.width = Self.width - (textview.textContainerInset.width * 2)
+        textview.textContainer!.size.width = Self.width - ((textview.textContainerInset.width * 2) + 2)
         textview.string = secret.payload
+        self.textview = textview
         
         let scroll = NSScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -78,9 +76,25 @@ final class Edit: NSPanel {
         scroll.drawsBackground = false
         scroll.hasVerticalScroller = true
         scroll.verticalScroller!.controlSize = .mini
-        scroll.scrollerInsets.bottom = 12
+        scroll.scrollerInsets.bottom = 20
         scroll.automaticallyAdjustsContentInsets = false
         blur.addSubview(scroll)
+        
+        save
+            .click
+            .sink { [weak self] in
+                let name = name.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+                let payload = textview.string.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                Task
+                    .detached(priority: .utility) {
+                        await cloud.update(id: secret.id, name: name, payload: payload)
+                        await UNUserNotificationCenter.send(message: "Edited secret!")
+                    }
+                
+                self?.close()
+            }
+            .store(in: &subs)
         
         blur.topAnchor.constraint(equalTo: contentView!.topAnchor).isActive = true
         blur.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
@@ -105,9 +119,9 @@ final class Edit: NSPanel {
         separator.rightAnchor.constraint(equalTo: name.rightAnchor, constant: -10).isActive = true
         
         scroll.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
-        scroll.leftAnchor.constraint(equalTo: blur.leftAnchor).isActive = true
-        scroll.rightAnchor.constraint(equalTo: blur.rightAnchor).isActive = true
-        scroll.bottomAnchor.constraint(equalTo: blur.bottomAnchor).isActive = true
+        scroll.leftAnchor.constraint(equalTo: blur.leftAnchor, constant: 1).isActive = true
+        scroll.rightAnchor.constraint(equalTo: blur.rightAnchor, constant: -1).isActive = true
+        scroll.bottomAnchor.constraint(equalTo: blur.bottomAnchor, constant: -1).isActive = true
         
         monitor = NSEvent
             .addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
@@ -118,12 +132,31 @@ final class Edit: NSPanel {
             }
     }
     
+    func control(_: NSControl, textView: NSTextView, doCommandBy: Selector) -> Bool {
+        switch doCommandBy {
+        case #selector(cancelOperation),
+            #selector(complete),
+            #selector(NSSavePanel.cancel),
+            #selector(insertNewline),
+            #selector(moveUp),
+            #selector(moveDown),
+            #selector(insertTab),
+            #selector(insertBacktab):
+            makeFirstResponder(textview)
+            textview.setSelectedRange(.init(location: 0, length: 0))
+        default:
+            return false
+        }
+        return true
+    }
+    
     override func close() {
         monitor
             .map(NSEvent.removeMonitor)
         monitor = nil
 
         name.undoManager?.removeAllActions()
+        textview.undoManager?.removeAllActions()
         
         parent?.removeChildWindow(self)
         super.close()
