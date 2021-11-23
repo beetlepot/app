@@ -128,6 +128,10 @@
 		CEA065BA26F5FAB700104BB6 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA065B926F5FAB700104BB6 /* Validate.swift */; };
 		CEB337A7274D074100297914 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337A6274D074100297914 /* Gradient.swift */; };
 		CEB337A9274D103000297914 /* Textview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337A8274D103000297914 /* Textview.swift */; };
+		CEB337AB274D161100297914 /* Edit.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337AA274D161100297914 /* Edit.Action.swift */; };
+		CEB337AF274D186F00297914 /* Edit.Field.Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337AC274D186F00297914 /* Edit.Field.Cell.swift */; };
+		CEB337B0274D186F00297914 /* Edit.Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337AD274D186F00297914 /* Edit.Field.swift */; };
+		CEB337B1274D186F00297914 /* Edit.Field.Cell.Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337AE274D186F00297914 /* Edit.Field.Cell.Editor.swift */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
 		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
 		CEEEB57926F4CB3B00B268A0 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57826F4CB3B00B268A0 /* Filters.swift */; };
@@ -304,6 +308,10 @@
 		CEA065B926F5FAB700104BB6 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		CEB337A6274D074100297914 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		CEB337A8274D103000297914 /* Textview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textview.swift; sourceTree = "<group>"; };
+		CEB337AA274D161100297914 /* Edit.Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.Action.swift; sourceTree = "<group>"; };
+		CEB337AC274D186F00297914 /* Edit.Field.Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit.Field.Cell.swift; sourceTree = "<group>"; };
+		CEB337AD274D186F00297914 /* Edit.Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit.Field.swift; sourceTree = "<group>"; };
+		CEB337AE274D186F00297914 /* Edit.Field.Cell.Editor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit.Field.Cell.Editor.swift; sourceTree = "<group>"; };
 		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEEEB57826F4CB3B00B268A0 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -367,6 +375,10 @@
 				CE3DCA1227467FC500D3C7C5 /* CollectionItemInfo.swift */,
 				CE3DCA0327467FC500D3C7C5 /* Control.State.swift */,
 				CE3DCA0927467FC500D3C7C5 /* Control.swift */,
+				CEB337AA274D161100297914 /* Edit.Action.swift */,
+				CEB337AE274D186F00297914 /* Edit.Field.Cell.Editor.swift */,
+				CEB337AC274D186F00297914 /* Edit.Field.Cell.swift */,
+				CEB337AD274D186F00297914 /* Edit.Field.swift */,
 				CE7D6A2D27481EA80006622F /* Edit.swift */,
 				CE3DCA1527467FC500D3C7C5 /* Flip.swift */,
 				CE7D6A2F2748220C0006622F /* Full.swift */,
@@ -396,10 +408,10 @@
 				CE3DCA332746896300D3C7C5 /* Tags.List.swift */,
 				CE3DCA2D274684E500D3C7C5 /* Tags.swift */,
 				CE3DCA0727467FC500D3C7C5 /* Text.swift */,
+				CEB337A8274D103000297914 /* Textview.swift */,
 				CEF9FEFE2747FBBA007DBE49 /* Vibrant.swift */,
 				CE49220127465AD60077056A /* Window.swift */,
 				CE49220327465AD70077056A /* Assets.xcassets */,
-				CEB337A8274D103000297914 /* Textview.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -729,6 +741,7 @@
 				CE7C70162747AD5500AED203 /* Bar.Option.swift in Sources */,
 				CE3DC9F8274676CA00D3C7C5 /* Container.swift in Sources */,
 				CE5C93AC274A864D00376474 /* Purchases.Indicator.swift in Sources */,
+				CEB337B0274D186F00297914 /* Edit.Field.swift in Sources */,
 				CE7D6A302748220C0006622F /* Full.swift in Sources */,
 				CE3DCA1A27467FC500D3C7C5 /* NSAttributedString.swift in Sources */,
 				CE3DCA2727467FC500D3C7C5 /* NSApplication.swift in Sources */,
@@ -736,6 +749,7 @@
 				CE5C93A8274A818000376474 /* Purchases.Products.Action.swift in Sources */,
 				CE3DCA342746896300D3C7C5 /* Tags.List.swift in Sources */,
 				CEB337A9274D103000297914 /* Textview.swift in Sources */,
+				CEB337AB274D161100297914 /* Edit.Action.swift in Sources */,
 				CE5C93A4274A6F8B00376474 /* Purchases.Products.swift in Sources */,
 				CEF9FEFF2747FBBA007DBE49 /* Vibrant.swift in Sources */,
 				CE3DCA0027467C5200D3C7C5 /* Bar.swift in Sources */,
@@ -743,6 +757,7 @@
 				CE3DCA2A27467FC500D3C7C5 /* Separator.swift in Sources */,
 				CEF9FEFB2747BFB3007DBE49 /* Sidebar.Item.swift in Sources */,
 				CE7D6A322748291F0006622F /* Plain.swift in Sources */,
+				CEB337AF274D186F00297914 /* Edit.Field.Cell.swift in Sources */,
 				CE957E7F2748FE48001DEE19 /* Action.swift in Sources */,
 				CE3DCA2B27467FC500D3C7C5 /* Flip.swift in Sources */,
 				CE3DCA2127467FC500D3C7C5 /* CollectionCellState.swift in Sources */,
@@ -757,6 +772,7 @@
 				CE7C70142747ACBD00AED203 /* Sidebar.swift in Sources */,
 				CE3DCA1F27467FC500D3C7C5 /* Control.swift in Sources */,
 				CE3DC9FB274676E000D3C7C5 /* Store.State.swift in Sources */,
+				CEB337B1274D186F00297914 /* Edit.Field.Cell.Editor.swift in Sources */,
 				CE957E812749043F001DEE19 /* Purchases.swift in Sources */,
 				CE3DCA1727467FC500D3C7C5 /* Image.swift in Sources */,
 				CE49220027465AD60077056A /* App.swift in Sources */,

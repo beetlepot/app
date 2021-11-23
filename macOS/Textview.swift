@@ -15,13 +15,13 @@ final class Textview: NSTextView {
         isContinuousSpellCheckingEnabled = Defaults.spell
         isAutomaticTextCompletionEnabled = Defaults.correction
         insertionPointColor = .labelColor
-        typingAttributes[.font] = NSFont.monospacedSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize + 4, weight: .regular)
-        typingAttributes[.kern] = 1
+        typingAttributes[.font] = NSFont.monospacedSystemFont(ofSize: NSFont.preferredFont(forTextStyle: .title2).pointSize, weight: .regular)
+        typingAttributes[.kern] = 0.5
         font = typingAttributes[.font] as? NSFont
         selectedTextAttributes[.backgroundColor] = NSColor.tertiaryLabelColor
         isVerticallyResizable = true
         isHorizontallyResizable = true
-        textContainerInset.width = 40
+        textContainerInset.width = 20
         textContainerInset.height = 20
     }
     
@@ -46,8 +46,8 @@ final class Textview: NSTextView {
         layoutManager!.ensureLayout(for: textContainer!)
     }
     
-    override func keyDown(with: NSEvent) {
-        switch with.keyCode {
+//    override func keyDown(with: NSEvent) {
+//        switch with.keyCode {
 //        case 36:
 //            if with.modifierFlags.intersection(.deviceIndependentFlagsMask) == .command {
 //                switch session.state.value {
@@ -61,11 +61,15 @@ final class Textview: NSTextView {
 //            } else {
 //                super.keyDown(with: with)
 //            }
-        default: super.keyDown(with: with)
-        }
-    }
+//        default: super.keyDown(with: with)
+//        }
+//    }
     
     override var allowsVibrancy: Bool {
         true
+    }
+    
+    override func viewDidMoveToWindow() {
+        window?.initialFirstResponder = self
     }
 }

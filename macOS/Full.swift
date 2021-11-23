@@ -11,6 +11,7 @@ final class Full: NSPanel {
                    backing: .buffered,
                    defer: true)
         isOpaque = false
+        isMovableByWindowBackground = true
         backgroundColor = .clear
         hasShadow = true
         animationBehavior = .alertPanel

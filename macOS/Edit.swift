@@ -3,19 +3,26 @@ import Combine
 import Secrets
 
 final class Edit: NSPanel {
+    private static let width = CGFloat(440)
+    private weak var name: Field!
     private var monitor: Any?
     private var subs = Set<AnyCancellable>()
+    
+    override var canBecomeKey: Bool {
+        true
+    }
     
     deinit {
         print("edit gone")
     }
     
     init(secret: Secret) {
-        super.init(contentRect: .init(origin: .zero, size: .init(width: 400, height: 500)),
+        super.init(contentRect: .init(origin: .zero, size: .init(width: Self.width, height: 500)),
                    styleMask: [.borderless],
                    backing: .buffered,
                    defer: true)
         isOpaque = false
+        isMovableByWindowBackground = true
         backgroundColor = .clear
         hasShadow = true
         animationBehavior = .alertPanel
@@ -29,22 +36,13 @@ final class Edit: NSPanel {
         blur.layer!.cornerRadius = 20
         contentView!.addSubview(blur)
         
-        let vibrant = Vibrant(layer: false)
-        vibrant.translatesAutoresizingMaskIntoConstraints = false
-        blur.addSubview(vibrant)
-        
         let title = Text(vibrancy: true)
         title.stringValue = "Edit"
-        title.font = .preferredFont(forTextStyle: .title2)
+        title.font = .preferredFont(forTextStyle: .title3)
         title.textColor = .tertiaryLabelColor
-        vibrant.addSubview(title)
+        blur.addSubview(title)
         
-        let icon = Image(icon: "pencil.circle.fill")
-        icon.symbolConfiguration = .init(textStyle: .title1)
-            .applying(.init(hierarchicalColor: .tertiaryLabelColor))
-        vibrant.addSubview(icon)
-        
-        let save = Action(title: "Save", color: .controlAccentColor)
+        let save = Action(title: "Save")
         save
             .click
             .sink { [weak self] in
@@ -62,27 +60,54 @@ final class Edit: NSPanel {
             .store(in: &subs)
         blur.addSubview(cancel)
         
+        let name = Field()
+        name.stringValue = secret.name
+        self.name = name
+        blur.addSubview(name)
+        
+        let separator = Separator(mode: .horizontal)
+        blur.addSubview(separator)
+        
+        let textview = Textview()
+        textview.textContainer!.size.width = Self.width - (textview.textContainerInset.width * 2)
+        textview.string = secret.payload
+        
+        let scroll = NSScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.documentView = textview
+        scroll.drawsBackground = false
+        scroll.hasVerticalScroller = true
+        scroll.verticalScroller!.controlSize = .mini
+        scroll.scrollerInsets.bottom = 12
+        scroll.automaticallyAdjustsContentInsets = false
+        blur.addSubview(scroll)
+        
         blur.topAnchor.constraint(equalTo: contentView!.topAnchor).isActive = true
         blur.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
         blur.leftAnchor.constraint(equalTo: contentView!.leftAnchor).isActive = true
         blur.rightAnchor.constraint(equalTo: contentView!.rightAnchor).isActive = true
         
-        vibrant.topAnchor.constraint(equalTo: blur.topAnchor).isActive = true
-        vibrant.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
-        vibrant.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        vibrant.rightAnchor.constraint(equalTo: icon.rightAnchor).isActive = true
+        title.centerYAnchor.constraint(equalTo: blur.topAnchor, constant: 26).isActive = true
+        title.leftAnchor.constraint(equalTo: blur.leftAnchor, constant: 20).isActive = true
         
-        title.centerYAnchor.constraint(equalTo: vibrant.centerYAnchor).isActive = true
-        title.leftAnchor.constraint(equalTo: vibrant.leftAnchor).isActive = true
+        save.rightAnchor.constraint(equalTo: blur.rightAnchor, constant: -13).isActive = true
+        save.centerYAnchor.constraint(equalTo: blur.topAnchor, constant: 26).isActive = true
         
-        icon.leftAnchor.constraint(equalTo: title.rightAnchor, constant: 10).isActive = true
-        icon.centerYAnchor.constraint(equalTo: vibrant.centerYAnchor).isActive = true
+        cancel.rightAnchor.constraint(equalTo: save.leftAnchor, constant: -10).isActive = true
+        cancel.centerYAnchor.constraint(equalTo: blur.topAnchor, constant: 26).isActive = true
         
-        save.rightAnchor.constraint(equalTo: blur.rightAnchor, constant: -10).isActive = true
-        save.centerYAnchor.constraint(equalTo: vibrant.centerYAnchor).isActive = true
+        name.topAnchor.constraint(equalTo: blur.topAnchor, constant: 70).isActive = true
+        name.leftAnchor.constraint(equalTo: blur.leftAnchor, constant: 12).isActive = true
+        name.rightAnchor.constraint(equalTo: blur.rightAnchor, constant: -12).isActive = true
         
-        cancel.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
-        cancel.bottomAnchor.constraint(equalTo: blur.bottomAnchor, constant: -30).isActive = true
+        separator.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 20).isActive = true
+        separator.leftAnchor.constraint(equalTo: name.leftAnchor, constant: 10).isActive = true
+        separator.rightAnchor.constraint(equalTo: name.rightAnchor, constant: -10).isActive = true
+        
+        scroll.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
+        scroll.leftAnchor.constraint(equalTo: blur.leftAnchor).isActive = true
+        scroll.rightAnchor.constraint(equalTo: blur.rightAnchor).isActive = true
+        scroll.bottomAnchor.constraint(equalTo: blur.bottomAnchor).isActive = true
         
         monitor = NSEvent
             .addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
@@ -97,6 +122,9 @@ final class Edit: NSPanel {
         monitor
             .map(NSEvent.removeMonitor)
         monitor = nil
+
+        name.undoManager?.removeAllActions()
+        
         parent?.removeChildWindow(self)
         super.close()
     }
@@ -105,7 +133,10 @@ final class Edit: NSPanel {
         close()
     }
     
-    override var canBecomeKey: Bool {
-        true
+    override func mouseDown(with: NSEvent) {
+        super.mouseDown(with: with)
+        if with.clickCount == 1 {
+            makeFirstResponder(nil)
+        }
     }
 }
