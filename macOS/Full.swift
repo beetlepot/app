@@ -91,16 +91,16 @@ final class Full: NSPanel {
             }
     }
     
-    override func cancelOperation(_: Any?) {
-        close()
-    }
-    
     override func close() {
         monitor
             .map(NSEvent.removeMonitor)
         monitor = nil
         parent?.removeChildWindow(self)
         super.close()
+    }
+    
+    override func cancelOperation(_: Any?) {
+        close()
     }
     
     override var canBecomeKey: Bool {

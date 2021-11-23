@@ -28,10 +28,6 @@ final class Landing: NSView {
 
         option.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         option.topAnchor.constraint(equalTo: centerYAnchor, constant: 30).isActive = true
-        
-        DispatchQueue.main.async {
-            NSApp.showCapacity()
-        }
     }
     
     override var allowsVibrancy: Bool {

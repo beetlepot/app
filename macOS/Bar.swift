@@ -31,8 +31,9 @@ final class Bar: NSVisualEffectView {
         let edit = Option(icon: "pencil.circle.fill", size: 22)
         edit
             .click
-            .sink {
-                
+            .sink { [weak self] in
+                guard let secret = selected.value else { return }
+                (self?.window as? Window)?.edit(secret: secret)
             }
             .store(in: &subs)
         

@@ -82,21 +82,25 @@ final class Window: NSWindow, NSWindowDelegate {
         NSApp.terminate(nil)
     }
     
+    func edit(secret: Secret) {
+        key(child: Edit(secret: secret))
+    }
+    
     @objc func newSecret() {
         Task {
             do {
-                let id = try await cloud.secret()
-                addChildWindow(Edit(secret: await cloud.model[id]), ordered: .above)
+                try await edit(secret: cloud.model[cloud.secret()])
                 await UNUserNotificationCenter.send(message: "Created a new secret!")
             } catch {
-                let full = Full()
-                addChildWindow(full, ordered: .above)
-                full.makeKey()
+                key(child: Full())
             }
         }
     }
     
-    
+    private func key(child: NSWindow) {
+        addChildWindow(child, ordered: .above)
+        child.makeKey()
+    }
     
     
     

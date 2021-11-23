@@ -127,6 +127,7 @@
 		CE957E812749043F001DEE19 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE957E802749043F001DEE19 /* Purchases.swift */; };
 		CEA065BA26F5FAB700104BB6 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA065B926F5FAB700104BB6 /* Validate.swift */; };
 		CEB337A7274D074100297914 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337A6274D074100297914 /* Gradient.swift */; };
+		CEB337A9274D103000297914 /* Textview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337A8274D103000297914 /* Textview.swift */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
 		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
 		CEEEB57926F4CB3B00B268A0 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57826F4CB3B00B268A0 /* Filters.swift */; };
@@ -302,6 +303,7 @@
 		CE957E802749043F001DEE19 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		CEA065B926F5FAB700104BB6 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		CEB337A6274D074100297914 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		CEB337A8274D103000297914 /* Textview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textview.swift; sourceTree = "<group>"; };
 		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CEEEB57826F4CB3B00B268A0 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				CEF9FEFE2747FBBA007DBE49 /* Vibrant.swift */,
 				CE49220127465AD60077056A /* Window.swift */,
 				CE49220327465AD70077056A /* Assets.xcassets */,
+				CEB337A8274D103000297914 /* Textview.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				CE3DCA382746936100D3C7C5 /* Landing.Option.swift in Sources */,
 				CE5C93A8274A818000376474 /* Purchases.Products.Action.swift in Sources */,
 				CE3DCA342746896300D3C7C5 /* Tags.List.swift in Sources */,
+				CEB337A9274D103000297914 /* Textview.swift in Sources */,
 				CE5C93A4274A6F8B00376474 /* Purchases.Products.swift in Sources */,
 				CEF9FEFF2747FBBA007DBE49 /* Vibrant.swift in Sources */,
 				CE3DCA0027467C5200D3C7C5 /* Bar.swift in Sources */,
