@@ -31,6 +31,9 @@ final class Reveal: NSView {
         text.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         flip.addSubview(text)
         
+        let tagger = Tagger()
+        flip.addSubview(tagger)
+        
         scroll.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
         scroll.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         scroll.rightAnchor.constraint(equalTo: rightAnchor, constant: -1).isActive = true
@@ -49,10 +52,14 @@ final class Reveal: NSView {
         text.rightAnchor.constraint(lessThanOrEqualTo: flip.rightAnchor, constant: -40).isActive = true
         text.centerXAnchor.constraint(equalTo: flip.centerXAnchor).isActive = true
         text.widthAnchor.constraint(lessThanOrEqualToConstant: 600).isActive = true
-        text.bottomAnchor.constraint(lessThanOrEqualTo: flip.bottomAnchor, constant: -40).isActive = true
         let width = text.widthAnchor.constraint(equalToConstant: 600)
         width.priority = .defaultLow
         width.isActive = true
+        
+        tagger.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 10).isActive = true
+        tagger.leftAnchor.constraint(equalTo: text.leftAnchor).isActive = true
+        tagger.rightAnchor.constraint(equalTo: text.rightAnchor).isActive = true
+        tagger.bottomAnchor.constraint(lessThanOrEqualTo: flip.bottomAnchor, constant: -40).isActive = true
         
         cloud
             .map {
@@ -76,6 +83,10 @@ final class Reveal: NSView {
                         .foregroundColor: NSColor.tertiaryLabelColor,
                         .font: NSFont.preferredFont(forTextStyle: .callout)]))
                 }
+                
+                tagger.tags.send(secret
+                                    .tags
+                                    .list)
             }
             .store(in: &subs)
         
