@@ -1,13 +1,20 @@
 import AppKit
+import Secrets
 
 extension Tags {
     struct Info: CollectionItemInfo {
-        let id: Int
+        let id: Tag
         let text: NSAttributedString
+        let active: Bool
+        let first: Bool
         
-        init(id: Int) {
-            self.id = id
-            text = .make("", attributes: [:])
+        init(tag: Tag, active: Bool, first: Bool) {
+            id = tag
+            text = .make("\(tag)", attributes: [
+                .font: NSFont.preferredFont(forTextStyle: .body),
+                .foregroundColor: NSColor.secondaryLabelColor])
+            self.active = active
+            self.first = first
         }
     }
 }

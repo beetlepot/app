@@ -52,10 +52,11 @@ extension Reveal.Content {
         }
         
         private func submit() {
-            Task {
-                await cloud.update(id: secret.id, name: name)
-                await UNUserNotificationCenter.send(message: "Renamed secret!")
-            }
+            Task
+                .detached(priority: .utility) {
+                    await cloud.update(id: secret.id, name: name)
+                    await UNUserNotificationCenter.send(message: "Renamed secret!")
+                }
             dismiss()
         }
     }

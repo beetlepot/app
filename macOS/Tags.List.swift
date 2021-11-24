@@ -1,21 +1,44 @@
 import AppKit
 import Combine
+import Secrets
 
 extension Tags {
     final class List: Collection<Cell, Info>, NSMenuDelegate {
-        static let width = CGFloat(300)
+        static let width = CGFloat(228)
         private static let insets = CGFloat(30)
         private static let insets2 = insets + insets
+        private static let width_insets2 = width - insets2
         private let select = PassthroughSubject<CGPoint, Never>()
         
+        deinit {
+            print("tags gone")
+        }
+        
         required init?(coder: NSCoder) { nil }
-        init() {
+        init(id: Int) {
             super.init(active: .activeInKeyWindow)
             menu = .init()
             menu!.delegate = self
+            scrollerInsets.bottom = 10
             
-            let vertical = CGFloat(30)
+            let vertical = CGFloat(15)
             let info = PassthroughSubject<[Info], Never>()
+            
+            cloud
+                .map {
+                    $0[id].tags
+                }
+                .removeDuplicates()
+                .sink { tags in
+                    info.send(
+                        Tag
+                            .filtering(search: "")
+                            .enumerated()
+                            .map { tag in
+                                .init(tag: tag.1, active: tags.contains(tag.1), first: tag.0 == 0)
+                            })
+                }
+                .store(in: &subs)
             
             info
                 .removeDuplicates()
@@ -27,7 +50,7 @@ extension Tags {
                                                 rect: .init(
                                                     x: Self.insets,
                                                     y: $0.y,
-                                                    width: Self.width,
+                                                    width: Self.width_insets2,
                                                     height: Cell.height)))
                             $0.y += Cell.height + 1
                         }
@@ -50,8 +73,15 @@ extension Tags {
                 .compactMap {
                     $0?.info.id
                 }
-                .sink { [weak self] id in
-                    
+                .sink { tag in
+                    Task
+                        .detached {
+                            if await cloud.model[id].tags.contains(tag) {
+                                await cloud.remove(id: id, tag: tag)
+                            } else {
+                                await cloud.add(id: id, tag: tag)
+                            }
+                        }
                 }
                 .store(in: &subs)
         }
@@ -64,37 +94,5 @@ extension Tags {
                 break
             }
         }
-        
-        final func menuNeedsUpdate(_ menu: NSMenu) {
-            menu.items = highlighted.value == nil
-                ? []
-                : [
-                    .child("Open", #selector(open)) {
-                        $0.target = self
-                        $0.image = .init(systemSymbolName: "arrow.up", accessibilityDescription: nil)
-                    },
-                    .separator(),
-                    .child("Delete", #selector(delete)) {
-                        $0.target = self
-                        $0.image = .init(systemSymbolName: "trash", accessibilityDescription: nil)
-                    }]
-        }
-        
-        @objc private func open() {
-            highlighted
-                .value
-                .map { id in
-                    
-                }
-        }
-        
-        @objc private func delete() {
-            highlighted
-                .value
-                .map { id in
-                    
-                }
-        }
     }
-
 }

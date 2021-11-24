@@ -29,9 +29,10 @@ extension Create {
                     .padding()
                     .onChange(of: focus) {
                         if $0 == false {
-                            Task {
-                                await cloud.update(id: secret.id, name: name)
-                            }
+                            Task
+                                .detached(priority: .utility) {
+                                    await cloud.update(id: secret.id, name: name)
+                                }
                         }
                     }
                     .onTapGesture {

@@ -21,10 +21,11 @@ extension Sidebar {
                             .submitLabel(.done)
                             .privacySensitive()
                             .onSubmit {
-                                Task {
-                                    await cloud.update(id: secret.id, name: name)
-                                    await UNUserNotificationCenter.send(message: "Renamed secret!")
-                                }
+                                Task
+                                    .detached(priority: .utility) {
+                                        await cloud.update(id: secret.id, name: name)
+                                        await UNUserNotificationCenter.send(message: "Renamed secret!")
+                                    }
                             }
                             .disabled(disabled)
                         if disabled && secret.favourite {
@@ -66,9 +67,10 @@ extension Sidebar {
             .swipeActions(edge: .leading) {
                 Button {
                     UIApplication.shared.hide()
-                    Task {
-                        await cloud.update(id: secret.id, favourite: !secret.favourite)
-                    }
+                    Task
+                        .detached(priority: .utility) {
+                            await cloud.update(id: secret.id, favourite: !secret.favourite)
+                        }
                 } label: {
                     Label("Favourite", systemImage: secret.favourite ? "heart.slash" : "heart")
                 }

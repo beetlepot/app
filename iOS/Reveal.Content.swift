@@ -72,9 +72,10 @@ extension Reveal {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button {
-                            Task {
-                                await cloud.update(id: secret.id, favourite: !secret.favourite)
-                            }
+                            Task
+                                .detached(priority: .utility) {
+                                    await cloud.update(id: secret.id, favourite: !secret.favourite)
+                                }
                         } label: {
                             Label(secret.favourite ? "Remove favourite" : "Make favourite", systemImage: secret.favourite ? "heart.slash" : "heart")
                         }

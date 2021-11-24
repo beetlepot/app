@@ -11,13 +11,14 @@ extension Tags {
             NavigationView {
                 List(Tag.filtering(search: search)) { tag in
                     Button {
-                        Task {
-                            if secret.tags.contains(tag) {
-                                await cloud.remove(id: secret.id, tag: tag)
-                            } else {
-                                await cloud.add(id: secret.id, tag: tag)
+                        Task
+                            .detached(priority: .utility) {
+                                if secret.tags.contains(tag) {
+                                    await cloud.remove(id: secret.id, tag: tag)
+                                } else {
+                                    await cloud.add(id: secret.id, tag: tag)
+                                }
                             }
-                        }
                     } label: {
                         HStack {
                             Text(verbatim: tag.name)

@@ -14,7 +14,6 @@ import Secrets
                 Empty()
             }
             .navigationViewStyle(.columns)
-            .onReceive(delegate.store, perform: store.purchase)
         }
         .onChange(of: phase) {
             switch $0 {

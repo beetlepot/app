@@ -44,22 +44,22 @@ final class Reveal: NSView {
         flip.rightAnchor.constraint(equalTo: scroll.rightAnchor).isActive = true
         
         separator.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        separator.leftAnchor.constraint(equalTo: text.leftAnchor).isActive = true
-        separator.rightAnchor.constraint(equalTo: text.rightAnchor).isActive = true
+        separator.leftAnchor.constraint(equalTo: text.leftAnchor, constant: -20).isActive = true
+        separator.rightAnchor.constraint(equalTo: text.rightAnchor, constant: 20).isActive = true
         
-        text.topAnchor.constraint(equalTo: flip.topAnchor, constant: 20).isActive = true
+        text.topAnchor.constraint(equalTo: tagger.bottomAnchor, constant: 20).isActive = true
         text.leftAnchor.constraint(greaterThanOrEqualTo: flip.leftAnchor, constant: 40).isActive = true
         text.rightAnchor.constraint(lessThanOrEqualTo: flip.rightAnchor, constant: -40).isActive = true
         text.centerXAnchor.constraint(equalTo: flip.centerXAnchor).isActive = true
         text.widthAnchor.constraint(lessThanOrEqualToConstant: 600).isActive = true
+        text.bottomAnchor.constraint(lessThanOrEqualTo: flip.bottomAnchor, constant: -40).isActive = true
         let width = text.widthAnchor.constraint(equalToConstant: 600)
         width.priority = .defaultLow
         width.isActive = true
         
-        tagger.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 10).isActive = true
+        tagger.topAnchor.constraint(equalTo: flip.topAnchor, constant: 20).isActive = true
         tagger.leftAnchor.constraint(equalTo: text.leftAnchor).isActive = true
         tagger.rightAnchor.constraint(equalTo: text.rightAnchor).isActive = true
-        tagger.bottomAnchor.constraint(lessThanOrEqualTo: flip.bottomAnchor, constant: -40).isActive = true
         
         cloud
             .map {

@@ -8,6 +8,7 @@ final class Edit: NSPanel, NSTextFieldDelegate {
     private weak var textview: Textview!
     private var monitor: Any?
     private var subs = Set<AnyCancellable>()
+    private let id: Int
     
     override var canBecomeKey: Bool {
         true
@@ -18,6 +19,7 @@ final class Edit: NSPanel, NSTextFieldDelegate {
     }
     
     init(id: Int) {
+        self.id = id
         super.init(contentRect: .init(origin: .zero, size: .init(width: Self.width, height: 500)),
                    styleMask: [.borderless],
                    backing: .buffered,
@@ -118,16 +120,7 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         save
             .click
             .sink { [weak self] in
-                let name = name.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-                let payload = textview.string.trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                Task
-                    .detached(priority: .utility) {
-                        await cloud.update(id: id, name: name, payload: payload)
-                        await UNUserNotificationCenter.send(message: "Edited secret!")
-                    }
-                
-                self?.close()
+                self?.save()
             }
             .store(in: &subs)
         
@@ -158,6 +151,15 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         return true
     }
     
+    override func keyDown(with: NSEvent) {
+        switch with.keyCode {
+        case 36:
+            save()
+        default:
+            super.keyDown(with: with)
+        }
+    }
+    
     override func close() {
         monitor
             .map(NSEvent.removeMonitor)
@@ -179,5 +181,19 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         if with.clickCount == 1 {
             makeFirstResponder(nil)
         }
+    }
+    
+    private func save() {
+        let name = name.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        let payload = textview.string.trimmingCharacters(in: .whitespacesAndNewlines)
+        let id = self.id
+        
+        Task
+            .detached(priority: .utility) {
+                await cloud.update(id: id, name: name, payload: payload)
+                await UNUserNotificationCenter.send(message: "Edited secret!")
+            }
+        
+        close()
     }
 }

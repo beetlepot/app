@@ -41,10 +41,11 @@ extension Writer {
                 .sink { [weak self] in
                     self?.resignFirstResponder()
                     guard let text = self?.text.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-                    Task {
-                        await cloud.update(id: id, payload: text)
-                        await UNUserNotificationCenter.send(message: "Edited secret!")
-                    }
+                    Task
+                        .detached(priority: .utility) {
+                            await cloud.update(id: id, payload: text)
+                            await UNUserNotificationCenter.send(message: "Edited secret!")
+                        }
                 }
                 .store(in: &subs)
         }

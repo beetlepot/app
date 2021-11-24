@@ -39,7 +39,7 @@ extension Sidebar {
             
             switch state {
             case .selected:
-                background.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.075).cgColor
+                background.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.07).cgColor
             case .pressed, .highlighted:
                 background.layer!.backgroundColor = NSColor.labelColor.withAlphaComponent(0.05).cgColor
             default:

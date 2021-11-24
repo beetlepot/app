@@ -3,10 +3,10 @@ import AppKit
 extension Bar {
     final class Option: Control {
         required init?(coder: NSCoder) { nil }
-        init(icon: String, size: CGFloat) {
+        init(icon: String, size: CGFloat, color: NSColor = .secondaryLabelColor) {
             let image = Image(icon: icon)
             image.symbolConfiguration = .init(pointSize: size, weight: .regular)
-                .applying(.init(hierarchicalColor: .secondaryLabelColor))
+                .applying(.init(hierarchicalColor: color))
             
             super.init(layer: true)
             layer!.cornerRadius = 8

@@ -8,6 +8,10 @@ final class Tagger: NSView {
         }
     }
     
+    override var isFlipped: Bool {
+        true
+    }
+    
     let tags = PassthroughSubject<[String], Never>()
     private var sub: AnyCancellable?
     private let width = PassthroughSubject<CGFloat, Never>()
@@ -18,7 +22,7 @@ final class Tagger: NSView {
         translatesAutoresizingMaskIntoConstraints = false
         
         let attributes = [
-            NSAttributedString.Key.font: NSFont.systemFont(ofSize: 12, weight: .medium),
+            NSAttributedString.Key.font: NSFont.systemFont(ofSize: 12, weight: .regular),
             .foregroundColor: NSColor.white]
         
         let height = heightAnchor.constraint(equalToConstant: 0)

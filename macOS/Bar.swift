@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import UserNotifications
 import Secrets
 
 final class Bar: NSVisualEffectView {
@@ -11,7 +12,7 @@ final class Bar: NSVisualEffectView {
         state = .active
         material = .menu
         
-        let sidebar = Option(icon: "sidebar.squares.leading", size: 14)
+        let sidebar = Option(icon: "sidebar.squares.leading", size: 15)
         sidebar
             .click
             .sink {
@@ -20,7 +21,8 @@ final class Bar: NSVisualEffectView {
             }
             .store(in: &subs)
         
-        let plus = Option(icon: "plus", size: 14)
+        let plus = Option(icon: "plus", size: 15)
+        plus.toolTip = "New secret"
         plus
             .click
             .sink { [weak self] in
@@ -28,7 +30,8 @@ final class Bar: NSVisualEffectView {
             }
             .store(in: &subs)
         
-        let edit = Option(icon: "pencil.circle.fill", size: 22)
+        let edit = Option(icon: "pencil.circle", size: 17)
+        edit.toolTip = "Edit secret"
         edit
             .click
             .sink { [weak self] in
@@ -37,26 +40,91 @@ final class Bar: NSVisualEffectView {
             }
             .store(in: &subs)
         
-        let ellipsis = Option(icon: "ellipsis", size: 18)
-        ellipsis
-            .click
-            .sink {
-                
-            }
-            .store(in: &subs)
-        
-        let share = Option(icon: "square.and.arrow.up", size: 13)
+        let share = Option(icon: "square.and.arrow.up", size: 15)
+        share.toolTip = "Share secret"
         share
             .click
             .sink {
+                guard let id = selected.value else { return }
+                let pop = Share(id: id, origin: share)
+                pop.show(relativeTo: share.bounds, of: share, preferredEdge: .maxY)
+                pop.contentViewController!.view.window!.makeKey()
+            }
+            .store(in: &subs)
+        
+        let favourite = Option(icon: "heart", size: 16, color: .tertiaryLabelColor)
+        favourite.toolTip = "Make favourite"
+        favourite
+            .click
+            .sink {
+                guard let id = selected.value else { return }
+                Task
+                    .detached(priority: .utility) {
+                        await cloud.update(id: id, favourite: true)
+                    }
+            }
+            .store(in: &subs)
+        
+        let unfavourite = Option(icon: "heart.fill", size: 16, color: .labelColor)
+        unfavourite.toolTip = "Remove favourite"
+        unfavourite
+            .click
+            .sink {
+                guard let id = selected.value else { return }
+                Task
+                    .detached(priority: .utility) {
+                        await cloud.update(id: id, favourite: false)
+                    }
+            }
+            .store(in: &subs)
+        
+        let tags = Option(icon: "tag", size: 14)
+        tags.toolTip = "Edit tags"
+        tags
+            .click
+            .sink {
+                guard let id = selected.value else { return }
+                let pop = Tags(id: id)
+                pop.show(relativeTo: share.bounds, of: tags, preferredEdge: .maxY)
+                pop.contentViewController!.view.window!.makeKey()
+            }
+            .store(in: &subs)
+        
+        let delete = Option(icon: "trash", size: 14)
+        delete.toolTip = "Delete secret"
+        delete
+            .click
+            .sink {
+                guard let id = selected.value else { return }
                 
+                let alert = NSAlert()
+                alert.alertStyle = .warning
+                alert.icon = .init(systemSymbolName: "trash", accessibilityDescription: nil)
+                alert.messageText = "Delete secret?"
+                
+                Task {
+                    let name = await cloud.model[id].name
+                    alert.informativeText = name
+                }
+                
+                let delete = alert.addButton(withTitle: "Delete")
+                let cancel = alert.addButton(withTitle: "Cancel")
+                delete.keyEquivalent = "\r"
+                cancel.keyEquivalent = "\u{1b}"
+                if alert.runModal().rawValue == delete.tag {
+                    Task {
+                        selected.send(nil)
+                        await cloud.delete(id: id)
+                        await UNUserNotificationCenter.send(message: "Deleted secret!")
+                    }
+                }
             }
             .store(in: &subs)
         
         let left = NSStackView(views: [sidebar, plus])
         addSubview(left)
         
-        let right = NSStackView(views: [ellipsis, share, edit])
+        let right = NSStackView(views: [delete, tags, edit, share, unfavourite, favourite])
         addSubview(right)
         
         left.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
@@ -82,6 +150,19 @@ final class Bar: NSVisualEffectView {
             .removeDuplicates()
             .sink {
                 right.isHidden = $0
+            }
+            .store(in: &subs)
+        
+        cloud
+            .combineLatest(selected
+                            .compactMap { $0 })
+            .map {
+                $0[$1].favourite
+            }
+            .removeDuplicates()
+            .sink {
+                favourite.isHidden = $0
+                unfavourite.isHidden = !$0
             }
             .store(in: &subs)
     }
