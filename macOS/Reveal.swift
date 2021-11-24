@@ -68,7 +68,7 @@ final class Reveal: NSView {
                     if !secret.payload.isEmpty {
                         $0.newLine()
                         $0.append(.with(markdown: secret.payload, attributes: [
-                            .foregroundColor: NSColor.labelColor,
+                            .foregroundColor: NSColor.secondaryLabelColor,
                             .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)]))
                         $0.newLine()
                     }

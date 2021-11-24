@@ -21,7 +21,7 @@ final class Textview: NSTextView {
         selectedTextAttributes[.backgroundColor] = NSColor.tertiaryLabelColor
         isVerticallyResizable = true
         isHorizontallyResizable = true
-        textContainerInset.width = 20
+        textContainerInset.width = 17
         textContainerInset.height = 20
     }
     

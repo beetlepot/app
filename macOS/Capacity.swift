@@ -11,6 +11,7 @@ final class Capacity: NSWindow {
         toolbar = .init()
         isReleasedWhenClosed = false
         titlebarAppearsTransparent = true
+        isMovableByWindowBackground = true
         center()
         
         let content = NSVisualEffectView()

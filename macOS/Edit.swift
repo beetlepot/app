@@ -96,8 +96,8 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         name.rightAnchor.constraint(equalTo: blur.rightAnchor, constant: -12).isActive = true
         
         separator.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 20).isActive = true
-        separator.leftAnchor.constraint(equalTo: name.leftAnchor, constant: 10).isActive = true
-        separator.rightAnchor.constraint(equalTo: name.rightAnchor, constant: -10).isActive = true
+        separator.leftAnchor.constraint(equalTo: name.leftAnchor, constant: 12).isActive = true
+        separator.rightAnchor.constraint(equalTo: name.rightAnchor, constant: -12).isActive = true
         
         scroll.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
         scroll.leftAnchor.constraint(equalTo: blur.leftAnchor, constant: 1).isActive = true
