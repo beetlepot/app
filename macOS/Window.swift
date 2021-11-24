@@ -22,7 +22,7 @@ final class Window: NSWindow, NSWindowDelegate {
         titlebarAppearsTransparent = true
         
         let toggle = CurrentValueSubject<Bool, Never>(Defaults.sidebar)
-        let selected = CurrentValueSubject<Secret?, Never>(nil)
+        let selected = CurrentValueSubject<Int?, Never>(nil)
         
         let top = NSTitlebarAccessoryViewController()
         top.view = Bar(toggle: toggle, selected: selected)
@@ -55,8 +55,8 @@ final class Window: NSWindow, NSWindowDelegate {
             .sink {
                 let view: NSView
                 
-                if let secret = $0 {
-                    view = Reveal(id: secret.id)
+                if let id = $0 {
+                    view = Reveal(id: id)
                 } else {
                     view = Landing()
                 }
@@ -82,14 +82,14 @@ final class Window: NSWindow, NSWindowDelegate {
         NSApp.terminate(nil)
     }
     
-    func edit(secret: Secret) {
-        key(child: Edit(secret: secret))
+    func edit(id: Int) {
+        key(child: Edit(id: id))
     }
     
     @objc func newSecret() {
         Task {
             do {
-                try await edit(secret: cloud.model[cloud.secret()])
+                try await edit(id: cloud.secret())
                 await UNUserNotificationCenter.send(message: "Created a new secret!")
             } catch {
                 key(child: Full())

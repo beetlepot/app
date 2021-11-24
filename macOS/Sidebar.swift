@@ -7,7 +7,7 @@ final class Sidebar: NSView {
     private var items = Set<AnyCancellable>()
     
     required init?(coder: NSCoder) { nil }
-    init(toggle: CurrentValueSubject<Bool, Never>, selected: CurrentValueSubject<Secret?, Never>) {
+    init(toggle: CurrentValueSubject<Bool, Never>, selected: CurrentValueSubject<Int?, Never>) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
 
@@ -74,17 +74,17 @@ final class Sidebar: NSView {
             .store(in: &subs)
     }
     
-    private func items(secrets: [Secret], selected: CurrentValueSubject<Secret?, Never>) -> [Item] {
+    private func items(secrets: [Secret], selected: CurrentValueSubject<Int?, Never>) -> [Item] {
         items = []
         
         return secrets
             .map { secret in
                 let item = Item(secret: secret)
-                item.state = secret.id == selected.value?.id ? .selected : .on
+                item.state = secret.id == selected.value ? .selected : .on
                 item
                     .click
                     .sink {
-                        selected.send(secret)
+                        selected.send(secret.id)
                     }
                     .store(in: &items)
                 return item

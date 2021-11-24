@@ -1,6 +1,5 @@
 import AppKit
 import Combine
-import Secrets
 
 final class Reveal: NSView {
     private var subs = Set<AnyCancellable>()

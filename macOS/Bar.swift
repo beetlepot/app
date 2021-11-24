@@ -6,7 +6,7 @@ final class Bar: NSVisualEffectView {
     private var subs = Set<AnyCancellable>()
     
     required init?(coder: NSCoder) { nil }
-    init(toggle: CurrentValueSubject<Bool, Never>, selected: CurrentValueSubject<Secret?, Never>) {
+    init(toggle: CurrentValueSubject<Bool, Never>, selected: CurrentValueSubject<Int?, Never>) {
         super.init(frame: .zero)
         state = .active
         material = .menu
@@ -32,8 +32,8 @@ final class Bar: NSVisualEffectView {
         edit
             .click
             .sink { [weak self] in
-                guard let secret = selected.value else { return }
-                (self?.window as? Window)?.edit(secret: secret)
+                guard let id = selected.value else { return }
+                (self?.window as? Window)?.edit(id: id)
             }
             .store(in: &subs)
         

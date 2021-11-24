@@ -1,7 +1,6 @@
 import AppKit
 import Combine
 import UserNotifications
-import Secrets
 
 final class Edit: NSPanel, NSTextFieldDelegate {
     private static let width = CGFloat(440)
@@ -18,7 +17,7 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         print("edit gone")
     }
     
-    init(secret: Secret) {
+    init(id: Int) {
         super.init(contentRect: .init(origin: .zero, size: .init(width: Self.width, height: 500)),
                    styleMask: [.borderless],
                    backing: .buffered,
@@ -57,7 +56,6 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         blur.addSubview(cancel)
         
         let name = Field()
-        name.stringValue = secret.name
         name.delegate = self
         self.name = name
         blur.addSubview(name)
@@ -67,7 +65,6 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         
         let textview = Textview()
         textview.textContainer!.size.width = Self.width - ((textview.textContainerInset.width * 2) + 2)
-        textview.string = secret.payload
         self.textview = textview
         
         let scroll = NSScrollView()
@@ -79,22 +76,6 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         scroll.scrollerInsets.bottom = 20
         scroll.automaticallyAdjustsContentInsets = false
         blur.addSubview(scroll)
-        
-        save
-            .click
-            .sink { [weak self] in
-                let name = name.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-                let payload = textview.string.trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                Task
-                    .detached(priority: .utility) {
-                        await cloud.update(id: secret.id, name: name, payload: payload)
-                        await UNUserNotificationCenter.send(message: "Edited secret!")
-                    }
-                
-                self?.close()
-            }
-            .store(in: &subs)
         
         blur.topAnchor.constraint(equalTo: contentView!.topAnchor).isActive = true
         blur.bottomAnchor.constraint(equalTo: contentView!.bottomAnchor).isActive = true
@@ -122,6 +103,33 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         scroll.leftAnchor.constraint(equalTo: blur.leftAnchor, constant: 1).isActive = true
         scroll.rightAnchor.constraint(equalTo: blur.rightAnchor, constant: -1).isActive = true
         scroll.bottomAnchor.constraint(equalTo: blur.bottomAnchor, constant: -1).isActive = true
+        
+        cloud
+            .map {
+                $0[id]
+            }
+            .removeDuplicates()
+            .sink { secret in
+                name.stringValue = secret.name
+                textview.string = secret.payload
+            }
+            .store(in: &subs)
+        
+        save
+            .click
+            .sink { [weak self] in
+                let name = name.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+                let payload = textview.string.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                Task
+                    .detached(priority: .utility) {
+                        await cloud.update(id: id, name: name, payload: payload)
+                        await UNUserNotificationCenter.send(message: "Edited secret!")
+                    }
+                
+                self?.close()
+            }
+            .store(in: &subs)
         
         monitor = NSEvent
             .addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
