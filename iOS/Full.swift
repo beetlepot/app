@@ -8,7 +8,7 @@ struct Full: View {
     var body: some View {
         VStack {
             if full {
-                Image("full")
+                Image("Full")
                     .resizable()
                     .font(.largeTitle.weight(.ultraLight))
                     .aspectRatio(contentMode: .fit)
