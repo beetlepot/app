@@ -108,7 +108,7 @@ final class Capacity: NSWindow {
                         .foregroundColor: NSColor.tertiaryLabelColor]))
                     $0.newLine()
                     $0.newLine()
-                    $0.append(.make(percent.formatted(.percent), attributes: [
+                    $0.append(.make(Int(percent * 100).formatted(.percent), attributes: [
                         .font: NSFont.monospacedSystemFont(ofSize: 20, weight: .thin),
                         .foregroundColor: NSColor.labelColor]))
                     $0.newLine()

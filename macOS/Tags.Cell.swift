@@ -36,10 +36,6 @@ extension Tags {
             }
         }
         
-        deinit {
-            print("tag cell gone")
-        }
-        
         required init?(coder: NSCoder) { nil }
         required init() {
             let separator = Shape()

@@ -11,7 +11,8 @@ final class Sidebar: NSView {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
 
-        let filters = CurrentValueSubject<Filter, Never>(.init())
+        let filters = Filters()
+        addSubview(filters)
         
         let flip = Flip()
         flip.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +20,6 @@ final class Sidebar: NSView {
         let scroll = NSScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.documentView = flip
-        scroll.verticalScrollElasticity = .none
         scroll.hasVerticalScroller = true
         scroll.verticalScroller!.controlSize = .mini
         scroll.drawsBackground = false
@@ -33,7 +33,10 @@ final class Sidebar: NSView {
         let width = widthAnchor.constraint(equalToConstant: 0)
         width.isActive = true
         
-        scroll.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        filters.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        filters.leftAnchor.constraint(equalTo: leftAnchor, constant: 26).isActive = true
+        
+        scroll.topAnchor.constraint(equalTo: filters.bottomAnchor).isActive = true
         scroll.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         scroll.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         scroll.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -61,7 +64,7 @@ final class Sidebar: NSView {
             .store(in: &subs)
         
         cloud
-            .combineLatest(filters)
+            .combineLatest(filters.state)
             .map {
                 $0.filtering(with: $1)
             }

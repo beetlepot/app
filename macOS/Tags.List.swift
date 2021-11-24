@@ -3,22 +3,16 @@ import Combine
 import Secrets
 
 extension Tags {
-    final class List: Collection<Cell, Info>, NSMenuDelegate {
+    final class List: Collection<Cell, Info> {
         static let width = CGFloat(228)
         private static let insets = CGFloat(30)
         private static let insets2 = insets + insets
         private static let width_insets2 = width - insets2
         private let select = PassthroughSubject<CGPoint, Never>()
         
-        deinit {
-            print("tags gone")
-        }
-        
         required init?(coder: NSCoder) { nil }
         init(id: Int) {
             super.init(active: .activeInKeyWindow)
-            menu = .init()
-            menu!.delegate = self
             scrollerInsets.bottom = 10
             
             let vertical = CGFloat(15)
@@ -86,7 +80,7 @@ extension Tags {
                 .store(in: &subs)
         }
         
-        final override func mouseUp(with: NSEvent) {
+        override func mouseUp(with: NSEvent) {
             switch with.clickCount {
             case 1:
                 select.send(point(with: with))
