@@ -5,12 +5,8 @@ import Secrets
 final class Tags: NSPopover {
     private var subs = Set<AnyCancellable>()
     
-    deinit {
-        print("tags gone")
-    }
-    
     required init?(coder: NSCoder) { nil }
-    init(id: Int, change: PassthroughSubject<Tag, Never>) {
+    init(active: CurrentValueSubject<Set<Tag>, Never>, change: PassthroughSubject<Tag, Never>) {
         super.init()
         behavior = .semitransient
         contentSize = .zero
@@ -29,7 +25,7 @@ final class Tags: NSPopover {
         separator.isHidden = true
         view.addSubview(separator)
         
-        let list = List(id: id, change: change)
+        let list = List(active: active, change: change)
         view.addSubview(list)
         
         title.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true

@@ -12,6 +12,7 @@ final class Bar: NSVisualEffectView {
         state = .active
         material = .menu
         
+        let active = CurrentValueSubject<Set<Tag>, Never>([])
         let change = PassthroughSubject<Tag, Never>()
         
         let sidebar = Option(icon: "sidebar.squares.leading", size: 15)
@@ -86,9 +87,13 @@ final class Bar: NSVisualEffectView {
             .click
             .sink {
                 guard let id = selected.value else { return }
-                let pop = Tags(id: id, change: change)
+                let pop = Tags(active: active, change: change)
                 pop.show(relativeTo: tags.bounds, of: tags, preferredEdge: .maxY)
                 pop.contentViewController!.view.window!.makeKey()
+                
+                Task {
+                    await active.send(cloud.model[id].tags)
+                }
             }
             .store(in: &subs)
         
@@ -134,6 +139,12 @@ final class Bar: NSVisualEffectView {
                         } else {
                             await cloud.add(id: id, tag: tag)
                         }
+                        
+                        let current = await cloud.model[id].tags
+                        await MainActor
+                            .run {
+                                active.send(current)
+                            }
                     }
             }
             .store(in: &subs)

@@ -10,33 +10,13 @@ extension Tags {
         private static let width_insets2 = width - insets2
         private let select = PassthroughSubject<CGPoint, Never>()
         
-        deinit {
-            print("list gone")
-        }
-        
         required init?(coder: NSCoder) { nil }
-        init(id: Int, change: PassthroughSubject<Tag, Never>) {
+        init(active: CurrentValueSubject<Set<Tag>, Never>, change: PassthroughSubject<Tag, Never>) {
             super.init(active: .activeInKeyWindow)
             scrollerInsets.bottom = 10
             
             let vertical = CGFloat(15)
             let info = PassthroughSubject<[Info], Never>()
-            
-            cloud
-                .map {
-                    $0[id].tags
-                }
-                .removeDuplicates()
-                .sink { tags in
-                    info.send(
-                        Tag
-                            .filtering(search: "")
-                            .enumerated()
-                            .map { tag in
-                                .init(tag: tag.1, active: tags.contains(tag.1), first: tag.0 == 0)
-                            })
-                }
-                .store(in: &subs)
             
             info
                 .removeDuplicates()
@@ -73,6 +53,19 @@ extension Tags {
                 }
                 .sink { tag in
                     change.send(tag)
+                }
+                .store(in: &subs)
+            
+            active
+                .removeDuplicates()
+                .sink { tags in
+                    info.send(
+                        Tag
+                            .filtering(search: "")
+                            .enumerated()
+                            .map { tag in
+                                .init(tag: tag.1, active: tags.contains(tag.1), first: tag.0 == 0)
+                            })
                 }
                 .store(in: &subs)
         }

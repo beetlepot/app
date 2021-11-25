@@ -13,7 +13,10 @@ extension Sidebar {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
             
+            let active = CurrentValueSubject<Set<Tag>, Never>([])
             let change = PassthroughSubject<Tag, Never>()
+            
+            let tagger = Tagger()
             
             let activate = Option(icon: "line.3.horizontal.decrease.circle", size: 20)
             
@@ -23,10 +26,13 @@ extension Sidebar {
             let tags = Option(icon: "tag", size: 15)
             tags
                 .click
-                .sink {
-                    let pop = Tags(id: id, change: change)
+                .sink { [weak self] in
+                    guard let filtered = self?.state.value.tags else { return }
+                    
+                    let pop = Tags(active: active, change: change)
                     pop.show(relativeTo: tags.bounds, of: tags, preferredEdge: .maxY)
                     pop.contentViewController!.view.window!.makeKey()
+                    active.send(filtered)
                 }
                 .store(in: &subs)
             tags.state = .hidden
@@ -54,6 +60,7 @@ extension Sidebar {
                     deactivate.state = .on
                     tags.state = .on
                     
+                    stack.animator().insertView(tagger, at: 0, in: .leading)
                     stack.animator().insertView(search, at: 0, in: .leading)
                     self?.window?.makeFirstResponder(search)
                 }
@@ -67,8 +74,29 @@ extension Sidebar {
                     tags.state = .hidden
                     search.stringValue = ""
                     
+                    stack.animator().removeView(tagger)
                     stack.animator().removeView(search)
                     self?.state.value = .init()
+                }
+                .store(in: &subs)
+            
+            change
+                .sink { [weak self] tag in
+                    if active.value.contains(tag) {
+                        active.value.remove(tag)
+                        self?.state.value.tags.remove(tag)
+                    } else {
+                        active.value.insert(tag)
+                        self?.state.value.tags.insert(tag)
+                    }
+                }
+                .store(in: &subs)
+            
+            state
+                .map(\.tags)
+                .removeDuplicates()
+                .sink {
+                    tagger.tags.send($0.list)
                 }
                 .store(in: &subs)
             
