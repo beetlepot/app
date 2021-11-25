@@ -10,8 +10,12 @@ extension Tags {
         private static let width_insets2 = width - insets2
         private let select = PassthroughSubject<CGPoint, Never>()
         
+        deinit {
+            print("list gone")
+        }
+        
         required init?(coder: NSCoder) { nil }
-        init(id: Int) {
+        init(id: Int, change: PassthroughSubject<Tag, Never>) {
             super.init(active: .activeInKeyWindow)
             scrollerInsets.bottom = 10
             
@@ -68,14 +72,7 @@ extension Tags {
                     $0?.info.id
                 }
                 .sink { tag in
-                    Task
-                        .detached {
-                            if await cloud.model[id].tags.contains(tag) {
-                                await cloud.remove(id: id, tag: tag)
-                            } else {
-                                await cloud.add(id: id, tag: tag)
-                            }
-                        }
+                    change.send(tag)
                 }
                 .store(in: &subs)
         }

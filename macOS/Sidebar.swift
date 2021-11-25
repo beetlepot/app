@@ -80,7 +80,7 @@ final class Sidebar: NSView {
             .combineLatest(selected
                             .map { _ in })
             .sink { [weak self] secrets, _ in
-                stack.setViews(self?.items(secrets: secrets, selected: selected) ?? [], in: .top)
+                stack.setViews(self?.items(secrets: secrets, selected: selected) ?? [], in: .center)
             }
             .store(in: &subs)
         

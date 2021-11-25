@@ -1,6 +1,6 @@
 import AppKit
 
-extension Sidebar.Filters {
+extension Sidebar {
     final class Option: Control {
         private weak var image: Image!
         private let size: CGFloat

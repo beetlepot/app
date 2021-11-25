@@ -12,6 +12,8 @@ final class Bar: NSVisualEffectView {
         state = .active
         material = .menu
         
+        let change = PassthroughSubject<Tag, Never>()
+        
         let sidebar = Option(icon: "sidebar.squares.leading", size: 15)
         sidebar
             .click
@@ -84,8 +86,8 @@ final class Bar: NSVisualEffectView {
             .click
             .sink {
                 guard let id = selected.value else { return }
-                let pop = Tags(id: id)
-                pop.show(relativeTo: share.bounds, of: tags, preferredEdge: .maxY)
+                let pop = Tags(id: id, change: change)
+                pop.show(relativeTo: tags.bounds, of: tags, preferredEdge: .maxY)
                 pop.contentViewController!.view.window!.makeKey()
             }
             .store(in: &subs)
@@ -118,6 +120,21 @@ final class Bar: NSVisualEffectView {
                         await UNUserNotificationCenter.send(message: "Deleted secret!")
                     }
                 }
+            }
+            .store(in: &subs)
+        
+        change
+            .sink { tag in
+                guard let id = selected.value else { return }
+                
+                Task
+                    .detached {
+                        if await cloud.model[id].tags.contains(tag) {
+                            await cloud.remove(id: id, tag: tag)
+                        } else {
+                            await cloud.add(id: id, tag: tag)
+                        }
+                    }
             }
             .store(in: &subs)
         

@@ -1,6 +1,6 @@
 import AppKit
 
-extension Sidebar.Filters {
+extension Sidebar {
     final class Active: Control {
         private weak var image: Image!
         

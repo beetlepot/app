@@ -7,6 +7,10 @@ extension Tags {
         private weak var separator: Shape!
         private weak var icon: Image!
         
+        deinit {
+            print("cell gone")
+        }
+        
         override var item: CollectionItem<Info>? {
             didSet {
                 guard

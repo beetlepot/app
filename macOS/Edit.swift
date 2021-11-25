@@ -135,7 +135,8 @@ final class Edit: NSPanel, NSTextFieldDelegate {
     
     func control(_: NSControl, textView: NSTextView, doCommandBy: Selector) -> Bool {
         switch doCommandBy {
-        case #selector(cancelOperation),
+        case
+            #selector(cancelOperation),
             #selector(complete),
             #selector(NSSavePanel.cancel),
             #selector(insertNewline),

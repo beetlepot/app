@@ -1,11 +1,16 @@
 import AppKit
 import Combine
+import Secrets
 
 final class Tags: NSPopover {
     private var subs = Set<AnyCancellable>()
     
+    deinit {
+        print("tags gone")
+    }
+    
     required init?(coder: NSCoder) { nil }
-    init(id: Int) {
+    init(id: Int, change: PassthroughSubject<Tag, Never>) {
         super.init()
         behavior = .semitransient
         contentSize = .zero
@@ -24,7 +29,7 @@ final class Tags: NSPopover {
         separator.isHidden = true
         view.addSubview(separator)
         
-        let list = List(id: id)
+        let list = List(id: id, change: change)
         view.addSubview(list)
         
         title.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
@@ -45,8 +50,8 @@ final class Tags: NSPopover {
             .compactMap {
                 $0.object as? NSClipView
             }
-            .filter {
-                $0 == list.contentView
+            .filter { [weak list] in
+                $0 == list?.contentView
             }
             .map {
                 $0.bounds.minY < 20
