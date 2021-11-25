@@ -20,10 +20,16 @@ extension Sidebar {
             
             let activate = Option(icon: "line.3.horizontal.decrease.circle", size: 20)
             
-            let deactivate = Active(icon: "line.3.horizontal.decrease.circle.fill")
+            let deactivate = Active(icon: "line.3.horizontal.decrease.circle.fill", size: 21)
             deactivate.state = .hidden
             
-            let tags = Option(icon: "tag", size: 15)
+            let favourite = Option(icon: "heart", size: 16)
+            favourite.state = .hidden
+            
+            let unfavourite = Active(icon: "heart.fill", size: 16)
+            unfavourite.state = .hidden
+            
+            let tags = Option(icon: "tag", size: 14)
             tags
                 .click
                 .sink { [weak self] in
@@ -41,13 +47,13 @@ extension Sidebar {
             search.delegate = self
             self.search = search
             
-            let actions = NSStackView(views: [
-                activate,
-                deactivate,
-                tags])
-            
             let stack = NSStackView(views: [
-                actions])
+                NSStackView(views: [
+                    activate,
+                    deactivate,
+                    favourite,
+                    unfavourite,
+                    tags])])
             stack.translatesAutoresizingMaskIntoConstraints = false
             stack.orientation = .vertical
             stack.alignment = .leading
@@ -58,6 +64,7 @@ extension Sidebar {
                 .sink { [weak self] in
                     activate.state = .hidden
                     deactivate.state = .on
+                    favourite.state = .on
                     tags.state = .on
                     
                     stack.animator().insertView(tagger, at: 0, in: .leading)
@@ -71,12 +78,32 @@ extension Sidebar {
                 .sink { [weak self] in
                     activate.state = .on
                     deactivate.state = .hidden
+                    favourite.state = .hidden
+                    unfavourite.state = .hidden
                     tags.state = .hidden
                     search.stringValue = ""
                     
                     stack.animator().removeView(tagger)
                     stack.animator().removeView(search)
                     self?.state.value = .init()
+                }
+                .store(in: &subs)
+            
+            favourite
+                .click
+                .sink { [weak self] in
+                    unfavourite.state = .on
+                    favourite.state = .hidden
+                    self?.state.value.favourites = true
+                }
+                .store(in: &subs)
+            
+            unfavourite
+                .click
+                .sink { [weak self] in
+                    unfavourite.state = .hidden
+                    favourite.state = .on
+                    self?.state.value.favourites = false
                 }
                 .store(in: &subs)
             

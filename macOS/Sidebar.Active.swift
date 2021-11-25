@@ -3,9 +3,11 @@ import AppKit
 extension Sidebar {
     final class Active: Control {
         private weak var image: Image!
+        private let size: CGFloat
         
         required init?(coder: NSCoder) { nil }
-        init(icon: String) {
+        init(icon: String, size: CGFloat) {
+            self.size = size
             let image = Image(icon: icon)
             self.image = image
             
@@ -23,10 +25,10 @@ extension Sidebar {
             
             switch state {
             case .highlighted, .pressed:
-                image.symbolConfiguration = .init(pointSize: 21, weight: .regular)
+                image.symbolConfiguration = .init(pointSize: size, weight: .regular)
                     .applying(.init(hierarchicalColor: .controlAccentColor.withAlphaComponent(0.7)))
             default:
-                image.symbolConfiguration = .init(pointSize: 21, weight: .regular)
+                image.symbolConfiguration = .init(pointSize: size, weight: .regular)
                     .applying(.init(hierarchicalColor: .controlAccentColor))
             }
         }
