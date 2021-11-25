@@ -1,14 +1,11 @@
 import AppKit
 
 extension Sidebar.Filters {
-    final class Option: Control {
+    final class Active: Control {
         private weak var image: Image!
-        private let size: CGFloat
         
         required init?(coder: NSCoder) { nil }
-        init(icon: String, size: CGFloat) {
-            self.size = size
-            
+        init(icon: String) {
             let image = Image(icon: icon)
             self.image = image
             
@@ -26,16 +23,12 @@ extension Sidebar.Filters {
             
             switch state {
             case .highlighted, .pressed:
-                image.symbolConfiguration = .init(pointSize: size, weight: .regular)
-                    .applying(.init(hierarchicalColor: .labelColor))
+                image.symbolConfiguration = .init(pointSize: 21, weight: .regular)
+                    .applying(.init(hierarchicalColor: .controlAccentColor.withAlphaComponent(0.7)))
             default:
-                image.symbolConfiguration = .init(pointSize: size, weight: .regular)
-                    .applying(.init(hierarchicalColor: .secondaryLabelColor))
+                image.symbolConfiguration = .init(pointSize: 21, weight: .regular)
+                    .applying(.init(hierarchicalColor: .controlAccentColor))
             }
-        }
-        
-        override var allowsVibrancy: Bool {
-            true
         }
     }
 }

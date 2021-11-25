@@ -12,23 +12,23 @@ extension Sidebar {
             super.init(frame: .zero)
             translatesAutoresizingMaskIntoConstraints = false
             
-            let activate = Option(icon: "line.3.horizontal.decrease.circle", size: 18)
+            let activate = Option(icon: "line.3.horizontal.decrease.circle", size: 20)
             
-            let deactivate = Option(icon: "line.3.horizontal.decrease.circle.fill", size: 19, color: .controlAccentColor, vibrancy: false)
+            let deactivate = Active(icon: "line.3.horizontal.decrease.circle.fill")
             deactivate.state = .hidden
             
-            let tags = Option(icon: "tag", size: 16)
+            let tags = Option(icon: "tag", size: 15)
             tags.state = .hidden
             
             let search = Edit.Field()
             
             let actions = NSStackView(views: [
                 activate,
-                deactivate])
+                deactivate,
+                tags])
             
             let stack = NSStackView(views: [
-                activate,
-                deactivate])
+                actions])
             stack.translatesAutoresizingMaskIntoConstraints = false
             stack.orientation = .vertical
             stack.alignment = .leading
@@ -39,6 +39,7 @@ extension Sidebar {
                 .sink {
                     activate.state = .hidden
                     deactivate.state = .on
+                    tags.state = .on
                     
                     stack.animator().insertView(search, at: 0, in: .leading)
                 }
@@ -49,6 +50,7 @@ extension Sidebar {
                 .sink {
                     activate.state = .on
                     deactivate.state = .hidden
+                    tags.state = .hidden
 //                    search.isHidden = true
                     
                     stack.animator().removeView(search)
