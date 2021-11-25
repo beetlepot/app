@@ -14,6 +14,10 @@ final class Sidebar: NSView {
         let filters = Filters()
         addSubview(filters)
         
+        let separator = Separator(mode: .horizontal)
+        separator.isHidden = true
+        addSubview(separator)
+        
         let flip = Flip()
         flip.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,7 +40,11 @@ final class Sidebar: NSView {
         filters.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         filters.leftAnchor.constraint(equalTo: leftAnchor, constant: 26).isActive = true
         
-        scroll.topAnchor.constraint(equalTo: filters.bottomAnchor).isActive = true
+        separator.topAnchor.constraint(equalTo: filters.bottomAnchor, constant: 10).isActive = true
+        separator.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
+        separator.widthAnchor.constraint(equalToConstant: 220).isActive = true
+        
+        scroll.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
         scroll.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         scroll.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         scroll.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -73,6 +81,24 @@ final class Sidebar: NSView {
                             .map { _ in })
             .sink { [weak self] secrets, _ in
                 stack.setViews(self?.items(secrets: secrets, selected: selected) ?? [], in: .top)
+            }
+            .store(in: &subs)
+        
+        NotificationCenter
+            .default
+            .publisher(for: NSView.boundsDidChangeNotification)
+            .compactMap {
+                $0.object as? NSClipView
+            }
+            .filter {
+                $0 == scroll.contentView
+            }
+            .map {
+                $0.bounds.minY < 20
+            }
+            .removeDuplicates()
+            .sink {
+                separator.isHidden = $0
             }
             .store(in: &subs)
     }

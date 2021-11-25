@@ -21,7 +21,7 @@ extension Sidebar {
                 .font: NSFont.preferredFont(forTextStyle: .body)])
             addSubview(text)
             
-            widthAnchor.constraint(equalToConstant: 220).isActive = true
+            widthAnchor.constraint(equalToConstant: 204).isActive = true
             bottomAnchor.constraint(equalTo: text.bottomAnchor, constant: 14).isActive = true
             
             background.topAnchor.constraint(equalTo: topAnchor).isActive = true
