@@ -14,10 +14,6 @@ final class Edit: NSPanel, NSTextFieldDelegate {
         true
     }
     
-    deinit {
-        print("edit gone")
-    }
-    
     init(id: Int) {
         self.id = id
         super.init(contentRect: .init(origin: .zero, size: .init(width: Self.width, height: 500)),

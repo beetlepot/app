@@ -19,8 +19,9 @@ final class Window: NSWindow, NSWindowDelegate {
         toolbar = .init()
         isReleasedWhenClosed = false
         center()
-//        setFrameAutosaveName("Window")
+        setFrameAutosaveName("Window")
         titlebarAppearsTransparent = true
+        delegate = self
         
         let selected = CurrentValueSubject<Int?, Never>(nil)
         
@@ -107,27 +108,23 @@ final class Window: NSWindow, NSWindowDelegate {
         child.makeKey()
     }
     
-    
-    
-    
-    
-//    func windowDidEnterFullScreen(_: Notification) {
-//        titlebarAccessoryViewControllers
-//            .compactMap {
-//                $0.view as? NSVisualEffectView
-//            }
-//            .forEach {
-//                $0.material = .sheet
-//            }
-//    }
-//
-//    func windowDidExitFullScreen(_: Notification) {
-//        titlebarAccessoryViewControllers
-//            .compactMap {
-//                $0.view as? NSVisualEffectView
-//            }
-//            .forEach {
-//                $0.material = .menu
-//            }
-//    }
+    func windowDidEnterFullScreen(_: Notification) {
+        titlebarAccessoryViewControllers
+            .compactMap {
+                $0.view as? NSVisualEffectView
+            }
+            .forEach {
+                $0.material = .sheet
+            }
+    }
+
+    func windowDidExitFullScreen(_: Notification) {
+        titlebarAccessoryViewControllers
+            .compactMap {
+                $0.view as? NSVisualEffectView
+            }
+            .forEach {
+                $0.material = .menu
+            }
+    }
 }

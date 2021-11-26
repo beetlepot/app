@@ -10,6 +10,6 @@ final class Preferences: NSWindow {
         contentViewController = controller
         controller.tabView(controller.tabView, willSelect: controller.tabViewItems.first)
         center()
-//        setFrameAutosaveName("Preferences")
+        setFrameAutosaveName("Preferences")
     }
 }
