@@ -120,6 +120,7 @@
 		CE67EFC026EB9A9C0040A8CA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE67EFBF26EB9A9C0040A8CA /* Secrets */; };
 		CE67EFC226EB9BA60040A8CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC126EB9BA60040A8CA /* StoreKit.framework */; };
 		CE67EFC626EB9BBA0040A8CA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */; };
+		CE70ABD9275112C000D7A495 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABD8275112C000D7A495 /* Auth.swift */; };
 		CE7C351626EF4C8900295CBA /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351526EF4C8900295CBA /* Middlebar.swift */; };
 		CE7C351826EF578700295CBA /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351726EF578700295CBA /* About.swift */; };
 		CE7C70142747ACBD00AED203 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C70132747ACBD00AED203 /* Sidebar.swift */; };
@@ -312,6 +313,7 @@
 		CE67EFC326EB9BAA0040A8CA /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		CE67EFC426EB9BB40040A8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE70ABD8275112C000D7A495 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		CE7C351526EF4C8900295CBA /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
 		CE7C351726EF578700295CBA /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		CE7C70132747ACBD00AED203 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				CEF9FEFE2747FBBA007DBE49 /* Vibrant.swift */,
 				CE49220127465AD60077056A /* Window.swift */,
 				CE49220327465AD70077056A /* Assets.xcassets */,
+				CE70ABD8275112C000D7A495 /* Auth.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				CE90639C274E694C007DC76D /* Tagger.Model.swift in Sources */,
 				CE7C70142747ACBD00AED203 /* Sidebar.swift in Sources */,
 				CE3F2A28274EBE5A00C1FA05 /* Sidebar.Filters.swift in Sources */,
+				CE70ABD9275112C000D7A495 /* Auth.swift in Sources */,
 				CE3DCA1F27467FC500D3C7C5 /* Control.swift in Sources */,
 				CE3DC9FB274676E000D3C7C5 /* Store.State.swift in Sources */,
 				CEB337B1274D186F00297914 /* Edit.Field.Cell.Editor.swift in Sources */,

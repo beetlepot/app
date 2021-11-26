@@ -12,7 +12,12 @@ import Secrets
     
     func applicationWillFinishLaunching(_: Notification) {
         mainMenu = Menu()
-        Window().makeKeyAndOrderFront(nil)
+        
+        if Defaults.authenticate {
+            runModal(for: Auth())
+        } else {
+            Window().makeKeyAndOrderFront(nil)
+        }
     }
     
     func applicationDidFinishLaunching(_: Notification) {
