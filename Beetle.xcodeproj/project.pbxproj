@@ -127,6 +127,11 @@
 		CE70ABE227511D3500D7A495 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABDD27511D3500D7A495 /* Preferences.swift */; };
 		CE70ABE327511D3500D7A495 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABDE27511D3500D7A495 /* Switch.swift */; };
 		CE70ABE527511D6400D7A495 /* Preferences.Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABE427511D6400D7A495 /* Preferences.Controller.swift */; };
+		CE70ABE7275128AC00D7A495 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABE6275128AC00D7A495 /* About.swift */; };
+		CE70ABEB27512D3500D7A495 /* Info.Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABE827512D3500D7A495 /* Info.Policy.swift */; };
+		CE70ABEC27512D3500D7A495 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABE927512D3500D7A495 /* Info.swift */; };
+		CE70ABED27512D3500D7A495 /* Info.Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABEA27512D3500D7A495 /* Info.Terms.swift */; };
+		CE70ABEF27512D9800D7A495 /* Info.Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABEE27512D9800D7A495 /* Info.Markdown.swift */; };
 		CE7C351626EF4C8900295CBA /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351526EF4C8900295CBA /* Middlebar.swift */; };
 		CE7C351826EF578700295CBA /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351726EF578700295CBA /* About.swift */; };
 		CE7C70142747ACBD00AED203 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C70132747ACBD00AED203 /* Sidebar.swift */; };
@@ -326,6 +331,11 @@
 		CE70ABDD27511D3500D7A495 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		CE70ABDE27511D3500D7A495 /* Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
 		CE70ABE427511D6400D7A495 /* Preferences.Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.Controller.swift; sourceTree = "<group>"; };
+		CE70ABE6275128AC00D7A495 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		CE70ABE827512D3500D7A495 /* Info.Policy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.Policy.swift; sourceTree = "<group>"; };
+		CE70ABE927512D3500D7A495 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		CE70ABEA27512D3500D7A495 /* Info.Terms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.Terms.swift; sourceTree = "<group>"; };
+		CE70ABEE27512D9800D7A495 /* Info.Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.Markdown.swift; sourceTree = "<group>"; };
 		CE7C351526EF4C8900295CBA /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
 		CE7C351726EF578700295CBA /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		CE7C70132747ACBD00AED203 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -400,6 +410,7 @@
 			children = (
 				CE49220827465AD70077056A /* macOS.entitlements */,
 				CE3DC9F52746725C00D3C7C5 /* Info.plist */,
+				CE70ABE6275128AC00D7A495 /* About.swift */,
 				CE957E7E2748FE48001DEE19 /* Action.swift */,
 				CE4921FF27465AD60077056A /* App.swift */,
 				CE70ABD8275112C000D7A495 /* Auth.swift */,
@@ -423,6 +434,10 @@
 				CE7D6A2F2748220C0006622F /* Full.swift */,
 				CEB337A6274D074100297914 /* Gradient.swift */,
 				CE3DCA0127467FC500D3C7C5 /* Image.swift */,
+				CE70ABE827512D3500D7A495 /* Info.Policy.swift */,
+				CE70ABEE27512D9800D7A495 /* Info.Markdown.swift */,
+				CE70ABE927512D3500D7A495 /* Info.swift */,
+				CE70ABEA27512D3500D7A495 /* Info.Terms.swift */,
 				CE3DCA372746936100D3C7C5 /* Landing.Option.swift */,
 				CE3DCA352746913D00D3C7C5 /* Landing.swift */,
 				CE3DCA0C27467FC500D3C7C5 /* Layer.swift */,
@@ -782,6 +797,7 @@
 				CEF2D166274FC2450066ACC2 /* Sidebar.Active.swift in Sources */,
 				CE90639A274E68B2007DC76D /* Tagger.Model.Item.swift in Sources */,
 				CE70ABE127511D3500D7A495 /* Preferences.Security.swift in Sources */,
+				CE70ABEC27512D3500D7A495 /* Info.swift in Sources */,
 				CE3C653227482FEA000CF55A /* NSMutableAttributedString.swift in Sources */,
 				CE3DC9FC274676E400D3C7C5 /* Store.swift in Sources */,
 				CE3DC9F9274676CD00D3C7C5 /* Copy.swift in Sources */,
@@ -805,6 +821,7 @@
 				CE7C70162747AD5500AED203 /* Bar.Option.swift in Sources */,
 				CE3DC9F8274676CA00D3C7C5 /* Container.swift in Sources */,
 				CE5C93AC274A864D00376474 /* Purchases.Indicator.swift in Sources */,
+				CE70ABEF27512D9800D7A495 /* Info.Markdown.swift in Sources */,
 				CEB337B0274D186F00297914 /* Edit.Field.swift in Sources */,
 				CE35BCAA274E5C0A007C5EDC /* Tagger.swift in Sources */,
 				CE7D6A302748220C0006622F /* Full.swift in Sources */,
@@ -820,6 +837,7 @@
 				CEB337AB274D161100297914 /* Edit.Action.swift in Sources */,
 				CE3F2A2A274EC0A600C1FA05 /* Sidebar.Option.swift in Sources */,
 				CE5C93A4274A6F8B00376474 /* Purchases.Products.swift in Sources */,
+				CE70ABEB27512D3500D7A495 /* Info.Policy.swift in Sources */,
 				CEF9FEFF2747FBBA007DBE49 /* Vibrant.swift in Sources */,
 				CE3DCA0027467C5200D3C7C5 /* Bar.swift in Sources */,
 				CE3DCA2927467FC500D3C7C5 /* NSMenuItem.swift in Sources */,
@@ -827,6 +845,7 @@
 				CEF9FEFB2747BFB3007DBE49 /* Sidebar.Item.swift in Sources */,
 				CE7D6A322748291F0006622F /* Plain.swift in Sources */,
 				CEB337AF274D186F00297914 /* Edit.Field.Cell.swift in Sources */,
+				CE70ABED27512D3500D7A495 /* Info.Terms.swift in Sources */,
 				CE90639E274E70B4007DC76D /* Share.swift in Sources */,
 				CE957E7F2748FE48001DEE19 /* Action.swift in Sources */,
 				CEF2D168274FC9E00066ACC2 /* Sidebar.Field.swift in Sources */,
@@ -852,6 +871,7 @@
 				CE3DCA1727467FC500D3C7C5 /* Image.swift in Sources */,
 				CE49220027465AD60077056A /* App.swift in Sources */,
 				CE5C93AA274A859A00376474 /* Capacity.swift in Sources */,
+				CE70ABE7275128AC00D7A495 /* About.swift in Sources */,
 				CE9063A0274E84CF007DC76D /* Share.Option.swift in Sources */,
 				CE3DCA2027467FC500D3C7C5 /* CollectionCell.swift in Sources */,
 			);

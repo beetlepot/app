@@ -51,7 +51,7 @@ import Secrets
     }
     
     @objc override func orderFrontStandardAboutPanel(_ sender: Any?) {
-//        (anyWindow() ?? About())
-//            .makeKeyAndOrderFront(nil)
+        (anyWindow() ?? About())
+            .makeKeyAndOrderFront(nil)
     }
 }

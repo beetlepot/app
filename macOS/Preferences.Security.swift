@@ -32,7 +32,7 @@ extension Preferences {
         }
         
         @objc private func touchid(_ toggle: NSSwitch) {
-            Defaults.spell = toggle.state == .on
+            Defaults.authenticate = toggle.state == .on
         }
     }
 }

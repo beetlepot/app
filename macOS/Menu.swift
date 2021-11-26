@@ -3,21 +3,10 @@ import StoreKit
 import Secrets
 
 final class Menu: NSMenu, NSMenuDelegate {
-    private let shortcut = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
     required init(coder: NSCoder) { super.init(coder: coder) }
     init() {
         super.init(title: "")
         items = [app, file, edit, view, window, help]
-        shortcut.button!.image = NSImage(named: "status")
-        shortcut.button!.target = self
-        shortcut.button!.action = #selector(triggerShortcut)
-        shortcut.button!.menu = .init()
-        shortcut.button!.sendAction(on: [.leftMouseUp, .rightMouseUp])
-        shortcut.button!.menu!.items = [
-            .child("Show Beetle", #selector(NSApplication.show)),
-            .separator(),
-            .child("Quit Beetle", #selector(NSApplication.terminate))]
     }
     
     private var app: NSMenuItem {
@@ -39,7 +28,8 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     private var file: NSMenuItem {
-        .parent("File", [])
+        .parent("File", [
+            .child("New secret", #selector(Window.newSecret), "n")])
     }
     
     private var edit: NSMenuItem {
@@ -61,18 +51,14 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     private var viewItems: [NSMenuItem] {
-//        var web: Web?
-//
-//        if let window = NSApp.keyWindow as? Window,
-//           case let .web(item) = window.status.item.flow {
-//            web = item
-//        }
-//
-        return [
+        var items: [NSMenuItem] = []
+        items.append(.child(Defaults.sidebar ? "Hide sidebar" : "Show sidebar", #selector(Window.toggleSidebar)))
+        items += [
             .separator(),
             .child("Full Screen", #selector(Window.toggleFullScreen), "f") {
                 $0.keyEquivalentModifierMask = [.function]
             }]
+        return items
     }
     
     private var window: NSMenuItem {
@@ -105,6 +91,16 @@ final class Menu: NSMenu, NSMenuDelegate {
                     title = "In-App Purchases"
                 case is Capacity:
                     title = "Capacity"
+                case is Preferences:
+                    title = "Preferences"
+                case is About:
+                    title = "About"
+                case is Info.Terms:
+                    title = "Terms"
+                case is Info.Policy:
+                    title = "Privacy policy"
+                case is Info.Markdown:
+                    title = "Markdown"
                 default:
                     add = nil
                 }
@@ -123,7 +119,11 @@ final class Menu: NSMenu, NSMenuDelegate {
     
     private var help: NSMenuItem {
         .parent("Help", [
-            .child("Policy", #selector(triggerPolicy)) {
+            .child("Markdown", #selector(triggerMarkdown)) {
+                $0.target = self
+            },
+            .separator(),
+            .child("Privacy policy", #selector(triggerPolicy)) {
                 $0.target = self
             },
             .child("Terms and conditions", #selector(triggerTerms)) {
@@ -133,7 +133,7 @@ final class Menu: NSMenu, NSMenuDelegate {
             .child("Rate on the App Store", #selector(triggerRate)) {
                 $0.target = self
             },
-            .child("Visit goprivacy.app", #selector(triggerWebsite)) {
+            .child("Visit website", #selector(triggerWebsite)) {
                 $0.target = self
             }])
     }
@@ -150,35 +150,26 @@ final class Menu: NSMenu, NSMenuDelegate {
     }
     
     @objc private func triggerRate() {
-//        SKStoreReviewController.requestReview()
-//        Defaults.hasRated = true
+        SKStoreReviewController.requestReview()
+        Defaults.hasRated = true
     }
     
     @objc private func triggerWebsite() {
-//        NSApp.open(url: URL(string: "https://goprivacy.app")!)
+        NSWorkspace.shared.open(URL(string: "https://beetlepot.github.io/about")!)
+    }
+    
+    @objc private func triggerMarkdown() {
+        (NSApp.anyWindow() ?? Info.Markdown())
+            .makeKeyAndOrderFront(nil)
     }
     
     @objc private func triggerPolicy() {
-//        (NSApp.anyWindow() ?? Info.Policy())
-//            .makeKeyAndOrderFront(nil)
+        (NSApp.anyWindow() ?? Info.Policy())
+            .makeKeyAndOrderFront(nil)
     }
     
     @objc private func triggerTerms() {
-//        (NSApp.anyWindow() ?? Info.Terms())
-//            .makeKeyAndOrderFront(nil)
-    }
-    
-    @objc private func triggerShortcut(_ button: NSStatusBarButton) {
-//        guard let event = NSApp.currentEvent else { return }
-//
-//        switch event.type {
-//        case .rightMouseUp:
-//            NSMenu.popUpContextMenu(button.menu!, with: event, for: button)
-//        case .leftMouseUp:
-//            let shortcut = Shortcut(origin: button)
-//            shortcut.contentViewController!.view.window!.makeKey()
-//        default:
-//            break
-//        }
+        (NSApp.anyWindow() ?? Info.Terms())
+            .makeKeyAndOrderFront(nil)
     }
 }

@@ -5,6 +5,7 @@ import Secrets
 
 final class Window: NSWindow, NSWindowDelegate {
     private var subs = Set<AnyCancellable>()
+    let toggle = CurrentValueSubject<Bool, Never>(Defaults.sidebar)
     
     init() {
         super.init(contentRect: .init(x: 0,
@@ -21,7 +22,6 @@ final class Window: NSWindow, NSWindowDelegate {
 //        setFrameAutosaveName("Window")
         titlebarAppearsTransparent = true
         
-        let toggle = CurrentValueSubject<Bool, Never>(Defaults.sidebar)
         let selected = CurrentValueSubject<Int?, Never>(nil)
         
         let top = NSTitlebarAccessoryViewController()
@@ -95,6 +95,11 @@ final class Window: NSWindow, NSWindowDelegate {
                 key(child: Full())
             }
         }
+    }
+    
+    @objc func toggleSidebar() {
+        Defaults.sidebar.toggle()
+        toggle.send(Defaults.sidebar)
     }
     
     private func key(child: NSWindow) {

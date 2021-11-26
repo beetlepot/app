@@ -21,7 +21,7 @@ extension NSApplication {
             .makeKeyAndOrderFront(nil)
     }
     
-    private func anyWindow<T>() -> T? {
+    func anyWindow<T>() -> T? {
         windows
             .compactMap {
                 $0 as? T
