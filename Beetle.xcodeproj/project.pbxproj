@@ -121,6 +121,12 @@
 		CE67EFC226EB9BA60040A8CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC126EB9BA60040A8CA /* StoreKit.framework */; };
 		CE67EFC626EB9BBA0040A8CA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */; };
 		CE70ABD9275112C000D7A495 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABD8275112C000D7A495 /* Auth.swift */; };
+		CE70ABDF27511D3500D7A495 /* Preferences.Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABDA27511D3500D7A495 /* Preferences.Tab.swift */; };
+		CE70ABE027511D3500D7A495 /* Preferences.Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABDB27511D3500D7A495 /* Preferences.Features.swift */; };
+		CE70ABE127511D3500D7A495 /* Preferences.Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABDC27511D3500D7A495 /* Preferences.Security.swift */; };
+		CE70ABE227511D3500D7A495 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABDD27511D3500D7A495 /* Preferences.swift */; };
+		CE70ABE327511D3500D7A495 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABDE27511D3500D7A495 /* Switch.swift */; };
+		CE70ABE527511D6400D7A495 /* Preferences.Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70ABE427511D6400D7A495 /* Preferences.Controller.swift */; };
 		CE7C351626EF4C8900295CBA /* Middlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351526EF4C8900295CBA /* Middlebar.swift */; };
 		CE7C351826EF578700295CBA /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C351726EF578700295CBA /* About.swift */; };
 		CE7C70142747ACBD00AED203 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C70132747ACBD00AED203 /* Sidebar.swift */; };
@@ -314,6 +320,12 @@
 		CE67EFC426EB9BB40040A8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE67EFC526EB9BBA0040A8CA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE70ABD8275112C000D7A495 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		CE70ABDA27511D3500D7A495 /* Preferences.Tab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.Tab.swift; sourceTree = "<group>"; };
+		CE70ABDB27511D3500D7A495 /* Preferences.Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.Features.swift; sourceTree = "<group>"; };
+		CE70ABDC27511D3500D7A495 /* Preferences.Security.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.Security.swift; sourceTree = "<group>"; };
+		CE70ABDD27511D3500D7A495 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		CE70ABDE27511D3500D7A495 /* Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		CE70ABE427511D6400D7A495 /* Preferences.Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.Controller.swift; sourceTree = "<group>"; };
 		CE7C351526EF4C8900295CBA /* Middlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlebar.swift; sourceTree = "<group>"; };
 		CE7C351726EF578700295CBA /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		CE7C70132747ACBD00AED203 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -390,6 +402,7 @@
 				CE3DC9F52746725C00D3C7C5 /* Info.plist */,
 				CE957E7E2748FE48001DEE19 /* Action.swift */,
 				CE4921FF27465AD60077056A /* App.swift */,
+				CE70ABD8275112C000D7A495 /* Auth.swift */,
 				CE7C70152747AD5500AED203 /* Bar.Option.swift */,
 				CE3DC9FF27467C5200D3C7C5 /* Bar.swift */,
 				CE5C93A9274A859A00376474 /* Capacity.swift */,
@@ -419,6 +432,11 @@
 				CE3DCA1327467FC500D3C7C5 /* NSMenuItem.swift */,
 				CE3C653127482FEA000CF55A /* NSMutableAttributedString.swift */,
 				CE7D6A312748291F0006622F /* Plain.swift */,
+				CE70ABE427511D6400D7A495 /* Preferences.Controller.swift */,
+				CE70ABDB27511D3500D7A495 /* Preferences.Features.swift */,
+				CE70ABDC27511D3500D7A495 /* Preferences.Security.swift */,
+				CE70ABDD27511D3500D7A495 /* Preferences.swift */,
+				CE70ABDA27511D3500D7A495 /* Preferences.Tab.swift */,
 				CE5C93AB274A864D00376474 /* Purchases.Indicator.swift */,
 				CE5C93A7274A818000376474 /* Purchases.Products.Action.swift */,
 				CE5C93A5274A768B00376474 /* Purchases.Products.Item.swift */,
@@ -437,6 +455,7 @@
 				CEF9FEFA2747BFB3007DBE49 /* Sidebar.Item.swift */,
 				CE3F2A29274EC0A600C1FA05 /* Sidebar.Option.swift */,
 				CE7C70132747ACBD00AED203 /* Sidebar.swift */,
+				CE70ABDE27511D3500D7A495 /* Switch.swift */,
 				CE44695B274E65BF00CB1BF0 /* Tagger.Item.swift */,
 				CE906399274E68B2007DC76D /* Tagger.Model.Item.swift */,
 				CE90639B274E694C007DC76D /* Tagger.Model.swift */,
@@ -450,7 +469,6 @@
 				CEF9FEFE2747FBBA007DBE49 /* Vibrant.swift */,
 				CE49220127465AD60077056A /* Window.swift */,
 				CE49220327465AD70077056A /* Assets.xcassets */,
-				CE70ABD8275112C000D7A495 /* Auth.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -763,6 +781,7 @@
 			files = (
 				CEF2D166274FC2450066ACC2 /* Sidebar.Active.swift in Sources */,
 				CE90639A274E68B2007DC76D /* Tagger.Model.Item.swift in Sources */,
+				CE70ABE127511D3500D7A495 /* Preferences.Security.swift in Sources */,
 				CE3C653227482FEA000CF55A /* NSMutableAttributedString.swift in Sources */,
 				CE3DC9FC274676E400D3C7C5 /* Store.swift in Sources */,
 				CE3DC9F9274676CD00D3C7C5 /* Copy.swift in Sources */,
@@ -781,6 +800,7 @@
 				CE44695C274E65BF00CB1BF0 /* Tagger.Item.swift in Sources */,
 				CE7D6A2E27481EA80006622F /* Edit.swift in Sources */,
 				CE3DCA362746913D00D3C7C5 /* Landing.swift in Sources */,
+				CE70ABE527511D6400D7A495 /* Preferences.Controller.swift in Sources */,
 				CE49220227465AD60077056A /* Window.swift in Sources */,
 				CE7C70162747AD5500AED203 /* Bar.Option.swift in Sources */,
 				CE3DC9F8274676CA00D3C7C5 /* Container.swift in Sources */,
@@ -793,6 +813,9 @@
 				CE3DCA382746936100D3C7C5 /* Landing.Option.swift in Sources */,
 				CE5C93A8274A818000376474 /* Purchases.Products.Action.swift in Sources */,
 				CE3DCA342746896300D3C7C5 /* Tags.List.swift in Sources */,
+				CE70ABE227511D3500D7A495 /* Preferences.swift in Sources */,
+				CE70ABE027511D3500D7A495 /* Preferences.Features.swift in Sources */,
+				CE70ABE327511D3500D7A495 /* Switch.swift in Sources */,
 				CEB337A9274D103000297914 /* Textview.swift in Sources */,
 				CEB337AB274D161100297914 /* Edit.Action.swift in Sources */,
 				CE3F2A2A274EC0A600C1FA05 /* Sidebar.Option.swift in Sources */,
@@ -822,6 +845,7 @@
 				CE3F2A28274EBE5A00C1FA05 /* Sidebar.Filters.swift in Sources */,
 				CE70ABD9275112C000D7A495 /* Auth.swift in Sources */,
 				CE3DCA1F27467FC500D3C7C5 /* Control.swift in Sources */,
+				CE70ABDF27511D3500D7A495 /* Preferences.Tab.swift in Sources */,
 				CE3DC9FB274676E000D3C7C5 /* Store.State.swift in Sources */,
 				CEB337B1274D186F00297914 /* Edit.Field.Cell.Editor.swift in Sources */,
 				CE957E812749043F001DEE19 /* Purchases.swift in Sources */,

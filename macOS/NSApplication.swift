@@ -17,8 +17,8 @@ extension NSApplication {
     }
     
     @objc func showPreferencesWindow(_ sender: Any?) {
-//        (anyWindow() ?? Preferences())
-//            .makeKeyAndOrderFront(nil)
+        (anyWindow() ?? Preferences())
+            .makeKeyAndOrderFront(nil)
     }
     
     private func anyWindow<T>() -> T? {
