@@ -54,8 +54,10 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/(null)">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE67EF2226EB8F6A0040A8CA"
@@ -63,7 +65,7 @@
             BlueprintName = "watchOS"
             ReferencedContainer = "container:Beetle.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
       <StoreKitConfigurationFileReference
          identifier = "../../Shared/Configuration.storekit">
       </StoreKitConfigurationFileReference>
@@ -74,8 +76,10 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/(null)">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE67EF2226EB8F6A0040A8CA"
@@ -83,7 +87,16 @@
             BlueprintName = "watchOS"
             ReferencedContainer = "container:Beetle.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CE67EF2226EB8F6A0040A8CA"
+            BuildableName = "Beetle.app"
+            BlueprintName = "watchOS"
+            ReferencedContainer = "container:Beetle.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

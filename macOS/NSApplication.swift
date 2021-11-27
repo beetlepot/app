@@ -1,11 +1,6 @@
 import AppKit
 
-extension NSApplication {
-    @objc func show() {
-        (keyWindow as? Window ?? anyWindow())?
-            .orderFrontRegardless()
-    }
-    
+extension NSApplication {    
     @objc func showPurchases() {
         (NSApp.anyWindow() ?? Purchases())
             .makeKeyAndOrderFront(nil)
