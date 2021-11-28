@@ -32,6 +32,10 @@ import Secrets
 
         registerForRemoteNotifications()
         UNUserNotificationCenter.current().delegate = self
+        
+        Task {
+            _ = await UNUserNotificationCenter.request()
+        }
     }
     
     func applicationDidBecomeActive(_: Notification) {
