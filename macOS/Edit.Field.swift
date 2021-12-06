@@ -8,7 +8,7 @@ extension Edit {
             super.init(frame: .zero)
             bezelStyle = .roundedBezel
             translatesAutoresizingMaskIntoConstraints = false
-            font = NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title1).pointSize, weight: .regular)
+            font = .systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title1).pointSize, weight: .regular)
             controlSize = .large
             lineBreakMode = .byTruncatingTail
             textColor = .labelColor
