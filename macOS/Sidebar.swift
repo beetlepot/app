@@ -55,7 +55,7 @@ final class Sidebar: NSView {
         
         stack.topAnchor.constraint(equalTo: flip.topAnchor, constant: 16).isActive = true
         stack.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 16).isActive = true
-        stack.bottomAnchor.constraint(equalTo: flip.bottomAnchor).isActive = true
+        stack.bottomAnchor.constraint(equalTo: flip.bottomAnchor, constant: -16).isActive = true
         
         toggle
             .sink { [weak self] in
