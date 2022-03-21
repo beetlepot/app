@@ -53,6 +53,11 @@ final class Reveal: NSView {
         text.centerXAnchor.constraint(equalTo: flip.centerXAnchor).isActive = true
         text.widthAnchor.constraint(lessThanOrEqualToConstant: 600).isActive = true
         text.bottomAnchor.constraint(lessThanOrEqualTo: flip.bottomAnchor, constant: -40).isActive = true
+        
+        let left = text.leftAnchor.constraint(equalTo: flip.leftAnchor, constant: 40)
+        left.priority = .defaultLow
+        left.isActive = true
+        
         let width = text.widthAnchor.constraint(equalToConstant: 600)
         width.priority = .defaultLow
         width.isActive = true
