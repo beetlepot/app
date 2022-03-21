@@ -153,6 +153,7 @@
 		CEB337B1274D186F00297914 /* Edit.Field.Cell.Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB337AE274D186F00297914 /* Edit.Field.Cell.Editor.swift */; };
 		CEB64C4F26EBA0C600D198DA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB64C4E26EBA0C600D198DA /* CloudKit.framework */; };
 		CEC818A826EE26EB00A4A789 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67EF7326EB92900040A8CA /* Tagger.swift */; };
+		CEE071B127E8C7FE00728341 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE071B027E8C7FE00728341 /* Launch Screen.storyboard */; };
 		CEEE2C1327E8BC1900E06F37 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE2C1227E8BC1900E06F37 /* Selectable.swift */; };
 		CEEEB57926F4CB3B00B268A0 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57826F4CB3B00B268A0 /* Filters.swift */; };
 		CEEEB57B26F4CB7500B268A0 /* Filters.Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEB57A26F4CB7500B268A0 /* Filters.Controller.swift */; };
@@ -357,6 +358,7 @@
 		CEB337AE274D186F00297914 /* Edit.Field.Cell.Editor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit.Field.Cell.Editor.swift; sourceTree = "<group>"; };
 		CEB64C4D26EBA0B800D198DA /* watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		CEB64C4E26EBA0C600D198DA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		CEE071B027E8C7FE00728341 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CEEE2C1227E8BC1900E06F37 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		CEEEB57826F4CB3B00B268A0 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		CEEEB57A26F4CB7500B268A0 /* Filters.Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.Controller.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 				CE67EF6426EB92180040A8CA /* Settings.bundle */,
 				CE67EFC326EB9BAA0040A8CA /* iOS.entitlements */,
 				CE67EFC426EB9BB40040A8CA /* Info.plist */,
+				CEE071B027E8C7FE00728341 /* Launch Screen.storyboard */,
 				CE7C351726EF578700295CBA /* About.swift */,
 				CE67EF6726EB92900040A8CA /* App.Delegate.swift */,
 				CE67EF7526EB92900040A8CA /* App.swift */,
@@ -766,6 +769,7 @@
 				CE67EF6526EB92180040A8CA /* Settings.bundle in Resources */,
 				CE38D53126ECF2ED005690AA /* Images.xcassets in Resources */,
 				CE67EF6026EB90950040A8CA /* Colour.xcassets in Resources */,
+				CEE071B127E8C7FE00728341 /* Launch Screen.storyboard in Resources */,
 				CE67EF1A26EB8F280040A8CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1209,6 +1213,7 @@
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Add authentication to protect your secrets";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1279,6 +1284,7 @@
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Add authentication to protect your secrets";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
