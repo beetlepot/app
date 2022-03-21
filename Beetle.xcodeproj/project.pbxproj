@@ -61,7 +61,6 @@
 		CE49220F27466E1B0077056A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE49220E27466E1B0077056A /* CloudKit.framework */; };
 		CE49221127466E270077056A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE49221027466E270077056A /* StoreKit.framework */; };
 		CE4D550226EF7832002230EE /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550126EF7832002230EE /* Create.swift */; };
-		CE4D550426EF7B71002230EE /* Sidebar.Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */; };
 		CE4D550626EF9824002230EE /* Sidebar.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D550526EF9824002230EE /* Sidebar.Items.swift */; };
 		CE4FF3C626EDFD19003EF083 /* Sidebar.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */; };
 		CE5331A926F934560049E464 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5331A826F934560049E464 /* Global.swift */; };
@@ -268,7 +267,6 @@
 		CE49220E27466E1B0077056A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CE49221027466E270077056A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE4D550126EF7832002230EE /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
-		CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Pop.swift; sourceTree = "<group>"; };
 		CE4D550526EF9824002230EE /* Sidebar.Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Items.swift; sourceTree = "<group>"; };
 		CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Items.swift; sourceTree = "<group>"; };
 		CE5331A826F934560049E464 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -544,7 +542,6 @@
 				CE67EF6B26EB92900040A8CA /* Settings.swift */,
 				CE67EF7426EB92900040A8CA /* Sidebar.Item.swift */,
 				CE4FF3C526EDFD19003EF083 /* Sidebar.Items.swift */,
-				CE4D550326EF7B71002230EE /* Sidebar.Pop.swift */,
 				CE67EF7026EB92900040A8CA /* Sidebar.swift */,
 				CE67EF6C26EB92900040A8CA /* Tags.Content.swift */,
 				CEEEB58026F4E38900B268A0 /* Tags.Controller.swift */,
@@ -888,7 +885,6 @@
 				CE67EF9F26EB94B20040A8CA /* Store.State.swift in Sources */,
 				CE67EF9B26EB94B20040A8CA /* Copy.swift in Sources */,
 				CE67EF8D26EB92910040A8CA /* UIApplication.swift in Sources */,
-				CE4D550426EF7B71002230EE /* Sidebar.Pop.swift in Sources */,
 				CE3941DF26F6146A00445660 /* Create.First.swift in Sources */,
 				CE67EF8826EB92910040A8CA /* Purchases.Item.swift in Sources */,
 				CE67EF8726EB92910040A8CA /* Sidebar.swift in Sources */,
