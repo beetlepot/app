@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Archivable",
-        "repositoryURL": "https://github.com/archivable/package.git",
-        "state": {
-          "branch": "main",
-          "revision": "ce2b5992b430c869d39cf9bcc6a496e77d86ecaa",
-          "version": null
-        }
-      },
-      {
-        "package": "Secrets",
-        "repositoryURL": "https://github.com/beetlepot/secrets.git",
-        "state": {
-          "branch": "main",
-          "revision": "97a1b3db778cc46ac98a144741dcef232d93bdf2",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/archivable/package.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0436ca1f8067276eac71cd1f6b9ed00312a6395f"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "secrets",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/beetlepot/secrets.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4534acdd5f723aafb1c5f5d92fd79341dc82ce41"
+      }
+    }
+  ],
+  "version" : 2
 }
