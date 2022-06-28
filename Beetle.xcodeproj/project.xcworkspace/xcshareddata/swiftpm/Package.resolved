@@ -6,7 +6,7 @@
       "location" : "https://github.com/archivable/package.git",
       "state" : {
         "branch" : "main",
-        "revision" : "7daf13efb6bac4a0db632f700045c0e966ab980a"
+        "revision" : "2872c6e5c68656d6fbeaaea4fdb65d78be1f8ac7"
       }
     },
     {
@@ -15,7 +15,7 @@
       "location" : "https://github.com/beetlepot/secrets.git",
       "state" : {
         "branch" : "main",
-        "revision" : "4534acdd5f723aafb1c5f5d92fd79341dc82ce41"
+        "revision" : "4469e8468feb3495c2873673cd85b6979a8d4dc9"
       }
     }
   ],
