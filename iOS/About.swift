@@ -9,6 +9,7 @@ struct About: View {
                     Spacer()
                     VStack {
                         Image("Logo")
+                            .foregroundColor(.secondary)
                         Group {
                             Text(verbatim: "Beetle\n")
                             + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")

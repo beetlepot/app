@@ -8,10 +8,6 @@ extension App {
             UNUserNotificationCenter.current().delegate = self
         }
         
-        func applicationDidBecomeActive() {
-            cloud.pull.send()
-        }
-        
         func didReceiveRemoteNotification(_: [AnyHashable : Any]) async -> WKBackgroundFetchResult {
             await cloud.notified ? .newData : .noData
         }

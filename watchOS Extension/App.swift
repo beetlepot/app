@@ -7,11 +7,6 @@ import SwiftUI
     var body: some Scene {
         WindowGroup {
             Sidebar()
-                .task {
-                    cloud.ready.notify(queue: .main) {
-                        cloud.pull.send()
-                    }
-                }
         }
         .onChange(of: phase) {
             switch $0 {
