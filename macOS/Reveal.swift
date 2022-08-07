@@ -78,7 +78,7 @@ final class Reveal: NSView {
             .sink { secret in
                 name.attributedStringValue = .with(markdown: secret.name, attributes: [
                     .foregroundColor: NSColor.tertiaryLabelColor,
-                    .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title1).pointSize, weight: .medium)])
+                    .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .largeTitle).pointSize, weight: .medium)])
                 
                 updated.attributedStringValue = .make("Updated " + secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)), attributes: [
                     .foregroundColor: NSColor.tertiaryLabelColor,
@@ -86,7 +86,7 @@ final class Reveal: NSView {
                 
                 text.attributedStringValue = .with(markdown: secret.payload, attributes: [
                     .foregroundColor: NSColor.labelColor,
-                    .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)])
+                    .font: NSFont.systemFont(ofSize: NSFont.preferredFont(forTextStyle: .title2).pointSize, weight: .regular)])
                 
                 tagger.tags.send(secret
                                     .tags
