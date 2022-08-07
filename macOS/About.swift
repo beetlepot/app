@@ -16,6 +16,7 @@ final class About: NSWindow {
         
         let image = Image(named: "Logo")
         image.imageScaling = .scaleNone
+        image.contentTintColor = .labelColor
         content.addSubview(image)
         
         let name = Text(vibrancy: true)
