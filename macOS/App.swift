@@ -13,11 +13,11 @@ import Secrets
     func applicationWillFinishLaunching(_: Notification) {
         mainMenu = Menu()
         
-        if Defaults.authenticate {
+//        if Defaults.authenticate {
             runModal(for: Auth())
-        } else {
-            Window().makeKeyAndOrderFront(nil)
-        }
+//        } else {
+//            Window().makeKeyAndOrderFront(nil)
+//        }
     }
     
     func applicationDidFinishLaunching(_: Notification) {

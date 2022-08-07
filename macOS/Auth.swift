@@ -31,8 +31,9 @@ final class Auth: NSWindow {
         blur.addSubview(image)
         
         let text = Text(vibrancy: true)
+        
         text.stringValue = "Beetle is locked"
-        text.font = .systemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize, weight: .light)
+        text.font = .systemFont(ofSize: NSFont.preferredFont(forTextStyle: .body).pointSize, weight: .medium)
         text.textColor = .secondaryLabelColor
         blur.addSubview(text)
         
@@ -41,11 +42,11 @@ final class Auth: NSWindow {
         blur.leftAnchor.constraint(equalTo: contentView!.leftAnchor).isActive = true
         blur.rightAnchor.constraint(equalTo: contentView!.rightAnchor).isActive = true
         
-        image.centerYAnchor.constraint(equalTo: blur.centerYAnchor).isActive = true
+        image.topAnchor.constraint(equalTo: blur.topAnchor, constant: 50).isActive = true
         image.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
         
         text.centerXAnchor.constraint(equalTo: blur.centerXAnchor).isActive = true
-        text.bottomAnchor.constraint(equalTo: blur.bottomAnchor, constant: -60).isActive = true
+        text.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20).isActive = true
         
         let context = LAContext()
         
@@ -55,8 +56,15 @@ final class Auth: NSWindow {
         }
 
         context
-            .evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Authenticate to access your secrets") {
-                guard $0, $1 == nil else { return }
+            .evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Authenticate to access your secrets") { [weak self] in
+                guard $0, $1 == nil else {
+                    DispatchQueue.main.async { [weak self] in
+                        NSApp.activate(ignoringOtherApps: true)
+                        self?.makeKeyAndOrderFront(nil)
+                        self?.orderFrontRegardless()
+                    }
+                    return
+                }
                 DispatchQueue
                     .main
                     .async { [weak self] in
@@ -72,6 +80,7 @@ final class Auth: NSWindow {
     
     override func cancelOperation(_: Any?) {
         close()
+        NSApp.terminate(nil)
     }
     
     override var canBecomeKey: Bool {
