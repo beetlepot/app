@@ -2,14 +2,14 @@ import WatchKit
 import UserNotifications
 
 extension App {
-    final class Delegate: NSObject, WKExtensionDelegate, UNUserNotificationCenterDelegate {
+    final class Delegate: NSObject, WKApplicationDelegate, UNUserNotificationCenterDelegate {
         func applicationDidFinishLaunching() {
-            WKExtension.shared().registerForRemoteNotifications()
+            WKApplication.shared().registerForRemoteNotifications()
             UNUserNotificationCenter.current().delegate = self
         }
         
         func didReceiveRemoteNotification(_: [AnyHashable : Any]) async -> WKBackgroundFetchResult {
-            await cloud.notified ? .newData : .noData
+            await cloud.backgroundFetch ? .newData : .noData
         }
         
         func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent: UNNotification) async -> UNNotificationPresentationOptions {

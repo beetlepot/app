@@ -9,11 +9,11 @@ import Secrets
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationSplitView {
                 Sidebar()
+            } detail: {
                 Empty()
             }
-            .navigationViewStyle(.columns)
         }
         .onChange(of: phase) {
             switch $0 {
