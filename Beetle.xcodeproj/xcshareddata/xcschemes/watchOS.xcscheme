@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE67EF2226EB8F6A0040A8CA"
+               BlueprintIdentifier = "CE64B360290E89F100491253"
                BuildableName = "Beetle.app"
                BlueprintName = "watchOS"
-               ReferencedContainer = "container:Beetle.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE67EF1126EB8F270040A8CA"
-               BuildableName = "Beetle.app"
-               BlueprintName = "iOS"
                ReferencedContainer = "container:Beetle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -58,15 +44,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE67EF2226EB8F6A0040A8CA"
+            BlueprintIdentifier = "CE64B360290E89F100491253"
             BuildableName = "Beetle.app"
             BlueprintName = "watchOS"
             ReferencedContainer = "container:Beetle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <StoreKitConfigurationFileReference
-         identifier = "../../Shared/Configuration.storekit">
-      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -78,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE67EF2226EB8F6A0040A8CA"
+            BlueprintIdentifier = "CE64B360290E89F100491253"
             BuildableName = "Beetle.app"
             BlueprintName = "watchOS"
             ReferencedContainer = "container:Beetle.xcodeproj">
@@ -90,7 +73,6 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "Beetle"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

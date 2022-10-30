@@ -37,10 +37,9 @@ extension Create {
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical)
                 .sheet(isPresented: $payload) {
-                    NavigationView {
+                    NavigationStack {
                         Writer(id: secret.id)
                     }
-                    .navigationViewStyle(.stack)
                 }
                 
                 Spacer()

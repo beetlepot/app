@@ -5,7 +5,7 @@ struct Purchases: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 switch state {
                 case .loading:
@@ -44,7 +44,6 @@ struct Purchases: View {
                 }
             }
         }
-        .navigationViewStyle(.stack)
         .onReceive(store.status) {
             state = $0
         }

@@ -9,7 +9,7 @@ extension Reveal.Content {
         @FocusState private var focus: Bool
         
         var body: some View {
-            NavigationView {
+            NavigationStack {
                 List {
                     Section {
                         TextField(secret.name, text: $name)
@@ -48,7 +48,6 @@ extension Reveal.Content {
                     }
                 }
             }
-            .navigationViewStyle(.stack)
         }
         
         private func submit() {

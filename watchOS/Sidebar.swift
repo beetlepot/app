@@ -7,7 +7,7 @@ struct Sidebar: View {
     @State private var filtered = [Secret]()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Items(filtered: filtered)
                 .searchable(text: $filter.search)
         }

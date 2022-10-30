@@ -6,7 +6,7 @@ struct Validate: View {
     @State private var secret: Secret?
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             if loading {
                 Image(systemName: "hourglass")
                     .resizable()
@@ -23,7 +23,6 @@ struct Validate: View {
                 Full()
             }
         }
-        .navigationViewStyle(.stack)
         .task {
             do {
                 let id = try await cloud.secret()
