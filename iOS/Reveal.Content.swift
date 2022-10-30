@@ -112,8 +112,7 @@ extension Reveal {
                 }
             }
             .sheet(isPresented: $tags) {
-                Tags(secret: secret)
-                    .ignoresSafeArea(edges: .all)
+                Tags(secret: $secret)
             }
             .task {
                 switch Defaults.action {

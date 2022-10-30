@@ -23,7 +23,6 @@ struct Sidebar: View {
                     }
                     .sheet(isPresented: $filters) {
                         Filters(filter: $filter)
-                            .ignoresSafeArea(edges: .all)
                     }
                     
                     NavigationLink(destination: Middlebar()) {
