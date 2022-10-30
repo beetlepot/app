@@ -24,7 +24,7 @@ extension Reveal {
                     } else {
                         Text(.init(secret.payload))
                             .kerning(1)
-                            .font(.title3.weight(.regular))
+                            .font(.title2.weight(.regular))
                             .foregroundStyle(.primary)
                             .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                             .textSelection(.enabled)
